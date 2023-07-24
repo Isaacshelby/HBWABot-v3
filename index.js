@@ -112,8 +112,8 @@ try{
             console.log(chalk.yellow(`\n\n               ${chalk.bold.blue(`[ ${botname} ]`)}\n\n`))
             console.log(color(`< ================================================== >`, 'cyan'))
 	        console.log(color(`\n${themeemoji} YT CHANNEL: HBMods OFC`,'magenta'))
-            console.log(color(`${themeemoji} GITHUB: HBWABot-OFC `,'magenta'))
-            console.log(color(`${themeemoji} INSTAGRAM: @Herbert_Suantak2 `,'magenta'))
+            console.log(color(`${themeemoji} GITHUB: HBMods-OFC `,'magenta'))
+            console.log(color(`${themeemoji} INSTAGRAM: @herbert_suantak2 `,'magenta'))
             console.log(color(`${themeemoji} WA NUMBER: ${owner}`,'magenta'))
             console.log(color(`${themeemoji} CREDIT: ${wm}\n`,'magenta'))
 		}
@@ -331,7 +331,7 @@ console.log(err)
             return msg?.message
         }
         return {
-            conversation: "Cheems Bot Here"
+            conversation: "HBWA Bot Here"
         }
     }
     HBWABotInc.ev.on('messages.update', async chatUpdate => {
@@ -396,7 +396,7 @@ HBWABotInc.sendContact = async (jid, kon, quoted = '', opts = {}) => {
 	for (let i of kon) {
 	    list.push({
 	    	displayName: await HBWABotInc.getName(i),
-	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await HBWABotInc.getName(i)}\nFN:${await HBWABotInc.getName(i)}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Hmet la Chat Rawh\nitem2.EMAIL;type=INTERNET:${ytname}\nitem2.X-ABLabel:YouTube\nitem3.URL:${socialm}\nitem3.X-ABLabel:IG\nitem4.ADR:;;${location};;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
+	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await HBWABotInc.getName(i)}\nFN:${await HBWABotInc.getName(i)}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Hmet la chat rawh\nitem2.EMAIL;type=INTERNET:${ytname}\nitem2.X-ABLabel:YouTube\nitem3.URL:${socialm}\nitem3.X-ABLabel:IG\nitem4.ADR:;;${location};;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
 	    })
 	}
 	HBWABotInc.sendMessage(jid, { contacts: { displayName: `${list.length} Contact`, contacts: list }, ...opts }, { quoted })
