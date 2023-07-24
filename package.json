@@ -1,5 +1,5 @@
 {
-  "name": "HBWABot Mizo",
+  "name": "Cheems-Bot-MD",
   "version": "8.0.0",
   "description": "Automated whatsapp md bot created using nodejs and baileys lib",
   "main": "index.js",
@@ -18,14 +18,13 @@
     "bot-md",
     "multi-device"
   ],
-  "author": "HBMods",
+  "author": "DGXeon",
   "license": "ISC",
   "dependencies": {
-    "@adiwajshing/baileys": "npm:@ferdiz-afk/baileys",
+    "@whiskeysockets/baileys": "^6.4.0",
     "@adiwajshing/keyed-db": "^0.2.4",
     "@bochilteam/scraper": "4.0.22-alpha.0",
     "@saipulanuar/jadianime-ts": "^2.0.0",
-    "@adiwajshing/keyed-db": "^0.2.4",
     "awesome-phonenumber": "^2.64.0",
     "anime-wallpaper": "^1.0.2",
     "api-dylux": "^1.4.4",
@@ -49,7 +48,7 @@
     "got": "^11.8.3",
     "human-readable": "^0.2.1",
     "javascript-obfuscator": "^4.0.0",
-    "jimp": "^0.22.8",
+    "jimp": "^0.16.1",
     "jsdom": "^16.4.0",
     "kirbotz-api": "^0.0.2",
     "lowdb": "^2.1.0",
@@ -94,10 +93,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HBMods-OFC/HBWABot-v3.git"
+    "url": "git+https://github.com/DGXeon/CheemsBot-MD8.git"
   },
   "bugs": {
-    "url": "https://github.com/HBMods-OFC/HBWABot-v3/issues"
+    "url": "https://github.com/DGXeon/CheemsBot-MD8/issues"
   },
-  "homepage": "https://github.com/HBMods-OFC/HBWABot-v3/#readme"
+  "homepage": "https://github.com/DGXeon/CheemsBot-MD8/#readme"
 }
