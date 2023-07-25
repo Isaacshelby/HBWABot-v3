@@ -231,7 +231,7 @@ HerbertLft = await getBuffer(ppuser)
                 const xtime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
 	            const xdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
 	            const xmembers = metadata.participants.length
-                herbertbody = ``Hello @${herbertName.split("@")[0]}
+                herbertbody = `Hello @${herbertName.split("@")[0]}
 Kei hi HBWABot ka ni a, ${metadata.subject} ah hian ka lo lawm a che. 
 *Group Description:*
 ${metadata.desc}
