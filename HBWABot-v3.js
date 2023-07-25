@@ -2207,7 +2207,7 @@ case 'tomp4': case 'tovideo': {
             case 'tomp3': {
             if (/document/.test(mime)) return `Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`
             if (!/video/.test(mime) && !/audio/.test(mime)) return `Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`
-            if (!quoted) return `Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`)l
+            if (!quoted) return `Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`)
             m.reply(mess.wait)
             let media = await quoted.download()
             let { toAudio } = require('./lib/converter')
