@@ -111,9 +111,9 @@ try{
 			await delay(1999)
             console.log(chalk.yellow(`\n\n               ${chalk.bold.blue(`[ ${botname} ]`)}\n\n`))
             console.log(color(`< ================================================== >`, 'cyan'))
-	        console.log(color(`\n${themeemoji} YT CHANNEL: HBMods OFC`,'magenta'))
+	        console.log(color(`\n${themeemoji} YT CHANNEL: HBMods OFC `,'magenta'))
             console.log(color(`${themeemoji} GITHUB: HBMods-OFC `,'magenta'))
-            console.log(color(`${themeemoji} INSTAGRAM: @herbert_suantak2 `,'magenta'))
+            console.log(color(`${themeemoji} INSTAGRAM: Herbert_Suantak2 `,'magenta'))
             console.log(color(`${themeemoji} WA NUMBER: ${owner}`,'magenta'))
             console.log(color(`${themeemoji} CREDIT: ${wm}\n`,'magenta'))
 		}
@@ -139,7 +139,7 @@ HBWABotInc.ev.on('creds.update', await saveCreds)
     for (let HerbertFucks of HerbertPapa) {
     if (HerbertFucks.isGroup == false) {
     if (HerbertFucks.status == "offer") {
-    let HerbertBlokMsg = await HBWABotInc.sendTextWithMentions(HerbertFucks.from, `*${HBWABotInc.user.name}* can't receive ${HerbertFucks.isVideo ? `video` : `voice` } call. Sorry @${HerbertFucks.from.split('@')[0]} you will be blocked. If accidentally please contact the owner to be unblocked !`)
+    let HerbertBlokMsg = await HBWABotInc.sendTextWithMentions(HerbertFucks.from, `*${HBWABotInc.user.name}* call ka dawng thei lo ${HerbertFucks.isVideo ? `video` : `voice` } , chu vangin @${HerbertFucks.from.split('@')[0]} block i ni. Unblock i duh chuan a rang lamin owner hi va bia ang che`)
     HBWABotInc.sendContact(HerbertFucks.from, global.owner, HerbertBlokMsg)
     await sleep(8000)
     await HBWABotInc.updateBlockStatus(HerbertFucks.from, "block")
@@ -184,22 +184,22 @@ ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 			} else if (res.restrict == true) {
 				await sleep(2000)
 				HBWABotInc.sendMessage(res.id, {
-					text: `「 Group Settings Change 」\n\nGroup info has been restricted, Now only admin can edit group info !`,
+					text: `「 Group Settings Change 」\n\nGroup info chu admin te chauh edit theia dah a ni!`,
 				});
 			} else if (res.restrict == false) {
 				await sleep(2000)
 				HBWABotInc.sendMessage(res.id, {
-					text: `「 Group Settings Change 」\n\nGroup info has been opened, Now participants can edit group info !`,
+					text: `「 Group Settings Change 」\n\nGroup info chu participant zawng zawng te edit thei tura dah a ni!`,
 				});
 			} else if(!res.desc == ''){
 				await sleep(2000)
 				HBWABotInc.sendMessage(res.id, { 
-					text: `「 Group Settings Change 」\n\n*Group description has been changed to*\n\n${res.desc}`,
+					text: `「 Group Settings Change 」\n\n*Group description hi thlak a ni:*\n\n${res.desc}`,
 				});
       } else {
 				await sleep(2000)
 				HBWABotInc.sendMessage(res.id, {
-					text: `「 Group Settings Change 」\n\n*Group name has been changed to*\n\n*${res.subject}*`,
+					text: `「 Group Settings Change 」\n\n*Group hming thlak a ni*\n\n*${res.subject}*`,
 				});
 			} 
 			
@@ -231,16 +231,12 @@ HerbertLft = await getBuffer(ppuser)
                 const xtime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
 	            const xdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
 	            const xmembers = metadata.participants.length
-                herbertbody = `┌─❖
-│「 𝗛𝗶 👋 」
-└┬❖ 「  @${herbertName.split("@")[0]}  」
-   │✑  𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 
-   │✑  ${metadata.subject}
-   │✑  𝗠𝗲𝗺𝗯𝗲𝗿 : 
-   │✑ ${xmembers}th
-   │✑  𝗝𝗼𝗶𝗻𝗲𝗱 : 
-   │✑ ${xtime} ${xdate}
-   └───────────────┈ ⳹`
+                herbertbody = ``Hello @${herbertName.split("@")[0]}
+Kei hi HBWABot ka ni a, ${metadata.subject} ah hian ka lo lawm a che. 
+*Group Description:*
+${metadata.desc}
+
+_I rawn join hun hi ${herberttime} ${herbertdate} a ni_`
 HBWABotInc.sendMessage(anu.id,
  { text: herbertbody,
  contextInfo:{
@@ -259,16 +255,9 @@ HBWABotInc.sendMessage(anu.id,
 	                const herbertdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
                 	let herbertName = num
                     const herbertmembers = metadata.participants.length
-                    herbertbody = `┌─❖
-│「 𝗚𝗼𝗼𝗱𝗯𝘆𝗲 👋 」
-└┬❖ 「 @${herbertName.split("@")[0]}  」
-   │✑  𝗟𝗲𝗳𝘁 
-   │✑ ${metadata.subject}
-   │✑  𝗠𝗲𝗺𝗯𝗲𝗿 : 
-   │✑ ${herbertmembers}th
-   │✑  𝗧𝗶𝗺𝗲 : 
-   │✑  ${herberttime} ${herbertdate}
-   └───────────────┈ ⳹`
+                    herbertbody = `@${herbertName.split("@")[0]}, He tia i left tak mai hi kan ui lo hle che a, chu vangin i rawn kir tawh lo ngei kan beisei🤣Lol
+
+left hun ${herberttime} ${herbertdate}`
 HBWABotInc.sendMessage(anu.id,
  { text: herbertbody,
  contextInfo:{
@@ -286,7 +275,7 @@ const herbertbuffer = await getBuffer(ppuser)
 const herberttime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
 const herbertdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
 let herbertName = num
-herbertbody = ` 𝗖𝗼𝗻𝗴𝗿𝗮𝘁𝘀🎉 @${herbertName.split("@")[0]}, you have been *promoted* to *admin* 🥳`
+herbertbody = ` 𝗖𝗼𝗻𝗴𝗿𝗮𝘁𝘀🎉 @${herbertName.split("@")[0]},*admin* ah *promoted* i ni e🥳`
    HBWABotInc.sendMessage(anu.id,
  { text: herbertbody,
  contextInfo:{
@@ -304,7 +293,7 @@ const herbertbuffer = await getBuffer(ppuser)
 const herberttime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
 const herbertdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
 let herbertName = num
-herbertbody = `𝗢𝗼𝗽𝘀‼️ @${herbertName.split("@")[0]}, you have been *demoted* from *admin* 😬`
+herbertbody = `𝗢𝗼𝗽𝘀‼️ @${herbertName.split("@")[0]}, *admin* a tang *demoted* i ni 😬`
 HBWABotInc.sendMessage(anu.id,
  { text: herbertbody,
  contextInfo:{
@@ -396,7 +385,7 @@ HBWABotInc.sendContact = async (jid, kon, quoted = '', opts = {}) => {
 	for (let i of kon) {
 	    list.push({
 	    	displayName: await HBWABotInc.getName(i),
-	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await HBWABotInc.getName(i)}\nFN:${await HBWABotInc.getName(i)}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Hmet la chat rawh\nitem2.EMAIL;type=INTERNET:${ytname}\nitem2.X-ABLabel:YouTube\nitem3.URL:${socialm}\nitem3.X-ABLabel:IG\nitem4.ADR:;;${location};;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
+	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await HBWABotInc.getName(i)}\nFN:${await HBWABotInc.getName(i)}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Click here to chat\nitem2.EMAIL;type=INTERNET:${ytname}\nitem2.X-ABLabel:YouTube\nitem3.URL:${socialm}\nitem3.X-ABLabel:IG\nitem4.ADR:;;${location};;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
 	    })
 	}
 	HBWABotInc.sendMessage(jid, { contacts: { displayName: `${list.length} Contact`, contacts: list }, ...opts }, { quoted })

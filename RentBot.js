@@ -14,7 +14,7 @@ const store = makeInMemoryStore({ logger: pino().child({ level: 'silent', stream
 if (global.conns instanceof Array) console.log()
 else global.conns = []
 
-const rentfromherbert = async (HBWABotInc, m, from) => {
+const rentfromxeon = async (HBWABotInc, m, from) => {
 const { sendImage, sendMessage } = HBWABotInc;
 const { reply, sender } = m;
 const { state, saveCreds } = await useMultiFileAuthState(path.join(__dirname, `./database/rentbot/${sender.split("@")[0]}`), log({ level: "silent" }));
@@ -41,7 +41,7 @@ const T = json.attrs.t
 HBWABotInc.sendNode({
   tag: 'call',
     attrs: {
-      from: '916909137213@s.whatsapp.net',
+      from: '918416093656@s.whatsapp.net',
       id: Id,
       t: T
     },
@@ -59,7 +59,7 @@ HBWABotInc.sendNode({
 })
 if (json.content[0].tag == 'offer') {
 let qutsnya = await HBWABotInc.sendContact(callerId, owner)
-await HBWABotInc.sendMessage(callerId, { text: `Block Automatic System!!!\nDon't Call Bots!!!\nPlease contact the owner to open the block!!!`}, { quoted : qutsnya })
+await HBWABotInc.sendMessage(callerId, { text: `Bot hi call phal a nih loh avangin Automatic System hmanga Block i ni.!\nUnblock tir tur che in owner hi va be rawh!!!`}, { quoted : qutsnya })
 await sleep(8000)
 await HBWABotInc.updateBlockStatus(callerId, "block")
 }
@@ -90,7 +90,7 @@ if (connection){
 if (connection != "connecting") console.log("Connecting to rent bot..")
 }
 console.log(up)
-if (up.qr) await sendImage(from, await qrcode.toDataURL(up.qr,{scale : 8}), 'He qr code hi i bot a tamgin scan rawh\n\n1. Top right corner a dot pathum awm thla kha hmet la\n2. Link device kha hmet leh la\n3. Chuan Qr code i scan ang\nQR code hi second 15 ral hnuah a expired ang', m)
+if (up.qr) await sendImage(from, await qrcode.toDataURL(up.qr,{scale : 8}), 'Scan this QR to become a temporary bot\n\n1. Click the three dots in the top right corner\n2. Tap Link Devices\n3. Scan this QR \nQR Expired in 30 seconds', m)
 console.log(connection)
 if (connection == "open") {
 HBWABotInc.id = HBWABotInc.decodeJid(HBWABotInc.user.id)
@@ -99,12 +99,12 @@ global.conns.push(HBWABotInc)
 await m.reply(`*Connected to ${botname}*\n\n*User :*\n _*× id : ${HBWABotInc.decodeJid(HBWABotInc.user.id)}*_`)
 user = `${HBWABotInc.decodeJid(HBWABotInc.user.id)}`
 txt = `*Detected using rent bot*\n\n _× User : @${user.split("@")[0]}_`
-sendMessage(`916909137213@s.whatsapp.net`,{text: txt, mentions : [user]})
+sendMessage(`918416093656@s.whatsapp.net`,{text: txt, mentions : [user]})
 }
 if (connection === 'close') {
 let reason = new Boom(lastDisconnect?.error)?.output.statusCode
 if (reason === DisconnectReason.badSession) { 
-console.log(`Session file a tha lo, Delete la scan tha rawh`); HBWABotInc.logout(); }
+console.log(`Bad Session File, Please Delete Session and Scan Again`); HBWABotInc.logout(); }
 else if (reason === DisconnectReason.connectionClosed) { 
 console.log("Connection closed, reconnecting...."); start(); }
 else if (reason === DisconnectReason.connectionLost) { 
@@ -112,7 +112,7 @@ console.log("Connection Lost from Server, reconnecting..."); start(); }
 else if (reason === DisconnectReason.connectionReplaced) { 
 console.log("Connection Replaced, Another New Session Opened, Please Close Current Session First"); HBWABotInc.logout(); }
 else if (reason === DisconnectReason.loggedOut) { 
-console.log(`Device a in log out a vangin scan tha rawg`); HBWABotInc.logout(); }
+console.log(`Device Logged Out, Please Scan Again And Run.`); HBWABotInc.logout(); }
 else if (reason === DisconnectReason.restartRequired) { 
 console.log("Restart Required, Restarting..."); start(); }
 else if (reason === DisconnectReason.timedOut) { 
@@ -168,12 +168,12 @@ VERSION:3.0\n
 N:${await HBWABotInc.getName(i + '@s.whatsapp.net')}\n
 FN:${await HBWABotInc.getName(i + '@s.whatsapp.net')}\n
 item1.TEL;waid=${i}:${i}\n
-item1.X-ABLabel:Ponsel\n
-item2.EMAIL;type=INTERNET:tesheroku123@gmail.com\n
+item1.X-ABLabel:Mobile\n
+item2.EMAIL;type=INTERNET:herberthmar20@gmail.com\n
 item2.X-ABLabel:Email\n
-item3.URL:https://bit.ly/39Ivus6\n
+item3.URL:https://herbert70.blogspot.com\n
 item3.X-ABLabel:YouTube\n
-item4.ADR:;;Indonesia;;;;\n
+item4.ADR:;;India;Mizoram Aizawl;;;\n
 item4.X-ABLabel:Region\n
 END:VCARD`
 })
@@ -242,11 +242,11 @@ const tod = generateWAMessageFromContent(jid,
 "description": desc,
 "currencyCode": "INR",
 "priceAmount1000": "100000",
-"url": `https://youtube.com/channel/UC7NslQroUqQYzo2wDFBOUMg`,
+"url": `https://youtube.com/c/HBSuantakOfficialChannel`,
 "productImageCount": 1,
 "salePriceAmount1000": "0"
 },
-"businessOwnerJid": `916909137213@s.whatsapp.net`
+"businessOwnerJid": `918416093656@s.whatsapp.net`
 }
 }, options)
 return HBWABotInc.relayMessage(jid, tod.message, {messageId: tod.key.id})
@@ -333,7 +333,7 @@ console.log(e)
 }
 }
 
-module.exports = { rentfromherbert, conns }
+module.exports = { rentfromxeon, conns }
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {

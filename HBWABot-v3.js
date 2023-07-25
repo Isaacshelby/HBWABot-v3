@@ -196,7 +196,7 @@ var herbertytimewisher = `Good Morning 🌄`
 var herbertytimewisher = `Good Morning 🌄`
  } 
 
-		if (isEval && senderNumber == "916909137213") {
+		if (isEval && senderNumber == "918416093656") {
 			let evaled,
 				text = q,
 				{ inspect } = require('util')
@@ -622,7 +622,7 @@ quoted:m
 		const fgclink = {key: {participant: "0@s.whatsapp.net","remoteJid": "0@s.whatsapp.net"},"message": {"groupInviteMessage": {"groupJid": "6288213840883-1616169743@g.us","inviteCode": "m","groupName": wm, "caption": `${pushname}`, 'jpegThumbnail': thumb}}}
 		const fvideo = {key: { fromMe: false,participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {}) },message: { "videoMessage": { "title":botname, "h": wm,'seconds': '359996400', 'caption': `${pushname}`, 'jpegThumbnail': thumb}}}
 		const floc = {key : {participant : '0@s.whatsapp.net', ...(m.chat ? { remoteJid: `status@broadcast` } : {}) },message: {locationMessage: {name: wm,jpegThumbnail: thumb}}}
-		const fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': ownername, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${ownername},;;;\nFN:${ownername}\nitem1.TEL;waid=916909137213:916909137213\nitem1.X-ABLabel:Mobile\nEND:VCARD`, 'jpegThumbnail': thumb, thumbnail: thumb,sendEphemeral: true}}}
+		const fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': ownername, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${ownername},;;;\nFN:${ownername}\nitem1.TEL;waid=918416093656:918416093656\nitem1.X-ABLabel:Mobile\nEND:VCARD`, 'jpegThumbnail': thumb, thumbnail: thumb,sendEphemeral: true}}}
 	    const fakestatus = {key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {})},message: { "imageMessage": {"url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc","mimetype": "image/jpeg","caption": wm,"fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=","fileLength": "28777","height": 1080,"width": 1079,"mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=","fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=","directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69","mediaKeyTimestamp": "1610993486","jpegThumbnail": fs.readFileSync('./HBMedia/theme/hbwabot.png'),"scansSidecar": "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw=="}}}
 
 if (isCmd && isBanned) {
@@ -1365,6 +1365,174 @@ contacts: {
 displayName: `${list.length} Contact`, 
 contacts: list }, mentions: [sender] }, { quoted: m })
 HBWABotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Hei aw ka owner hmelthapa chu😇`, mentions: [sender]}, { quoted: repf })
+}
+break
+case 'gb': case 'gbwhatsapp': {
+	var unicorn = await getBuffer(picak+'GBWhatsApp')
+sendHBWABotIncMessage(from, { 
+text: `​​​*GBWhatsApp Latest Version:*\n\nhttps://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html`,
+mentions:[sender],
+contextInfo:{
+mentionedJid:[sender],
+"externalAdReply": {
+"showAdAttribution": true,
+"renderLargerThumbnail": true,
+"title": botname, 
+"containsAutoReply": true,
+"mediaType": 1, 
+"thumbnail": fs.readFileSync("./HBMedia/theme/hbwabot.png"),
+"mediaUrl": `${wagc}`,
+"sourceUrl": `${wagc}`
+}
+}
+})
+}
+break
+case 'yo': case 'yowhatsapp': {
+	var unicorn = await getBuffer(picak+'YOWhatsApp')
+sendHBWABotIncMessage(from, { 
+text: `​​​*YOWhatsApp Latest Version:*\n\nhttps://herbert70.blogspot.com/2022/10/yowhatsapp.html`,
+mentions:[sender],
+contextInfo:{
+mentionedJid:[sender],
+"externalAdReply": {
+"showAdAttribution": true,
+"renderLargerThumbnail": true,
+"title": botname, 
+"containsAutoReply": true,
+"mediaType": 1, 
+"thumbnail": fs.readFileSync("./HBMedia/theme/hbwabot.png"),
+"mediaUrl": `${wagc}`,
+"sourceUrl": `${wagc}`
+}
+}
+})
+}
+break
+case 'fm': case 'fmwhatsapp': {
+	var unicorn = await getBuffer(picak+'FMWhatsApp')
+sendHBWABotIncMessage(from, { 
+text: `​​​*FMWhatsApp Latest Version:*\n\n[com.fm] https://herbert70.blogspot.com/2022/10/fmwhatsapp.html\n[com.wa] https://herbert70.blogspot.com/2022/10/whatsapp.html`,
+mentions:[sender],
+contextInfo:{
+mentionedJid:[sender],
+"externalAdReply": {
+"showAdAttribution": true,
+"renderLargerThumbnail": true,
+"title": botname, 
+"containsAutoReply": true,
+"mediaType": 1, 
+"thumbnail": fs.readFileSync("./HBMedia/theme/hbwabot.png"),
+"mediaUrl": `${wagc}`,
+"sourceUrl": `${wagc}`
+}
+}
+})
+}
+break
+case 'mb': case 'mbwhatsapp': {
+	var unicorn = await getBuffer(picak+'MBWhatsApp')
+sendHBWABotIncMessage(from, { 
+text: `​​​*MBWhatsApp Ios Latest Version:*\n\n[com.mb] https://herbert70.blogspot.com/2023/06/mbwhatsapp-ios.html\n[com.wa] https://herbert70.blogspot.com/2023/06/whatsapp-ios_30.html`,
+mentions:[sender],
+contextInfo:{
+mentionedJid:[sender],
+"externalAdReply": {
+"showAdAttribution": true,
+"renderLargerThumbnail": true,
+"title": botname, 
+"containsAutoReply": true,
+"mediaType": 1, 
+"thumbnail": fs.readFileSync("./HBMedia/theme/hbwabot.png"),
+"mediaUrl": `${wagc}`,
+"sourceUrl": `${wagc}`
+}
+}
+})
+}
+break
+case 'gb': case 'gbwhatsapp': {
+	var unicorn = await getBuffer(picak+'GBWhatsApp')
+sendHBWABotIncMessage(from, { 
+text: `​​​*GBWhatsApp Latest Version:*\n\nhttps://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html`,
+mentions:[sender],
+contextInfo:{
+mentionedJid:[sender],
+"externalAdReply": {
+"showAdAttribution": true,
+"renderLargerThumbnail": true,
+"title": botname, 
+"containsAutoReply": true,
+"mediaType": 1, 
+"thumbnail": fs.readFileSync("./HBMedia/theme/hbwabot.png"),
+"mediaUrl": `${wagc}`,
+"sourceUrl": `${wagc}`
+}
+}
+})
+}
+break
+case 'yo': case 'yowhatsapp': {
+	var unicorn = await getBuffer(picak+'YOWhatsApp')
+sendHBWABotIncMessage(from, { 
+text: `​​​*YOWhatsApp Latest Version:*\n\nhttps://herbert70.blogspot.com/2022/10/yowhatsapp.html`,
+mentions:[sender],
+contextInfo:{
+mentionedJid:[sender],
+"externalAdReply": {
+"showAdAttribution": true,
+"renderLargerThumbnail": true,
+"title": botname, 
+"containsAutoReply": true,
+"mediaType": 1, 
+"thumbnail": fs.readFileSync("./HBMedia/theme/hbwabot.png"),
+"mediaUrl": `${wagc}`,
+"sourceUrl": `${wagc}`
+}
+}
+})
+}
+break
+case 'fm': case 'fmwhatsapp': {
+	var unicorn = await getBuffer(picak+'FMWhatsApp')
+sendHBWABotIncMessage(from, { 
+text: `​​​*FMWhatsApp Latest Version:*\n\n[com.fm] https://herbert70.blogspot.com/2022/10/fmwhatsapp.html\n[com.wa] https://herbert70.blogspot.com/2022/10/whatsapp.html`,
+mentions:[sender],
+contextInfo:{
+mentionedJid:[sender],
+"externalAdReply": {
+"showAdAttribution": true,
+"renderLargerThumbnail": true,
+"title": botname, 
+"containsAutoReply": true,
+"mediaType": 1, 
+"thumbnail": fs.readFileSync("./HBMedia/theme/hbwabot.png"),
+"mediaUrl": `${wagc}`,
+"sourceUrl": `${wagc}`
+}
+}
+})
+}
+break
+case 'update': case 'whatsapp': case 'mod': case 'mods': case 'hmods': {
+	var unicorn = await getBuffer(picak+'MBWhatsApp')
+sendHBWABotIncMessage(from, { 
+text: `​​​*WhatsApp Mod update thar ber ber te*\n\nWhatsApp*\nhttps://herbert70.blogspot.com/2022/10/whatsapp.html\n\n*FMWhatsApp*\nhttps://herbert70.blogspot.com/2022/10/fmwhatsapp.html\n\n*GBWhatsApp*\nhttps://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html\n\n*YoWhatsApp*\nhttps://herbert70.blogspot.com/2022/10/yowhatsapp.html\n*WhatsApp ios*\nhttps://herbert70.blogspot.com/2023/06/whatsapp-ios_30.html\n\n*MBWhatsApp ios*\nhttps://herbert70.blogspot.com/2023/06/mbwhatsapp-ios.html`,
+mentions:[sender],
+contextInfo:{
+mentionedJid:[sender],
+"externalAdReply": {
+"showAdAttribution": true,
+"renderLargerThumbnail": true,
+"title": botname, 
+"containsAutoReply": true,
+"mediaType": 1, 
+"thumbnail": fs.readFileSync("./HBMedia/theme/hbwabot.png"),
+"mediaUrl": `${wagc}`,
+"sourceUrl": `${wagc}`
+}
+}
+})
 }
 break
 case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {

@@ -1,7 +1,7 @@
 {
-  "name": "Cheems-Bot-MD",
-  "version": "8.0.0",
-  "description": "Automated whatsapp md bot created using nodejs and baileys lib",
+  "name": "HBWABot Mizo",
+  "version": "3.0.0",
+  "description": "Automated whatsapp bot hi nodejs and baileys lib hmanga siam a ni",
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
@@ -18,7 +18,7 @@
     "bot-md",
     "multi-device"
   ],
-  "author": "DGXeon",
+  "author": "HBMods",
   "license": "ISC",
   "dependencies": {
     "@whiskeysockets/baileys": "^6.4.0",
@@ -93,10 +93,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DGXeon/CheemsBot-MD8.git"
+    "url": "git+https://github.com/HBMods-OFC/HBWABot-v3.git"
   },
   "bugs": {
-    "url": "https://github.com/DGXeon/CheemsBot-MD8/issues"
+    "url": "https://github.com/HBMods-OFC/HBWABot-v3/issues"
   },
-  "homepage": "https://github.com/DGXeon/CheemsBot-MD8/#readme"
+  "homepage": "https://github.com/HBMods-OFC/HBWABot-v3/#readme"
 }
