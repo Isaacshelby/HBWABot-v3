@@ -2264,822 +2264,424 @@ case 'tomp4': case 'tovideo': {
    setTimeout(() => { fs.unlinkSync(buff) }, 10000)
   }
   break
-case 'candy': case 'christmas': case '3dchristmas': case 'sparklechristmas':
-case 'deepsea': case 'scifi': case 'rainbow2': case 'waterpipe': case 'spooky': 
-case 'pencil': case 'circuit': case 'discovery': case 'metalic': case 'fiction': case 'demon': 
-case 'transformer': case 'berry': case 'thunder': case '.': case '3dstone2': 
-case 'neonlight': case 'glitch': case 'harrypotter': case 'brokenglass': case 'papercut': 
-case 'watercolor': case 'multicolor': case 'neondevil': case 'underwater': case 'graffitibike':
- case 'snow': case 'cloud': case 'honey': case 'ice': case 'fruitjuice': case 'biscuit': case 'wood': 
-case 'chocolate': case 'strawberry': case 'matrix': case 'blood': case 'dropwater': case 'toxic': 
-case 'lava': case 'rockart': case 'bloodglas': case 'halloween': case 'darkgold': case 'joker': case 'wicker':
- case 'firework': case 'skeleton': case 'blackpinkart': case 'sand': case 'glue': case '1917': case 'leaves': case 'demon': {
-             if (!q) throw `\n*Tiang hian* : ${prefix + command} ${global.ownername}`
-             m.reply(mess.wait)
-             let link
-             if (/candy/.test(command)) link = 'https://textpro.me/create-christmas-candy-cane-text-effect-1056.html'
-             if (/christmas/.test(command)) link = 'https://textpro.me/christmas-tree-text-effect-online-free-1057.html'
-             if (/3dchristmas/.test(command)) link = 'https://textpro.me/3d-christmas-text-effect-by-name-1055.html'
-             if (/sparklechristmas/.test(command)) link = 'https://textpro.me/sparkles-merry-christmas-text-effect-1054.html'
-             if (/deepsea/.test(command)) link = 'https://textpro.me/create-3d-deep-sea-metal-text-effect-online-1053.html'
-             if (/scifi/.test(command)) link = 'https://textpro.me/create-3d-sci-fi-text-effect-online-1050.html'
-             if (/rainbow/.test(command)) link = 'https://textpro.me/3d-rainbow-color-calligraphy-text-effect-1049.html'
-             if (/waterpipe/.test(command)) link = 'https://textpro.me/create-3d-water-pipe-text-effects-online-1048.html'
-             if (/spooky/.test(command)) link = 'https://textpro.me/create-halloween-skeleton-text-effect-online-1047.html'
-             if (/pencil/.test(command)) link = 'https://textpro.me/create-a-sketch-text-effect-online-1044.html'
-             if (/circuit/.test(command)) link = 'https://textpro.me/create-blue-circuit-style-text-effect-online-1043.html'
-             if (/discovery/.test(command)) link = 'https://textpro.me/create-space-text-effects-online-free-1042.html'
-             if (/metalic/.test(command)) link = 'https://textpro.me/creat-glossy-metalic-text-effect-free-online-1040.html'
-             if (/fiction/.test(command)) link = 'https://textpro.me/create-science-fiction-text-effect-online-free-1038.html'
-             if (/demon/.test(command)) link = 'https://textpro.me/create-green-horror-style-text-effect-online-1036.html'
-             if (/transformer/.test(command)) link = 'https://textpro.me/create-a-transformer-text-effect-online-1035.html'
-             if (/berry/.test(command)) link = 'https://textpro.me/create-berry-text-effect-online-free-1033.html'
-             if (/thunder/.test(command)) link = 'https://textpro.me/online-thunder-text-effect-generator-1031.html'
-             if (/magma/.test(command)) link = 'https://textpro.me/create-a-magma-hot-text-effect-online-1030.html'
-             if (/3dstone2/.test(command)) link = 'https://textpro.me/create-a-3d-stone-text-effect-online-for-free-1073.html'
-             if (/neonlight/.test(command)) link = 'https://textpro.me/create-3d-neon-light-text-effect-online-1028.html'
-             if (/glitch/.test(command)) link = 'https://textpro.me/create-impressive-glitch-text-effects-online-1027.html'
-             if (/harrypotter/.test(command)) link = 'https://textpro.me/create-harry-potter-text-effect-online-1025.html'
-             if (/brokenglass/.test(command)) link = 'https://textpro.me/broken-glass-text-effect-free-online-1023.html'
-             if (/papercut/.test(command)) link = 'https://textpro.me/create-art-paper-cut-text-effect-online-1022.html'
-             if (/watercolor/.test(command)) link = 'https://textpro.me/create-a-free-online-watercolor-text-effect-1017.html'
-             if (/multicolor/.test(command)) link = 'https://textpro.me/online-multicolor-3d-paper-cut-text-effect-1016.html'
-             if (/neondevil/.test(command)) link = 'https://textpro.me/create-neon-devil-wings-text-effect-online-free-1014.html'
-             if (/underwater/.test(command)) link = 'https://textpro.me/3d-underwater-text-effect-generator-online-1013.html'
-             if (/graffitibike/.test(command)) link = 'https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html'
-             if (/snow/.test(command)) link = 'https://textpro.me/create-snow-text-effects-for-winter-holidays-1005.html'
-             if (/cloud/.test(command)) link = 'https://textpro.me/create-a-cloud-text-effect-on-the-sky-online-1004.html'
-             if (/honey/.test(command)) link = 'https://textpro.me/honey-text-effect-868.html'
-             if (/ice/.test(command)) link = 'https://textpro.me/ice-cold-text-effect-862.html'
-             if (/fruitjuice/.test(command)) link = 'https://textpro.me/fruit-juice-text-effect-861.html'
-             if (/biscuit/.test(command)) link = 'https://textpro.me/biscuit-text-effect-858.html'
-             if (/wood/.test(command)) link = 'https://textpro.me/wood-text-effect-856.html'
-             if (/chocolate/.test(command)) link = 'https://textpro.me/chocolate-cake-text-effect-890.html'
-             if (/strawberry/.test(command)) link = 'https://textpro.me/strawberry-text-effect-online-889.html'
-             if (/matrix/.test(command)) link = 'https://textpro.me/matrix-style-text-effect-online-884.html'
-             if (/blood/.test(command)) link = 'https://textpro.me/horror-blood-text-effect-online-883.html'
-             if (/dropwater/.test(command)) link = 'https://textpro.me/dropwater-text-effect-872.html'
-             if (/toxic/.test(command)) link = 'https://textpro.me/toxic-text-effect-online-901.html'
-             if (/lava/.test(command)) link = 'https://textpro.me/lava-text-effect-online-914.html'
-             if (/rockart/.test(command)) link = 'https://textpro.me/rock-text-effect-online-915.html'
-             if (/bloodglas/.test(command)) link = 'https://textpro.me/blood-text-on-the-frosted-glass-941.html'
-             if (/halloween/.test(command)) link = 'https://textpro.me/halloween-fire-text-effect-940.html'
-             if (/darkgold/.test(command)) link = 'https://textpro.me/metal-dark-gold-text-effect-online-939.html'
-             if (/joker/.test(command)) link = 'https://textpro.me/create-logo-joker-online-934.html'
-             if (/wicker/.test(command)) link = 'https://textpro.me/wicker-text-effect-online-932.html'
-             if (/firework/.test(command)) link = 'https://textpro.me/firework-sparkle-text-effect-930.html'
-             if (/skeleton/.test(command)) link = 'https://textpro.me/skeleton-text-effect-online-929.html'
-             if (/blackpinkart/.test(command)) link = 'https://textpro.me/create-blackpink-logo-style-online-1001.html'
-             if (/sand/.test(command)) link = 'https://textpro.me/write-in-sand-summer-beach-free-online-991.html'
-             if (/glue/.test(command)) link = 'https://textpro.me/create-3d-glue-text-effect-with-realistic-style-986.html'
-             if (/1917/.test(command)) link = 'https://textpro.me/1917-style-text-effect-online-980.html'
-                if (/leaves/.test(command)) link = 'https://textpro.me/natural-leaves-text-effect-931.html'           
-             let anutexpro = await maker.textpro(link, q)
-                HBWABotInc.sendMessage(m.chat, { image: { url: anutexpro }, caption: `Siamted by ${global.botname}` }, { quoted: m })
-             }
-             break
-case'glitch3':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello|text`
-m.reply(mess.wait)
-teks1 = q.split("|")[0]
-teks2 = q.split("|")[1]
-maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.html", [
-    `${teks1}`,`${teks2}`])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
+case 'candy': 
+case 'christmas': 
+case '3dchristmas': 
+case 'sparklechristmas':
+case 'deepsea': 
+case 'scifi': 
+case 'rainbow': 
+case 'waterpipe': 
+case 'spooky': 
+case 'pencil': 
+case 'circuit': 
+case 'discovery': 
+case 'metalic': 
+case 'fiction': 
+case 'demon': 
+case 'transformer': 
+case 'berry': 
+case 'thunder': 
+case 'magma': 
+case '3dstone': 
+case 'neonlight': 
+case 'glitch': 
+case 'harrypotter': 
+case 'brokenglass': 
+case 'papercut': 
+case 'watercolor': 
+case 'multicolor': 
+case 'neondevil': 
+case 'underwater': 
+case 'graffitibike':
+case 'snow': 
+case 'cloud': 
+case 'honey': 
+case 'ice': 
+case 'fruitjuice': 
+case 'biscuit': 
+case 'wood': 
+case 'chocolate': 
+case 'strawberry': 
+case 'matrix': 
+case 'blood': 
+case 'dropwater': 
+case 'toxic': 
+case 'lava': 
+case 'rock': 
+case 'bloodglas': 
+case 'hallowen': 
+case 'darkgold': 
+case 'joker': 
+case 'wicker':
+case 'firework': 
+case 'skeleton': 
+case 'blackpink': 
+case 'sand': 
+case 'glue': 
+case '1917': 
+case 'leaves': {
 
+if (!q) return (`Tiang hian:  ${prefix+command} HBWABotInc`) 
+m.reply(mess.wait)
+let link
+if (/candy/.test(command)) link = 'https://textpro.me/create-christmas-candy-cane-text-effect-1056.html'
+if (/christmas/.test(command)) link = 'https://textpro.me/christmas-tree-text-effect-online-free-1057.html'
+if (/3dchristmas/.test(command)) link = 'https://textpro.me/3d-christmas-text-effect-by-name-1055.html'
+if (/sparklechristmas/.test(command)) link = 'https://textpro.me/sparkles-merry-christmas-text-effect-1054.html'
+if (/deepsea/.test(command)) link = 'https://textpro.me/create-3d-deep-sea-metal-text-effect-online-1053.html'
+if (/scifi/.test(command)) link = 'https://textpro.me/create-3d-sci-fi-text-effect-online-1050.html'
+if (/rainbow/.test(command)) link = 'https://textpro.me/3d-rainbow-color-calligraphy-text-effect-1049.html'
+if (/waterpipe/.test(command)) link = 'https://textpro.me/create-3d-water-pipe-text-effects-online-1048.html'
+if (/spooky/.test(command)) link = 'https://textpro.me/create-halloween-skeleton-text-effect-online-1047.html'
+if (/pencil/.test(command)) link = 'https://textpro.me/create-a-sketch-text-effect-online-1044.html'
+if (/circuit/.test(command)) link = 'https://textpro.me/create-blue-circuit-style-text-effect-online-1043.html'
+if (/discovery/.test(command)) link = 'https://textpro.me/create-space-text-effects-online-free-1042.html'
+if (/metalic/.test(command)) link = 'https://textpro.me/creat-glossy-metalic-text-effect-free-online-1040.html'
+if (/fiction/.test(command)) link = 'https://textpro.me/create-science-fiction-text-effect-online-free-1038.html'
+if (/demon/.test(command)) link = 'https://textpro.me/create-green-horror-style-text-effect-online-1036.html'
+if (/transformer/.test(command)) link = 'https://textpro.me/create-a-transformer-text-effect-online-1035.html'
+if (/berry/.test(command)) link = 'https://textpro.me/create-berry-text-effect-online-free-1033.html'
+if (/thunder/.test(command)) link = 'https://textpro.me/online-thunder-text-effect-generator-1031.html'
+if (/magma/.test(command)) link = 'https://textpro.me/create-a-magma-hot-text-effect-online-1030.html'
+if (/3dstone/.test(command)) link = 'https://textpro.me/3d-stone-cracked-cool-text-effect-1029.html'
+if (/neonlight/.test(command)) link = 'https://textpro.me/create-3d-neon-light-text-effect-online-1028.html'
+if (/glitch/.test(command)) link = 'https://textpro.me/create-impressive-glitch-text-effects-online-1027.html'
+if (/harrypotter/.test(command)) link = 'https://textpro.me/create-harry-potter-text-effect-online-1025.html'
+if (/brokenglass/.test(command)) link = 'https://textpro.me/broken-glass-text-effect-free-online-1023.html'
+if (/papercut/.test(command)) link = 'https://textpro.me/create-art-paper-cut-text-effect-online-1022.html'
+if (/watercolor/.test(command)) link = 'https://textpro.me/create-a-free-online-watercolor-text-effect-1017.html'
+if (/multicolor/.test(command)) link = 'https://textpro.me/online-multicolor-3d-paper-cut-text-effect-1016.html'
+if (/neondevil/.test(command)) link = 'https://textpro.me/create-neon-devil-wings-text-effect-online-free-1014.html'
+if (/underwater/.test(command)) link = 'https://textpro.me/3d-underwater-text-effect-generator-online-1013.html'
+if (/graffitibike/.test(command)) link = 'https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html'
+if (/snow/.test(command)) link = 'https://textpro.me/create-snow-text-effects-for-winter-holidays-1005.html'
+if (/cloud/.test(command)) link = 'https://textpro.me/create-a-cloud-text-effect-on-the-sky-online-1004.html'
+if (/honey/.test(command)) link = 'https://textpro.me/honey-text-effect-868.html'
+if (/ice/.test(command)) link = 'https://textpro.me/ice-cold-text-effect-862.html'
+if (/fruitjuice/.test(command)) link = 'https://textpro.me/fruit-juice-text-effect-861.html'
+if (/biscuit/.test(command)) link = 'https://textpro.me/biscuit-text-effect-858.html'
+if (/wood/.test(command)) link = 'https://textpro.me/wood-text-effect-856.html'
+if (/chocolate/.test(command)) link = 'https://textpro.me/chocolate-cake-text-effect-890.html'
+if (/strawberry/.test(command)) link = 'https://textpro.me/strawberry-text-effect-online-889.html'
+if (/matrix/.test(command)) link = 'https://textpro.me/matrix-style-text-effect-online-884.html'
+if (/blood/.test(command)) link = 'https://textpro.me/horror-blood-text-effect-online-883.html'
+if (/dropwater/.test(command)) link = 'https://textpro.me/dropwater-text-effect-872.html'
+if (/toxic/.test(command)) link = 'https://textpro.me/toxic-text-effect-online-901.html'
+if (/lava/.test(command)) link = 'https://textpro.me/lava-text-effect-online-914.html'
+if (/rock/.test(command)) link = 'https://textpro.me/rock-text-effect-online-915.html'
+if (/bloodglas/.test(command)) link = 'https://textpro.me/blood-text-on-the-frosted-glass-941.html'
+if (/hallowen/.test(command)) link = 'https://textpro.me/halloween-fire-text-effect-940.html'
+if (/darkgold/.test(command)) link = 'https://textpro.me/metal-dark-gold-text-effect-online-939.html'
+if (/joker/.test(command)) link = 'https://textpro.me/create-logo-joker-online-934.html'
+if (/wicker/.test(command)) link = 'https://textpro.me/wicker-text-effect-online-932.html'
+if (/firework/.test(command)) link = 'https://textpro.me/firework-sparkle-text-effect-930.html'
+if (/skeleton/.test(command)) link = 'https://textpro.me/skeleton-text-effect-online-929.html'
+if (/blackpink/.test(command)) link = 'https://textpro.me/create-blackpink-logo-style-online-1001.html'
+if (/sand/.test(command)) link = 'https://textpro.me/write-in-sand-summer-beach-free-online-991.html'
+if (/glue/.test(command)) link = 'https://textpro.me/create-3d-glue-text-effect-with-realistic-style-986.html'
+if (/1917/.test(command)) link = 'https://textpro.me/1917-style-text-effect-online-980.html'
+if (/leaves/.test(command)) link = 'https://textpro.me/natural-leaves-text-effect-931.html'
+let anu = await textpro.textpro(link, q)
+HBWABotInc.sendMessage(m.chat, { image: { url: anu }, caption: `${mess.success}` }, { quoted: m })
+}
+break
+case 'glitchtext':
+case 'writetext':
+case 'advancedglow':
+case 'typographytext':
+case 'pixelglitch':
+case 'neonglitch':
+case 'flagtext':
+case 'flag3dtext':
+case 'deletingtext':
+case 'blackpinkstyle':
+case 'glowingtext':
+case 'underwatertext':
+case 'logomaker':
+case 'cartoonstyle':
+case 'papercutstyle':
+case 'watercolortext':
+case 'effectclouds':
+case 'blackpinklogo':
+case 'gradienttext':
+case 'summerbeach':
+case 'luxurygold':
+case 'multicoloredneon':
+case 'sandsummer':
+case 'galaxywallpaper':
+case '1917style':
+case 'makingneon':
+case 'royaltext':
+case 'freecreate':
+case 'galaxystyle':
+case 'lighteffects':{
+
+if (!q) return (`Tiang hian:  ${prefix+command} HBWABotInc`) 
+m.reply(mess.wait)
+let link
+if (/glitchtext/.test(command)) link = 'https://en.ephoto360.com/create-digital-glitch-text-effects-online-767.html'
+if (/writetext/.test(command)) link = 'https://en.ephoto360.com/write-text-on-wet-glass-online-589.html'
+if (/advancedglow/.test(command)) link = 'https://en.ephoto360.com/advanced-glow-effects-74.html'
+if (/typographytext/.test(command)) link = 'https://en.ephoto360.com/create-typography-text-effect-on-pavement-online-774.html'
+if (/pixelglitch/.test(command)) link = 'https://en.ephoto360.com/create-pixel-glitch-text-effect-online-769.html'
+if (/neonglitch/.test(command)) link = 'https://en.ephoto360.com/create-impressive-neon-glitch-text-effects-online-768.html'
+if (/flagtext/.test(command)) link = 'https://en.ephoto360.com/nigeria-3d-flag-text-effect-online-free-753.html'
+if (/flag3dtext/.test(command)) link = 'https://en.ephoto360.com/free-online-american-flag-3d-text-effect-generator-725.html'
+if (/deletingtext/.test(command)) link = 'https://en.ephoto360.com/create-eraser-deleting-text-effect-online-717.html'
+if (/blackpinkstyle/.test(command)) link = 'https://en.ephoto360.com/online-blackpink-style-logo-maker-effect-711.html'
+if (/glowingtext/.test(command)) link = 'https://en.ephoto360.com/create-glowing-text-effects-online-706.html'
+if (/underwatertext/.test(command)) link = 'https://en.ephoto360.com/3d-underwater-text-effect-online-682.html'
+if (/logomaker/.test(command)) link = 'https://en.ephoto360.com/free-bear-logo-maker-online-673.html'
+if (/cartoonstyle/.test(command)) link = 'https://en.ephoto360.com/create-a-cartoon-style-graffiti-text-effect-online-668.html'
+if (/papercutstyle/.test(command)) link = 'https://en.ephoto360.com/multicolor-3d-paper-cut-style-text-effect-658.html'
+if (/watercolortext/.test(command)) link = 'https://en.ephoto360.com/create-a-watercolor-text-effect-online-655.html'
+if (/effectclouds/.test(command)) link = 'https://en.ephoto360.com/write-text-effect-clouds-in-the-sky-online-619.html'
+if (/blackpinklogo/.test(command)) link = 'https://en.ephoto360.com/create-blackpink-logo-online-free-607.html'
+if (/gradienttext/.test(command)) link = 'https://en.ephoto360.com/create-3d-gradient-text-effect-online-600.html'
+if (/summerbeach/.test(command)) link = 'https://en.ephoto360.com/write-in-sand-summer-beach-online-free-595.html'
+if (/luxurygold/.test(command)) link = 'https://en.ephoto360.com/create-a-luxury-gold-text-effect-online-594.html'
+if (/multicoloredneon/.test(command)) link = 'https://en.ephoto360.com/create-multicolored-neon-light-signatures-591.html'
+if (/sandsummer/.test(command)) link = 'https://en.ephoto360.com/write-in-sand-summer-beach-online-576.html'
+if (/galaxywallpaper/.test(command)) link = 'https://en.ephoto360.com/create-galaxy-wallpaper-mobile-online-528.html'
+if (/1917style/.test(command)) link = 'https://en.ephoto360.com/1917-style-text-effect-523.html'
+if (/makingneon/.test(command)) link = 'https://en.ephoto360.com/making-neon-light-text-effect-with-galaxy-style-521.html'
+if (/royaltext/.test(command)) link = 'https://en.ephoto360.com/royal-text-effect-online-free-471.html'
+if (/freecreate/.test(command)) link = 'https://en.ephoto360.com/free-create-a-3d-hologram-text-effect-441.html'
+if (/galaxystyle/.test(command)) link = 'https://en.ephoto360.com/create-galaxy-style-free-name-logo-438.html'
+if (/lighteffects/.test(command)) link = 'https://en.ephoto360.com/create-light-effects-green-neon-online-429.html'
+let haldwhd = await ephoto(link, q)
+HBWABotInc.sendMessage(m.chat, { image: { url: haldwhd }, caption: `${mess.success}` }, { quoted: m })
+}
+break
+case 'shadow': 
+case 'write': 
+case 'romantic': 
+case 'burnpaper':
+case 'smoke': 
+case 'narutobanner': 
+case 'love': 
+case 'undergrass':
+case 'doublelove': 
+case 'coffecup':
+case 'underwaterocean':
+case 'smokyneon':
+case 'starstext':
+case 'rainboweffect':
+case 'balloontext':
+case 'metalliceffect':
+case 'embroiderytext':
+case 'flamingtext':
+case 'stonetext':
+case 'writeart':
+case 'summertext':
+case 'wolfmetaltext':
+case 'nature3dtext':
+case 'rosestext':
+case 'naturetypography':
+case 'quotesunder':
+case 'shinetext':{
+
+if (!q) return (`Tiang hian:  ${prefix+command} HBWABotInc`) 
+m.reply(mess.wait)
+let link
+if (/stonetext/.test(command)) link = 'https://photooxy.com/online-3d-white-stone-text-effect-utility-411.html'
+if (/writeart/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/write-art-quote-on-wood-heart-370.html'
+if (/summertext/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/3d-summer-text-effect-367.html'
+if (/wolfmetaltext/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/create-a-wolf-metal-text-effect-365.html'
+if (/nature3dtext/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/make-nature-3d-text-effects-364.html'
+if (/rosestext/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/yellow-roses-text-360.html'
+if (/naturetypography/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/create-vector-nature-typography-355.html'
+if (/quotesunder/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/quotes-under-fall-leaves-347.html'
+if (/shinetext/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/rainbow-shine-text-223.html'
+if (/shadow/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/shadow-text-effect-in-the-sky-394.html'
+if (/write/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/write-text-on-the-cup-392.html'
+if (/romantic/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/romantic-messages-for-your-loved-one-391.html'
+if (/burnpaper/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/write-text-on-burn-paper-388.html'
+if (/smoke/.test(command)) link = 'https://photooxy.com/other-design/create-an-easy-smoke-type-effect-390.html'
+if (/narutobanner/.test(command)) link = 'https://photooxy.com/manga-and-anime/make-naruto-banner-online-free-378.html'
+if (/love/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/create-a-picture-of-love-message-377.html'
+if (/undergrass/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/make-quotes-under-grass-376.html'
+if (/doublelove/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/love-text-effect-372.html'
+if (/coffecup/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/put-any-text-in-to-coffee-cup-371.html'
+if (/underwaterocean/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/creating-an-underwater-ocean-363.html'
+if (/smokyneon/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/make-smoky-neon-glow-effect-343.html'
+if (/starstext/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/write-stars-text-on-the-night-sky-200.html'
+if (/rainboweffect/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/glow-rainbow-effect-generator-201.html'
+if (/balloontext/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/royal-look-text-balloon-effect-173.html'
+if (/metalliceffect/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/illuminated-metallic-effect-177.html'
+if (/embroiderytext/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/create-embroidery-text-online-191.html'
+if (/flamingtext/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/realistic-flaming-text-effect-online-197.html'
+let dehe = await photooxy.photoOxy(link, q)
+HBWABotInc.sendMessage(m.chat, { image: { url: dehe }, caption: `${mess.success}` }, { quoted: m })
+}
+break
+case 'pornhub':{
+if(!q) return (`Tiang hian:  ${prefix + command} Herbert | Suantak`)
+m.reply(mess.wait)
+  inilogo4 = args.join(" ")
+inilogo9 = args.join(" ")
+   var logo4 = inilogo4.split('|')[0]
+var logo9 = inilogo9.split('|')[1]
+    let anuphub = await textpro2("https://textpro.me/pornhub-style-logo-online-generator-free-977.html", [`${logo4}`,`${logo9}`])
+console.log(anuphub)
+HBWABotInc.sendMessage(from,{image:{url:anuphub}, caption:"A generate-tu hi HBWABot-V3 ka ni e"},{quoted:m})
+}
+break
+case 'retro':{
+if(!q) return (`Tiang hian:  ${prefix + command} Herbert | Suantak`)
+m.reply(mess.wait)
+  inilogo4 = args.join(" ")
+inilogo9 = args.join(" ")
+   var logo4 = inilogo4.split('|')[0]
+var logo9 = inilogo9.split('|')[1]
+    let anutro2 = await textpro2("https://textpro.me/create-3d-retro-text-effect-online-free-1065.html", [`${logo4}`,`${logo9}`])
+console.log(anutro2)
+HBWABotInc.sendMessage(from,{image:{url:anutro2}, caption:"A generate-tu hi HBWABot-V3 ka ni e"},{quoted:m})
+}
+break
+case '8bit':{
+if(!q) return (`Tiang hian:  ${prefix + command} Herbert | Suantak`)
+m.reply(mess.wait)
+  inilogo4 = args.join(" ")
+inilogo9 = args.join(" ")
+   var logo4 = inilogo4.split('|')[0]
+var logo9 = inilogo9.split('|')[1]
+    let anubit8 = await textpro2("https://textpro.me/video-game-classic-8-bit-text-effect-1037.html", [`${logo4}`,`${logo9}`])
+console.log(anubit8)
+HBWABotInc.sendMessage(from,{image:{url:anubit8}, caption:"A generate-tu hi HBWABot-V3 ka ni e"},{quoted:m})
+}
+break
+case 'batman':
+if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
+m.reply(mess.wait)
+maker.textpro("https://textpro.me/make-a-batman-logo-online-free-1066.html", [
+    `${q}`,])
+  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `©A Generate-tu hi ${global.botname} ka ni e!.. ` }, { quoted: m }))
+  .catch((err) => console.log(err))
+   break
 case '3dbox':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
+if(!q) return (`Tiang hian:  ${prefix + command} ea`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/3d-box-text-effect-online-880.html", [
     `${q}`,])
-.then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
+.then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `©A Generate-tu hi ${global.botname} ka ni e!.. ` }, { quoted: m }))
 .catch((err) => console.log(err));
 break
-
-case 'waterdrop':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
+case 'lion':
+  if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
- maker.textpro("https://textpro.me/dropwater-text-effect-872.html", [
-     `${q}`,])
-    .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-    .catch((err) => console.log(err));
-     break
-
-case 'lion2':
-  if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-  m.reply(mess.wait)
   maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [
       `${q}`,])
-     .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
+     .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `©A Generate-tu hi ${global.botname} ka ni e!.. ` }, { quoted: m }))
      .catch((err) => console.log(err));
      break
-
-case 'papercut':
-      if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-      m.reply(mess.wait)
-      maker.textpro("https://textpro.me/create-art-paper-cut-text-effect-online-1022.html", [
-`${q}`,])
-         .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-         .catch((err) => console.log(err));
-         break
-
-case 'transformer':
-      if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-      m.reply(mess.wait)
-      maker.textpro("https://textpro.me/create-a-transformer-text-effect-online-1035.html", [
-`${q}`,])
-.then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-.catch((err) => console.log(err));
-break
-   
-case 'harrypot':
-       if(!q) throw `*Tiang hian:* ${prefix + command} Hello|text`
-       m.reply(mess.wait)
-       teks1 = q.split("|")[0]
-       teks2 = q.split("|")[1]
-       maker.textpro("https://textpro.me/create-harry-potter-text-effect-online-1025.html", [
- `${teks1}`,`${teks2}`])
- .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
- .catch((err) => console.log(err));
- break
-
-case 'neondevil':
-      if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-      m.reply(mess.wait)
-      maker.textpro("https://textpro.me/create-neon-devil-wings-text-effect-online-free-1014.html", [
-`${q}`,])
-         .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-         .catch((err) => console.log(err));
-         break
-
-case '3dstone':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/3d-stone-cracked-cool-text-effect-1029.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-
 case '3davengers':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
+if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/create-3d-avengers-logo-online-974.html", [
     `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
+  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `©A Generate-tu hi ${global.botname} ka ni e!.. ` }, { quoted: m }))
   .catch((err) => console.log(err));
-   break
-
-case 'thunder':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/online-thunder-text-effect-generator-1031.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-   
+   break 
 case 'window':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
+if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/write-text-on-foggy-window-online-free-1015.html", [
     `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
+  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `©A Generate-tu hi ${global.botname} ka ni e!.. ` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
-
-   case 'blackpinkneon':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-neon-light-blackpink-logo-text-effect-online-1081.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-
-case 'graffiti':
-   case 'grafiti':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello|text`
-m.reply(mess.wait)
-teks1 = q.split("|")[0]
-teks2 = q.split("|")[1]
-maker.textpro("https://textpro.me/create-a-cool-graffiti-text-on-the-wall-1010.html", [
-    `${teks1}`,`${teks2}`])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-
-case 'pornhub2':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-teks1 = q.split("|")[0]
-teks2 = q.split("|")[1]
-maker.textpro("https://textpro.me/pornhub-style-logo-online-generator-free-977.html", [
-    `${teks1}`,`${teks2}`])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-
-case 'blackpink2':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-blackpink-logo-style-online-1001.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-
-case 'glitch':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-impressive-glitch-text-effects-online-1027.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-
-case 'glitch2':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello|text`
-m.reply(mess.wait)
-teks1 = q.split("|")[0]
-teks2 = q.split("|")[1]
-maker.textpro("https://textpro.me/create-a-glitch-text-effect-online-free-1026.html", [
-    `${teks1}`,`${teks2}`])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-
-case 'glitch3':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello|text`
-m.reply(mess.wait)
-teks1 = q.split("|")[0]
-teks2 = q.split("|")[1]
-maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.html", [
-    `${teks1}`,`${teks2}`])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-
 case '3dspace':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello|text`
+if(!q) return (`Tiang hian:  ${prefix + command} Herbert | Suantak`)
 m.reply(mess.wait)
 teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]
 maker.textpro("https://textpro.me/create-space-3d-text-effect-online-985.html", [
     `${teks1}`,`${teks2}`])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
+  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `©A Generate-tu hi ${global.botname} ka ni e!.. ` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
-
-case 'lion':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello|text`
-m.reply(mess.wait)
-teks1 = q.split("|")[0]
-teks2 = q.split("|")[1]
-maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [
-    `${teks1}`,`${teks2}`])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-
-case '3dneon':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-3d-neon-light-text-effect-online-1028.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-
-case 'neon':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/neon-text-effect-online-879.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-
-case 'greenneon':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/green-neon-text-effect-874.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-    
 case 'bokeh':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
+if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/bokeh-text-effect-876.html", [
     `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
+  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `©A Generate-tu hi ${global.botname} ka ni e!.. ` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
-   
-   
-
 case 'holographic':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
+if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/holographic-3d-text-effect-975.html", [
     `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
+  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `©A Generate-tu hi ${global.botname} ka ni e!.. ` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
-
-
-
-case 'bear':
-
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-teks1 = q.split("|")[0]
-teks2 = q.split("|")[1]
-maker.textpro("https://textpro.me/online-black-and-white-bear-mascot-logo-creation-1012.html", [
-    `${teks1}`,`${teks2}`])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-
-case 'wolf':
-
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-teks1 = q.split("|")[0]
-teks2 = q.split("|")[1]
-maker.textpro("https://textpro.me/create-wolf-logo-galaxy-online-936.html", [
-    `${teks1}`,`${teks2}`])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-
-case 'joker':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-logo-joker-online-934.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-
-case 'dropwater2':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/dropwater-text-effect-872.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-   
-   case 'summertime':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-a-summer-neon-light-text-effect-online-1076.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-
-case 'neonlight2':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/neon-light-text-effect-with-galaxy-style-981.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-
 case 'thewall':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
+if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/break-wall-text-effect-871.html", [
     `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-   
-case 'natural':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/natural-leaves-text-effect-931.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
+  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `©A Generate-tu hi ${global.botname} ka ni e!.. ` }, { quoted: m }))
   .catch((err) => console.log(err));
    break 
-
 case 'carbon':
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
+if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/carbon-text-effect-833.html", [
     `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
+  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `©A Generate-tu hi ${global.botname} ka ni e!.. ` }, { quoted: m }))
   .catch((err) => console.log(err));
-   break
-
-case 'pencil':
-if(!q) throw`*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-a-sketch-text-effect-online-1044.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-
-case 'textmaker': {
-   
-if (args.length < 1) throw `\n*Tiang hian* :\n${prefix + command} <name>`
-if (args[0] === 'glitch') {
-if (args.length < 2) throw `\n*Tiang hian* :\n${prefix + command + ' ' + args[0]} ${global.ownername}`
-let teds = await thiccysapi.textpro("https://textpro.me/create-impressive-glitch-text-effects-online-1027.html", [args[1]])
-HBWABotInc.sendMessage(from, {image:{url:teds}, caption:"Done!"}, {quoted:m})
-} else if (args[0] === 'glow') {
-if (args.length < 2) throw `\n*Tiang hian* :\n${prefix + command + ' ' + args[0]} ${global.ownername}`
-let teds = await thiccysapi.textpro("https://textpro.me/create-light-glow-sliced-text-effect-online-1068.html", [args[1]])
-HBWABotInc.sendMessage(from, {image:{url:teds}, caption:"Done!"}, {quoted:m})
-} else {
-m.reply(`*Text Maker List :*\n•> glitch\n•> glow`)
-}
-}
-break
-case 'hoorror':{
-
-     let link = `https://textpro.me/horror-blood-text-effect-online-883.html`
-     let anui = await textpro(link, q)
-     m.reply(`Rei lo te minute khat vel min lo nghak rawh...`) 
-     console.log(anui)
-    HBWABotInc.sendMessage(from, {image:{url:anui}, caption:"Siamted by HBWABot3!"}, {quoted:m})
-}
    break
 case 'whitebear':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
+if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/online-black-and-white-bear-mascot-logo-creation-1012.html", [
     `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'thunder2':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-thunder-text-effect-online-881.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-   break
-case 'neon':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait) 
-HBWABotInc.sendMessage(m.chat, { react: { text: `🧩`, key: m.key }})
-maker.textpro("https://textpro.me/neon-light-text-effect-online-882.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'matrix2':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/matrix-style-text-effect-online-884.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'sky':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-a-cloud-text-effect-on-the-sky-online-1004.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'magma':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-a-magma-hot-text-effect-online-1030.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'sand':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/sand-writing-text-effect-online-990.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'pencil':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-a-sketch-text-effect-online-1044.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'graffiti':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
+  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `©A Generate-tu hi ${global.botname} ka ni e!.. ` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 case 'metallic':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
+if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/create-a-metallic-text-effect-free-online-1041.html", [
     `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
+  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `©A Generate-tu hi ${global.botname} ka ni e!.. ` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 case 'steel':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
+if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/steel-text-effect-online-921.html", [
     `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'harrpotter':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-harry-potter-text-effect-online-1025.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'underwater':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/3d-underwater-text-effect-generator-online-1013.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'luxury':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/3d-luxury-gold-text-effect-online-1003.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'glue2':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-3d-glue-text-effect-with-realistic-style-986.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
+  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `©A Generate-tu hi ${global.botname} ka ni e!.. ` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 case 'fabric':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
+if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/fabric-text-effect-online-964.html", [
     `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'neonlight':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/neon-light-glitch-text-generator-online-1063.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'lava':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/lava-text-effect-online-914.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'toxic':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/toxic-text-effect-online-901.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
+  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `©A Generate-tu hi ${global.botname} ka ni e!.. ` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 case 'ancient':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
+if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/3d-golden-ancient-text-effect-online-free-1060.html", [
     `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'christmas2':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/sparkles-merry-christmas-text-effect-1054.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'sci_fi':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-3d-sci-fi-text-effect-online-1050.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'rainbow':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/3d-rainbow-color-calligraphy-text-effect-1049.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'classic':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/video-game-classic-8-bit-text-effect-1037.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'watercolor2':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-a-free-online-watercolor-text-effect-1017.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'halloweem2':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-a-spooky-halloween-text-effect-online-1046.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'halloweenfire':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/halloween-fire-text-effect-940.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'writing':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/sand-writing-text-effect-online-990.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'foggy':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/write-text-on-foggy-window-online-free-1015.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
+  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `©A Generate-tu hi ${global.botname} ka ni e!.. ` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 case 'marvel':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
+if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/create-logo-style-marvel-studios-ver-metal-972.html", [
     `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
+  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `©A Generate-tu hi ${global.botname} ka ni e!.. ` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
-case 'skeleton2':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-halloween-skeleton-text-effect-online-1047.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'sketch':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-a-sketch-text-effect-online-1044.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'wonderful':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/create-wonderful-graffiti-art-text-effect-1011.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'batman':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/make-a-batman-logo-online-free-1066.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'juice':
-   
-if(!q) throw `*Tiang hian:* ${prefix + command} Hello`
-m.reply(mess.wait)
-maker.textpro("https://textpro.me/fruit-juice-text-effect-861.html", [
-    `${q}`,])
-  .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `Siamted by ${global.botname}` }, { quoted: m }))
-  .catch((err) => console.log(err));
-   break
-case 'pornhub':{
-	
-if(!q) throw `\n*Tiang hian*: ${prefix + command} Engtia | Editz07`
-m.reply(mess.wait)
-  inilogo4 = args.join(" ")
-inilogo9 = args.join(" ")
-   var logo4 = inilogo4.split('|')[0]
-var logo9 = inilogo9.split('|')[1]
-    let anuphub = await textpro("https://textpro.me/pornhub-style-logo-online-generator-free-977.html", [`${logo4}`,`${logo9}`])
-console.log(anuphub)
-HBWABotInc.sendMessage(from,{image:{url:anuphub}, caption:"Siamted by HBWABot3!"},{quoted:m})
-}
-break
-case 'retro':{
-if(!q) throw `\n*Tiang hian*: ${prefix + command} Engtia | Editz07`
-m.reply(mess.wait)
-  inilogo4 = args.join(" ")
-inilogo9 = args.join(" ")
-   var logo4 = inilogo4.split('|')[0]
-var logo9 = inilogo9.split('|')[1]
-    let anutro2 = await textpro("https://textpro.me/create-3d-retro-text-effect-online-free-1065.html", [`${logo4}`,`${logo9}`])
-console.log(anutro2)
-HBWABotInc.sendMessage(from,{image:{url:anutro2}, caption:"Siamted by HBWABot3!"},{quoted:m})
-}
-break
-case 'horror':{
-if(!q) throw `\n*Tiang hian*: ${prefix + command} Engtia | Editz07`
-m.reply(mess.wait)
-  inilogo4 = args.join(" ")
-inilogo9 = args.join(" ")
-   var logo4 = inilogo4.split('|')[0]
-var logo9 = inilogo9.split('|')[1]
-    let anuror2 = await textpro("https://textpro.me/create-a-cinematic-horror-text-effect-1045.html", [`${logo4}`,`${logo9}`])
-console.log(anuror2)
-HBWABotInc.sendMessage(from,{image:{url:anuror2}, caption:"Siamted by HBWABot3!"},{quoted:m})
-}
-break
-case '8bit':{
-if(!q) throw `\n*Tiang hian*: ${prefix + command} Engtia | Editz07`
-m.reply(mess.wait)
-  inilogo4 = args.join(" ")
-inilogo9 = args.join(" ")
-   var logo4 = inilogo4.split('|')[0]
-var logo9 = inilogo9.split('|')[1]
-    let anubit8 = await textpro("https://textpro.me/video-game-classic-8-bit-text-effect-1037.html", [`${logo4}`,`${logo9}`])
-console.log(anubit8)
-HBWABotInc.sendMessage(from,{image:{url:anubit8}, caption:"Siamted by HBWABot3!"},{quoted:m})
-}
-break
 case 'wallml': case 'wallpaperml':case 'mobilelegend':
 m.reply(mess.wait)
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/wallml.json'))
