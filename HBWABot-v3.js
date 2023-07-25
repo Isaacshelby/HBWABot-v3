@@ -3276,7 +3276,7 @@ let ghdx = await HBWABotInc.sendMessage(from,{video:{url: res.url[0].url},captio
 }
 break
     case 'tawng': case 'tts': case 'gtts':{
-if (!text) return `Ziak rawn dah tel rawh'
+if (!text) return `Ziak rawn dah tel rawh`
             let texttts = text
             const herbertrl = googleTTS.getAudioUrl(texttts, {
                 lang: "en",
@@ -3289,7 +3289,7 @@ if (!text) return `Ziak rawn dah tel rawh'
                 },
                 mimetype: 'audio/mp4',
                 ptt: true,
-                fileName: `${text}.mp3`,
+                fileName: `${text}.mp3` ,
             }, {
                 quoted: m,
             })
