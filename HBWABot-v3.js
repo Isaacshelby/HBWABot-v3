@@ -1946,33 +1946,6 @@ case 'block': case 'ban': {
                 HBWABotInc.sendMessage(m.chat, reactionMessage)
             }
             break
-case 'antivirus': case 'antivirtex': {
-if (!m.isGroup) return mess.group
-if (!isBotAdmins) return mess.botAdmin
-if (!isAdmins && !HerbertTheCreator) return HerbertStickAdmin()
-if (args[0] === "on") {
-if (antiVirtex) return `Activate a ni tawh.!'
-ntvirtex.push(from)
-fs.writeFileSync('./database/antivirus.json', JSON.stringify(ntvirtex))
-('Antivirus turn on a ni!.')
-var groupe = await HBWABotInc.groupMetadata(from)
-var members = groupe['participants']
-var mems = []
-members.map(async adm => {
-mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
-})
-HBWABotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nTuman he group-ah hian virus thawn phal a ni lo, a thawn in awm chuan remove nghal in ni ang!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
-} else if (args[0] === "off") {
-if (!antiVirtex) return `Deactivate a ni tawh..`
-let off = ntvirtex.indexOf(from)
-ntvirtex.splice(off, 1)
-fs.writeFileSync('./database/antivirus.json', JSON.stringify(ntvirtex))
-('Antivirus chu turn off a ni e!..')
-} else {
-  await (`I duh zawk zawk ziak rawh\n\nTiang hian:  ${prefix + command} on\nTiang hian:  ${prefix + command} off\n\non chu a hman theihna\noff chu hman thei loa dah na`)
-  }
-  }
-  break
 case 'nsfw': {
 if (!m.isGroup) return m.reply(mess.group)
 if (!isBotAdmins) return m.reply(mess.botAdmin)
