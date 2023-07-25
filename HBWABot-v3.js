@@ -3422,7 +3422,6 @@ if (!(budy.toLowerCase() in msgs)) return
 HBWABotInc.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
 }
 }
-}
 
 process.on('uncaughtException', function (err) {
 console.log('Caught exception: ', err)
