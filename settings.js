@@ -25,7 +25,7 @@ global.owner = ['918416093656'] //ur owner number
 global.ownernomer = "919378043489" //ur owner number2
 global.ownername = "Herbert Suantak" //ur owner name
 global.ytname = "YT: HBMods OFC" //ur yt chanel name
-global.socialm = "IG: Herbert_Suantak2" //ur github or insta name
+global.socialm = "https://herbert70.blogspot.com" //ur github or insta name
 global.location = "India, Mizoram, Aizawl" //ur location
 
 //new
@@ -62,6 +62,16 @@ global.flasmurf = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutp
 //messages
 global.mess = {
     success: 'Hei le!', 
+    wait: '♲ Nghak lawk rawh..', 
+    admin: 'He features hi chu admin te chauh hman thei tur a siam a ni!',
+    botAdmin: 'Admin min nih tir phawt la, chuan ka ti thei ang!',
+    premime: 'Hemi features, premium-ah ka dah bik hi i hman duh chuan owner rawn be rawh',
+    owner: 'He features hi a neitu chauh hman thei tura siam a ni!',
+    group: 'Hei chu group-ah chauh hman thei tura siam a ni!',
+    private: 'Hei chu private chat-ah chauh hman thei tura siam a ni!',
+    bot: 'Hei chu kei mah chauh hman thei tur a siam a ni',
+    linkm: 'Khawnge a link?',
+    endLimit: 'Vawiinah i hman tur i hmang zo tawh, darkar 12 ral hunah i hmang leh thei chauh ang',
 }
 
 let file = require.resolve(__filename)
