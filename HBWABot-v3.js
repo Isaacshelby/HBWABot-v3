@@ -3407,7 +3407,7 @@ m.copyNForward(other, true, m.quoted && m.quoted.fromMe ? {
 contextInfo: {
 ...m.msg.contextInfo,
 forwardingScore: 0,
-inForworded: false,
+isForwarded: true,
 participant: other
 }
 } : {})
@@ -3420,6 +3420,17 @@ if (m.isBaileys) return
 let msgs = global.db.database
 if (!(budy.toLowerCase() in msgs)) return
 HBWABotInc.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
+}
+}
+
+} catch (err) {
+console.log(util.format(err))
+let e = String(err)
+HBWABotInc.sendMessage("@s.whatsapp.net", { text: "Hello developer, bot hi a error a, khawngaihin lo fix rawh " + util.format(e), 
+contextInfo:{
+forwardingScore: 9999999, 
+isForwarded: true
+}})
 }
 }
 
