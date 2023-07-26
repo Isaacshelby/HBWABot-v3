@@ -1347,29 +1347,23 @@ HBWABotInc.ev.emit('messages.upsert', msg)
 }
 
 switch (command) {
-case 'rentbot': {
-if (m.isGroup) return HerbertStickPrivate()
+case 's': case 'sticker': case 'stiker': {
+if (!text) return reply(`Video emaw thlalak a caption ah* ${prefix + command} *tih rawn type rawh*`)
+if (/image/.test(mime)) 
+   m.reply(mess.wait) {
+let media = await quoted.download()
+let encmedia = await HBWABotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
 
-rentfromherbert(HBWABotInc, m, from)
+} else if (/video/.test(mime)) {
+if ((quoted.msg || quoted).seconds > 11) return reply('Second 10 aia tam a thei lo!..')
+let media = await quoted.download()
+let encmedia = await HBWABotInc.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+
+} else {
+(`Video emaw thlalak a caption ah* ${prefix + command} *tih rawn type rawh*`)
+}
 }
 break
-case 'sticker': case 's': case 'stickergif': case 'sgif': {
-            if (!quoted) throw `*Video emaw thlalak a caption ah* ${prefix + command} *tih rawn type rawh*`
-            m.reply(mess.wait)
-                    if (/image/.test(mime)) {
-                let media = await quoted.download()
-                let encmedia = await HBWABotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author,})
-                await fs.unlinkSync(encmedia)
-            } else if (/video/.test(mime)) {
-                if ((quoted.msg || quoted).seconds > 11) return m.reply('*Second 10 aia tam a thei loh!*')
-                let media = await quoted.download()
-                let encmedia = await HBWABotInc.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author,})
-                await fs.unlinkSync(encmedia)
-            } else {
-                throw `Video emaw thlalak a caption ah *${prefix + command}* rawn dah la\n\n*Video chu second 10 aia tam rawn thawn suh*`
-                }
-            }
-            break
 case 'shutdown':
 if (!HerbertTheCreator) return mess.owner
 (`Ba bye...`)
@@ -1797,7 +1791,7 @@ mentionedJid:[sender],
 break
 case 'igstalk2':{
 
-if (!q) return `Tiang hian ${prefix+command} herbert_suantak`
+if (!q) return reply(`Tiang hian ${prefix+command} herbert_suantak`)
 m.reply(mess.wait)
 const aj = await igstalk(`${q}`)
 HBWABotInc.sendMessage(m.chat, { image: { url : aj.profile }, caption: 
@@ -1813,7 +1807,7 @@ Bio : ${aj.bio}` }, { quoted: m } )
 break
 case 'mlstalk': {
 
-if (!q) return `Tiang hian ${prefix+command} 530793138|8129`
+if (!q) return reply(`Tiang hian ${prefix+command} 530793138|8129`)
 m.reply(mess.wait)
 let dat = await mlstalk.mlstalk(q.split("|")[0], q.split("|")[1])
 (`*/ Mobile Legend Stalker \\*
@@ -1893,7 +1887,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             break
             case 'bctext': case 'broadcasttext': case 'broadcast': {
 			    if (!HerbertTheCreator) return mess.owner
-		            if (!q) return `Ziak rawn dah rawh`
+		            if (!q) return reply(`Ziak rawn dah rawh`)
 		                            const data = await store.chats.all()
                             for (let i of data) {
                                HBWABotInc.sendMessage(i.id, {text: `${ownername}'s Broadcast\n\nMessage : ${q}` })
@@ -1903,7 +1897,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                             break
                             case 'broadcastimage': case 'bcimage': case 'broadcastvideo': case 'broadcastvid':
 if(!HerbertTheCreator) return mess.owner
-        if (!q) return `Enter text`
+        if (!q) return reply(`Enter text`)
         let getGroups = await HBWABotInc.groupFetchAllParticipating()
         let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
         let herbertcast = groups.map(v => v.id)
@@ -1963,7 +1957,7 @@ mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
 HBWABotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNsfw(not safe for work) feature hi i on chuan kan bot-in he group-ah hian sexual graphic lam pang a rawn thawn thei dawn tihna a ni!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
-if (!AntiNsfw) return `Deactivate a ni tawh!.`
+if (!AntiNsfw) return reply(`Deactivate a ni tawh!.`)
 let off = ntnsfw.indexOf(from)
 ntnsfw.splice(off, 1)
 fs.writeFileSync('./database/nsfw.json', JSON.stringify(ntnsfw))
@@ -1974,13 +1968,14 @@ fs.writeFileSync('./database/nsfw.json', JSON.stringify(ntnsfw))
   }
   break
 case 'add': {
-		if (!m.isGroup) throw mess.group
-                if (!isBotAdmins) throw mess.botAdmin
-                if (!isAdmins) throw mess.admin
-		let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await HBWABotInc.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
-	}
-	break
+if (!m.isGroup) return mess.group
+if (!isBotAdmins) return mess.botAdmin
+if (!isAdmin) return mess.group
+let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+await HBWABotInc.groupParticipantsUpdate(m.chat, [users], 'add')
+await `Done`
+}
+break
             case 'delete': case 'del': {
                 if (!m.quoted) throw false
                 let { chat, fromMe, id, isBaileys } = m.quoted
@@ -1997,7 +1992,7 @@ case 'add': {
             break
 case 'kick': {
 if (!m.isGroup) return mess.group
-if (!isAdmins && !HerbertTheCreator) return HerbertStickAdmin()
+if (!isAdmins && !HerbertTheCreator) return mess.admin
 if (!isBotAdmins) return mess.botAdmin
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 await HBWABotInc.groupParticipantsUpdate(m.chat, [users], 'remove')
@@ -2007,8 +2002,8 @@ break
     case 'setgroupname': case 'setsubject': {
                 if (!m.isGroup) return mess.group
                 if (!isBotAdmins) return mess.botAdmin
-                if (!isAdmins) return HerbertStickAdmin()
-                if (!text) return `Text ?`
+                if (!isAdmins) return mess.admin
+                if (!text) return reply(`Text ?`)
                 await HBWABotInc.groupUpdateSubject(m.chat, text)
                 await (`Set a ni ta e`)
             }
@@ -2016,8 +2011,8 @@ break
           case 'setdesc': case 'setdesk': {
                 if (!m.isGroup) return mess.group
                 if (!isBotAdmins) return mess.botAdmin
-                if (!isAdmins) return HerbertStickAdmin()
-                if (!text) return `Text in rawn dah rawh.!`
+                if (!isAdmins) return mess.admin
+                if (!text) return reply(`Text in rawn dah rawh.!`)
                 await HBWABotInc.groupUpdateDescription(m.chat, text)
                 await (`Done`)
             }
@@ -2025,7 +2020,6 @@ break
 case 'hidetag': {
             if (!m.isGroup) throw mess.group
             if (!isBotAdmins) throw mess.botAdmin
-            if (!isAdmins) throw mess.admin
             HBWABotInc.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
             }
             break
@@ -2044,8 +2038,8 @@ case 'ebinary': {
         }
         break
 case 'remini': {
-			if (!quoted) return `Thlalak Send in emaw reply in a caption a tiang hian rawn dah rawh *${prefix + command}*`
-			if (!/image/.test(mime)) return `Thlalak Send in emaw reply in a caption a tiang hian rawn dah rawh *${prefix + command}*`
+			if (!quoted) return reply(`Thlalak Send in emaw reply in a caption a tiang hian rawn dah rawh *${prefix + command}*`)
+			if (!/image/.test(mime)) return reply(`Thlalak Send in emaw reply in a caption a tiang hian rawn dah rawh *${prefix + command}*`)
 			m.reply(mess.wait)
 			const { remini } = require('./lib/remini')
 			let media = await quoted.download()
@@ -2054,11 +2048,11 @@ case 'remini': {
 			}
 			break
 			case 'mediafire': {
-	if (args.length == 0) return `Link rawn dah rawh`
-	if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return `I link dah hi a dik lo`
+	if (args.length == 0) return reply(`Link rawn dah rawh`
+	if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return reply(`I link dah hi a dik lo`)
 	const { mediafireDl } = require('./lib/mediafire.js')
 	const baby1 = await mediafireDl(text)
-	if (baby1[0].size.split('MB')[0] >= 100) return `Oops, a file hi a lian lutuk tlar...`
+	if (baby1[0].size.split('MB')[0] >= 100) return reply(`Oops, a file hi a lian lutuk tlar...`)
 	const result4 = `*MEDIAFIRE DOWNLOADER*
 
 *❖ Name* : ${baby1[0].nama}
@@ -2092,7 +2086,7 @@ replygcherbert(util.format(kat))
 }
 break
 case 'hla':  case 'song': case 'play': {
-if (!text) return `Tiang hian:  ${prefix + command} Saiwanah ka pa khuma`
+if (!text) return reply(`Tiang hian:  ${prefix + command} Saiwanah ka pa khuma`)
 const herbertplaymp3 = require('./lib/ytdl2')
 let yts = require("youtube-yts")
         let search = await yts(text)
@@ -2118,7 +2112,7 @@ await fs.unlinkSync(pl.path)
 break
 case "ytmp3": case "ytaudio": //credit: Ray Senpai â¤ï¸ https://github.com/EternityBots/Nezuko
 const herbertaudp3 = require('./lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return `A link rawn dah tel rawh\nTiang hian:  ${prefix + command} https://youtube.com/shorts/YQf-vMjDuKY?feature=share`
+if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return reply(`A link rawn dah tel rawh\nTiang hian:  ${prefix + command} https://youtube.com/shorts/YQf-vMjDuKY?feature=share`)
 m.reply(mess.wait)
 const audio=await herbertaudp3.mp3(text)
 await HBWABotInc.sendMessage(m.chat,{
@@ -2139,7 +2133,7 @@ await fs.unlinkSync(audio.path)
 break
 case 'ytmp4': case 'ytvideo': {
 const herbertvidoh = require('./lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !herbertvidoh.isYTUrl(text)) (`A link rawn dah tel rawh!.. ?\n\nTiang hian:  ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`)
+if (args.length < 1 || !isUrl(text) || !herbertvidoh.isYTUrl(text)) return reply(`A link rawn dah tel rawh!.. ?\n\nTiang hian:  ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`)
 m.reply(mess.wait)
 const vid=await herbertvidoh.mp4(text)
 const ytc=`
@@ -2184,8 +2178,8 @@ HBWABotInc.sendImageAsSticker(from, data.url, m, { packname: global.packname, au
 }
 break
 case 'tomp4': case 'tovideo': {
-                if (!quoted) return `Sticker reply rawh tiang hian : *${prefix + command}*`
-                if (!/webp/.test(mime)) return `Sticker reply rawh tiang hian : *${prefix + command}*`
+                if (!quoted) return reply(`Sticker reply rawh tiang hian : *${prefix + command}*`)
+                if (!/webp/.test(mime)) return reply(`Sticker reply rawh tiang hian : *${prefix + command}*`)
                 m.reply(mess.wait)
 		        let { webp2mp4File } = require('./lib/uploader')
                 let media = await HBWABotInc.downloadAndSaveMediaMessage(quoted)
@@ -2195,8 +2189,8 @@ case 'tomp4': case 'tovideo': {
             }
             break
             case 'toaud': case 'toaudio': {
-            if (!/video/.test(mime) && !/audio/.test(mime)) return `Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`
-            if (!quoted) return `Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`
+            if (!/video/.test(mime) && !/audio/.test(mime)) return reply(`Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`)
+            if (!quoted) return reply(`Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`)
             m.reply(mess.wait)
             let media = await quoted.download()
             let { toAudio } = require('./lib/converter')
@@ -2205,9 +2199,9 @@ case 'tomp4': case 'tovideo': {
             }
             break
             case 'tomp3': {
-            if (/document/.test(mime)) return `Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`
-            if (!/video/.test(mime) && !/audio/.test(mime)) return `Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`
-            if (!quoted) return `Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`
+            if (/document/.test(mime)) return reply(`Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`)
+            if (!/video/.test(mime) && !/audio/.test(mime)) return reply(`Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`)
+            if (!quoted) return reply(`Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`)
             m.reply(mess.wait)
             let media = await quoted.download()
             let { toAudio } = require('./lib/converter')
@@ -2231,8 +2225,8 @@ case 'tomp4': case 'tovideo': {
             }
             break
             case 'tovn': case 'toptt': {
-            if (!/video/.test(mime) && !/audio/.test(mime)) return `Video/Audio reply rawh tiang hian ${prefix + command}`
-            if (!quoted) return `Video/Audio reply rawh tiang hian ${prefix + command}`
+            if (!/video/.test(mime) && !/audio/.test(mime)) return reply(`Video/Audio reply rawh tiang hian ${prefix + command}`)
+            if (!quoted) return reply(`Video/Audio reply rawh tiang hian ${prefix + command}`)
             m.reply(mess.wait)
             let media = await quoted.download()
             let { toPTT } = require('./lib/converter')
@@ -2241,8 +2235,8 @@ case 'tomp4': case 'tovideo': {
             }
             break
             case 'togif': {
-                if (!quoted) return `Sticker emaw Video reply rawh \n Tiang hian: *${prefix + command}*`
-                if (!/webp/.test(mime)) return `Sticker reply rawh \nTianh hian: *${prefix + command}*`
+                if (!quoted) return reply(`Sticker emaw Video reply rawh \n Tiang hian: *${prefix + command}*`)
+                if (!/webp/.test(mime)) return reply(`Sticker reply rawh \nTianh hian: *${prefix + command}*`)
                 m.reply(mess.wait)
 		let { webp2mp4File } = require('./lib/uploader')
                 let media = await HBWABotInc.downloadAndSaveMediaMessage(quoted)
@@ -2252,7 +2246,7 @@ case 'tomp4': case 'tovideo': {
             }
             break
             case 'toqr':{
-  if (!q) return ` Link emaw text rawn ziak tel rawh`
+  if (!q) return reply(` Link emaw text rawn ziak tel rawh`)
    const QrCode = require('qrcode-reader')
    const qrcode = require('qrcode')
    let qyuer = await qrcode.toDataURL(q, { scale: 35 })
@@ -2322,7 +2316,7 @@ case 'glue':
 case '1917': 
 case 'leaves': {
 
-if (!q) return (`Tiang hian:  ${prefix+command} HBWABotInc`) 
+if (!q) return reply(`Tiang hian:  ${prefix+command} HBWABotInc`) 
 m.reply(mess.wait)
 let link
 if (/candy/.test(command)) link = 'https://textpro.me/create-christmas-candy-cane-text-effect-1056.html'
@@ -2417,7 +2411,7 @@ case 'freecreate':
 case 'galaxystyle':
 case 'lighteffects':{
 
-if (!q) return (`Tiang hian:  ${prefix+command} HBWABotInc`) 
+if (!q) return reply(`Tiang hian:  ${prefix+command} HBWABotInc`) 
 m.reply(mess.wait)
 let link
 if (/glitchtext/.test(command)) link = 'https://en.ephoto360.com/create-digital-glitch-text-effects-online-767.html'
@@ -2482,7 +2476,7 @@ case 'naturetypography':
 case 'quotesunder':
 case 'shinetext':{
 
-if (!q) return (`Tiang hian:  ${prefix+command} HBWABotInc`) 
+if (!q) return reply(`Tiang hian:  ${prefix+command} HBWABotInc`) 
 m.reply(mess.wait)
 let link
 if (/stonetext/.test(command)) link = 'https://photooxy.com/online-3d-white-stone-text-effect-utility-411.html'
@@ -2517,7 +2511,7 @@ HBWABotInc.sendMessage(m.chat, { image: { url: dehe }, caption: `${mess.success}
 }
 break
 case 'pornhub':{
-if(!q) return (`Tiang hian:  ${prefix + command} Herbert | Suantak`)
+if(!q) return reply(`Tiang hian:  ${prefix + command} Herbert | Suantak`)
 m.reply(mess.wait)
   inilogo4 = args.join(" ")
 inilogo9 = args.join(" ")
@@ -2529,7 +2523,7 @@ HBWABotInc.sendMessage(from,{image:{url:anuphub}, caption:"A generate-tu hi HBWA
 }
 break
 case 'retro':{
-if(!q) return (`Tiang hian:  ${prefix + command} Herbert | Suantak`)
+if(!q) return reply(`Tiang hian:  ${prefix + command} Herbert | Suantak`)
 m.reply(mess.wait)
   inilogo4 = args.join(" ")
 inilogo9 = args.join(" ")
@@ -2541,7 +2535,7 @@ HBWABotInc.sendMessage(from,{image:{url:anutro2}, caption:"A generate-tu hi HBWA
 }
 break
 case '8bit':{
-if(!q) return (`Tiang hian:  ${prefix + command} Herbert | Suantak`)
+if(!q) return reply(`Tiang hian:  ${prefix + command} Herbert | Suantak`)
 m.reply(mess.wait)
   inilogo4 = args.join(" ")
 inilogo9 = args.join(" ")
@@ -2553,7 +2547,7 @@ HBWABotInc.sendMessage(from,{image:{url:anubit8}, caption:"A generate-tu hi HBWA
 }
 break
 case 'batman':
-if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
+if(!q) return reply(`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/make-a-batman-logo-online-free-1066.html", [
     `${q}`,])
@@ -2561,7 +2555,7 @@ maker.textpro("https://textpro.me/make-a-batman-logo-online-free-1066.html", [
   .catch((err) => console.log(err))
    break
 case '3dbox':
-if(!q) return (`Tiang hian:  ${prefix + command} ea`)
+if(!q) return reply(`Tiang hian:  ${prefix + command} ea`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/3d-box-text-effect-online-880.html", [
     `${q}`,])
@@ -2569,7 +2563,7 @@ maker.textpro("https://textpro.me/3d-box-text-effect-online-880.html", [
 .catch((err) => console.log(err));
 break
 case 'lion':
-  if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
+  if(!q) return reply(`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
   maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [
       `${q}`,])
@@ -2577,7 +2571,7 @@ m.reply(mess.wait)
      .catch((err) => console.log(err));
      break
 case '3davengers':
-if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
+if(!q) return reply(`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/create-3d-avengers-logo-online-974.html", [
     `${q}`,])
@@ -2585,7 +2579,7 @@ maker.textpro("https://textpro.me/create-3d-avengers-logo-online-974.html", [
   .catch((err) => console.log(err));
    break 
 case 'window':
-if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
+if(!q) return reply(`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/write-text-on-foggy-window-online-free-1015.html", [
     `${q}`,])
@@ -2593,7 +2587,7 @@ maker.textpro("https://textpro.me/write-text-on-foggy-window-online-free-1015.ht
   .catch((err) => console.log(err));
    break
 case '3dspace':
-if(!q) return (`Tiang hian:  ${prefix + command} Herbert | Suantak`)
+if(!q) return reply(`Tiang hian:  ${prefix + command} Herbert | Suantak`)
 m.reply(mess.wait)
 teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]
@@ -2603,7 +2597,7 @@ maker.textpro("https://textpro.me/create-space-3d-text-effect-online-985.html", 
   .catch((err) => console.log(err));
    break
 case 'bokeh':
-if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
+if(!q) return reply(`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/bokeh-text-effect-876.html", [
     `${q}`,])
@@ -2611,7 +2605,7 @@ maker.textpro("https://textpro.me/bokeh-text-effect-876.html", [
   .catch((err) => console.log(err));
    break
 case 'holographic':
-if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
+if(!q) return reply(`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/holographic-3d-text-effect-975.html", [
     `${q}`,])
@@ -2619,7 +2613,7 @@ maker.textpro("https://textpro.me/holographic-3d-text-effect-975.html", [
   .catch((err) => console.log(err));
    break
 case 'thewall':
-if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
+if(!q) return reply(`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/break-wall-text-effect-871.html", [
     `${q}`,])
@@ -2627,7 +2621,7 @@ maker.textpro("https://textpro.me/break-wall-text-effect-871.html", [
   .catch((err) => console.log(err));
    break 
 case 'carbon':
-if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
+if(!q) return reply(`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/carbon-text-effect-833.html", [
     `${q}`,])
@@ -2635,7 +2629,7 @@ maker.textpro("https://textpro.me/carbon-text-effect-833.html", [
   .catch((err) => console.log(err));
    break
 case 'whitebear':
-if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
+if(!q) return reply(`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/online-black-and-white-bear-mascot-logo-creation-1012.html", [
     `${q}`,])
@@ -2643,7 +2637,7 @@ maker.textpro("https://textpro.me/online-black-and-white-bear-mascot-logo-creati
   .catch((err) => console.log(err));
    break
 case 'metallic':
-if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
+if(!q) return reply(`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/create-a-metallic-text-effect-free-online-1041.html", [
     `${q}`,])
@@ -2651,7 +2645,7 @@ maker.textpro("https://textpro.me/create-a-metallic-text-effect-free-online-1041
   .catch((err) => console.log(err));
    break
 case 'steel':
-if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
+if(!q) return reply(`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/steel-text-effect-online-921.html", [
     `${q}`,])
@@ -2659,7 +2653,7 @@ maker.textpro("https://textpro.me/steel-text-effect-online-921.html", [
   .catch((err) => console.log(err));
    break
 case 'fabric':
-if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
+if(!q) return reply(`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/fabric-text-effect-online-964.html", [
     `${q}`,])
@@ -2667,7 +2661,7 @@ maker.textpro("https://textpro.me/fabric-text-effect-online-964.html", [
   .catch((err) => console.log(err));
    break
 case 'ancient':
-if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
+if(!q) return reply(`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/3d-golden-ancient-text-effect-online-free-1060.html", [
     `${q}`,])
@@ -2675,7 +2669,7 @@ maker.textpro("https://textpro.me/3d-golden-ancient-text-effect-online-free-1060
   .catch((err) => console.log(err));
    break
 case 'marvel':
-if(!q) return (`Tiang hian:  ${prefix + command} Herbert`)
+if(!q) return reply(`Tiang hian:  ${prefix + command} Herbert`)
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/create-logo-style-marvel-studios-ver-metal-972.html", [
     `${q}`,])
@@ -2695,7 +2689,7 @@ var hasil = pickRandom(notnot)
 HBWABotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'animewallpaper2': case 'animewall2': {
-                if (!args.join(" ")) return ("Eng ang Wallpaper nge i zawn??")
+                if (!args.join(" ")) return reply("Eng ang Wallpaper nge i zawn??")
 		let { wallpaper } = require('./lib/scraperW')
                 anu = await wallpaper(args)
                 result = anu[Math.floor(Math.random() * anu.length)]
@@ -2704,7 +2698,7 @@ case 'animewallpaper2': case 'animewall2': {
             break
 case 'animewall': case 'animewallpaper':
 const { AnimeWallpaper } =require("anime-wallpaper")
-if(!q) return `Eng Wallpaper nge i duh?`
+if(!q) return reply(`Eng Wallpaper nge i duh?`)
 m.reply(mess.wait)
 const wall = new AnimeWallpaper()
     const pages = [1,2,3,4]
@@ -2720,8 +2714,8 @@ const i = Math.floor(Math.random() * wallpaper.length)
 break
           case 'emojimix': {
 		let [emoji1, emoji2] = text.split`+`
-		if (!emoji1) return `Tiang hian:  ${prefix + command} 😅+🤔`
-		if (!emoji2) return `Tiang hian:  ${prefix + command} 😅+🤔`
+		if (!emoji1) return reply(`Tiang hian:  ${prefix + command} 😅+🤔`)
+		if (!emoji2) return reply(`Tiang hian:  ${prefix + command} 😅+🤔`)
 		let anumojimix = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)
 		for (let res of anumojimix.results) {
 		    let encmedia = await HBWABotInc.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })
@@ -2730,7 +2724,7 @@ break
 	    }
 	    break
  case 'tinyurl':{
-   if(!q) return `Link rawn dah rawh?.`
+   if(!q) return reply(`Link rawn dah rawh?.`)
    const request = require('request')
    request(`https://tinyurl.com/api-create.php?url=${q}`, function (error, response, body) {
    try {
@@ -2753,11 +2747,11 @@ let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
 break
 case "spotify":{
 if (!isPrem) return replyprem(mess.premium)
-if (!text) return `A link rawn dah tel rawh!.. `
+if (!text) return reply(`A link rawn dah tel rawh!.. `)
         const Spotify = require('./lib/spotify')
         const spotify = new Spotify(text)
         const info = await spotify.getInfo()
-        if ((info).error) return `I link tawn dah hi Spotify link a ni lo!..`
+        if ((info).error) return reply(`I link tawn dah hi Spotify link a ni lo!..`)
         const { name, artists, album_name, release_date, cover_url } = info
         const details = `${themeemoji} *Title:* ${name || ''}\n${themeemoji} *Artists:* ${(artists || []).join(
             ','
@@ -2799,14 +2793,14 @@ case 'bass': case 'blown': case 'deep': case 'earrape': case 'fast': case 'fat':
                 }
                 break
 case 'Enge': case 'tunge': {
-            	if (!text) return `I duh duh min zawt rawh\n\nTiang hian:  ${prefix + command} i hming?`
+            	if (!text) return reply(`I duh duh min zawt rawh\n\nTiang hian:  ${prefix + command} i hming?`)
             	let lel = [`I bialnu zawt mai rawg`, `I bialpa zawt mai rawg`,`Ka hre lo`, `Ka hre lo, i pa zawt ve mau rawg`]
                 let kah = lel[Math.floor(Math.random() * lel.length)]
                 let jawab = `*${prefix + command} ${text}*\nchhânna : ${kah}`                
             }
             break
 case 'engtin': {
-            	if (!text) return `I duh duh min zawt rawh\n\nTiang hian:  ${prefix + command} nge i bialnu i bem?`
+            	if (!text) return reply(`I duh duh min zawt rawh\n\nTiang hian:  ${prefix + command} nge i bialnu i bem?`)
             	let gimana = [`Ummm...`, `Thil harsa ni lo bro`, `Sorry Bot hian a chhang thei lo che ni`, `Googleah va zawng ve mai rawh`,`I van hre châk😂`,`Ka mu tawh a😴, ka chhang thei lo che`,`Ohh ka hmu:(`,`Boss a dam lo a, ka  chhang lo mai ang che:(`,`Dude maw🙄`]
                 let kah = gimana[Math.floor(Math.random() * gimana.length)]
                 let jawab = `*Engtin ${text}*\nChhânna : ${kah}`                
@@ -2818,7 +2812,7 @@ case 'engtin': {
             	}
             break
             case 'wallpaper': {
-                if (!text) return `A title rawn dah tel rawh!.. `
+                if (!text) return reply(`A title rawn dah tel rawh!.. `)
                 m.reply(mess.wait)
 		let { wallpaper } = require('./lib/scraper')
                 anuwallpep = await wallpaper(text)
@@ -2827,14 +2821,14 @@ case 'engtin': {
             }
             break
      case "igvid": case "instavid": {
-if (!text) return `A link rawn dah tel rawh!.. \n\nTiang hian:  ${prefix + command} https://www.instagram.com/reel/Ctjt0srIQFg/?igshid=MzRlODBiNWFlZA==`
+if (!text) return reply(`A link rawn dah tel rawh!.. \n\nTiang hian:  ${prefix + command} https://www.instagram.com/reel/Ctjt0srIQFg/?igshid=MzRlODBiNWFlZA==`)
 m.reply(mess.wait)
 let resherbertyinsta = await HerbertInstaMp4(text)
 const gha1 = await HBWABotInc.sendMessage(m.chat,{video:{url: resherbertyinsta.url[0].url},caption: mess.success},{quoted:m})
 }
 break
 case 'igstalk': {
-if (!args[0]) return `A ig username rawn dah tel rawh\n\nTiang hian:  ${prefix + command} Herbert_suantak2`
+if (!args[0]) return reply(`A ig username rawn dah tel rawh\n\nTiang hian:  ${prefix + command} Herbert_suantak2`)
 const fg = require('api-dylux')
     try {
     let res = await fg.igStalk(args[0])
@@ -2855,7 +2849,7 @@ const fg = require('api-dylux')
 }
 break
            case "igimg": case "instaimg":  {
-if (!text) return `A link rawn dah tel rawh!.. \n\nTiang hian:  ${prefix + command} https://www.instagram.com/p/Cs8x1ljt_D9/?igshid=MzRlODBiNWFlZA==`
+if (!text) return reply(`A link rawn dah tel rawh!.. \n\nTiang hian:  ${prefix + command} https://www.instagram.com/p/Cs8x1ljt_D9/?igshid=MzRlODBiNWFlZA==`)
 m.reply(mess.wait)
 const risponsherbert = await HerbertIgImg(text)
 for (let i=0;i<risponsherbert.length;i++) {
@@ -2864,21 +2858,21 @@ let ghd = await HBWABotInc.sendFileUrl(m.chat, risponsherbert[i], `A generate-tu
 }
 break 
 case "fbvid": case "facebookvid":{
-if (!text) return `A link rawn dah tel rawh!..\n\nTiang hian:  ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`
+if (!text) return reply(`A link rawn dah tel rawh!..\n\nTiang hian:  ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
 m.reply(mess.wait)
 let res = await HerbertFb(q)
 let ghdp = await HBWABotInc.sendMessage(from,{video:{url: res.url[0].url},caption: mess.success},{quoted:m})
 }
 break
 case "twittervid":case "twitvid":{
-if (!text) return `Link rawn thawn tel rawh\n\nTiang hian: ${prefix + command} https://twitter.com/WarnerBrosIndia/status/1668933430795485184?s=19`
+if (!text) return reply(`Link rawn thawn tel rawh\n\nTiang hian: ${prefix + command} https://twitter.com/WarnerBrosIndia/status/1668933430795485184?s=19`)
 m.reply(mess.wait)
 let res = await HerbertTwitter(q)
 let ghdx = await HBWABotInc.sendMessage(from,{video:{url: res.url[0].url},caption: mess.success},{quoted:m})
 }
 break
     case 'tawng': case 'tts': case 'gtts':{
-if (!text) return `Ziak rawn dah tel rawh`
+if (!text) return reply(`Ziak rawn dah tel rawh`)
             let texttts = text
             const herbertrl = googleTTS.getAudioUrl(texttts, {
                 lang: "en",
@@ -2898,7 +2892,7 @@ if (!text) return `Ziak rawn dah tel rawh`
         }
         break 
 case 'gdrive': {
-		if (!args[0]) return `Google Driver link rawn dah tel rawh`
+		if (!args[0]) return reply(`Google Driver link rawn dah tel rawh`)
 	m.reply(mess.wait)
 	const fg = require('api-dylux')
 	try {
@@ -2917,9 +2911,9 @@ break
 case 'invite': {
 	if (!m.isGroup) return mess.group
 	if (!isBotAdmins) return mess.botAdmin
-if (!text) return `I invte duh chu a number rawn ziak tel rawh\n\nTiang hian: \n*${prefix + command}* 918416093656`
-if (text.includes('+')) return `Number chu plus *+* sign tello hian rawn dah rawh`
-if (isNaN(text)) return `Country code nen space awm miah lohin rawn dah tel rawh`
+if (!text) return reply(`I invte duh chu a number rawn ziak tel rawh\n\nTiang hian: \n*${prefix + command}* 918416093656`)
+if (text.includes('+')) return reply(`Number chu plus *+* sign tello hian rawn dah rawh`)
+if (isNaN(text)) return reply(`Country code nen space awm miah lohin rawn dah tel rawh`)
 let group = m.chat
 let link = 'https://chat.whatsapp.com/' + await HBWABotInc.groupInviteCode(group)
       await HBWABotInc.sendMessage(text+'@s.whatsapp.net', {text: `≡ *GROUP INVITATION*\n\nMi pakhatin he group a rawn tel tur hian a sawm che a ni \n\n${link}`, mentions: [m.sender]})
@@ -2927,7 +2921,7 @@ let link = 'https://chat.whatsapp.com/' + await HBWABotInc.groupInviteCode(group
 }
 break
               case 'pinterest': {
-              	if (!text) return `A title/link rawn dah tel rawh!.. `
+              	if (!text) return reply(`A title/link rawn dah tel rawh!.. `)
 m.reply(mess.wait)
 let { pinterest } = require('./lib/scraper')
 anutrest = await pinterest(text)
@@ -2936,7 +2930,7 @@ HBWABotInc.sendMessage(m.chat, { image: { url: result }, caption: '⭔ Media Url
 }
 break
 case 'ringtone': {
-		if (!text) return `Tiang hian:  ${prefix + command} black rover`
+		if (!text) return reply(`Tiang hian:  ${prefix + command} black rover`)
         let { ringtone } = require('./lib/scraper')
 		let anutone2 = await ringtone(text)
 		let result = anutone2[Math.floor(Math.random() * anutone2.length)]
@@ -2944,11 +2938,11 @@ case 'ringtone': {
 	    }
 	    break
 	case 'anime': {
-if (!text) return `Eng anime ber nge i zawn?`
+if (!text) return reply(`Eng anime ber nge i zawn?`)
 const malScraper = require('mal-scraper')
 m.reply(mess.wait)
         const anime = await malScraper.getInfoFromName(text).catch(() => null)
-        if (!anime) return `Ka zawng hmu thei lo`
+        if (!anime) return reply(`Ka zawng hmu thei lo`)
 let animetxt = `
 🎀 *Title: ${anime.title}*
 🎋 *Type: ${anime.type}*
