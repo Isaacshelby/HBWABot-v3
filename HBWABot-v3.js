@@ -2049,7 +2049,7 @@ case 'remini': {
 			}
 			break
 			case 'mediafire': {
-	if (args.length == 0) return reply(`Link rawn dah rawh`
+	if (args.length == 0) return reply(`Link rawn dah rawh`)
 	if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return reply(`I link dah hi a dik lo`)
 	const { mediafireDl } = require('./lib/mediafire.js')
 	const baby1 = await mediafireDl(text)
