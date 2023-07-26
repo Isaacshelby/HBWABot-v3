@@ -1347,23 +1347,7 @@ HBWABotInc.ev.emit('messages.upsert', msg)
 }
 
 switch (command) {
-case 's': case 'sticker': case 'stiker': {
-if (!text) return reply(`Video emaw thlalak a caption ah* ${prefix + command} *tih rawn type rawh*`)
-if (/image/.test(mime)) 
-   m.reply(mess.wait) {
-let media = await quoted.download()
-let encmedia = await HBWABotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
 
-} else if (/video/.test(mime)) {
-if ((quoted.msg || quoted).seconds > 11) return reply('Second 10 aia tam a thei lo!..')
-let media = await quoted.download()
-let encmedia = await HBWABotInc.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
-
-} else {
-(`Video emaw thlalak a caption ah* ${prefix + command} *tih rawn type rawh*`)
-}
-}
-break
 case 'shutdown':
 if (!HerbertTheCreator) return mess.owner
 (`Ba bye...`)
@@ -1817,10 +1801,27 @@ Id : ${q.split("|")[0]}
 ID Zone: ${q.split("|")[1]}`)
 }
 break
+case 's': case 'sticker': case 'stiker': {
+if (!quoted) return reply(`Thlalak/Videos/Gifs reply-in emaw send-in a caption-ah ${prefix+command} tih lo dah rawh\nVideo chu second 10 aia tam rawn thawn suh ang che`)
+m.reply(mess.wait)
+if (/image/.test(mime)) {
+let media = await quoted.download()
+let encmedia = await HBWABotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+
+} else if (/video/.test(mime)) {
+if ((quoted.msg || quoted).seconds > 11) return reply('Second 11 aia tam a thei loh!..')
+let media = await quoted.download()
+let encmedia = await HBWABotInc.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+
+} else {
+replyg(`Thlalak/Videos/Gifs reply-in emaw send-in a caption-ah ${prefix+command} tih lo dah rawh\nVideo chu second 10 aia tam rawn thawn suh ang che`)
+}
+}
+break
 case 'join': {
                 if (!isCreator) throw mess.owner
-                if (!text) throw 'Group link rawn dah rawh!'
-                if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw 'Link a dik lo nih hii!'
+                if (!text) throw m.reply('Group link rawn dah rawh!')
+                if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw m.reply('Link a dik lo nih hii!')
                 m.reply(mess.wait)
                 let result = args[0].split('https://chat.whatsapp.com/')[1]
                 await HBWABotInc.groupAcceptInvite(result).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
@@ -1979,7 +1980,7 @@ break
             case 'delete': case 'del': {
                 if (!m.quoted) throw false
                 let { chat, fromMe, id, isBaileys } = m.quoted
-                if (!m.quoted) throw 'Bot message lo chu ka delete thei lo!'
+                if (!m.quoted) throw m.reply('Bot message lo chu ka delete thei lo!')
                  HBWABotInc.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender } })
             }
             break
@@ -2024,14 +2025,14 @@ case 'hidetag': {
             }
             break
 case 'ebinary': {
-            if (!text) throw `\n*Entir nan* : ${prefix + command} text`
+            if (!text) throw m.reply(`\n*Entir nan* : ${prefix + command} text`)
             let { eBinary } = require('./scrape/binary')
             let eb = await eBinary(text)
             m.reply(eb)
         }
         break
             case 'dbinary': {
-            if (!text) throw `\n*Entir nan* : ${prefix + command} text`
+            if (!text) throw m.reply(`\n*Entir nan* : ${prefix + command} text`)
             let { dBinary } = require('./scrape/binary')
             let db = await dBinary(text)
             m.reply(db)
@@ -2210,8 +2211,8 @@ case 'tomp4': case 'tovideo': {
             }
             break 
             case 'thlalak': case 'toimg': {
-                if (!quoted) throw 'Reply Image'
-                if (!/webp/.test(mime)) throw `sticker reply la a caption ah *${prefix + command}* ti rawn dah rawh`
+                if (!quoted) throw m.reply('Reply Image')
+                if (!/webp/.test(mime)) throw m.reply(`sticker reply la a caption ah *${prefix + command}* ti rawn dah rawh`)
                 m.reply(mess.wait)
                 let media = await HBWABotInc.downloadAndSaveMediaMessage(quoted)
                 let ran = await getRandom('.png')
