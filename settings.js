@@ -29,7 +29,7 @@ global.socialm = "https://herbert70.blogspot.com" //ur github or insta name
 global.location = "India, Mizoram, Aizawl" //ur location
 
 //new
-global.botname = "HBWABot v3"
+global.botname = "HBWABot Mizo"
 global.ownernumber = '918416093656'
 global.ownername = 'Herbert Suantak'
 global.ownerNumber = ["918416093656@s.whatsapp.net"]
@@ -37,7 +37,7 @@ global.ownerweb = "https://youtube.com/@HBMods_Channel"
 global.websitex = "https://herbert70.blogspot.com"
 global.wagc = "https://chat.whatsapp.com/IgV6un73n0J9TfzyVsaBRA"
 global.themeemoji = '🖤'
-global.wm = "HBWA Bot Inc."
+global.wm = "HBWABot Inc."
 global.botscript = 'https://github.com/HBMods-OFC/HBWABot-v3' //script link
 global.packname = "Sticker By"
 global.author = "HBWABot"
