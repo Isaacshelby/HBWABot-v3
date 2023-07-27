@@ -234,7 +234,7 @@ Kei hi HBWABot ka ni a, ${metadata.subject} ah hian ka lo lawm a che.
 *Group Description:*
 ${metadata.desc}`
  })
-                },
+                }
     let nama = await HBWABotInc.getName(num)
 memb = metadata.participants.length
 
