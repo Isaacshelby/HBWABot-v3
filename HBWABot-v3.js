@@ -1031,7 +1031,7 @@ async function replyprem(teks) {
 // Anti Link
         if (Antilinkgc) {
         if (budy.match(`chat.whatsapp.com`)) {
-        if (!isBotAdmins) return mess.botAdmin
+        if (!isBotAdmins) return m.reply(mess.botAdmin)
         let gclink = (`https://chat.whatsapp.com/`+await HBWABotInc.groupInviteCode(m.chat))
         let isLinkThisGc = new RegExp(gclink, 'i')
         let isgclink = isLinkThisGc.test(m.text)
@@ -1099,7 +1099,7 @@ HBWABotInc.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@
 //antivirtex by Herbert
   if (antiVirtex) {
   if (budy.length > 3500) {
-  if (!isBotAdmins) return mess.botAdmin
+  if (!isBotAdmins) return m.reply(mess.botAdmin)
           await HBWABotInc.sendMessage(m.chat,
 			    {
 			        delete: {
@@ -1349,7 +1349,7 @@ HBWABotInc.ev.emit('messages.upsert', msg)
 switch (command) {
 
 case 'shutdown':
-if (!HerbertTheCreator) return mess.owner
+if (!HerbertTheCreator) return m.reply(mess.owner)
 (`Ba bye...`)
 await sleep(3000)
 process.exit()
@@ -1802,25 +1802,25 @@ ID Zone: ${q.split("|")[1]}`)
 }
 break
 case 's': case 'sticker': case 'stiker': {
-if (!quoted) return reply(`Thlalak/Videos/Gifs reply-in emaw send-in a caption-ah ${prefix+command} tih lo dah rawh\nVideo chu second 10 aia tam rawn thawn suh ang che`)
-m.reply(mess.wait)
+if (!quoted) throw `*Video emaw thlalak a caption ah* ${prefix + command} *tih rawn type rawh*`
+            m.reply(mess.wait)
 if (/image/.test(mime)) {
 let media = await quoted.download()
 let encmedia = await HBWABotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
 
 } else if (/video/.test(mime)) {
-if ((quoted.msg || quoted).seconds > 11) return reply('Second 11 aia tam a thei loh!..')
+if ((quoted.msg || quoted).seconds > 11) return m.reply('Second 11 aia tam a thei loh!..')
 let media = await quoted.download()
 let encmedia = await HBWABotInc.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
 
 } else {
-replyg(`Thlalak/Videos/Gifs reply-in emaw send-in a caption-ah ${prefix+command} tih lo dah rawh\nVideo chu second 10 aia tam rawn thawn suh ang che`)
+ throw `Thlalak/Videos/Gifs reply-in emaw send-in a caption-ah ${prefix+command} tih lo dah rawh\nVideo chu second 10 aia tam rawn thawn suh ang che`
 }
 }
 break
 case 'join': {
                 if (!isCreator) throw mess.owner
-                if (!text) throw m.reply('Group link rawn dah rawh!')
+                if (!text) throw `Group link rawn dah rawh!`
                 if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw m.reply('Link a dik lo nih hii!')
                 m.reply(mess.wait)
                 let result = args[0].split('https://chat.whatsapp.com/')[1]
@@ -1887,7 +1887,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'bctext': case 'broadcasttext': case 'broadcast': {
-			    if (!HerbertTheCreator) return mess.owner
+			    if (!HerbertTheCreator) return m.reply(mess.owner)
 		            if (!q) return reply(`Ziak rawn dah rawh`)
 		                            const data = await store.chats.all()
                             for (let i of data) {
@@ -1897,7 +1897,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                             }
                             break
                             case 'broadcastimage': case 'bcimage': case 'broadcastvideo': case 'broadcastvid':
-if(!HerbertTheCreator) return mess.owner
+if(!HerbertTheCreator) return m.reply(mess.owner)
         if (!q) return reply(`Enter text`)
         let getGroups = await HBWABotInc.groupFetchAllParticipating()
         let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
@@ -1917,21 +1917,21 @@ await HBWABotInc.sendMessage(i, { video:media,  caption: txt, mentions:participa
         (`Successfuly Broadcasted in ${herbertcast.length} Groups`)      
         break
 case 'block': case 'ban': {
-		if (!HerbertTheCreator) return mess.owner
+		if (!HerbertTheCreator) return m.reply(mess.owner)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await HBWABotInc.updateBlockStatus(users, 'block')
 		await (`Done`)
 	}
 	break
         case 'unblock': case 'unban': {
-		if (!HerbertTheCreator) return mess.owner
+		if (!HerbertTheCreator) return m.reply(mess.owner)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await HBWABotInc.updateBlockStatus(users, 'unblock')
 		await (`Done`)
 	}
 	break
             case 'react': {
-                if (!HerbertTheCreator) return mess.owner
+                if (!HerbertTheCreator) return m.reply(mess.owner)
                 reactionMessage = {
                     react: {
                         text: args[0],
@@ -1969,9 +1969,9 @@ fs.writeFileSync('./database/nsfw.json', JSON.stringify(ntnsfw))
   }
   break
 case 'add': {
-if (!m.isGroup) return mess.group
-if (!isBotAdmins) return mess.botAdmin
-if (!isAdmin) return mess.group
+if (!m.isGroup) return m.reply(mess.group)
+if (!isBotAdmins) return m.reply(mess.botAdmin)
+if (!isAdmin) return m.reply(mess.group)
 let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 await HBWABotInc.groupParticipantsUpdate(m.chat, [users], 'add')
 await `Done`
@@ -1985,34 +1985,34 @@ break
             }
             break
             case 'linkgroup': case 'linkgc': case 'gclink': case 'grouplink': {
-                if (!m.isGroup) return mess.group
-                if (!isBotAdmins) return mess.botAdmin
+                if (!m.isGroup) return m.reply(mess.group)
+                if (!isBotAdmins) return m.reply(mess.botAdmin)
                 let response = await HBWABotInc.groupInviteCode(m.chat)
                 HBWABotInc.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\nGroup Link : ${groupMetadata.subject}`, m, { detectLink: true })
             }
             break
 case 'kick': {
-if (!m.isGroup) return mess.group
-if (!isAdmins && !HerbertTheCreator) return mess.admin
-if (!isBotAdmins) return mess.botAdmin
+if (!m.isGroup) return m.reply(mess.group)
+if (!isAdmins && !HerbertTheCreator) return m.reply(mess.admin)
+if (!isBotAdmins) return m.reply(mess.botAdmin)
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 await HBWABotInc.groupParticipantsUpdate(m.chat, [users], 'remove')
 await (`Done`)
 }
 break
     case 'setgroupname': case 'setsubject': {
-                if (!m.isGroup) return mess.group
-                if (!isBotAdmins) return mess.botAdmin
-                if (!isAdmins) return mess.admin
+                if (!m.isGroup) return m.reply(mess.group)
+                if (!isBotAdmins) return m.reply(mess.botAdmin)
+                if (!isAdmins) return m.reply(mess.admin)
                 if (!text) return reply(`Text ?`)
                 await HBWABotInc.groupUpdateSubject(m.chat, text)
                 await (`Set a ni ta e`)
             }
             break
           case 'setdesc': case 'setdesk': {
-                if (!m.isGroup) return mess.group
-                if (!isBotAdmins) return mess.botAdmin
-                if (!isAdmins) return mess.admin
+                if (!m.isGroup) return m.reply(mess.group)
+                if (!isBotAdmins) return m.reply(mess.botAdmin)
+                if (!isAdmins) return m.reply(mess.admin)
                 if (!text) return reply(`Text in rawn dah rawh.!`)
                 await HBWABotInc.groupUpdateDescription(m.chat, text)
                 await (`Done`)
@@ -2049,19 +2049,19 @@ case 'remini': {
 			}
 			break
 			case 'mediafire': {
-	if (args.length == 0) return reply(`Link rawn dah rawh`)
-	if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return reply(`I link dah hi a dik lo`)
-	const { mediafireDl } = require('./lib/mediafire.js')
-	const baby1 = await mediafireDl(text)
-	if (baby1[0].size.split('MB')[0] >= 100) return reply(`Oops, a file hi a lian lutuk tlar...`)
-	const result4 = `*MEDIAFIRE DOWNLOADER*
-
-*❖ Name* : ${baby1[0].nama}
-*❖ Size* : ${baby1[0].size}
-*❖ Mime* : ${baby1[0].mime}
-*❖ Link* : ${baby1[0].link}`
-(`${result4}`)
-HBWABotInc.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m })
+if (!text) throw mess.linkm
+if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) throw `I link rawn dah hi a dik lo`
+const { mediafireDl } = require('./lib/mediafire.js')
+const baby1 = await mediafireDl(text)
+if (baby1[0].size.split('MB')[0] >= 999) return m.reply('*File Over Limit* '+util.format(baby1))
+const result4 = `*MEDIAFIRE DOWNLOADER*
+				
+*Name* : ${baby1[0].nama}
+*Size* : ${baby1[0].size}
+*Mime* : ${baby1[0].mime}
+*Link* : ${baby1[0].link}`
+m.reply(`${result4}`)
+HBWABotInc.sendMessage(m.chat, { document : { url : baby1[0].link}, fileName : baby1[0].nama, mimetype: baby1[0].mime }, { quoted : m }).catch ((err) => reply(mess.error))
 }
 break
 case 'google': {
@@ -2080,7 +2080,7 @@ replygcherbert(teks)
 }
 break
 case 'happymod':{
-if (!q) return replygcherbert(`Tiang hian ${prefix+command} Sufway surfer mod`)
+if (!q) return m.reply(`Tiang hian ${prefix+command} Sufway surfer mod`)
 m.reply(mess.wait)
 let kat = await scp1.happymod(q)
 replygcherbert(util.format(kat))
@@ -2179,8 +2179,8 @@ HBWABotInc.sendImageAsSticker(from, data.url, m, { packname: global.packname, au
 }
 break
 case 'tomp4': case 'tovideo': {
-                if (!quoted) return reply(`Sticker reply rawh tiang hian : *${prefix + command}*`)
-                if (!/webp/.test(mime)) return reply(`Sticker reply rawh tiang hian : *${prefix + command}*`)
+                if (!quoted) throw `Sticker reply rawh tiang hian : *${prefix + command}*`
+                if (!/webp/.test(mime)) return m.reply(`Sticker reply rawh tiang hian : *${prefix + command}*`)
                 m.reply(mess.wait)
 		        let { webp2mp4File } = require('./lib/uploader')
                 let media = await HBWABotInc.downloadAndSaveMediaMessage(quoted)
@@ -2190,8 +2190,8 @@ case 'tomp4': case 'tovideo': {
             }
             break
             case 'toaud': case 'toaudio': {
-            if (!/video/.test(mime) && !/audio/.test(mime)) return reply(`Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`)
-            if (!quoted) return reply(`Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`)
+            if (!/video/.test(mime) && !/audio/.test(mime)) throw `Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`
+            if (!quoted) return m.reply(`Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`)
             m.reply(mess.wait)
             let media = await quoted.download()
             let { toAudio } = require('./lib/converter')
@@ -2200,8 +2200,8 @@ case 'tomp4': case 'tovideo': {
             }
             break
             case 'tomp3': {
-            if (/document/.test(mime)) return reply(`Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`)
-            if (!/video/.test(mime) && !/audio/.test(mime)) return reply(`Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`)
+            if (/document/.test(mime)) throw `Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`
+            if (!/video/.test(mime) && !/audio/.test(mime)) return m.reply(`Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`)
             if (!quoted) return reply(`Mp3 a siamtir i duh chu in Video/Voice tiang hian Send/Reply rawh ${prefix + command}`)
             m.reply(mess.wait)
             let media = await quoted.download()
@@ -2236,7 +2236,7 @@ case 'tomp4': case 'tovideo': {
             }
             break
             case 'togif': {
-                if (!quoted) return reply(`Sticker emaw Video reply rawh \n Tiang hian: *${prefix + command}*`)
+                if (!quoted) throw `Sticker emaw Video reply rawh \n Tiang hian: *${prefix + command}*`
                 if (!/webp/.test(mime)) return reply(`Sticker reply rawh \nTianh hian: *${prefix + command}*`)
                 m.reply(mess.wait)
 		let { webp2mp4File } = require('./lib/uploader')
@@ -2317,7 +2317,7 @@ case 'glue':
 case '1917': 
 case 'leaves': {
 
-if (!q) return reply(`Tiang hian:  ${prefix+command} HBWABotInc`) 
+if (!q) return m.reply(`Tiang hian:  ${prefix+command} HBWABotInc`) 
 m.reply(mess.wait)
 let link
 if (/candy/.test(command)) link = 'https://textpro.me/create-christmas-candy-cane-text-effect-1056.html'
@@ -2737,8 +2737,8 @@ break
   }
  break
 case 'git': case 'gitclone':
-if (!args[0]) return m.reply(`Link rawn dah rawh\nEntirnan :\n${prefix}${command} https://github.com/YukiShima4/tes`)
-if (!isUrl(args[0]) && !args[0].includes('github.com')) return reply(`Link invalid!!`)
+if (!args[0]) throw `Link rawn dah rawh\nEntirnan :\n${prefix}${command} https://github.com/YukiShima4/tes`
+if (!isUrl(args[0]) && !args[0].includes('github.com')) return m.reply(`link a dik lo!!`)
 let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
     let [, user, repo] = args[0].match(regex1) || []
     repo = repo.replace(/.git$/, '')
@@ -2748,7 +2748,7 @@ let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
 break
 case "spotify":{
 if (!isPrem) return replyprem(mess.premium)
-if (!text) return reply(`A link rawn dah tel rawh!.. `)
+if (!text) throw `A link rawn dah tel rawh!.. `
         const Spotify = require('./lib/spotify')
         const spotify = new Spotify(text)
         const info = await spotify.getInfo()
@@ -2809,7 +2809,7 @@ case 'engtin': {
             break
             case 'runtime': {
             	let lowq = `*He bot hi :*${runtime(process.uptime())}* chhung a online tawh a ni!..`
-                replygcherbert(lowq)
+                m.reply(lowq)
             	}
             break
             case 'wallpaper': {
@@ -2845,7 +2845,7 @@ const fg = require('api-dylux')
 └────────────`
      await HBWABotInc.sendMessage(m.chat, {image: { url: res.profilePic }, caption: te }, {quoted: m})
       } catch {
-        (`Make sure the username comes from *Instagram*`)
+        (` *Instagram* a an username diktakin rawn dah rawh!.`)
       }
 }
 break
@@ -2893,7 +2893,7 @@ if (!text) return reply(`Ziak rawn dah tel rawh`)
         }
         break 
 case 'gdrive': {
-		if (!args[0]) return reply(`Google Driver link rawn dah tel rawh`)
+		if (!args[0]) throw `Google Driver link rawn dah tel rawh`
 	m.reply(mess.wait)
 	const fg = require('api-dylux')
 	try {
@@ -2910,11 +2910,11 @@ case 'gdrive': {
 }
 break
 case 'invite': {
-	if (!m.isGroup) return mess.group
-	if (!isBotAdmins) return mess.botAdmin
-if (!text) return reply(`I invte duh chu a number rawn ziak tel rawh\n\nTiang hian: \n*${prefix + command}* 918416093656`)
+	if (!m.isGroup) return m.reply(mess.group)
+	if (!isBotAdmins) return m.reply(mess.botAdmin)
+if (!text) throw `I invite duh chu a number rawn ziak tel rawh\n\nTiang hian: \n*${prefix + command}* 918416093656`
 if (text.includes('+')) return reply(`Number chu plus *+* sign tello hian rawn dah rawh`)
-if (isNaN(text)) return reply(`Country code nen space awm miah lohin rawn dah tel rawh`)
+if (isNaN(text)) return m.reply(`Country code nen space awm miah lohin rawn dah tel rawh`)
 let group = m.chat
 let link = 'https://chat.whatsapp.com/' + await HBWABotInc.groupInviteCode(group)
       await HBWABotInc.sendMessage(text+'@s.whatsapp.net', {text: `≡ *GROUP INVITATION*\n\nMi pakhatin he group a rawn tel tur hian a sawm che a ni \n\n${link}`, mentions: [m.sender]})
