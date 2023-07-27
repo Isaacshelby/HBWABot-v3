@@ -225,23 +225,17 @@ ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
                 let nama = await HBWABotInc.getName(num)
 memb = metadata.participants.length
 
-Kon = await getBuffer(ppuser)
+Kon = await getBuffer(`https://i.imgur.com/Csx7R8J.jpg`)
 
-Tol = await getBuffer(ppuser)
+Tol = await getBuffer(`https://i.imgur.com/Csx7R8J.jpg`)
                 if (anu.action == 'add') {
-                    HBWABotInc.sendMessage(anu.id, { image: Kon, contextInfo: { mentionedJid: [num] }, caption: `Hello @${herbertName.split("@")[0]}
-Kei hi HBWABot ka ni a, ${metadata.subject} ah hian ka lo lawm a che. 
-*Group Description:*
-${metadata.desc}`
- })
-                } else if (anu.action == 'remove') {
-                HBWABotInc.sendMessage(anu.id, { image: Kon, contextInfo: { mentionedJid: [num] }, caption: `${herbertName.split("@")[0]}, He tia i left tak mai hi kan ui lo hle che a, chu vangin i rawn kir tawh lo ngei kan beisei🤣Lol`})
+                    HBWABotInc.sendMessage(anu.id, { image: Kon, contextInfo: { mentionedJid: [num] }, caption: `Hello @${herbertName.split("@")[0]} \nKei hi HBWABot ka ni a, ${metadata.subject} ah hian ka lo lawm a che.\n*Group Description:*\n${metadata.desc}` })
                 }
-  }        
-} catch (err) {
-console.log(err)
-}
-})
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    })
 
     // respon cmd pollMessage
     async function getMessage(key){
@@ -315,7 +309,7 @@ HBWABotInc.sendContact = async (jid, kon, quoted = '', opts = {}) => {
 	for (let i of kon) {
 	    list.push({
 	    	displayName: await HBWABotInc.getName(i),
-	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await HBWABotInc.getName(i)}\nFN:${await HBWABotInc.getName(i)}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Click here to chat\nitem2.EMAIL;type=INTERNET:${ytname}\nitem2.X-ABLabel:YouTube\nitem3.URL:${socialm}\nitem3.X-ABLabel:IG\nitem4.ADR:;;${location};;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
+	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await HBWABotInc.getName(i)}\nFN:${await HBWABotInc.getName(i)}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Hmet la be rawh\nitem2.EMAIL;type=INTERNET:${ytname}\nitem2.X-ABLabel:YouTube\nitem3.URL:${socialm}\nitem3.X-ABLabel:IG\nitem4.ADR:;;India;Mizoram Aizawl ;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
 	    })
 	}
 	HBWABotInc.sendMessage(jid, { contacts: { displayName: `${list.length} Contact`, contacts: list }, ...opts }, { quoted })
