@@ -1803,7 +1803,6 @@ ID Zone: ${q.split("|")[1]}`)
 break
 case 's': case 'sticker': case 'stiker': {
 if (!quoted) throw `*Video emaw thlalak a caption ah* ${prefix + command} *tih rawn type rawh*`
-            m.reply(mess.wait)
 if (/image/.test(mime)) {
 let media = await quoted.download()
 let encmedia = await HBWABotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })

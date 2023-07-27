@@ -174,12 +174,12 @@ ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 			if (res.announce == true) {
 				await sleep(2000)
 				HBWABotInc.sendMessage(res.id, {
-					text: `「 Group Settings Change 」\n\nGroup has been closed by admin, Now only admins can send messages !`,
+					text: `「 Group Settings Change 」\n\nAdmin in group a close e, Tun a tangin admin te chauh group-ah message an thawn thei tawh ang !`,
 				});
 			} else if (res.announce == false) {
 				await sleep(2000)
 				HBWABotInc.sendMessage(res.id, {
-					text: `「 Group Settings Change 」\n\nThe group has been opened by admin, Now participants can send messages !`,
+					text: `「 Group Settings Change 」\n\nAdmin in group a open leh tawha, Tun a tangin participate zawng zawng message an send leh thei tawh ang!`,
 				});
 			} else if (res.restrict == true) {
 				await sleep(2000)
@@ -222,92 +222,29 @@ ppgroup = await HBWABotInc.profilePictureUrl(anu.id, 'image')
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 }
 //welcome\\
+                let nama = await HBWABotInc.getName(num)
 memb = metadata.participants.length
-HerbertWlcm = await getBuffer(ppuser)
-HerbertLft = await getBuffer(ppuser)
+
+Kon = await getBuffer(ppuser)
+
+Tol = await getBuffer(ppuser)
                 if (anu.action == 'add') {
-                const herbertbuffer = await getBuffer(ppuser)
-                let herbertName = num
-                const xtime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-	            const xdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
-	            const xmembers = metadata.participants.length
-                herbertbody = `Hello @${herbertName.split("@")[0]}
+                    HBWABotInc.sendMessage(anu.id, { image: Kon, contextInfo: { mentionedJid: [num] }, caption: `Hello @${herbertName.split("@")[0]}
 Kei hi HBWABot ka ni a, ${metadata.subject} ah hian ka lo lawm a che. 
 *Group Description:*
-${metadata.desc}
+${metadata.desc}`
+ })
+                },
+    let nama = await HBWABotInc.getName(num)
+memb = metadata.participants.length
 
-_I rawn join hun hi ${herberttime} ${herbertdate} a ni_`
-HBWABotInc.sendMessage(anu.id,
- { text: herbertbody,
- contextInfo:{
- mentionedJid:[num],
- "externalAdReply": {"showAdAttribution": true,
- "containsAutoReply": true,
- "title": ` ${global.botname}`,
-"body": `${ownername}`,
- "previewType": "PHOTO",
-"thumbnailUrl": ``,
-"thumbnail": HerbertWlcm,
-"sourceUrl": `${wagc}`}}})
-                } else if (anu.action == 'remove') {
-                	const herbertbuffer = await getBuffer(ppuser)
-                    const herberttime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-	                const herbertdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
-                	let herbertName = num
-                    const herbertmembers = metadata.participants.length
-                    herbertbody = `@${herbertName.split("@")[0]}, He tia i left tak mai hi kan ui lo hle che a, chu vangin i rawn kir tawh lo ngei kan beisei🤣Lol
+Kon = await getBuffer(ppuser)
 
-left hun ${herberttime} ${herbertdate}`
-HBWABotInc.sendMessage(anu.id,
- { text: herbertbody,
- contextInfo:{
- mentionedJid:[num],
- "externalAdReply": {"showAdAttribution": true,
- "containsAutoReply": true,
- "title": ` ${global.botname}`,
-"body": `${ownername}`,
- "previewType": "PHOTO",
-"thumbnailUrl": ``,
-"thumbnail": HerbertLft,
-"sourceUrl": `${wagc}`}}})
-} else if (anu.action == 'promote') {
-const herbertbuffer = await getBuffer(ppuser)
-const herberttime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-const herbertdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
-let herbertName = num
-herbertbody = ` 𝗖𝗼𝗻𝗴𝗿𝗮𝘁𝘀🎉 @${herbertName.split("@")[0]},*admin* ah *promoted* i ni e🥳`
-   HBWABotInc.sendMessage(anu.id,
- { text: herbertbody,
- contextInfo:{
- mentionedJid:[num],
- "externalAdReply": {"showAdAttribution": true,
- "containsAutoReply": true,
- "title": ` ${global.botname}`,
-"body": `${ownername}`,
- "previewType": "PHOTO",
-"thumbnailUrl": ``,
-"thumbnail": HerbertWlcm,
-"sourceUrl": `${wagc}`}}})
-} else if (anu.action == 'demote') {
-const herbertbuffer = await getBuffer(ppuser)
-const herberttime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
-const herbertdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
-let herbertName = num
-herbertbody = `𝗢𝗼𝗽𝘀‼️ @${herbertName.split("@")[0]}, *admin* a tang *demoted* i ni 😬`
-HBWABotInc.sendMessage(anu.id,
- { text: herbertbody,
- contextInfo:{
- mentionedJid:[num],
- "externalAdReply": {"showAdAttribution": true,
- "containsAutoReply": true,
- "title": ` ${global.botname}`,
-"body": `${ownername}`,
- "previewType": "PHOTO",
-"thumbnailUrl": ``,
-"thumbnail": HerbertLft,
-"sourceUrl": `${wagc}`}}})
-}
-}
+Tol = await getBuffer(ppuser)
+                if (anu.action == 'remove') {
+                    HBWABotInc.sendMessage(anu.id, { image: Kon, contextInfo: { mentionedJid: [num] }, caption: `${herbertName.split("@")[0]}, He tia i left tak mai hi kan ui lo hle che a, chu vangin i rawn kir tawh lo ngei kan beisei🤣Lol`})
+                }
+  }        
 } catch (err) {
 console.log(err)
 }
