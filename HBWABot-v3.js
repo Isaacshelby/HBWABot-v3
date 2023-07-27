@@ -381,20 +381,20 @@ Type *surrender* to surrender and admit defeat`
 	    roof.asal = m.chat
 	    clearTimeout(roof.waktu)
 	    //delete roof[roof.id].waktu
-	    HBWABotInc.sendText(m.chat, `Suit has been sent to chat
+	    HBWABotInc.sendText(m.chat, `RPS Thawn i thlan tur pvt a thawn ve ve in ni ta!..
 
 @${roof.p.split`@`[0]} and 
 @${roof.p2.split`@`[0]}
 
 Please choose a suit in the respective chat"
 click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] })
-	    if (!roof.pilih) HBWABotInc.sendText(roof.p, `Please Select \n\Rock🗿\nPaper📄\nScissors✂️`, m)
-	    if (!roof.pilih2) HBWABotInc.sendText(roof.p2, `Please Select \n\nRock🗿\nPaper📄\nScissors✂️`, m)
+	    if (!roof.pilih) HBWABotInc.sendText(roof.p, `I duh ber thlang rawh \n\Rock🗿\nPaper📄\nScissors✂️`, m)
+	    if (!roof.pilih2) HBWABotInc.sendText(roof.p2, `I duh ber thlang rawh \n\nRock🗿\nPaper📄\nScissors✂️`, m)
 	    roof.waktu_milih = setTimeout(() => {
-	    if (!roof.pilih && !roof.pilih2) HBWABotInc.sendText(m.chat, `Both Players Don't Want To Play,\nSuit Canceled`)
+	    if (!roof.pilih && !roof.pilih2) HBWABotInc.sendText(m.chat, `In pahnihin in khel tum loh ve ve vangin RPS chu cancel a ni`)
 	    else if (!roof.pilih || !roof.pilih2) {
 	    win = !roof.pilih ? roof.p2 : roof.p
-	    HBWABotInc.sendTextWithMentions(m.chat, `@${(roof.pilih ? roof.p2 : roof.p).split`@`[0]} Didn't Choose Suit, Game Over!`, m)
+	    HBWABotInc.sendTextWithMentions(m.chat, `@${(roof.pilih ? roof.p2 : roof.p).split`@`[0]} I thlan hman loh avangin, Game Over a ni!`, m)
 	    }
 	    delete this.suit[roof.id]
 	    return !0
@@ -409,14 +409,14 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
 	    if (jwb && reg.test(m.text) && !roof.pilih && !m.isGroup) {
 	    roof.pilih = reg.exec(m.text.toLowerCase())[0]
 	    roof.text = m.text
-	    m.reply(`You have chosen ${m.text} ${!roof.pilih2 ? `\n\nWaiting for the opponent to choose` : ''}`)
-	    if (!roof.pilih2) HBWABotInc.sendText(roof.p2, '_The opponent has chosen_\nNow it is your turn', 0)
+	    m.reply(`I thlang tawh a ${m.text} ${!roof.pilih2 ? `\n\nI tumpui la nghak ang` : ''}`)
+	    if (!roof.pilih2) HBWABotInc.sendText(roof.p2, '_Lehlamin a thlang tawh a_\nTunah nang ang i thlan hun', 0)
 	    }
 	    if (jwb2 && reg.test(m.text) && !roof.pilih2 && !m.isGroup) {
 	    roof.pilih2 = reg.exec(m.text.toLowerCase())[0]
 	    roof.text2 = m.text
-	    m.reply(`You have chosen ${m.text} ${!roof.pilih ? `\n\nWaiting for the opponent to choose` : ''}`)
-	    if (!roof.pilih) HBWABotInc.sendText(roof.p, '_The opponent has chosen_\nNow it is your turn', 0)
+	    m.reply(`I thlang tawh a ${m.text} ${!roof.pilih ? `\n\nI tumpui la nghak ang` : ''}`)
+	    if (!roof.pilih) HBWABotInc.sendText(roof.p, '_Lehlamin a thlang tawh a_\nTunah nang ang i thlan hun', 0)
 	    }
 	    let stage = roof.pilih
 	    let stage2 = roof.pilih2
@@ -429,10 +429,10 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
 	    else if (k.test(stage) && b.test(stage2)) win = roof.p
 	    else if (k.test(stage) && g.test(stage2)) win = roof.p2
 	    else if (stage == stage2) tie = true
-	    HBWABotInc.sendText(roof.asal, `_*Suit Results*_${tie ? '\nSERIES' : ''}
+	    HBWABotInc.sendText(roof.asal, `_*RPS Results*_${tie ? '\nSERIES' : ''}
 
-@${roof.p.split`@`[0]} (${roof.text}) ${tie ? '' : roof.p == win ? ` Win \n` : ` Lost \n`}
-@${roof.p2.split`@`[0]} (${roof.text2}) ${tie ? '' : roof.p2 == win ? ` Win \n` : ` Lost  \n`}
+@${roof.p.split`@`[0]} (${roof.text}) ${tie ? '' : roof.p == win ? ` A chak zawk chu\n` : ` A chak loh zawk chu \n`}
+@${roof.p2.split`@`[0]} (${roof.text2}) ${tie ? '' : roof.p2 == win ? ` A chak zawk chu \n` : ` A chak loh zawk chu \n`}
 `.trim(), m, { mentions: [roof.p, roof.p2] })
 	    delete this.suit[roof.id]
 	    }
@@ -1325,7 +1325,7 @@ emoji.get(satu)
 HBWABotInc.sendMessage(from, { caption: mess.success, image: {url: emoji.images[dua].url} }, {quoted:m})
 })
 } catch (e) {
-m.reply("Emoji error, please enter another emoji\nNOTE : Just enter 1 emoji")
+m.reply("Emoji error, emoji dang rawn dah rawg\nNOTE : Emoji pakhat chauh aw")
 }
 }
 
@@ -1358,6 +1358,35 @@ contacts: list }, mentions: [sender] }, { quoted: m })
 HBWABotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Hei aw ka owner hmelthapa chu😇`, mentions: [sender]}, { quoted: repf })
 }
 break
+case 'suitpvp':case 'rps': case 'rockpaperscissors': case 'suit': {
+            this.suit = this.suit ? this.suit : {}
+            let poin = 10
+            let poin_lose = 10
+            let timeout = 60000
+            if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.sender))) replyherbertstyle(`Game i zo chiah`)
+	    if (m.mentionedJid[0] === m.sender) return replyherbertstyle(`Mi malin a khel thei loh !`)
+            if (!m.mentionedJid[0]) return replyherbertstyle(`_Tunge i challange ang?_\nI challenge duh chu tag rawh..\n\nTiang hian : ${prefix}rps @${owner}`, m.chat, { mentions: [owner[1] + '@s.whatsapp.net'] })
+            if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.mentionedJid[0]))) return replyherbertstyle(`I challenge pui mek hi mi dang nen an la ti mek a chu vangin lo nghak rawh`)
+            let id = 'suit_' + new Date() * 1
+            let caption = `_*RPS PvP*_
+
+@${m.sender.split`@`[0]} *Challenged* @${m.mentionedJid[0].split`@`[0]} *RPS Khel turin*
+
+*Hi* @${m.mentionedJid[0].split`@`[0]} *I accept duh chuan accept tih type la i duh loh chuan reject tih type rawh`
+            this.suit[id] = {
+            chat: await HBWABotInc.sendText(m.chat, caption, m, { mentions: parseMention(caption) }),
+            id: id,
+            p: m.sender,
+            p2: m.mentionedJid[0],
+            status: 'wait',
+            waktu: setTimeout(() => {
+            if (this.suit[id]) HBWABotInc.sendText(m.chat, `_Hun a tawp_`, m)
+            delete this.suit[id]
+            }, 60000), poin, poin_lose, timeout
+            }
+            }
+            break
+
 case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
 	        let ownernya = ownernomer + '@s.whatsapp.net'
             let me = m.sender
@@ -2432,104 +2461,98 @@ case 'tomp4': case 'tovideo': {
      "send abusive words in any grup, excepting this grup, and send screenshot proof here"
 ]
               const herbertdare = dare[Math.floor(Math.random() * dare.length)]
-              bufferdare = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
+              bufferdare = await getBuffer(`https://i.imgur.com/hnH7qf0.jpeg`)
               HBWABotInc.sendMessage(from, { image: bufferdare, caption: '*Dare I THLANGA*\n'+ herbertdare }, {quoted:m})
               break
                             break
-       case 'truthxx':
+       case 'truth':
               const truth =[
-    "Have you ever liked anyone? How long?",
-    "If you can or if you want, which gc/outside gc would you make friends with? (maybe different/same type)",
-    "apa ketakutan terbesar kamu?",
-    "Have you ever liked someone and felt that person likes you too?",
-    "What is the name of your friend's ex-girlfriend that you used to secretly like?",
-    "Have you ever stolen money from your father or mom? The reason?",
-    "What makes you happy when you're sad?",
-    "Ever had a one sided love? if so who? how does it feel bro?", 
-    "been someone's mistress?",
-    "the most feared thing",
-    "Who is the most influential person in your life?",
-    "what proud thing did you get this year", 
-    "Who is the person who can make you awesome", 
-    "Who is the person who has ever made you very happy?", 
-    "Who is closest to your ideal type of partner here", 
-    "Who do you like to play with??", 
-    "Have you ever rejected people? the reason why?",
-    "Mention an incident that made you hurt that you still remember", 
-    "What achievements have you got this year??",
-    "What's your worst habit at school??",
-    "What song do you sing most in the shower",
-    "Have you ever had a near-death experience",
-    "When was the last time you were really angry. Why?",
-    "Who is the last person who called you",
-    "Do you have any hidden talents, What are they",
-    "What word do you hate the most?",
-    "What is the last YouTube video you watched?",
-    "What is the last thing you Googled",
-    "Who in this group would you want to swap lives with for a week",
-    "What is the scariest thing thats ever happened to you",
-    "Have you ever farted and blamed it on someone else",
-    "When is the last time you made someone else cry",
-    "Have you ever ghosted a friend",
-    "Have you ever seen a dead body",
-    "Which of your family members annoys you the most and why",
-    "If you had to delete one app from your phone, which one would it be",
-    "What app do you waste the most time on",
-    "Have you ever faked sick to get home from school",
-    "What is the most embarrassing item in your room",
-    "What five items would you bring if you got stuck on a desert island",
-    "Have you ever laughed so hard you peed your pants",
-    "Do you smell your own farts",
-    "have u ever peed on the bed while sleeping ??",
-    "What is the biggest mistake you have ever made",
-    "Have you ever cheated in an exam",
-    "What is the worst thing you have ever done",
-    "When was the last time you cried",
-    "whom do you love the most among ur parents", 
-    "do u sometimes put ur finger in ur nosetril?", 
-    "who was ur crush during the school days",
-    "tell honestly, do u like any boy in this grup",
-    "have you ever liked anyone? how long?",
-    "do you have gf/bf','what is your biggest fear?",
-    "have you ever liked someone and felt that person likes you too?",
-    "What is the name of your ex boyfriend of your friend that you once liked quietly?",
-    "ever did you steal your mothers money or your fathers money",
-    "what makes you happy when you are sad",
-    "do you like someone who is in this grup? if you then who?",
-    "have you ever been cheated on by people?",
-    "who is the most important person in your life",
-    "what proud things did you get this year",
-    "who is the person who can make you happy when u r sad",
-    "who is the person who ever made you feel uncomfortable",
-    "have you ever lied to your parents",
-    "do you still like ur ex",
-    "who do you like to play together with?",
-    "have you ever stolen big thing in ur life? the reason why?",
-    "Mention the incident that makes you hurt that you still remember",
-    "what achievements have you got this year?",
-    "what was your worst habit at school?",
-    "do you love the bot creator, herbert?ðŸ¤£",
-    "have you ever thought of taking revenge from ur teacher?",
-    "do you like current prime minister of ur country",
-    "you non veg or veg",
-    "if you could be invisible, what is the first thing you would do",
-    "what is a secret you kept from your parents",
-    "Who is your secret crush",
-    "whois the last person you creeped on social media",
-    "If a genie granted you three wishes, what would you ask for",
-    "What is your biggest regret",
-    "What animal do you think you most look like",
-    "How many selfies do you take a day",
-    "What was your favorite childhood show",
-    "if you could be a fictional character for a day, who would you choose",
-    "whom do you text the most",
-    "What is the biggest lie you ever told your parents",
-    "Who is your celebrity crush",
-    "Whats the strangest dream you have ever had",
-    "do you play pubg, if you then send ur id number"
+    "Tu emaw i duh rawh em? Enge chhan?",
+    "Ngaihzawng a tana i duh zawng?",
+    "I thumal huat ber?",
+    "I duh deuhin a duh ve che tih i hre tawh em?",
+    "I thianpa bialnu hlui hming, a ruka i lo duh thin kha enge ni?",
+    "I chhungte pawisa a rukin i la ru tawh em? Enge a chhan?",
+    "I lungngaih laiin eng thil in nge ti hlim thei ber che?",
+    "Eng ang mi nge ngaihdam harsa i tih ber?", 
+    "Mi i kawp tawh em?",
+    "I thil tih tawhah i in chhir ber?",
+    "I nunah tunge nghawng nei lian ber?",
+    "I huat zawng?", 
+    "Group-ah hian tunge fel i tih ber", 
+    "I crush khan a duh ve che tih i hria a, a bem lo che a, engtin nge i ti ang?", 
+    "Hetah i ideal type partner a in in close pui ber hming?", 
+    "Tunge in fiampui i chak ber??", 
+    "Mi i hnar tawh ngai em? enge a chhan?",
+    "I rilru tina thei thei thil pakhat, i la hriat reng chu sawi rawh", 
+    "Kuminah hian hlawhtlina i nei tawh em??",
+    "School-a i thil tih tawha pawi i la tih ber??",
+    "I in bual laiin eng hla nge i sak thin??",
+    "Thihna nen a in kaihhnawih thil i tawng tawh em?.",
+    "Engtikah nge i thinrim tak tak hnuhnun ber. enge a chhan?",
+    "Tuin nge be nuhnung ber che?",
+    "I talent kan hriat ve miah loh thup i nei em, Enge ni?",
+    "Eng thumal nge i huat ber?",
+    "Youtube-ah eng video nge i en hnuhnun ber?",
+    "Enge Google-ah i en hnuhnun ber?.",
+    "Kan group-ah hian karkhat chhung nun in thlak thleng pui duh i nei em?",
+    "I chungah thilhlauhawm deuh thleng a awm tawh em? eng tia thleng nge?. ",
+    "I vawiha mi dang i puh daih tawh em?",
+    "Mi dang avangin engtikah nge i ṭah hnuhnun ber?",
+    "I ṭhiante i tihṭhaih tawh em?",
+    "Mithi ruang i hmu tawh em",
+    "I chhungte zingah tuin nge ti lungawi loh ngun ber che? engtin nge a tih lungawih loh thun che?. ",
+    "I phone ah khan app delete dawn ta la eng apps nge i delete hmasak ber ang",
+    "Eng app-ah nge i hun i khawhral tam ber?",
+    "Dam lo lem zirin school a tangin i haw tawh em?",
+    "I room chhunga awm loh tura i duh ber?",
+    "Thlalêrah i lo awm ta a, chuan i rawn haw in thli panga hawn nge ngei anngaia, tah chuan eng thil panga chu nge i rawn hawn ang le?.",
+    "I nuihnasat lutuk vangin i kekawr zun khum tawh em?",
+    "I vawih a uih i ti tawh thin em?",
+    "I muthil laiin i zun i cheh tawh em??",
+    "I thiltih sual lian enge?.",
+    "Exam naah i entawn tawh em?..",
+    "I thiltih tawh zawng zawng zingah enge pawi ila tih ber",
+    "Engtikah nge i ṭah hnuhnun ber?..",
+    "I nu leh pa i pi leh pu te-ah tunge i hmangih ber?", 
+    "Min an chhaih chea i laih chang hian eng tin nge i kut i dah thin?", 
+    "I School kal laiin tunge i crush ber thin?",
+    "Chhan ngai ngai tûrin, He group ah hian tunge bialnu/bialpa tana i duh ber?",
+    "Mi i duh tawh em? enge a chhan?",
+    "Tunah hian ngaihzawng i nei em? tunge a hming?",
+    "Mi i duh deuh mai khan a duh ve che in i hria em?",
+    "In titi naah eng in sawin nge in nuih nasat ber thin?",
+    "Kan group-ah hian duh deuh mai i nei em? I neih chuan a hming sawi rawh?",
+    "Mi i bum tawh ngai em?",
+    "Miin an bum tawh ngai che em?.",
+    "Kan group a bot hi a tha i ti em?.",
+    "I awm tinuam lo tu deuh mihing i tawng tawh em?",
+    "I chhungte i bum tawh em?.",
+    "I ex kha ila duh em?",
+    "In fiamnaah hian enge i ngainat ber?",
+    "Sa-ah hian eng sa nge i duh ber? sa ruak tih awih lohin😂🫴",
+    "Bot siamtu Herberta hi i hmangaih em?.",
+    "In zirtîrtu teah tunge sual i tih ber?",
+    "Tuna in Prime Minister hi tha i tih zawng a nih em",
+    "Meitei leh Tlangmi in do naah hian tu zawk nge i ṭan?",
+    "In ti bo thei ta la eng thil nge i tih hmasak ber ang?.",
+    "I chhungte hriat lohin thilruk tih i nei tawh em?",
+    "A ruka i star deuh kha tunge",
+    "Social media tangin tunge i biak hnuhnun ber",
+    "Pheichham i man hlauha, a ni chuan thil pathum i duh duh min dil rawh a ti a, tah chuan enge i dil hmasak ber ang?",
+    "Khawvelah hian tunge i ngaihsan ber?",
+    "Ran vulh chiah hian enge i duh ber?.",
+    "Vawiinah vawi engzat nge i in selfish tawh",
+    "I tet laiin enge i ngainat/duh ber?",
+    "Ngaihzawng a tan hian eng ang mi nge i duh ber?",
+    "Tunge i in text pui ngun ber",
+    "I chhungte bulah dawt lian tham deuh sawi i nei tawh em? enge ni?",
+    "Mizo milar ah hian tunge i duh ber",
+    "I ngaihzawng nen a in awmdan i dream kir leh vang veng in a rukin i nui suk thin em",
+    "Ml em i khel thin em?.. i khel thin chuan i id lo sawi chhin teh."
 ]
               const herberttruth = truth[Math.floor(Math.random() * truth.length)]
-              buffertruth = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
+              buffertruth = await getBuffer(`https://i.imgur.com/hnH7qf0.jpeg`)
               HBWABotInc.sendMessage(from, { image: buffertruth, caption: '*TRUTH I THLANGA*\n'+ herberttruth }, {quoted:m})
               break
 case 'toimg': case 'thlalak': {
