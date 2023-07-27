@@ -234,15 +234,8 @@ Kei hi HBWABot ka ni a, ${metadata.subject} ah hian ka lo lawm a che.
 *Group Description:*
 ${metadata.desc}`
  })
-                }
-    let nama = await HBWABotInc.getName(num)
-memb = metadata.participants.length
-
-Kon = await getBuffer(ppuser)
-
-Tol = await getBuffer(ppuser)
-                if (anu.action == 'remove') {
-                    HBWABotInc.sendMessage(anu.id, { image: Kon, contextInfo: { mentionedJid: [num] }, caption: `${herbertName.split("@")[0]}, He tia i left tak mai hi kan ui lo hle che a, chu vangin i rawn kir tawh lo ngei kan beisei🤣Lol`})
+                } else if (anu.action == 'remove') {
+                HBWABotInc.sendMessage(anu.id, { image: Kon, contextInfo: { mentionedJid: [num] }, caption: `${herbertName.split("@")[0]}, He tia i left tak mai hi kan ui lo hle che a, chu vangin i rawn kir tawh lo ngei kan beisei🤣Lol`})
                 }
   }        
 } catch (err) {
