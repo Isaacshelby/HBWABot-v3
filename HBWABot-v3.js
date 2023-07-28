@@ -373,7 +373,7 @@ Type *surrender* to surrender and admit defeat`
 	    let tie = false
 	    if (m.sender == roof.p2 && /^(acc(ept)?|accept|yes|okay?|reject|no|later|nop(e.)?yes|y)/i.test(m.text) && m.isGroup && roof.status == 'wait') {
 	    if (/^(reject|no|later|n|nop(e.)?yes)/i.test(m.text)) {
-	    HBWABotInc.sendTextWithMentions(m.chat, `@${roof.p2.split`@`[0]} in @${roof.p.split`@`[0]} a cho lo a, chu vangin cancel a ni`, m)
+	    HBWABotInc.sendTextWithMentions(m.chat, `@${roof.p2.split`@`[0]} @${roof.p.split`@`[0]} in a cho lo a, chu vangin cancel a ni`, m)
 	    delete this.suit[roof.id]
 	    return !0
 	    }
@@ -394,7 +394,7 @@ He mi link hi hmet la RPS a i duh ber kha lo thlang rawh
 	    if (!roof.pilih && !roof.pilih2) HBWABotInc.sendText(m.chat, `In pahnihin in khel tum loh ve ve vangin RPS chu cancel a ni`)
 	    else if (!roof.pilih || !roof.pilih2) {
 	    win = !roof.pilih ? roof.p2 : roof.p
-	    HBWABotInc.sendTextWithMentions(m.chat, `@${(roof.pilih ? roof.p2 : roof.p).split`@`[0]} hun tiam chhunga thlan hman loh avangin, Game Over a ni!`, m)
+	    HBWABotInc.sendTextWithMentions(m.chat, `@${(roof.pilih ? roof.p2 : roof.p).split`@`[0]} hun tiam chhunga a thlan hman loh avangin, Game Over a ni!`, m)
 	    }
 	    delete this.suit[roof.id]
 	    return !0
@@ -409,13 +409,13 @@ He mi link hi hmet la RPS a i duh ber kha lo thlang rawh
 	    if (jwb && reg.test(m.text) && !roof.pilih && !m.isGroup) {
 	    roof.pilih = reg.exec(m.text.toLowerCase())[0]
 	    roof.text = m.text
-	    m.reply(` ${m.text} thlang a.... ${!roof.pilih2 ? `\n\nI tumpui la nghak ang` : ''}`)
+	    m.reply(` ${m.text} i thlang e✓ ${!roof.pilih2 ? `\n\nI tumpui la nghak lawk ang` : ''}`)
 	    if (!roof.pilih2) HBWABotInc.sendText(roof.p2, '_Lehlamin a thlang tawh a_\nTunah nang i thlan hun', 0)
 	    }
 	    if (jwb2 && reg.test(m.text) && !roof.pilih2 && !m.isGroup) {
 	    roof.pilih2 = reg.exec(m.text.toLowerCase())[0]
 	    roof.text2 = m.text
-	    m.reply(`${m.text} i thlanga.... ${!roof.pilih ? `\n\nI tumpui la nghak ang` : ''}`)
+	    m.reply(`${m.text} i thlang e✓ ${!roof.pilih ? `\n\nI tumpui la nghak lawk ang` : ''}`)
 	    if (!roof.pilih) HBWABotInc.sendText(roof.p, '_Lehlamin a thlang tawh a_\nTunah nang i thlan hun', 0)
 	    }
 	    let stage = roof.pilih
@@ -429,10 +429,10 @@ He mi link hi hmet la RPS a i duh ber kha lo thlang rawh
 	    else if (k.test(stage) && b.test(stage2)) win = roof.p
 	    else if (k.test(stage) && g.test(stage2)) win = roof.p2
 	    else if (stage == stage2) tie = true
-	    HBWABotInc.sendText(roof.asal, `_*RPS Results*_${tie ? '\nSERIES' : ''}
+	    HBWABotInc.sendText(roof.asal, `_*RPS Results*_${tie ? '\nIn in hneh tawk chiah' : ''}
 
-@${roof.p.split`@`[0]} (${roof.text}) ${tie ? '' : roof.p == win ? ` A chak zawka\n` : ` A chak loh zawk\n`}
-@${roof.p2.split`@`[0]} (${roof.text2}) ${tie ? '' : roof.p2 == win ? ` A chak zawka \n` : ` A chak loh zawk\n`}
+@${roof.p.split`@`[0]} (${roof.text}) ${tie ? '' : roof.p == win ? ` A chak zawk\n` : ` A chak loh zawk\n`}
+@${roof.p2.split`@`[0]} (${roof.text2}) ${tie ? '' : roof.p2 == win ? ` A chak zawk \n` : ` A chak loh zawk\n`}
 `.trim(), m, { mentions: [roof.p, roof.p2] })
 	    delete this.suit[roof.id]
 	    }
@@ -2422,7 +2422,7 @@ case 'tomp4': case 'tovideo': {
     "I lam lai video, darkar khat chhung status rawh!. i lam lai video i neih loh chuan siam ngha la rawh status ah a rang lamin up vat ang che",
     "Tui bottle khat in vek rawh",
     "Mi panga zinga i text hnuhnun ber nena in in biak dan rawn thawn rawh",
-    "Darkar nga chhung i pum status ah hmang rawh",
+    "Darkar nga chhung i hming pum status ah hmang rawh",
     "Filter/Effect tel lohin short dance siam la, darkar khat chhung status ah hmang rawh",
     "I bestie, kha call la Bitch va ti rawh",
     "Filter/Effect tel lohin i pic minute 10 chhung status ah hmang rawh",
@@ -2431,24 +2431,24 @@ case 'tomp4': case 'tovideo': {
     "I Crush/Ngaihzawng/bestie va call la, i call ngei a nih tih chian nan rawn screenshot bawk ang che",
     "Kei tih loh kan group members zinga mi pakhat va pvt la, i hmelchhia va ti rawh",
     "I chat a i pin emaw i chat a hming awm hmasa ber kha I HMELṬHA KA TI tiin va thawn rawh",
-    "Mipa i nih chuan hmeichhia kha mention la Hmeuchhia i nih chuan mipa maintion rawh ti chuan Voice in kan group member zinga mi mipakhai i mention chu Duat ka ti thei che ngem ti rawh le",
+    "Mipa i nih chuan hmeichhia kha mention la Hmeichhia i nih chuan mipa mention rawh ti chuan Voice in kan group member zinga mi mipakhai i mention chu Duat ka ti thei che ngem ti rawh le",
     "Truth or Dare khel zingah hian a mal te te in va pvt la (Mipa i nih chuan hmeichhe thawn la/Hmeichhia i nih chuan Mipa i thawn ang) Ka hmangaih che va ti rawh",
     "Ni 3 chhung Bollywood actor lar deuh i duh ber dp hmang rawh",
     "I crush thlalak kha status la, a caption ah Hei hi ka crush an ni, tiin dah bawk rawh",
     "WhatsApp a i username hi thlak la I AM A GAY tiin darkar khat chhung hmang ang che",
     "Darkar nga ral hmain i contact a i duh ber kha thlang la, Ni ila va ti rawh",
     "Nang leh nang in beng vak la, i in ben ri chu voice in rawn thawn rawh",
-    "I ngaihzawng kha a pic rawn thawn la, a caption ah khawvelah a hmeichhe ber rawn ti rawh",
+    "I ngaihzawng kha a pic rawn thawn la, a caption ah khawvelah a hmelchhe ber rawn ti rawh",
     "Voice in Yemite kudasai rawn ti rawh",
     "I hmai chiah langin thla la la, rawn thawn rawh",
     "I thlalak rawn thawn la, a caption ah patil ka ni rawn ti rawh",
     "Voice in lung phek ṭha thler thlawr tiin rang deuhin rawn sawi rawh",
     "Voice in tlanga thing khi thli ṭha chhem thluk nge thli chhe chhem thluk tiin rang deuhin rawn ti rawh",
-    "I username thlak la Mi lar ka ni tiin nikhat chhung hmang rawh",
-    "Voice in Sakhipa khi ṭha phak tiin rang deuhin rawn sawi rawh",
+    "I username thlak la Mi lerh ka ni tiin nikhat chhung hmang rawh",
+    "Voice in Sakhipa ki ṭha phak tiin rang deuhin rawn sawi rawh",
     "say i love the bot owner herbert through voice note🙄",
     "I ngaihzawng thlalak rawn thawn rawh",
-    "Voice in savawm mawng vawm bel mawng vawm tiin rawn deuhin rawn sawi rawh",
+    "Voice in savawm mawng vawm bel mawng vawm tiin rang deuhin rawn sawi rawh",
     "Voice in chhuara chaw ṭhing tlang ṭhla hlawk tiin rang deuhin rawn sawi rawh",
      "Dare a nih tih hrilh miah lohin, i ṭhiannu/ṭhianpa kha, ka hmangaih che, min nei duh angem, va ti rawh",
      "Voice in ser bul kar bal ser kar bal tiin rang deuhin rawn sawi rawh",
@@ -2697,6 +2697,7 @@ case 'awesomecheck':
                     case 'lovelycheck':
                       case 'uglycheck':
 if (!m.isGroup) return m.reply(mess.group)
+if (!q) return replyherbertstyle(`Tiang hian ti rawh : ${prefix+command} @Hminga`) 
 const cex = body.slice(0)
 const cek1 = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 const cek2 = cek1[Math.floor(Math.random() * cek1.length)]
