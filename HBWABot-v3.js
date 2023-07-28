@@ -373,7 +373,7 @@ Type *surrender* to surrender and admit defeat`
 	    let tie = false
 	    if (m.sender == roof.p2 && /^(acc(ept)?|accept|yes|okay?|reject|no|later|nop(e.)?yes|y)/i.test(m.text) && m.isGroup && roof.status == 'wait') {
 	    if (/^(reject|no|later|n|nop(e.)?yes)/i.test(m.text)) {
-	    HBWABotInc.sendTextWithMentions(m.chat, `@${roof.p2.split`@`[0]} rejected the suit, the suit is canceled`, m)
+	    HBWABotInc.sendTextWithMentions(m.chat, `@${roof.p2.split`@`[0]} in @${roof.p.split`@`[0]} a cho lo a, chu vangin cancel a ni`, m)
 	    delete this.suit[roof.id]
 	    return !0
 	    }
@@ -381,20 +381,20 @@ Type *surrender* to surrender and admit defeat`
 	    roof.asal = m.chat
 	    clearTimeout(roof.waktu)
 	    //delete roof[roof.id].waktu
-	    HBWABotInc.sendText(m.chat, `RPS Thawn i thlan tur pvt a thawn ve ve in ni ta!..
+	    HBWABotInc.sendText(m.chat, `RPS chu in thlan turin pvt a thawn ve ve in ni!..
 
-@${roof.p.split`@`[0]} and 
+@${roof.p.split`@`[0]} leh 
 @${roof.p2.split`@`[0]}
 
-Please choose a suit in the respective chat"
-click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] })
+He mi link hi hmet la RPS a i duh ber kha lo thlang rawh
+ https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] })
 	    if (!roof.pilih) HBWABotInc.sendText(roof.p, `I duh ber thlang rawh \n\Rock🗿\nPaper📄\nScissors✂️`, m)
 	    if (!roof.pilih2) HBWABotInc.sendText(roof.p2, `I duh ber thlang rawh \n\nRock🗿\nPaper📄\nScissors✂️`, m)
 	    roof.waktu_milih = setTimeout(() => {
 	    if (!roof.pilih && !roof.pilih2) HBWABotInc.sendText(m.chat, `In pahnihin in khel tum loh ve ve vangin RPS chu cancel a ni`)
 	    else if (!roof.pilih || !roof.pilih2) {
 	    win = !roof.pilih ? roof.p2 : roof.p
-	    HBWABotInc.sendTextWithMentions(m.chat, `@${(roof.pilih ? roof.p2 : roof.p).split`@`[0]} I thlan hman loh avangin, Game Over a ni!`, m)
+	    HBWABotInc.sendTextWithMentions(m.chat, `@${(roof.pilih ? roof.p2 : roof.p).split`@`[0]} hun tiam chhunga thlan hman loh avangin, Game Over a ni!`, m)
 	    }
 	    delete this.suit[roof.id]
 	    return !0
@@ -409,14 +409,14 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
 	    if (jwb && reg.test(m.text) && !roof.pilih && !m.isGroup) {
 	    roof.pilih = reg.exec(m.text.toLowerCase())[0]
 	    roof.text = m.text
-	    m.reply(`I thlang tawh a ${m.text} ${!roof.pilih2 ? `\n\nI tumpui la nghak ang` : ''}`)
-	    if (!roof.pilih2) HBWABotInc.sendText(roof.p2, '_Lehlamin a thlang tawh a_\nTunah nang ang i thlan hun', 0)
+	    m.reply(` ${m.text} thlang a.... ${!roof.pilih2 ? `\n\nI tumpui la nghak ang` : ''}`)
+	    if (!roof.pilih2) HBWABotInc.sendText(roof.p2, '_Lehlamin a thlang tawh a_\nTunah nang i thlan hun', 0)
 	    }
 	    if (jwb2 && reg.test(m.text) && !roof.pilih2 && !m.isGroup) {
 	    roof.pilih2 = reg.exec(m.text.toLowerCase())[0]
 	    roof.text2 = m.text
-	    m.reply(`I thlang tawh a ${m.text} ${!roof.pilih ? `\n\nI tumpui la nghak ang` : ''}`)
-	    if (!roof.pilih) HBWABotInc.sendText(roof.p, '_Lehlamin a thlang tawh a_\nTunah nang ang i thlan hun', 0)
+	    m.reply(`${m.text} i thlanga.... ${!roof.pilih ? `\n\nI tumpui la nghak ang` : ''}`)
+	    if (!roof.pilih) HBWABotInc.sendText(roof.p, '_Lehlamin a thlang tawh a_\nTunah nang i thlan hun', 0)
 	    }
 	    let stage = roof.pilih
 	    let stage2 = roof.pilih2
@@ -431,8 +431,8 @@ click https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] 
 	    else if (stage == stage2) tie = true
 	    HBWABotInc.sendText(roof.asal, `_*RPS Results*_${tie ? '\nSERIES' : ''}
 
-@${roof.p.split`@`[0]} (${roof.text}) ${tie ? '' : roof.p == win ? ` A chak zawk chu\n` : ` A chak loh zawk chu \n`}
-@${roof.p2.split`@`[0]} (${roof.text2}) ${tie ? '' : roof.p2 == win ? ` A chak zawk chu \n` : ` A chak loh zawk chu \n`}
+@${roof.p.split`@`[0]} (${roof.text}) ${tie ? '' : roof.p == win ? ` A chak zawka\n` : ` A chak loh zawk\n`}
+@${roof.p2.split`@`[0]} (${roof.text2}) ${tie ? '' : roof.p2 == win ? ` A chak zawka \n` : ` A chak loh zawk\n`}
 `.trim(), m, { mentions: [roof.p, roof.p2] })
 	    delete this.suit[roof.id]
 	    }
@@ -1366,11 +1366,11 @@ case 'suitpvp':case 'rps': case 'rockpaperscissors': case 'suit': {
             if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.sender))) replyherbertstyle(`Game i zo chiah`)
 	    if (m.mentionedJid[0] === m.sender) return replyherbertstyle(`Mi malin a khel thei loh !`)
             if (!m.mentionedJid[0]) return replyherbertstyle(`_Tunge i challange ang?_\nI challenge duh chu tag rawh..\n\nTiang hian : ${prefix}rps @${owner}`, m.chat, { mentions: [owner[1] + '@s.whatsapp.net'] })
-            if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.mentionedJid[0]))) return replyherbertstyle(`I challenge pui mek hi mi dang nen an la ti mek a chu vangin lo nghak rawh`)
+            if (Object.values(this.suit).find(roof => roof.id.startsWith('suit') && [roof.p, roof.p2].includes(m.mentionedJid[0]))) return replyherbertstyle(`I challenge pui mek hian mi dang nen an la ti mek a chu vangin lo nghak rawh`)
             let id = 'suit_' + new Date() * 1
             let caption = `_*RPS PvP*_
 
-@${m.sender.split`@`[0]} *Challenged* @${m.mentionedJid[0].split`@`[0]} *RPS Khel turin*
+@${m.sender.split`@`[0]} in *RPS* kher turin @${m.mentionedJid[0].split`@`[0]} a challenge che
 
 *Hi* @${m.mentionedJid[0].split`@`[0]} *I accept duh chuan accept tih type la i duh loh chuan reject tih type rawh`
             this.suit[id] = {
@@ -2115,7 +2115,7 @@ const pl= await herbertplaymp3.mp3(anup3k.url)
 await HBWABotInc.sendMessage(m.chat,{
     audio: fs.readFileSync(pl.path),
     fileName: anup3k.title + '.mp3',
-    mimetype: 'audio/mp4', ptt: true,
+    mimetype: 'audio/mp4', ptt: false,
     contextInfo:{
         externalAdReply:{
             title:anup3k.title,
@@ -2136,7 +2136,7 @@ if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return reply
 const audio=await herbertaudp3.mp3(text)
 await HBWABotInc.sendMessage(m.chat,{
     audio: fs.readFileSync(audio.path),
-    mimetype: 'audio/mp4', ptt: true,
+    mimetype: 'audio/mp4', ptt: false,
     contextInfo:{
         externalAdReply:{
             title:audio.meta.title,
@@ -2376,89 +2376,78 @@ case 'tomp4': case 'tovideo': {
    setTimeout(() => { fs.unlinkSync(buff) }, 10000)
   }
   break
-  case 'darexx':
+  case 'dare':
               const dare =[
-    "eat 2 tablespoons of rice without any side dishes, if it's dragging you can drink",
-    "spill people who make you pause",
-    "call crush/pickle now and send ss",
-    "drop only emote every time you type on gc/pc for 1 day.",
-    "say Welcome to Who Wants To Be a Millionaire! to all the groups you have",
-    "call ex saying miss",
-    "sing the chorus of the last song you played",
-    "vn your ex/crush/girlfriend, says hi (name), wants to call, just a moment. I miss you so much",
-	"Bang on the table (which is at home) until you get scolded for being noisy",
-    "Tell random people _I was just told I was your twin first, we separated, then I had plastic surgery. And this is the most ciyusss_ thing",
-    "mention ex's name",
-    "make 1 rhyme for the members!",
-    "send ur whatsapp chat list",
-    "chat random people with gheto language then ss here",
-    "tell your own version of embarrassing things",
-    "tag the person you hate",
-    "Pretending to be possessed, for Tiang hian ti rawh : possessed by dog, possessed by grasshoppers, possessed by refrigerator, etc.",
-    "change name to *I AM DONKEY* for 24 hours",
-    "shout *ma chuda ma chuda ma chuda* in front of your house",
-    "snap/post boyfriend photo/crush",
-    "tell me your boyfriend type!",
-    "say *i hv crush on you, do you want to be my girlfriend?* to the opposite sex, the last time you chatted (submit on wa/tele), wait for him to reply, if you have, drop here",
-    "record ur voice that read *titar ke age do titar, titar ke piche do titar*",
-    "prank chat ex and say *i love u, please come back.* without saying dare!",
-    "chat to contact wa in the order according to your battery %, then tell him *i am lucky to hv you!*",
-    "change the name to *I am a child of randi* for 5 hours",
-    "type in bengali 24 hours",
-    "Use selmon bhoi photo for 3 days",
-    "drop a song quote then tag a suitable member for that quote",
-    "send voice note saying can i call u baby?",
-    "ss recent call whatsapp",
-    "Say *YOU ARE SO BEAUTIFUL DON'T LIE* to guys!",
-    "pop to a group member, and say fuck you",
-    "Act like a chicken in front of ur parents",
-    "Pick up a random book and read one page out loud in vn n send it here",
-    "Open your front door and howl like a wolf for 10 seconds",
-    "Take an embarrassing selfie and paste it on your profile picture",
-    "Let the group choose a word and a well known song. You have to sing that song and send it in voice note",
-    "Walk on your elbows and knees for as long as you can",
-    "sing national anthem in voice note",
-    "Breakdance for 30 seconds in the sitting roomðŸ˜‚",
-    "Tell the saddest story you know",
-    "make a twerk dance video and put it on status for 5mins",
-    "Eat a raw piece of garlic",
-    "Show the last five people you texted and what the messages said",
-    "put your full name on status for 5hrs",
-    "make a short dance video without any filter just with a music and put it on ur status for 5hrs",
-    "call ur bestie, bitch",
-    "put your photo without filter on ur status for 10mins",
-    "say i love oli london in voice noteðŸ¤£ðŸ¤£",
-    "Send a message to your ex and say I still like you",
-    "call Crush/girlfriend/bestie now and screenshot here",
-    "pop to one of the group member personal chat and Say you ugly bustard",
-    "say YOU ARE BEAUTIFUL/HANDSOME to one of person who is in top of ur pinlist or the first person on ur chatlist",
-    "send voice notes and say, can i call u baby, if u r boy tag girl/if girl tag boy",
-    "write i love you (random grup member name, who is online) in personal chat, (if u r boy write girl name/if girl write boy name) take a snap of the pic and send it here",
-    "use any bollywood actor photo as ur pfp for 3 days",
-    "put your crush photo on status with caption, this is my crush",
-    "change name to I AM GAY for 5 hours",
-    "chat to any contact in whatsapp and say i will be ur bf/gf for 5hours",
-    "send voice note says i hv crush on you, want to be my girlfriend/boyfriend or not? to any random person from the grup(if u girl choose boy, if boy choose girl",
-    "slap ur butt hardly send the sound of slap through voice noteðŸ˜‚",
-    "state ur gf/bf type and send the photo here with caption, ugliest girl/boy in the world",
-    "shout bravooooooooo and send here through voice note",
-    "snap your face then send it here",
-    "Send your photo with a caption, i am lesbian",
-    "shout using harsh words and send it here through vn",
-    "shout you bastard in front of your mom/papa",
-    "change the name to i am idiot for 24 hours",
-    "slap urself firmly and send the sound of slap through voice noteðŸ˜‚",
-    "say i love the bot owner herbert through voice note",
-    "send your gf/bf pic here",
-    "make any tiktok dance challenge video and put it on status, u can delete it after 5hrs",
-    "breakup with your best friend for 5hrs without telling him/her that its a dare",
-     "tell one of your frnd that u love him/her and wanna marry him/her, without telling him/her that its a dare",
-     "say i love depak kalal through voice note",
-     "write i am feeling horny and put it on status, u can delete it only after 5hrs",
-     "write i am lesbian and put it on status, u can delete only after 5hrs",
-     "kiss your mommy or papa and say i love youðŸ˜Œ",
-     "put your father name on status for 5hrs",
-     "send abusive words in any grup, excepting this grup, and send screenshot proof here"
+    "I crush va call la i duh thu hrilh rawh",
+    "I bestfriend nena in in biakna screenshot in rawn thawn rawh",
+    "I chat list-a a hmasa ber kha, i hmeltha va ti rawh",
+    "I status view hnuhnung ber tu kha, i over va ti rawh",
+    "In siam chhe chungin thla la la dp-ah minute 5 chhung hmang rawh",
+    "I ex va call la ka ngai che va ti rawh, a proof nan rawn screen record ang che",
+    "I hla ngaihthlak hnuhnung ber kha rawn sa rawh le",
+    "Voice hmingin ABC hlain rawn sa rawh",
+	"Group neihtu, va pvt la ka crush  i ni va ti rawh",
+    "He mi group-ah hian minutes nga(5) chhung ka tawng tawh lo ang ti rawh",
+    "I ex hming han mention teh",
+    "Members awm te tan hian rhyme pakhat han phuah teh!",
+    "Mi i duh duh kha word mal pathum saptawngin va thawn la, chu chu rawn screenshot rawh",
+    "Nangma awmchhuakin mi kha a ngaihna hre loh deuhin va siam teh",
+    "I ngei deuh kha han tag teh lem",
+    "I bialnu/bialpa nena in in biakna screenshot la rawn thawn rawh",
+    "I hming thlak la *I im a Donkey* tiin darkar 24 chhung hmang rawh",
+    "In kawngkapuiah khan tlawh pawh phal loh tih va tar rawh",
+    "I chat list-a a hnuai ber kha I've a crush on you ti la chuan , bialnu tan min duh em va ti rawh?*, a rawn chhan hunah che eng tin nge a chhan che tih screenshot in rawn thawn leh rawh",
+    "Voice in ring deuh hlekin *Ka ek a chhuak ka ek a chhuak* rawn ti rawh",
+    "Hlau miah lohin i ex kha va prank la, *Lo kir la rawh ka hmangaih che!* va ti rawh",
+    "I WhatsApp contact a khan lut la, chhiar thla zar zar la i battery persent zatna chiah kha va bia la *nangmah vangin ka vanneih hle mai* va ti rawh",
+    "I hming thlak la *Randi ka nih hi* tiin darkar 5 hmang ang che",
+    "Hla rawn drop la chuan memebers te zingah ngaitjla tura i duh ber rawn tag bawk rawh",
+    "Voice in kan group a mi hi i duh ber mention la *Duat ka ti thei che a ngem?* ti rawh",
+    "I WhatsApp recent call te kha rawn screenshot rawh",
+    "Kan group members kei tih loh, mipakhat fuck you va ti la eng tin nge a chhan che rawn screenshot rawh",
+    "Lehkhabu la la phekkhat ring deuh khan voice in rawn chhiar vek rawh le",
+    "I tukver kha hawng la second 10 chhung chinhhnia te ungau tan in ti ve rawh",
+    "Group a members te hian hla lar deuh hlek rawn thlang se, chu chu sa la voice in groupah hian rawn thawn rawh",
+    "Voice in Mizo hnam hla rawn sa rawh",
+    "I thil hrit tawha thawnthu lungchhiat thlak ber rawn sawi rawh",
+    "I lam lai video, darkar khat chhung status rawh!. i lam lai video i neih loh chuan siam ngha la rawh status ah a rang lamin up vat ang che",
+    "Tui bottle khat in vek rawh",
+    "Mi panga zinga i text hnuhnun ber nena in in biak dan rawn thawn rawh",
+    "Darkar nga chhung i pum status ah hmang rawh",
+    "Filter/Effect tel lohin short dance siam la, darkar khat chhung status ah hmang rawh",
+    "I bestie, kha call la Bitch va ti rawh",
+    "Filter/Effect tel lohin i pic minute 10 chhung status ah hmang rawh",
+    "Voice in Ka hmangaih che rawn ti rawh",
+    "I ex kha va text la, ka la duh reng che va ti rawh",
+    "I Crush/Ngaihzawng/bestie va call la, i call ngei a nih tih chian nan rawn screenshot bawk ang che",
+    "Kei tih loh kan group members zinga mi pakhat va pvt la, i hmelchhia va ti rawh",
+    "I chat a i pin emaw i chat a hming awm hmasa ber kha I HMELṬHA KA TI tiin va thawn rawh",
+    "Mipa i nih chuan hmeichhia kha mention la Hmeuchhia i nih chuan mipa maintion rawh ti chuan Voice in kan group member zinga mi mipakhai i mention chu Duat ka ti thei che ngem ti rawh le",
+    "Truth or Dare khel zingah hian a mal te te in va pvt la (Mipa i nih chuan hmeichhe thawn la/Hmeichhia i nih chuan Mipa i thawn ang) Ka hmangaih che va ti rawh",
+    "Ni 3 chhung Bollywood actor lar deuh i duh ber dp hmang rawh",
+    "I crush thlalak kha status la, a caption ah Hei hi ka crush an ni, tiin dah bawk rawh",
+    "WhatsApp a i username hi thlak la I AM A GAY tiin darkar khat chhung hmang ang che",
+    "Darkar nga ral hmain i contact a i duh ber kha thlang la, Ni ila va ti rawh",
+    "Nang leh nang in beng vak la, i in ben ri chu voice in rawn thawn rawh",
+    "I ngaihzawng kha a pic rawn thawn la, a caption ah khawvelah a hmeichhe ber rawn ti rawh",
+    "Voice in Yemite kudasai rawn ti rawh",
+    "I hmai chiah langin thla la la, rawn thawn rawh",
+    "I thlalak rawn thawn la, a caption ah patil ka ni rawn ti rawh",
+    "Voice in lung phek ṭha thler thlawr tiin rang deuhin rawn sawi rawh",
+    "Voice in tlanga thing khi thli ṭha chhem thluk nge thli ṭha chhem thluk tiin rang deuhin rawn ti rawh",
+    "I username thlak la Mi lar ka ni tiin nikhat chhung hmang rawh",
+    "Voice in Sakhipa khi ṭha phak tiin rang deuhin rawn sawi rawh",
+    "say i love the bot owner herbert through voice note🙄",
+    "I ngaihzawng thlalak rawn thawn rawh",
+    "Voice in savawm mawng vawm bel mawng vawm tiin rawn deuhin rawn sawi rawh",
+    "Voice in chhuara chaw ṭhing tlang ṭhla hlawk tiin rang deuhin rawn sawi rawh",
+     "Dare a nih tih hrilh miah lohin, i ṭhiannu/ṭhianpa kha, ka hmangaih che, min nei duh angem, va ti rawh",
+     "Voice in ser bul kar bal ser kar bal tiin rang deuhin rawn sawi rawh",
+     "i am feeling horny tih status ah hmang la, darkar 5 chhung chu delete miah suh ang che",
+     "Patil ka ni, tiin darkar 5 chhung status ah hmang rawh",
+     "I nu leh i pa kha va chuk la, i hmangaih thu va hrilh ve ve rawh",
+     "I pa hming kha status-ah darkar 5 chhung hmang rawh",
+     "I group awmnaah khan tawngkam mawi loh tak va thawn la, eng tin nge an rawn chhan che minute 5 hnuah screenshot in rawn thawn rawh"
 ]
               const herbertdare = dare[Math.floor(Math.random() * dare.length)]
               bufferdare = await getBuffer(`https://i.imgur.com/hnH7qf0.jpeg`)
@@ -2467,7 +2456,7 @@ case 'tomp4': case 'tovideo': {
                             break
        case 'truth':
               const truth =[
-    "Tu emaw i duh rawh em? Enge chhan?",
+    "Tu emaw i insualpui tawh em? enge a chhan?",
     "Ngaihzawng a tana i duh zawng?",
     "I thumal huat ber?",
     "I duh deuhin a duh ve che tih i hre tawh em?",
@@ -2490,7 +2479,7 @@ case 'tomp4': case 'tovideo': {
     "I in bual laiin eng hla nge i sak thin??",
     "Thihna nen a in kaihhnawih thil i tawng tawh em?.",
     "Engtikah nge i thinrim tak tak hnuhnun ber. enge a chhan?",
-    "Tuin nge be nuhnung ber che?",
+    "Tuin nge be hnuhnung ber che?",
     "I talent kan hriat ve miah loh thup i nei em, Enge ni?",
     "Eng thumal nge i huat ber?",
     "Youtube-ah eng video nge i en hnuhnun ber?",
@@ -2506,19 +2495,18 @@ case 'tomp4': case 'tovideo': {
     "Eng app-ah nge i hun i khawhral tam ber?",
     "Dam lo lem zirin school a tangin i haw tawh em?",
     "I room chhunga awm loh tura i duh ber?",
-    "Thlalêrah i lo awm ta a, chuan i rawn haw in thli panga hawn nge ngei anngaia, tah chuan eng thil panga chu nge i rawn hawn ang le?.",
+    "Thlalêrah i lo awm ta a, chuan i rawn hawin thli panga hawn ngei ngei a ngaia, tah chuan eng thil panga chu nge i rawn hawn ang le?.",
     "I nuihnasat lutuk vangin i kekawr zun khum tawh em?",
     "I vawih a uih i ti tawh thin em?",
     "I muthil laiin i zun i cheh tawh em??",
-    "I thiltih sual lian enge?.",
+    "I thiltih sual lian ber enge?.",
     "Exam naah i entawn tawh em?..",
     "I thiltih tawh zawng zawng zingah enge pawi ila tih ber",
     "Engtikah nge i ṭah hnuhnun ber?..",
-    "I nu leh pa i pi leh pu te-ah tunge i hmangih ber?", 
-    "Min an chhaih chea i laih chang hian eng tin nge i kut i dah thin?", 
+    "I nu leh pa i pi leh pu te-ah tunge i hmangaih ber?", 
+    "Mi'n an chhaih chea i laih chang hian eng tin nge i kut i dah thin?", 
     "I School kal laiin tunge i crush ber thin?",
-    "Chhan ngai ngai tûrin, He group ah hian tunge bialnu/bialpa tana i duh ber?",
-    "Mi i duh tawh em? enge a chhan?",
+    "Chhan ngei ngei tûrin, He group ah hian tunge bialnu/bialpa tana i duh ber?",
     "Tunah hian ngaihzawng i nei em? tunge a hming?",
     "Mi i duh deuh mai khan a duh ve che in i hria em?",
     "In titi naah eng in sawin nge in nuih nasat ber thin?",
@@ -2526,7 +2514,7 @@ case 'tomp4': case 'tovideo': {
     "Mi i bum tawh ngai em?",
     "Miin an bum tawh ngai che em?.",
     "Kan group a bot hi a tha i ti em?.",
-    "I awm tinuam lo tu deuh mihing i tawng tawh em?",
+    "I awm tinuam phah khawpa ninawm mihing i tawng tawh em?",
     "I chhungte i bum tawh em?.",
     "I ex kha ila duh em?",
     "In fiamnaah hian enge i ngainat ber?",
@@ -2542,7 +2530,7 @@ case 'tomp4': case 'tovideo': {
     "Pheichham i man hlauha, a ni chuan thil pathum i duh duh min dil rawh a ti a, tah chuan enge i dil hmasak ber ang?",
     "Khawvelah hian tunge i ngaihsan ber?",
     "Ran vulh chiah hian enge i duh ber?.",
-    "Vawiinah vawi engzat nge i in selfish tawh",
+    "Vawiinah vawi engzat nge i in selfie tawh",
     "I tet laiin enge i ngainat/duh ber?",
     "Ngaihzawng a tan hian eng ang mi nge i duh ber?",
     "Tunge i in text pui ngun ber",
