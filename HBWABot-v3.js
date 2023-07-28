@@ -2376,7 +2376,8 @@ case 'tomp4': case 'tovideo': {
    setTimeout(() => { fs.unlinkSync(buff) }, 10000)
   }
   break
-  case 'dare':
+  case 'dare': 
+  if (!m.isGroup) return m.reply(mess.group)
               const dare =[
     "I crush va call la i duh thu hrilh rawh",
     "I bestfriend nena in in biakna screenshot in rawn thawn rawh",
@@ -2398,7 +2399,7 @@ case 'tomp4': case 'tovideo': {
     "In kawngkapuiah khan tlawh pawh phal loh tih va tar rawh",
     "I chat list-a a hnuai ber kha I've a crush on you ti la chuan , bialnu tan min duh em va ti rawh?*, a rawn chhan hunah che eng tin nge a chhan che tih screenshot in rawn thawn leh rawh",
     "Voice in ring deuh hlekin *Ka ek a chhuak ka ek a chhuak* rawn ti rawh",
-    "Hlau miah lohin i ex kha va prank la, *Lo kir la rawh ka hmangaih che!* va ti rawh",
+    "Hlau miah lohin i ex kha va prank la, *Lo kir leh rawh ka hmangaih che!* va ti rawh",
     "I WhatsApp contact a khan lut la, chhiar thla zar zar la i battery persent zatna chiah kha va bia la *nangmah vangin ka vanneih hle mai* va ti rawh",
     "I hming thlak la *Randi ka nih hi* tiin darkar 5 hmang ang che",
     "Hla rawn drop la chuan memebers te zingah ngaitjla tura i duh ber rawn tag bawk rawh",
@@ -2434,7 +2435,7 @@ case 'tomp4': case 'tovideo': {
     "I hmai chiah langin thla la la, rawn thawn rawh",
     "I thlalak rawn thawn la, a caption ah patil ka ni rawn ti rawh",
     "Voice in lung phek ṭha thler thlawr tiin rang deuhin rawn sawi rawh",
-    "Voice in tlanga thing khi thli ṭha chhem thluk nge thli ṭha chhem thluk tiin rang deuhin rawn ti rawh",
+    "Voice in tlanga thing khi thli ṭha chhem thluk nge thli chhe chhem thluk tiin rang deuhin rawn ti rawh",
     "I username thlak la Mi lar ka ni tiin nikhat chhung hmang rawh",
     "Voice in Sakhipa khi ṭha phak tiin rang deuhin rawn sawi rawh",
     "say i love the bot owner herbert through voice note🙄",
@@ -2447,14 +2448,15 @@ case 'tomp4': case 'tovideo': {
      "Patil ka ni, tiin darkar 5 chhung status ah hmang rawh",
      "I nu leh i pa kha va chuk la, i hmangaih thu va hrilh ve ve rawh",
      "I pa hming kha status-ah darkar 5 chhung hmang rawh",
-     "I group awmnaah khan tawngkam mawi loh tak va thawn la, eng tin nge an rawn chhan che minute 5 hnuah screenshot in rawn thawn rawh"
+     "I group awmna chatlistah a hmasa berah khan tawngkam mawi loh tak va thawn la, eng tin nge an rawn chhan che minute 5 hnuah screenshot in rawn thawn rawh"
 ]
               const herbertdare = dare[Math.floor(Math.random() * dare.length)]
               bufferdare = await getBuffer(`https://i.imgur.com/hnH7qf0.jpeg`)
               HBWABotInc.sendMessage(from, { image: bufferdare, caption: '*Dare I THLANGA*\n'+ herbertdare }, {quoted:m})
               break
                             break
-       case 'truth':
+       case 'truth': 
+       if (!m.isGroup) return m.reply(mess.group)
               const truth =[
     "Tu emaw i insualpui tawh em? enge a chhan?",
     "Ngaihzawng a tana i duh zawng?",
