@@ -1370,9 +1370,9 @@ case 'suitpvp':case 'rps': case 'rockpaperscissors': case 'suit': {
             let id = 'suit_' + new Date() * 1
             let caption = `_*RPS PvP*_
 
-@${m.sender.split`@`[0]} in *RPS* kher turin @${m.mentionedJid[0].split`@`[0]} a challenge che
+@${m.sender.split`@`[0]} in *RPS* khel turin @${m.mentionedJid[0].split`@`[0]} a challenge che
 
-*Hi* @${m.mentionedJid[0].split`@`[0]} *I accept duh chuan accept tih type la i duh loh chuan reject tih type rawh`
+*Hi* @${m.mentionedJid[0].split`@`[0]} *I accept duh chuan minute 2/3 ral hmain accept tih type la i duh loh chuan reject tih type rawh*`
             this.suit[id] = {
             chat: await HBWABotInc.sendText(m.chat, caption, m, { mentions: parseMention(caption) }),
             id: id,
@@ -1968,7 +1968,15 @@ HBWABotInc.groupSettingUpdate(from, 'not_announcement')
 replyherbertstyle(open)
 }, timer)
 }
-break
+break 
+case 'add': {
+		if (!m.isGroup) throw mess.group
+                if (!isBotAdmins) throw mess.botAdmin
+                if (!isAdmins) throw mess.admin
+		let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+		await HBWABotInc.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+	}
+	break
 case 'kick': {
 if (!m.isGroup) return m.reply(mess.group)
 if (!isAdmins && !HerbertTheCreator) return m.reply(mess.admin)
