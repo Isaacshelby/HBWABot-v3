@@ -1597,7 +1597,7 @@ HBWABotInc.sendMessage(from, { react: { text: "🗿" , key: m.key }})
   var opp = texts[1];// your value
   var value = texts[0].toLowerCase();
   var gg = parseInt(value)
-  var user = m.sender //m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
+  var user = m.sender
   const cara = 'cara'
   const balance = await eco.balance(user, cara); 
   const g = (balance.wallet) > parseInt(value)
