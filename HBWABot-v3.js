@@ -1596,8 +1596,8 @@ HBWABotInc.sendMessage(from, { react: { text: "🗿" , key: m.key }})
   var texts = text.trim().split(" ");
   var opp = texts[1];// your value
   var value = texts[0].toLowerCase();
-  var gg = parseInt(value)
-  var user = m.sender
+  var gg = parseInt(value);
+  const user = m.sender
   const cara = 'cara'
   const balance = await eco.balance(user, cara); 
   const g = (balance.wallet) > parseInt(value)
@@ -1606,9 +1606,6 @@ HBWABotInc.sendMessage(from, { react: { text: "🗿" , key: m.key }})
   const twice = gg*2
   const f = ["up", "right", "left", "down", "up", "left", "down", "right", "up", "down", "right", "left"]
   const r = f[Math.floor(Math.random () * f.length)]
-  if (isBan) return reply(mess.banned)	 			
-  if (isBanChat) return reply(mess.bangc)
-  if (!m.isGroup) return reply(mess.grouponly)
   //if (link1 == link2){
      if (texts[0] === "")
          return dodoi(
