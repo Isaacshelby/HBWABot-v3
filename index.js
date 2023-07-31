@@ -224,18 +224,13 @@ ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 //welcome\\
                 let targetname = await HBWABotInc.getName(num)
           grpmembernum = metadata.participants.length
-  
-  
           if (anu.action == 'add') {
             let WAuserName = num
-            HBModstext = `
-  Hello @${Name.split("@")[0]},
+            HBModstext = `Hello @${Name.split("@")[0]},
+            
+Kei hi *HBWABot* ka ni a, he ${metadata.subject}. groupah hian kan lo lawm a che
   
-  Kei hi *HBWABot* ka ni a, hei ${metadata.subject}. groupah hian kan lo lawm a che
-  
-  *Group Description:*
-  ${metadata.desc}
-  `
+Group description khi chhiar nghal rawh🥸`
   
             let buttonMessage = {
               image: await getBuffer(ppgroup),
