@@ -2348,27 +2348,6 @@ await HBWABotInc.sendMessage(m.chat,{
 await fs.unlinkSync(pl.path)
 }
 break 
-case 'ytmp3': case 'ytaudio':{
-HBWABotInc.sendMessage(from, { react: { text: "⌛" , key: m.key }})
-const herbertaudp3 = require('./lib/ytdl-core')
-if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return replyherbertstyle(`Youtube link rawn dah la?\nTiang hian ti rawh : ${prefix + command} https://youtu.be/DA9gCKwaefg`)
-const audio=await herbertaudp3.mp3(text)
-await HBWABotInc.sendMessage(m.chat,{
-    audio: fs.readFileSync(audio.path),
-    mimetype: 'audio/mp4', ptt: true,
-    contextInfo:{
-        externalAdReply:{
-            title:audio.meta.title,
-            body: botname,
-            thumbnail: await fetchBuffer(audio.meta.image),
-            mediaType:2,
-            mediaUrl:text,
-        }
-
-    },
-},{quoted:m})
-await fs.unlinkSync(audio.path)
-break 
 
 case 'ytmp4': case 'ytvideo': {
 const herbertvidoh = require('./lib/ytdl2')
@@ -2385,18 +2364,15 @@ await HBWABotInc.sendMessage(m.chat,{
 },{quoted:m})
 }
 break
-case 'ytvxxx': case 'ytmp4xxx': case 'mp4xxx':{
-if (!text) return replyherbertstyle('Enter the link!!!')
-m.reply(mess.wait)
-downloadMp4(text)
+case 'ytmp3': {
+  HBWABotInc.sendMessage(from, { react: { text: "⌛" , key: m.key }})
+
+  const YT=require('./lib/ytdl-core')
+  const ytmp3play2 = await YT.mp3(text)
+  
+await HBWABotInc.sendMessage(from, {document: fs.readFileSync(ytmp3play2.path),fileName: `${anu.title}.mp3`, mimetype: 'audio/mpeg',}, {quoted:m})
 }
 break
-case 'ytaxxx': case 'ytmp3xxx': case 'mp3xxx':{
-if (!text) return replyherbertstyle('Enter the link!!!')
-m.reply(mess.wait)
-downloadMp3(text)
-}
-break  
 case 'addprem':
 if (!HerbertTheCreator) return m.reply(mess.owner)
 if (!args[0]) return replyherbertstyle(`Use ${prefix+command} number\nTiang hian ti rawh :${prefix+command} 918416093656`)
