@@ -1320,7 +1320,7 @@ contacts: list }, mentions: [sender] }, { quoted: m })
 HBWABotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Hei aw ka owner hmelthapa chu😇`, mentions: [sender]}, { quoted: repf })
 }
 break 
-case 'herbert':{ 
+case 'herbert': case 'hbwabot':{ 
 let audiobuffy = fs.readFileSync(`./HBMedia/audio/owner.mp3`)
 HBWABotInc.sendMessage(m.chat, { audio: audiobuffy, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 }
@@ -1594,8 +1594,11 @@ HBWABotInc.sendMessage(from, { react: { text: "🗿" , key: m.key }})
 break
 
 case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': { 
-HBWABotInc.sendMessage(from, { react: { text: "❤️" , key: m.key }})  
-HBMenu() 
+HBWABotInc.sendMessage(from, { react: { text: "❤️" , key: m.key }}) 
+let audiobuffy = fs.readFileSync(`./HBMedia/audio/Menu.mp3`)
+HBWABotInc.sendMessage(m.chat, { audio: audiobuffy, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
+}
+break
 	        let ownernya = ownernomer + '@s.whatsapp.net'
             let me = m.sender
             let timestampe = speed()
