@@ -8,7 +8,7 @@
 <!-- Requirements -->
 <b><details><summary>Requirements</summary></b>
 * Qr code link luh nan hian i phone a tang ni lo in, mi dang phone a tangin emaw i laptop atangin Qr-Code link ah hian lut la
-* I WhatsApp link device a tangin scan tur [Hmet rawh](https://replit.com/@HBMods/HBWABot-Qr-Generator?v=1)
+* I WhatsApp link device a tangin scan tur [Hmet rawh](https://replit.com/@HBMods/HBWABot-Qr-Code-Generator?v=1)
 * Chuan i WhatsApp-ah lut la, Settings luhna bulah khan, WhatsApp link device a tangin Qr-Code chu i scan thei ang
 * Heroku Account ila nei loh chuan [hmet rawh](https://signup.heroku.com/login)
 * Railway account ila nei loh chuan [hmet rawh](https://railway.app)
