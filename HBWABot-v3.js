@@ -2349,20 +2349,13 @@ await fs.unlinkSync(pl.path)
 }
 break 
 case 'ytmp3': case 'ytaudio':{
+HBWABotInc.sendMessage(from, { react: { text: "⌛" , key: m.key }})
 const herbertaudp3 = require('./lib/ytdl-core')
 if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return replyherbertstyle(`Youtube link rawn dah la?\nTiang hian ti rawh : ${prefix + command} https://youtu.be/DA9gCKwaefg`)
 const ytmp3play2=await herbertaudp3.mp3(text)
-await HBWABotInc.sendMessage(from, {document: fs.readFileSync(ytmp3play2.path),fileName:`${anu.title}.mp3`,mimetype: 'audio/mpeg',},
-    contextInfo:{
-        externalAdReply:{
-            title:audio.meta.title,
-            body: botname,
-            thumbnail: await fetchBuffer(audio.meta.image),
-            mediaType:2,
-            mediaUrl:text,
-        }
-
-    },
+await HBWABotInc.sendMessage(from, {document: fs.readFileSync(ytmp3play2.path), 
+    fileName:`${anu.title}.mp3`, 
+    mimetype: 'audio/mpeg',},
 },{quoted:m})
 await fs.unlinkSync(audio.path)
 break
