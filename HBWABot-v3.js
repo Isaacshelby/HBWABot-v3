@@ -150,11 +150,11 @@ try {
         //theme voice reply
  const HBOwner = () => {
         let HBOwner = fs.readFileSync('./HBMedia/audio/owner.mp3')
-        HBWABotInc.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
+        HBWABotInc.sendMessage(m.chat, {audio: HBOwner, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
             }
         const HBMenu = () => {
         let HBMenu = fs.readFileSync('./HBMedia/audio/Menu.mp3')
-        HBWABotInc.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
+        HBWABotInc.sendMessage(m.chat, {audio: HBMenu, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
             }
                    
         //TIME
