@@ -1357,7 +1357,7 @@ case 'suitpvp':case 'rps': case 'rockpaperscissors': case 'suit': {
             }
             }
             break 
-            case 'dawntur': case'claim': case 'reward': {
+            case 'daily': case'claim': case 'dawntur': {
       if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
           HBWABotInc.sendMessage(from, { react: { text: "💰" , key: m.key }})  
             let user = m.sender
@@ -1407,7 +1407,7 @@ if (today.getDay() == 6 || today.getDay() == 5 || today.getDay() == 0){
   const k = 100
   const balance1  = await eco.balance(user, cara)
   
-  if (k > balance1.wallet) return replyherbertstyle(`I wallet ah i dah dawn chuan ₹100 tal i mamawh`);
+  if (k > balance1.wallet) return replyherbertstyle(`He games khel dawn chuan i wallet ah ₹100 tal i mamawh`);
   const f1 = fruit1[Math.floor(Math.random() * fruit1.length)];
   const f2 = fruit2[Math.floor(Math.random() * fruit2.length)];
   const f3 = fruit3[Math.floor(Math.random() * fruit3.length)];
@@ -2362,15 +2362,6 @@ await HBWABotInc.sendMessage(m.chat,{
     video: {url:vid.videoUrl},
     caption: ytc
 },{quoted:m})
-}
-break
-case 'ytmp3': {
-  HBWABotInc.sendMessage(from, { react: { text: "⌛" , key: m.key }})
-
-  const YT=require('./lib/ytdl-core')
-  const ytmp3play2 = await YT.mp3(text)
-  
-await HBWABotInc.sendMessage(from, {document: fs.readFileSync(ytmp3play2.path),fileName: `${anu.title}.mp3`, mimetype: 'audio/mpeg',}, {quoted:m})
 }
 break
 case 'addprem':
