@@ -1311,12 +1311,18 @@ HBWABotInc.ev.emit('messages.upsert', msg)
 }
 
 switch (command) {
-case 'owner': {
+case 'owner': { 
+HBOwner()
 const repf = await HBWABotInc.sendMessage(from, { 
 contacts: { 
 displayName: `${list.length} Contact`, 
 contacts: list }, mentions: [sender] }, { quoted: m })
 HBWABotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Hei aw ka owner hmelthapa chu😇`, mentions: [sender]}, { quoted: repf })
+}
+break 
+case 'herbert':{ 
+let audiobuffy = fs.readFileSync(`./HBMedia/audio/owner.mp3`)
+HBWABotInc.sendMessage(m.chat, { audio: audiobuffy, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 }
 break
 
