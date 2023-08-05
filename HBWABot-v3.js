@@ -2368,8 +2368,8 @@ await HBWABotInc.sendMessage(m.chat,{
     },
 },{quoted:m})
 await fs.unlinkSync(audio.path)
-break
-break
+break 
+
 case 'ytmp4': case 'ytvideo': {
 const herbertvidoh = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !herbertvidoh.isYTUrl(text)) replyherbertstyle(`A link rawn dah la..!?\n\nTiang hian ti rawh : ${prefix + command} https://youtu.be/DA9gCKwaefg 128kbps`)
