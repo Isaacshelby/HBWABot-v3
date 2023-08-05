@@ -2353,11 +2353,8 @@ HBWABotInc.sendMessage(from, { react: { text: "⌛" , key: m.key }})
 const herbertaudp3 = require('./lib/ytdl-core')
 if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return replyherbertstyle(`Youtube link rawn dah la?\nTiang hian ti rawh : ${prefix + command} https://youtu.be/DA9gCKwaefg`)
 const ytmp3play2=await herbertaudp3.mp3(text)
-await HBWABotInc.sendMessage(from, {document: fs.readFileSync(ytmp3play2.path), 
-    fileName:`${anu.title}.mp3`, 
-    mimetype: 'audio/mpeg',},
-},{quoted:m})
-await fs.unlinkSync(audio.path)
+await HBWABotInc..sendMessage(from, {document: fs.readFileSync(ytmp3play2.path),fileName:`${anu.title}.mp3`,mimetype: 'audio/mpeg',}, {quoted:m})
+}
 break
 case 'ytmp4': case 'ytvideo': {
 const herbertvidoh = require('./lib/ytdl2')
