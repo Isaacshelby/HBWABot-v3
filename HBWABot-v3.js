@@ -2348,11 +2348,11 @@ await HBWABotInc.sendMessage(m.chat,{
 await fs.unlinkSync(pl.path)
 }
 break 
-case "ytmp3": case "ytaudio":{
+case 'ytmp3': case 'ytaudio':{
 const herbertaudp3 = require('./lib/ytdl-core')
 if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return replyherbertstyle(`Youtube link rawn dah la?\nTiang hian ti rawh : ${prefix + command} https://youtu.be/DA9gCKwaefg`)
-const audio=await herbertaudp3.mp3(text)
-await HBWABotInc.sendMessage(from, {document: fs.readFileSync(ytmp3play2.path),fileName:`${vid.title}.mp3`,mimetype: 'audio/mpeg',},
+const ytmp3play2=await herbertaudp3.mp3(text)
+await HBWABotInc.sendMessage(from, {document: fs.readFileSync(ytmp3play2.path),fileName:`${anu.title}.mp3`,mimetype: 'audio/mpeg',},
     contextInfo:{
         externalAdReply:{
             title:audio.meta.title,
