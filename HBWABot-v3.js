@@ -29,6 +29,8 @@ const textpro2 = require('./scrape/textpro2')
 const photooxy = require('./scrape/photooxy')
 const yts = require('./scrape/yt-search')
 const vm = require('node:vm')
+const eco = require('discord-mongoose-economy')
+const ty = eco.connect('mongodb+srv://Arch:1t6l2G0r6nagLlOb@cluster0.gedh4.mongodb.net/?retryWrites=true&w=majority')
 const { EmojiAPI } = require("emoji-api")
 const emoji = new EmojiAPI()
 const owner = JSON.parse(fs.readFileSync('./database/owner.json'))
@@ -2345,14 +2347,12 @@ await HBWABotInc.sendMessage(m.chat,{
 },{quoted:m})
 await fs.unlinkSync(pl.path)
 }
-break
-case "ytmp3": case "ytaudio": //credit: Ray Senpai â¤ï¸ https://github.com/EternityBots/Nezuko
-const herbertaudp3 = require('./lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return replyherbertstyle(`Youtube link rawn dah la?\nTiang hian ti rawh : ${prefix + command} https://youtube.com/shorts/YQf-vMjDuKY?feature=share`)
+break 
+case "ytmp3": case "ytaudio":{
+const herbertaudp3 = require('./lib/ytdl-core')
+if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return replyherbertstyle(`Youtube link rawn dah la?\nTiang hian ti rawh : ${prefix + command} https://youtu.be/DA9gCKwaefg`)
 const audio=await herbertaudp3.mp3(text)
-await HBWABotInc.sendMessage(m.chat,{
-    audio: fs.readFileSync(audio.path),
-    mimetype: 'audio/mp4', ptt: false,
+await HBWABotInc.sendMessage(from, {document: fs.readFileSync(ytmp3play2.path),fileName:`${vid.title}.mp3`,mimetype: 'audio/mpeg',},
     contextInfo:{
         externalAdReply:{
             title:audio.meta.title,
@@ -2368,7 +2368,7 @@ await fs.unlinkSync(audio.path)
 break
 case 'ytmp4': case 'ytvideo': {
 const herbertvidoh = require('./lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !herbertvidoh.isYTUrl(text)) replyherbertstyle(`A link rawn dah la..!?\n\nTiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`)
+if (args.length < 1 || !isUrl(text) || !herbertvidoh.isYTUrl(text)) replyherbertstyle(`A link rawn dah la..!?\n\nTiang hian ti rawh : ${prefix + command} https://youtu.be/DA9gCKwaefg 128kbps`)
 const vid=await herbertvidoh.mp4(text)
 const ytc=`
 *${themeemoji}Tittle:* ${vid.title}
