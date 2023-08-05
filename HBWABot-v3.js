@@ -1595,9 +1595,7 @@ break
 
 case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': { 
 HBWABotInc.sendMessage(from, { react: { text: "❤️" , key: m.key }}) 
-let audiobuffy = fs.readFileSync(`./HBMedia/audio/Menu.mp3`)
-HBWABotInc.sendMessage(m.chat, { audio: audiobuffy, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
-}
+HBMenu()
 	        let ownernya = ownernomer + '@s.whatsapp.net'
             let me = m.sender
             let timestampe = speed()
