@@ -126,7 +126,7 @@ try{
 })
 
 await delay(5555) 
-start('2',colors.bold.white('\n\nWaiting for New Messages..'))
+start('2',colors.bold.white('\n\nMessage nghak mek a ni..'))
 
 HBWABotInc.ev.on('creds.update', await saveCreds)
 
@@ -229,7 +229,7 @@ Kon = await getBuffer(`https://i.imgur.com/EcslN7G.jpeg`)
 
 Tol = await getBuffer(`https://i.imgur.com/EcslN7G.jpeg`)
                 if (anu.action == 'add') {
-                    HBWABotInc.sendMessage(anu.id, { image: Kon, contextInfo: { mentionedJid: [num] }, caption: `Hi @${num.split("@")[0]},\nKei hi HBWABot ka ni e, *${metadata.subject}-ah hian kan lo lawm a che*\n\n*Group Description :*\n ${metadata.desc}\n\n\n\n*©HBWABot*` })
+                    HBWABotInc.sendMessage(anu.id, { image: Kon, contextInfo: { mentionedJid: [num] }, caption: `Hi @${num.split("@")[0]},\nKei hi HBWABot ka ni a,\n*${metadata.subject} Group-ah hian kan lo lawm a che*\n\n*Group Description :*\n ${metadata.desc}\n\n\n*©HBWABot*` })
                 }
             }
         } catch (err) {
@@ -244,7 +244,7 @@ Tol = await getBuffer(`https://i.imgur.com/EcslN7G.jpeg`)
             return msg?.message
         }
         return {
-            conversation: "HBWA Bot Here"
+            conversation: "HBWABot Here"
         }
     }
     HBWABotInc.ev.on('messages.update', async chatUpdate => {
