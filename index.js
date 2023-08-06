@@ -229,7 +229,7 @@ Kon = await getBuffer(`https://i.imgur.com/EcslN7G.jpeg`)
 
 Tol = await getBuffer(`https://i.imgur.com/EcslN7G.jpeg`)
                 if (anu.action == 'add') {
-                    HBWABotInc.sendMessage(anu.id, { image: Kon, contextInfo: { mentionedJid: [num] }, caption: `Hi @${num.split("@")[0]}, Kan group-ah hian kan lo lawm a che` })
+                    HBWABotInc.sendMessage(anu.id, { image: Kon, contextInfo: { mentionedJid: [num] }, caption: `Hi @${num.split("@")[0]},\nKei hi HBWABot ka ni e, *${metadata.subject}-ah hian kan lo lawm a che*\n\n*Group Description :*\n ${metadata.desc}\n\n\n\n*©HBWABot*` })
                 }
             }
         } catch (err) {
