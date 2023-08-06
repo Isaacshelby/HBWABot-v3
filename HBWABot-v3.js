@@ -2848,24 +2848,24 @@ case 'qc': case'text': {
       replyherbertstyle('Error')
     }
     }
-    break
-case 's': case 'sticker': case 'stiker': { 
-HBWABotInc.sendMessage(from, { react: { text: "🧩" , key: m.key }})
-if (!quoted) return replyherbertstyle(`Send/Reply in Thlalak/Videos/Gifs a caption ah tiang hian rawn dah rawh : ${prefix+command}\nVideo hi second 10 aia tam rawn thawn suh`)
-if (/image/.test(mime)) { 
-let media = await quoted.download()
-let encmedia = await HBWABotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
-
-} else if (/video/.test(mime)) {
-if ((quoted.msg || quoted).seconds > 11) return replyherbertstyle('Second 10 aia tam a thei lo')
-let media = await quoted.download()
-let encmedia = await HBWABotInc.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
-
-} else {
-replyherbertstyle(`Send/Reply in Thlalak/Videos/Gifs a caption ah tiang hian rawn dah rawh : ${prefix+command}\nVideo hi second 10 aia tam rawn thawn suh`)
-}
-}
-break
+    break 
+    case 'sticker': case 's': case 'stickergif': case 'sgif': { 
+            if (!quoted) replyherbertstyle(`*Video emaw thlalak a caption ah* ${prefix + command} *tih rawn type rawh*`)
+            m.reply(mess.wait)
+                    if (/image/.test(mime)) {
+                let media = await quoted.download()
+                let encmedia = await HBWABotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author,})
+                await fs.unlinkSync(encmedia)
+            } else if (/video/.test(mime)) {
+                if ((quoted.msg || quoted).seconds > 11) return replyherbertstyle('*Second 10 aia tam a thei loh!*')
+                let media = await quoted.download()
+                let encmedia = await HBWABotInc.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author,})
+                await fs.unlinkSync(encmedia)
+            } else {
+                replyherbertstyle(`Video emaw thlalak a caption ah *${prefix + command}* rawn dah la\n\n*Video chu second 10 aia tam rawn thawn suh*`)
+                }
+            }
+            break
 case 'quotes':
 const quoteherberty = await axios.get(`https://favqs.com/api/qotd`)
         const textquotes = `*${themeemoji} Quote:* ${quoteherberty.data.quote.body}\n\n*${themeemoji} Author:* ${quoteherberty.data.quote.author}`
