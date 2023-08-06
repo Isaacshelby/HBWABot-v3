@@ -222,45 +222,19 @@ ppgroup = await HBWABotInc.profilePictureUrl(anu.id, 'image')
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 }
 //welcome\\
-                let targetname = await HBWABotInc.getName(num)
-          grpmembernum = metadata.participants.length
-          if (anu.action == 'add') {
-            let WAuserName = num
-            HBModstext = `Hello @${Name.split("@")[0]},
-            
-Kei hi *HBWABot* ka ni a, he ${metadata.subject}. groupah hian kan lo lawm a che
-  
-Group description khi chhiar nghal rawh🥸`
-  
-            let buttonMessage = {
-              image: await getBuffer(ppgroup),
-              mentions: [num],
-              caption: HBModstext,
-              footer: `${global.BotName}`,
-              headerType: 4,
+              let nama = await HBWABotInc.getName(num)
+memb = metadata.participants.length
+
+Kon = await getBuffer(`https://i.imgur.com/EcslN7G.jpeg`)
+
+Tol = await getBuffer(`https://i.imgur.com/EcslN7G.jpeg`)
+                if (anu.action == 'add') {
+                    HBWABotInc.sendMessage(anu.id, { image: Kon, contextInfo: { mentionedJid: [num] }, caption: `Hi @${num.split("@")[0]}, Kan group-ah hian kan lo lawm a che` })
+                }
             }
-            HBWABotInc.sendMessage(anu.id, buttonMessage)
-          } else if (anu.action == 'remove') {
-            let WAuserName = num
-            HBModstext = `👋, @${WAuserName.split("@")[0]},
-  
-He tia i left tak mai hi kan ui lo hle che a, chu vangin i rawn kir tawh lo ngei kan beisei🥸😂
-  `
-  
-            let buttonMessage = {
-              image: await getBuffer(ppuser),
-              mentions: [num],
-              caption: HBModstext,
-              footer: `${global.BotName}`,
-              headerType: 4,
-  
-            }
-            HBWABotInc.sendMessage(anu.id, buttonMessage)
-          }
+        } catch (err) {
+            console.log(err)
         }
-      } catch (err) {
-        console.log(err)
-      }
     })
 
     // respon cmd pollMessage
