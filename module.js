@@ -38,7 +38,6 @@ modul: {
 	perf_hooks: require('perf_hooks'),
 	pino: require('pino'), 
 	eco: require('discord-mongoose-economy'),
-    ty: eco.connect('mongodb+srv://Arch:1t6l2G0r6nagLlOb@cluster0.gedh4.mongodb.net/?retryWrites=true&w=majority'),
 	parsems: require('parse-ms'),
 	process: require('process'),
 	PhoneNumber: require('awesome-phonenumber'),
