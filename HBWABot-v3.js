@@ -29,7 +29,6 @@ const textpro2 = require('./scrape/textpro2')
 const photooxy = require('./scrape/photooxy')
 const yts = require('./scrape/yt-search')
 const vm = require('node:vm')
-const ty = eco.connect('mongodb+srv://Arch:1t6l2G0r6nagLlOb@cluster0.gedh4.mongodb.net/?retryWrites=true&w=majority')
 const { EmojiAPI } = require("emoji-api")
 const emoji = new EmojiAPI()
 const owner = JSON.parse(fs.readFileSync('./database/owner.json'))
@@ -148,15 +147,31 @@ try {
         const antiWame = m.isGroup ? ntwame.includes(from) : false
         const antiToxic = m.isGroup ? nttoxic.includes(from) : false
         
-        //theme voice reply
- const HBOwner = () => {
-        let HBOwner = fs.readFileSync('./HBMedia/audio/owner.mp3')
-        HBWABotInc.sendMessage(m.chat, {audio: HBOwner, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
-            }
-        const HBMenu = () => {
-        let HBMenu = fs.readFileSync('./HBMedia/audio/Menu.mp3')
-        HBWABotInc.sendMessage(m.chat, {audio: HBMenu, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
-            }
+        //theme sticker reply
+        const HerbertStickWait = () => {
+        let HerbertStikRep = fs.readFileSync('./HBMedia/theme/sticker_reply/wait.webp')
+        HBWABotInc.sendMessage(from, { sticker: HerbertStikRep }, { quoted: m })
+        }
+        const HerbertStickAdmin = () => {
+        let HerbertStikRep = fs.readFileSync('./HBMedia/theme/sticker_reply/admin.webp')
+        HBWABotInc.sendMessage(from, { sticker: HerbertStikRep }, { quoted: m })
+        }
+        const HerbertStickBotAdmin = () => {
+        let HerbertStikRep = fs.readFileSync('./HBMedia/theme/sticker_reply/botadmin.webp')
+        HBWABotInc.sendMessage(from, { sticker: HerbertStikRep }, { quoted: m })
+        }
+        const HerbertStickOwner = () => {
+        let HerbertStikRep = fs.readFileSync('./HBMedia/theme/sticker_reply/owner.webp')
+        HBWABotInc.sendMessage(from, { sticker: HerbertStikRep }, { quoted: m })
+        }
+        const HerbertStickGroup = () => {
+        let HerbertStikRep = fs.readFileSync('./HBMedia/theme/sticker_reply/group.webp')
+        HBWABotInc.sendMessage(from, { sticker: HerbertStikRep }, { quoted: m })
+        }
+        const HerbertStickPrivate = () => {
+        let HerbertStikRep = fs.readFileSync('./HBMedia/theme/sticker_reply/private.webp')
+        HBWABotInc.sendMessage(from, { sticker: HerbertStikRep }, { quoted: m })
+        }
                    
         //TIME
         const xtime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
@@ -564,7 +579,7 @@ HBWABotInc.sendMessage(m.chat, { video: videobuffy }, { quoted: m })
 if (m.isGroup && m.mtype == 'viewOnceMessage') {
 let teks = `╭「 *Anti ViewOnce* 」\n├ *Name* : ${pushname}\n├ *User* : @${m.sender.split("@")[0]}\n├ *Clock* : ${time2}\n└ *Message* : ${m.mtype}`
 HBWABotInc.sendMessage(m.chat, { text: teks, mentions: [m.sender] }, { quoted: m })
-a< sleep(500)
+await sleep(500)
 m.copyNForward(m.chat, true, {readViewOnce: true}, {quoted: m}).catch(_ => m.reply(`Maybe It's Opened`))
 }
 
@@ -1018,6 +1033,32 @@ async function replyprem(teks) {
                 await HBWABotInc.sendVideoAsSticker(from, mediac, m, { packname: global.packname, author: global.author })
             }
         }
+
+// Anti Link
+        if (Antilinkgc) {
+        if (budy.match(`chat.whatsapp.com`)) {
+        if (!isBotAdmins) return HerbertStickBotAdmin()
+        let gclink = (`https://chat.whatsapp.com/`+await HBWABotInc.groupInviteCode(m.chat))
+        let isLinkThisGc = new RegExp(gclink, 'i')
+        let isgclink = isLinkThisGc.test(m.text)
+        if (isgclink) return HBWABotInc.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nYou won't be kicked by a bot because what you send is a link to this group`})
+        if (isAdmins) return HBWABotInc.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nAdmin has sent a link, admin is free to post any link`})
+        if (HerbertTheCreator) return HBWABotInc.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nOwner has sent a link, owner is free to post any link`})
+        kice = m.sender
+        await HBWABotInc.sendMessage(m.chat,
+			    {
+			        delete: {
+			            remoteJid: m.chat,
+			            fromMe: false,
+			            id: m.key.id,
+			            participant: m.key.participant
+			        }
+			    })
+			HBWABotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+			HBWABotInc.sendMessage(from, {text:`\`\`\`「 Group Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending group link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+            }            
+        }
+
  // Antiwame by Herbert
   if (antiWame)
   if (budy.includes(`Wa.me`)) {
@@ -1064,7 +1105,7 @@ HBWABotInc.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@
 //antivirtex by Herbert
   if (antiVirtex) {
   if (budy.length > 3500) {
-  if (!isBotAdmins) return mess.botAdmin
+  if (!isBotAdmins) return HerbertStickBotAdmin()
           await HBWABotInc.sendMessage(m.chat,
 			    {
 			        delete: {
@@ -1312,18 +1353,12 @@ HBWABotInc.ev.emit('messages.upsert', msg)
 }
 
 switch (command) {
-case 'owner': { 
-HBOwner()
+case 'owner': {
 const repf = await HBWABotInc.sendMessage(from, { 
 contacts: { 
 displayName: `${list.length} Contact`, 
 contacts: list }, mentions: [sender] }, { quoted: m })
 HBWABotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Hei aw ka owner hmelthapa chu😇`, mentions: [sender]}, { quoted: repf })
-}
-break 
-case 'herbert': case 'hbwabot':{ 
-let audiobuffy = fs.readFileSync(`./HBMedia/audio/owner.mp3`)
-HBWABotInc.sendMessage(m.chat, { audio: audiobuffy, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 }
 break
 
@@ -1356,7 +1391,7 @@ case 'suitpvp':case 'rps': case 'rockpaperscissors': case 'suit': {
             }
             }
             break 
-            case 'daily': case'claim': case 'dawntur': {
+            case 'dawntur': case'claim': case 'reward': {
       if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
           HBWABotInc.sendMessage(from, { react: { text: "💰" , key: m.key }})  
             let user = m.sender
@@ -1390,24 +1425,23 @@ case 'slot': case 'spin': {
   if (!m.isGroup) return replyherbertstyle(mess.group)
   var today = new Date();
 if (today.getDay() == 6 || today.getDay() == 5 || today.getDay() == 0){
-  if (text == 'help') return replyherbertstyle(`*1:* ${prefix}Spin tih hi i hmang ang\n\n*2:* I wallet ah cheng ₹100 i neih tling tur a ni a,\n\n*3:* Wallet-ah pawisa i nei loh chuan i bank a tangin withdraw ang che\n\n*4:* I bank-ah pawh pawisa i la nei lo cheu a nih chuan i sum hmuhna turin economy features dang te kha hmang ang che`)
+  if (text == 'help') return replyherbertstyle(`*1:* ${prefix}Spin tih hi i hmang ang\n\n*2:* I wallet ah cheng ₹100 i neih tling tur a ni a,\n\n*3:* Wallet-ah pawisa i nei loh chuan i bank a tangin withdraw ang che\n\n*4:* I bank-ah pawh pawisa i la nei lo cheu a nih chuan i sum hmuhna turin economy features hi hmang rawh`)
   if (text == 'pawisa') return replyherbertstyle(`*1:* Small Win -in ₹20 an hlawh anga\n\n*2:* Small Lose in ₹20 an chan ang\n\n*3:* Big Win in ₹100 an hlawh anga\n\n*4:* Big Lose in ₹50 an chan ang\n\n*5:* 🎉 JackPot in ₹1000 ang dawng bawk ang`)
   const fruit1= ["🥥", "🍎", "🍇"]
   const fruit2 = ["🍎", "🍇", "🥥"]  
   const fruit3 = ["🍇", "🥥", "🍎"]         
   const fruit4 = ["🍇", "🥥", "🍎"]
-  
+  const lose = ['*Tun game-ah hi chuan i vanduai tlat mai*\n\n_--> 🍍-🥥-🍎_', '*Line a tangin a chhuak vek*\n\n_--> 🥥-🍎-🍍_', '*Mi thar a mi i nih?*\n\n_--> 🍎-🍍-🥥_']
+  const smallLose = ['*Lakhuih pahnih leh coconut pakhat a tui thei tho ang*\n\n_--> 🍍>🥥<🍍_', '*Apple pahnih  leh Coconut pakhat hi a in mil vak lo/a tui lutuk vak lovang tihna*\n\n_--> 🍎>🥥<🍎_', '*Coconut pahnih leh apple pakhat hi a in mil deuh ber*\n\n_--> 🥥>🍎<🥥_']
+  const won = ['*Kho khat tawp mai i thar e*\n\n_--> 🍎+🍎+🍎_', '*Eheuh, Coconut zei thiam tak i nih a ngai🥸*\n\n_--> 🥥+🥥+🥥_', '*Ropui lutuk🤩, i chhungte tan Lakhuih tui (pineapple juice) i siam sak dawn nia*\n\n_--> 🍍+🍍+🍍_']             
+  const near = ['*Wow, Lakhuih nen in in close hle mai😂*\n\n_--> 🍎-🍍+🍍_', '*Hmmm, Apple nen in van in close em em*\n\n_--> 🍎+🍎-🍍_']          
   const jack = ['*🥳 JackPot 🤑*\n\n_--> 🍇×🍇×🍇×🍇_', '*🎉 JaaackPooot!*\n\n_--> 🥥×🥥×🥥×🥥_', '*🎊I JackPot e ₹1000 i dawng e✓*']
-  const smallLose = ['*Lakhuih pahnih leh coconut i spin fuh e*\n\n_--> 🍍>🥥<🍍_', '*Apple pahnih  leh coconut pakhat i spin fuh e*\n\n_--> 🍎>🥥<🍎_', '*Coconut pahnih leh apple pakhat i spin fuh e*\n\n_--> 🥥>🍎<🥥_']
-  const won = ['*Eheuh, a rualin appple pathum i spin fuh e🤩*\n\n_--> 🍎+🍎+🍎_', '*Eheuh, a rualin coconut pathum i spin fuh e🤩*\n\n_--> 🥥+🥥+🥥_', '*Ropui lutuk🤩, i chhungte tan Lakhuih tui (pineapple juice) i siam sak dawn nia*\n\n_--> 🍍+🍍+🍍_']       
-  const near = ['*Lakhuih pahnih leh coconut i spin fuh e*\n\n_--> 🍎-🍍+🍍_', '*Apple pahnih  leh coconut pakhat i spin fuh e*\n\n_--> 🍎+🍎-🍍_']          
-  const lose = ['*Tun game-ah hi chuan i vanduai tlat mai*\n\n_--> 🍍-🥥-🍎_', '*Line a tangin a chhuak vek*\n\n_--> 🥥-🍎-🍍_', '*I vawikhat tih na a mi*\n\n_--> 🍎-🍍-🥥_']
   const user = m.sender
   const cara = "cara"
   const k = 100
   const balance1  = await eco.balance(user, cara)
   
-  if (k > balance1.wallet) return replyherbertstyle(`He games khel tur chuan i wallet ah ₹100 tal a awm ngei ngei a ngai`);
+  if (k > balance1.wallet) return replyherbertstyle(`I wallet ah i dah dawn chuan ₹100 tal i mamawh`);
   const f1 = fruit1[Math.floor(Math.random() * fruit1.length)];
   const f2 = fruit2[Math.floor(Math.random() * fruit2.length)];
   const f3 = fruit3[Math.floor(Math.random() * fruit3.length)];
@@ -1423,7 +1457,7 @@ if (today.getDay() == 6 || today.getDay() == 5 || today.getDay() == 0){
             replyherbertstyle(`${mess1}\n\n*Big Lose -->* _₹50 i chan_`)
   }
   else if ((f1 == f2) && f2 == f3){
-     const give5 = await eco.give(user, cara, 100); 
+     const give1 = await eco.give(user, cara, 100); 
            replyherbertstyle(`${mess2}\n*_Big Win -->* _₹100 i dawng e_`)
   }
   else if ((f1 == f2) && f2 !== f3){
@@ -1439,7 +1473,7 @@ if (today.getDay() == 6 || today.getDay() == 5 || today.getDay() == 0){
            replyherbertstyle(`${mess3}\n\n*Small Win -->* _₹20 i dawng e_`)
   }
   else if (((f1 == f2) && f2 == f3) && f3 == f4){
-     const give1 = eco.give(user, cara, 1000);
+     const give5 = eco.give(user, cara, 1000);
           replyherbertstyle(`${mess4}\n\n_🎊 JackPot --> _₹1000 tawp mai i dawng e🤩_`)
   }
   else { 
@@ -1454,18 +1488,21 @@ break
 
 case 'bank':  case 'levee': {
 	if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
-HBWABotInc.sendMessage(from, { react: { text: "💳" , key: m.key }})		
+HBWABotInc.sendMessage(from, { react: { text: "💳" , key: m.key }})
+		
     const user = m.sender
     const cara = "cara"
-    const balance = await eco.balance(user, cara);
-    await replyherbertstyle(`🏦 ${pushname} i Bank a pawisa awm zat:\n_₹${balance.bank}_\nPawisa awm thei zat: _₹${balance.bankCapacity}_`); 
+    const balance = await eco.balance(user, cara); //Returns wallet, bank, and bankCapacity. Also creates a USer if it doesn't exist.
+    await replyherbertstyle(`🏦 ${pushname}'I Bank a pawisa awm zat:\n_₹${balance.bank}_\nPawisa awm thei zat: _₹${balance.bankCapacity}_`); 
 }
 break
 		
 		
 		case 'capacity':  case 'bankupgrade': {
 			HBWABotInc.sendMessage(from, { react: { text: "💲" , key: m.key }})
-	if (!text) return replyherbertstyle(`💴 Bank-capacity 💳\n\n1 | 1000 sp = ₹100 man\n\n2 | 10000 sp = ₹1000 man\n\n3 | 100000 sp = ₹10000 man\n\nTiang hian ti la ${prefix}capacity 1 In tiin emaw ${prefix}bankupgrade 1000`)	
+		
+	//if (!isCreator) return replyherbertstyle(mess.botowner)
+	if (!text) return replyherbertstyle(`💴 Bank-capacity 💳\n\n1 | 1000 sp = ₹100\n\n2 | 10000 sp = ₹1000\n\n3 | 100000 sp = ₹10000\n\nTiang hian ti la ${prefix}capacity 1 In emaw ${prefix}bankupgrade 1000`)	
 	if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
         const user = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
 	const cara = "cara"
@@ -1478,19 +1515,19 @@ break
           if (k > balance.wallet ) return replyherbertstyle(`I bank capacity hi 1000-sp ah a pun dawn chuan ₹100(za) i sen a ngai`);
             const deduct1 = await eco.deduct(user, cara, 100);
             const add1 = eco.giveCapacity(user, cara, 1000); 
-                await replyherbertstyle(`${pushname} i bank capacity hi ₹1000(sangkhat) dah belh theiha upgrade a ni`)
+                await replyherbertstyle(`${pushname} i bank I bank capacity hi ₹1000(sangkhat) dah belh theiha upgrade a ni`)
          case '10000':
           case '2':
           if (k > balance.wallet ) return replyherbertstyle(`I bank capacity hi 10000-sp ah a pun dawn chuan ₹1000(sangkhat) i sen a ngai`);
             const deduct2 = await eco.deduct(user, cara, 1000);
             const add2 = eco.giveCapacity(user, cara, 10000); 
-                await replyherbertstyle(`${pushname} i bank capacity hi ₹10000(singkhat) dah theiha upgrade a ni`)
+                await replyherbertstyle(`${pushname} i bank capacity hi ₹10000(singkhat) dah belh theiha upgrade a ni`)
          case '100000':
           case '3':
           if (k > balance.wallet ) return replyherbertstyle(`I bank capacity hi 100000-sp ah a pun dawn chuan ₹10000(singkhat) i sen a ngai`);
             const deduct3 = await eco.deduct(user, cara, 10000);
             const add3 = eco.giveCapacity(user, cara, 100000); 
-                await replyherbertstyle(`${pushname} i bank capacity hi ₹100000(nuaikhat) dah theiha upgrade a ni`)
+                await replyherbertstyle(`${pushname} i bank capacity hi ₹100000(nuaikhat) dah belh theiha upgrade a ni`)
           }
             }
                 break
@@ -1498,13 +1535,14 @@ break
           
 	case 'deposit':  case 'pay-in': {
 HBWABotInc.sendMessage(from, { react: { text: "📥" , key: m.key }})
+
     if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
-if (!text) return replyherbertstyle("I deposit duh zat rawn provide rawh\nTiang hian: Deposit 100");
+if (!text) return replyherbertstyle("I deposit duh zat rawn provide rawh");
 const texts = text.trim();
 const user = m.sender;
 const cara = 'cara'
     const deposit = await eco.deposit(user, cara, texts);
-        if(deposit.noten) return replyherbertstyle('I wallet-ah engmah i nei lo avangin i deposit thei lo ang.');
+        if(deposit.noten) return replyherbertstyle('Engmah i nei loh avangin i deposit thei lo ang.'); //if user states more than whats in his wallet
          replyherbertstyle(`I bank a ₹${deposit.amount} deposit a ni`)
   }
       break
@@ -1514,11 +1552,11 @@ const cara = 'cara'
         
         if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
           const user = m.sender
-      if (!text) return replyherbertstyle("I withdraw duh zat rawn provide rawh!\nTiang hian: withdraw 100");
+      if (!text) return replyherbertstyle("I withdraw duh zat rawn provide rawh!");
       const query = text.trim();
           const cara = 'cara'
           const withdraw = await eco.withdraw(user, cara, query);
-          if(withdraw.noten) return replyherbertstyle('Chutiang zat zat i bank ah pawisa i nei lo');
+          if(withdraw.noten) return replyherbertstyle('Chutiang zat zat i bank ah pawisa i nei lo'); //if user states more than whats in his wallet
           const add = eco.give(user, cara, query);
             replyherbertstyle(`🏧 ALERT I wallet a ₹${withdraw.amount} dah a ni.`)
           
@@ -1527,12 +1565,12 @@ const cara = 'cara'
   case 'transfer':  case 'pe': {
 HBWABotInc.sendMessage(from, { react: { text: "🗿" , key: m.key }})
             let value = text.trim().split(" ");
-            if (value[0] === "") return replyherbertstyle(`Tiang hian ti rawh : ${prefix}transfer 100 @user`);
+            if (value[0] === "") return replyherbertstyle(`Tiang hian ti tawh : ${prefix}transfer 100 @user`);
             const target =
                              m.quoted && m.mentionedJid.length === 0
                              ? m.quoted.sender
                              : m.mentionedJid[0] || null;    
-                     if (!target || target === m.sender) return replyherbertstyle("Hey hey hey, engtia tih nge i tum🥸🥸")
+                     if (!target || target === m.sender) return replyherbertstyle("Engtia tih nge i tum")
                      if (m.quoted?.sender && !m.mentionedJid.includes(m.quoted.sender)) m.mentionedJid.push(m.quoted.sender)
                   while (m.mentionedJid.length < 2) m.mentionedJid.push(m.sender)
                   const cara = "cara"
@@ -1545,18 +1583,19 @@ HBWABotInc.sendMessage(from, { react: { text: "🗿" , key: m.key }})
               
               const balance = await eco.balance(user1, cara); 
                   let a = (balance.wallet) < parseInt(word)
-	              if(a == true) return replyherbertstyle("Chutiang zat zat transfer tur i nei lo");
+                  //Returns wallet, bank, and bankCapacity. Also creates a USer if it doesn't exist.	
+                  if(a == true) return replyherbertstyle("Chutiang zat zat transfer tur i nei lo");
                   
                   const deduct = await eco.deduct(user1, cara, value[0]);
                   const give = await eco.give(user2, cara, value[0]);
-                  replyherbertstyle(`📠 Transfer a ni e✓`)
+                  replyherbertstyle(`📠 Transaction a ni e✓`)
           
           }
           break 
           case 'gamble':  case 'lottery': { 
           HBWABotInc.sendMessage(from, { react: { text: "🥸" , key: m.key }})
   var texts = text.trim().split(" ");
-  var opp = texts[1];
+  var opp = texts[1];// your value
   var value = texts[0].toLowerCase();
   var gg = parseInt(value);
   const user = m.sender
@@ -1568,16 +1607,17 @@ HBWABotInc.sendMessage(from, { react: { text: "🗿" , key: m.key }})
   const twice = gg*2
   const f = ["up", "right", "left", "down", "up", "left", "down", "right", "up", "down", "right", "left"]
   const r = f[Math.floor(Math.random () * f.length)]
+  //if (link1 == link2){
      if (texts[0] === "")
          return replyherbertstyle(
              `Tiang hian ti rawh:  ${prefix}gamble 100 direction(left,right,up,down)`
          );
-     if (!value) return replyherbertstyle("*I gamble zat tur rawn bet rawh!");
-     if (!opp) return replyherbertstyle("I bet tur direction kha rawn dah tel rawh");
+     if (!value) return replyherbertstyle("*I gamble zat tur rawn tarlang rawh!");
+     if (!opp) return replyherbertstyle("I bet tur direction kha rawn dah rawh");
      if (!gg) return replyherbertstyle("I thil ziah khi check tha rawh, command dik lo i hmang a ni mai thei")
      if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
      if (g == false) return replyherbertstyle(`Chutiang zat gamble turin i pawisa neihin a daih lo`);
-     if (a == true) return replyherbertstyle(`Sorry ${pushname}, ₹50 aia tlem chuan gamble thei a ni lo`);
+     if (a == true) return replyherbertstyle(`Sorry ${pushname}, ₹50 aia tlem chuan a gamble thei lo`);
      if ( r == opp){
         let give = await eco.give(user , cara, twice);
         replyherbertstyle(`*₹${twice} i dawng e✓*`)
@@ -1590,8 +1630,7 @@ HBWABotInc.sendMessage(from, { react: { text: "🗿" , key: m.key }})
 break
 
 case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': { 
-HBWABotInc.sendMessage(from, { react: { text: "❤️" , key: m.key }}) 
-HBMenu()
+HBWABotInc.sendMessage(from, { react: { text: "❤️" , key: m.key }})
 	        let ownernya = ownernomer + '@s.whatsapp.net'
             let me = m.sender
             let timestampe = speed()
@@ -1645,31 +1684,8 @@ mentionedJid:[sender],
 }
 }, { quoted: m })
            }
-           break 
-           case 'economy': case 'ecomenu': { 
-           HBWABotInc.sendMessage(from, { react: { text: "💫️" , key: m.key }}) 
-var unicorn = await getBuffer(picak+'Economy Menu')
-sendHBWABotIncMessage(from, { 
-text: `╭──❰ Economy Menu\n│𖡛spin 🅕\n│𖡛gamble 🅕\n│𖡛daily 🅕\n│𖡛bank 🅕\n│𖡛withdraw 🅕\n│𖡛capacity 🅕\n╰────────────⦁`,
-mentions:[sender],
-contextInfo:{
-mentionedJid:[sender],
-"externalAdReply": {
-"showAdAttribution": true,
-"renderLargerThumbnail": true,
-"title": botname, 
-"containsAutoReply": true,
-"mediaType": 1, 
-"thumbnail": fs.readFileSync("./HBMedia/theme/hbwabot.png"),
-"mediaUrl": `${wagc}`,
-"sourceUrl": `${wagc}`
-}
-}
-})
-}
-break
-case 'allmenu': { 
-HBMenu()
+           break
+case 'allmenu': {
 var unicorn = await getBuffer(picak+'All Menu')
 sendHBWABotIncMessage(from, { 
 text: `Hi @${sender.split("@")[0]}\n\n​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​${allmenu(prefix, hituet)}`,
@@ -2205,8 +2221,7 @@ case 'add': {
 	break
 case 'kick': {
 if (!m.isGroup) return m.reply(mess.group)
-if (!isAdmins && !HerbertTheCreator) return m.reply(mess.admin)
-if (!isBotAdmins) return m.reply(mess.botAdmin)
+if (!HerbertTheCreator) return m.reply(mess.owner)
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 await HBWABotInc.groupParticipantsUpdate(m.chat, [users], 'remove')
 await replyherbertstyle(`Zove....✓`)
@@ -2214,8 +2229,7 @@ await replyherbertstyle(`Zove....✓`)
 break
 case 'promote': {
 if (!m.isGroup) return m.reply(mess.group)
-if (!isAdmins && !HerbertTheCreator) return m.reply(mess.admin)
-if (!isBotAdmins) return m.reply(mess.botAdmin)
+if (!isAdmins && !HerbertTheCreator) return m.reply(mess.owner)
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 await HBWABotInc.groupParticipantsUpdate(m.chat, [users], 'promote')
 await replyherbertstyle(`Zove....✓`)
@@ -2363,10 +2377,10 @@ await HBWABotInc.sendMessage(m.chat,{
 },{quoted:m})
 await fs.unlinkSync(pl.path)
 }
-break 
+break
 case "ytmp3": case "ytaudio": //credit: Ray Senpai â¤ï¸ https://github.com/EternityBots/Nezuko
 const herbertaudp3 = require('./lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return replyherbertstyle(`Youtube link rawn dah la\nTiang hian ti rawh: ${prefix + command} https://youtu.be/DA9gCKwaefg`)
+if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return replyherbertstyle(`Youtube link rawn dah la?\nTiang hian ti rawh : ${prefix + command} https://youtube.com/shorts/YQf-vMjDuKY?feature=share`)
 const audio=await herbertaudp3.mp3(text)
 await HBWABotInc.sendMessage(m.chat,{
     audio: fs.readFileSync(audio.path),
@@ -2384,10 +2398,9 @@ await HBWABotInc.sendMessage(m.chat,{
 },{quoted:m})
 await fs.unlinkSync(audio.path)
 break
-
 case 'ytmp4': case 'ytvideo': {
 const herbertvidoh = require('./lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !herbertvidoh.isYTUrl(text)) replyherbertstyle(`A link rawn dah la..!\n\nTiang hian ti rawh : ${prefix + command} https://youtu.be/DA9gCKwaefg 128kbps`)
+if (args.length < 1 || !isUrl(text) || !herbertvidoh.isYTUrl(text)) replyherbertstyle(`A link rawn dah la..!?\n\nTiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`)
 const vid=await herbertvidoh.mp4(text)
 const ytc=`
 *${themeemoji}Tittle:* ${vid.title}
@@ -2400,6 +2413,18 @@ await HBWABotInc.sendMessage(m.chat,{
 },{quoted:m})
 }
 break
+case 'ytvxxx': case 'ytmp4xxx': case 'mp4xxx':{
+if (!text) return replyherbertstyle('Enter the link!!!')
+m.reply(mess.wait)
+downloadMp4(text)
+}
+break
+case 'ytaxxx': case 'ytmp3xxx': case 'mp3xxx':{
+if (!text) return replyherbertstyle('Enter the link!!!')
+m.reply(mess.wait)
+downloadMp3(text)
+}
+break  
 case 'addprem':
 if (!HerbertTheCreator) return m.reply(mess.owner)
 if (!args[0]) return replyherbertstyle(`Use ${prefix+command} number\nTiang hian ti rawh :${prefix+command} 918416093656`)
@@ -2867,24 +2892,24 @@ case 'qc': case'text': {
       replyherbertstyle('Error')
     }
     }
-    break 
-    case 'sticker': case 's': case 'stickergif': case 'sgif': { 
-            if (!quoted) replyherbertstyle(`*Video emaw thlalak a caption ah* ${prefix + command} *tih rawn type rawh*`)
-            m.reply(mess.wait)
-                    if (/image/.test(mime)) {
-                let media = await quoted.download()
-                let encmedia = await HBWABotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author,})
-                await fs.unlinkSync(encmedia)
-            } else if (/video/.test(mime)) {
-                if ((quoted.msg || quoted).seconds > 11) return replyherbertstyle('*Second 10 aia tam a thei loh!*')
-                let media = await quoted.download()
-                let encmedia = await HBWABotInc.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author,})
-                await fs.unlinkSync(encmedia)
-            } else {
-                replyherbertstyle(`Video emaw thlalak a caption ah *${prefix + command}* rawn dah la\n\n*Video chu second 10 aia tam rawn thawn suh*`)
-                }
-            }
-            break
+    break
+case 's': case 'sticker': case 'stiker': { 
+HBWABotInc.sendMessage(from, { react: { text: "🧩" , key: m.key }})
+if (!quoted) return replyherbertstyle(`Send/Reply in Thlalak/Videos/Gifs a caption ah tiang hian rawn dah rawh : ${prefix+command}\nVideo hi second 10 aia tam rawn thawn suh`)
+if (/image/.test(mime)) { 
+let media = await quoted.download()
+let encmedia = await HBWABotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+
+} else if (/video/.test(mime)) {
+if ((quoted.msg || quoted).seconds > 11) return replyherbertstyle('Second 10 aia tam a thei lo')
+let media = await quoted.download()
+let encmedia = await HBWABotInc.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+
+} else {
+replyherbertstyle(`Send/Reply in Thlalak/Videos/Gifs a caption ah tiang hian rawn dah rawh : ${prefix+command}\nVideo hi second 10 aia tam rawn thawn suh`)
+}
+}
+break
 case 'quotes':
 const quoteherberty = await axios.get(`https://favqs.com/api/qotd`)
         const textquotes = `*${themeemoji} Quote:* ${quoteherberty.data.quote.body}\n\n*${themeemoji} Author:* ${quoteherberty.data.quote.author}`
