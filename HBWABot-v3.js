@@ -153,12 +153,10 @@ try {
         let Menu = fs.readFileSync('./HBMedia/audio/Menu.mp3')
         HBWABotInc.sendMessage(from, { audio: Menu, mimetype: 'audio/mp4', ptt: true }, { quoted: m })
 }
-        } 
         const Owner = () => {
         let Owner = fs.readFileSync('./HBMedia/audio/owner.mp3')
         HBWABotInc.sendMessage(from, { audio: Owner, mimetype: 'audio/mp4', ptt: true }, { quoted: m })
 }
-        }
                    
         //TIME
         const xtime = moment.tz('Asia/Kolkata').format('HH:mm:ss')
