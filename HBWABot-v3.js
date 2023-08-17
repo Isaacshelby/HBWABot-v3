@@ -10,7 +10,8 @@ const { fetchBuffer, buffergif } = require("./lib/myfunc2")
 const { rentfromherbert, conns } = require('./RentBot')
 const { uptotelegra } = require('./scrape/upload')
 const { msgFilter } = require('./lib/antispam')
-
+const eco = require('discord-mongoose-economy')
+const ty = eco.connect('mongodb+srv://Arch:1t6l2G0r6nagLlOb@cluster0.gedh4.mongodb.net/?retryWrites=true&w=majority')
 const { ytDonlodMp3, ytDonlodMp4, ytPlayMp3, ytPlayMp4, ytSearch } = require('./scrape/yt')
 const anon = require('./lib/menfess') 
 const scp1 = require('./scrape/scraper') 
@@ -148,29 +149,15 @@ try {
         const antiToxic = m.isGroup ? nttoxic.includes(from) : false
         
         //theme sticker reply
-        const HerbertStickWait = () => {
-        let HerbertStikRep = fs.readFileSync('./HBMedia/theme/sticker_reply/wait.webp')
-        HBWABotInc.sendMessage(from, { sticker: HerbertStikRep }, { quoted: m })
-        }
-        const HerbertStickAdmin = () => {
-        let HerbertStikRep = fs.readFileSync('./HBMedia/theme/sticker_reply/admin.webp')
-        HBWABotInc.sendMessage(from, { sticker: HerbertStikRep }, { quoted: m })
-        }
-        const HerbertStickBotAdmin = () => {
-        let HerbertStikRep = fs.readFileSync('./HBMedia/theme/sticker_reply/botadmin.webp')
-        HBWABotInc.sendMessage(from, { sticker: HerbertStikRep }, { quoted: m })
-        }
-        const HerbertStickOwner = () => {
-        let HerbertStikRep = fs.readFileSync('./HBMedia/theme/sticker_reply/owner.webp')
-        HBWABotInc.sendMessage(from, { sticker: HerbertStikRep }, { quoted: m })
-        }
-        const HerbertStickGroup = () => {
-        let HerbertStikRep = fs.readFileSync('./HBMedia/theme/sticker_reply/group.webp')
-        HBWABotInc.sendMessage(from, { sticker: HerbertStikRep }, { quoted: m })
-        }
-        const HerbertStickPrivate = () => {
-        let HerbertStikRep = fs.readFileSync('./HBMedia/theme/sticker_reply/private.webp')
-        HBWABotInc.sendMessage(from, { sticker: HerbertStikRep }, { quoted: m })
+        const Menu = () => {
+        let Menu = fs.readFileSync('./HBMedia/audio/Menu.mp3')
+        HBWABotInc.sendMessage(from, { audio: Menu, mimetype: 'audio/mp4', ptt: true }, { quoted: m })
+}
+        } 
+        const Owner = () => {
+        let Owner = fs.readFileSync('./HBMedia/audio/owner.mp3')
+        HBWABotInc.sendMessage(from, { audio: Owner, mimetype: 'audio/mp4', ptt: true }, { quoted: m })
+}
         }
                    
         //TIME
@@ -1328,7 +1315,7 @@ emoji.get(satu)
 HBWABotInc.sendMessage(from, { caption: mess.success, image: {url: emoji.images[dua].url} }, {quoted:m})
 })
 } catch (e) {
-m.reply("Emoji error, emoji dang rawn dah rawg\nNOTE : Emoji pakhat chauh aw")
+m.reply("Emoji error, emoji dang rawn dah rawh\nNOTE : Emoji pakhat chauh aw")
 }
 }
 
@@ -1361,7 +1348,37 @@ contacts: list }, mentions: [sender] }, { quoted: m })
 HBWABotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Hei aw ka owner hmelthapa chu😇`, mentions: [sender]}, { quoted: repf })
 }
 break
-
+case 'herbert': case 'hbwabot': case '/bot': { 
+        let audiobuffy = fs.readFileSync(`./HBMedia/audio/Herbert.mp3`)
+HBWABotInc.sendMessage(m.chat, { audio: audiobuffy, mimetype: 'audio/mp4', ptt: true }, { quoted: m })  
+}
+break 
+case 'nsfw': {
+if (!m.isGroup) return m.reply(mess.group)
+if (!isBotAdmins) return m.reply(mess.botAdmin)
+if (args[0] === "on") {
+if (AntiNsfw) return dodoi('Activate a ti tawh...')
+ntnsfw.push(from)
+fs.writeFileSync('./database/nsfw.json', JSON.stringify(ntnsfw))
+dodoi('He group-ah hia nsfw chu hman thei a ni tawh e ')
+var groupe = await HBWABotInc.groupMetadata(from)
+var members = groupe['participants']
+var mems = []
+members.map(async adm => {
+mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
+})
+HBWABotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNsfw(not safe for work) feature chu he group-ah hian hman thei a ni ta, chumi awmzia chu bot hian he group-ah hian sexual graphic lam a rawn thawn thei dawn tihna!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
+} else if (args[0] === "off") {
+if (!AntiNsfw) return dodoi('Deactivate a ni tawh')
+let off = ntnsfw.indexOf(from)
+ntnsfw.splice(off, 1)
+fs.writeFileSync('./database/nsfw.json', JSON.stringify(ntnsfw))
+dodoi('Nsfw chu he group-ah hian hman thei a ni tawh lo')
+} else {
+  await dodoi(`Option ang hian tih tur\n\nEntirnan: ${prefix + command} on\nEntirnan: ${prefix + command} off\n\non chu enable-na\noff chu disable-na`)
+  }
+  }
+  break
 //game
 case 'suitpvp':case 'rps': case 'rockpaperscissors': case 'suit': {
             this.suit = this.suit ? this.suit : {}
@@ -1631,6 +1648,7 @@ break
 
 case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': { 
 HBWABotInc.sendMessage(from, { react: { text: "❤️" , key: m.key }})
+Menu()
 	        let ownernya = ownernomer + '@s.whatsapp.net'
             let me = m.sender
             let timestampe = speed()
@@ -2212,13 +2230,13 @@ replyherbertstyle(open)
 }
 break 
 case 'add': {
-		if (!m.isGroup) throw mess.group
-                if (!isBotAdmins) throw mess.botAdmin
-                if (!isAdmins) throw mess.admin
-		let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await HBWABotInc.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
-	}
-	break
+if (!m.isGroup) return m.reply(mess.group)
+if (!isBotAdmins) return m.reply(mess.botAdmin)
+let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
+await HBWABotInc.groupParticipantsUpdate(m.chat, [users], 'add')
+await dodoi(`Done`)
+}
+break
 case 'kick': {
 if (!m.isGroup) return m.reply(mess.group)
 if (!HerbertTheCreator) return m.reply(mess.owner)
