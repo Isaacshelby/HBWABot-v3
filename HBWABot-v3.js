@@ -1346,7 +1346,7 @@ contacts: list }, mentions: [sender] }, { quoted: m })
 HBWABotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Hei aw ka owner hmelthapa chu😇`, mentions: [sender]}, { quoted: repf })
 }
 break
-case 'herbert': case 'hbwabot': case '/bot': { 
+case 'herbert': case 'hbwabot': case 'bot': { 
         let audiobuffy = fs.readFileSync(`./HBMedia/audio/Herbert.mp3`)
 HBWABotInc.sendMessage(m.chat, { audio: audiobuffy, mimetype: 'audio/mp4', ptt: true }, { quoted: m })  
 }
