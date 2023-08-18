@@ -1406,7 +1406,7 @@ case 'suitpvp':case 'rps': case 'rockpaperscissors': case 'suit': {
             }
             }
             break 
-            case 'dawntur': case'claim': case 'reward': {
+            case 'dawntur': case'claim': case 'daily': {
       if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
           HBWABotInc.sendMessage(from, { react: { text: "💰" , key: m.key }})  
             let user = m.sender
@@ -1447,9 +1447,9 @@ if (today.getDay() == 6 || today.getDay() == 5 || today.getDay() == 0){
   const fruit3 = ["🍇", "🥥", "🍎"]         
   const fruit4 = ["🍇", "🥥", "🍎"]
   const lose = ['*Tun game-ah hi chuan i vanduai tlat mai*\n\n_--> 🍍-🥥-🍎_', '*Line a tangin a chhuak vek*\n\n_--> 🥥-🍎-🍍_', '*Mi thar a mi i nih?*\n\n_--> 🍎-🍍-🥥_']
-  const smallLose = ['*Lakhuih pahnih leh coconut pakhat a tui thei tho ang*\n\n_--> 🍍>🥥<🍍_', '*Apple pahnih  leh Coconut pakhat hi a in mil vak lo/a tui lutuk vak lovang tihna*\n\n_--> 🍎>🥥<🍎_', '*Coconut pahnih leh apple pakhat hi a in mil deuh ber*\n\n_--> 🥥>🍎<🥥_']
-  const won = ['*Kho khat tawp mai i thar e*\n\n_--> 🍎+🍎+🍎_', '*Eheuh, Coconut zei thiam tak i nih a ngai🥸*\n\n_--> 🥥+🥥+🥥_', '*Ropui lutuk🤩, i chhungte tan Lakhuih tui (pineapple juice) i siam sak dawn nia*\n\n_--> 🍍+🍍+🍍_']             
-  const near = ['*Wow, Lakhuih nen in in close hle mai😂*\n\n_--> 🍎-🍍+🍍_', '*Hmmm, Apple nen in van in close em em*\n\n_--> 🍎+🍎-🍍_']          
+  const smallLose = ['*Lakhuih pahnih leh coconut pakhat i spin fuh e*\n\n_--> 🍍>🥥<🍍_', '*Apple pahnih  leh Coconut pakhat i spin fuh e*\n\n_--> 🍎>🥥<🍎_', '*Coconut pahnih leh apple pakhat i spin fuh e*\n\n_--> 🥥>🍎<🥥_']
+  const won = ['*🤩Nice Apple patum i spin fuh e...*\n\n_--> 🍎+🍎+🍎_', '*Eheuh, Coconut pathum i spin fuh e🤩*\n\n_--> 🥥+🥥+🥥_', '*Ropui lutuk🤩, i chhungte tan Lakhuih tui (pineapple juice) i siam sak dawn nia*\n\n_--> 🍍+🍍+🍍_']             
+  const near = ['*Wow, Lakhuih pahnih leh apple pakhat😂*\n\n_--> 🍎-🍍+🍍_', '*Hmmm, Apple pahnih leh lakhuih pakhat*\n\n_--> 🍎+🍎-🍍_']          
   const jack = ['*🥳 JackPot 🤑*\n\n_--> 🍇×🍇×🍇×🍇_', '*🎉 JaaackPooot!*\n\n_--> 🥥×🥥×🥥×🥥_', '*🎊I JackPot e ₹1000 i dawng e✓*']
   const user = m.sender
   const cara = "cara"
