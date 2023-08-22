@@ -477,7 +477,7 @@ const dodoi = (teks) => {
             HBWABotInc.sendMessage(m.chat, { text: teks}, { quoted: m})
         }
 const replyherbertstyle = (teks) => {
-           HBWABotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": ` ${global.botname}`,"body": `${ownername}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBMedia/theme/hbwabot.png`),"sourceUrl": `${ownerweb}`}}}, { quoted: m})
+           HBWABotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": ` ${global.botname}`,"body": `${ownername}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBWABot.png`),"sourceUrl": `${ownerweb}`}}}, { quoted: m})
         }
 const replygcherbe = (teks) => {
 HBWABotInc.sendMessage(m.chat,
@@ -624,7 +624,7 @@ let list = []
 for (let i of owner) {
 list.push({
 	    	displayName: await HBWABotInc.getName(i),
-	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await HBWABotInc.getName(i)}\nFN:${await HBWABotInc.getName(i)}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Click here to chat\nitem2.EMAIL;type=INTERNET:${ytname}\nitem2.X-ABLabel:YouTube\nitem3.URL:${socialm}\nitem3.X-ABLabel:GitHub\nitem4.ADR:;;${location};;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
+	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await HBWABotInc.getName( i + "@s.whatsapp.net")}\nFN:${global.OwnerName}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Hmet la be rawh\nitem2.EMAIL;type=INTERNET:${ytname}\nitem2.X-ABLabel:YouTube\nitem3.URL:${socialm}\nitem3.X-ABLabel:IG\nitem4.ADR:;;India;Mizoram Aizawl ;;;\nitem4.X-ABLabel:Region\nEND:VCARD``
 	    })
 	}
 
@@ -4489,7 +4489,7 @@ isForwarded: false,
 "body": `${ownername}`,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,
-"thumbnail": fs.readFileSync(`./HBMedia/theme/hbwabot.png`),
+"thumbnail": fs.readFileSync(`./HBWABot.png`),
 "sourceUrl": `${wagc}`}}},
 { quoted: m})        
             }
@@ -4513,7 +4513,7 @@ isForwarded: false,
 "body": `${ownername}`,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,
-"thumbnail": fs.readFileSync(`./HBMedia/theme/hbwabot.png`),
+"thumbnail": fs.readFileSync(`.HBWABot.png`),
 "sourceUrl": `${wagc}`}}},
 { quoted: m})        
             }
