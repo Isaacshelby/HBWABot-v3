@@ -477,7 +477,7 @@ const dodoi = (teks) => {
             HBWABotInc.sendMessage(m.chat, { text: teks}, { quoted: m})
         }
 const replyherbertstyle = (teks) => {
-           HBWABotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": ` ${global.botname}`,"body": `${ownername}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBWABot.png`),"sourceUrl": `${ownerweb}`}}}, { quoted: m})
+           HBWABotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": ` ${global.botname}`,"body": `${OwnerName}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBWABot.png`),"sourceUrl": `${ownerweb}`}}}, { quoted: m})
         }
 const replygcherbe = (teks) => {
 HBWABotInc.sendMessage(m.chat,
@@ -490,7 +490,7 @@ isForwarded: false,
 "showAdAttribution": true,
 "containsAutoReply": true,
 "title": ` ${global.botname}`,
-"body": `${ownername}`,
+"body": `${OwnerName}`,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,
 "thumbnail": fs.readFileSync(`./HBMedia/theme/hbwabot.png`),
@@ -577,7 +577,7 @@ participant: `0@s.whatsapp.net`,
 message: { 
 "imageMessage": { 
 "mimetype": "image/jpeg", 
-"caption":  `${ownername}`, 
+"caption":  `${OwnerName}`, 
 "jpegThumbnail": defaultpp
 }
 }
@@ -613,7 +613,7 @@ quoted:m
 		const fgclink = {key: {participant: "0@s.whatsapp.net","remoteJid": "0@s.whatsapp.net"},"message": {"groupInviteMessage": {"groupJid": "6288213840883-1616169743@g.us","inviteCode": "m","groupName": wm, "caption": `${pushname}`, 'jpegThumbnail': thumb}}}
 		const fvideo = {key: { fromMe: false,participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {}) },message: { "videoMessage": { "title":botname, "h": wm,'seconds': '359996400', 'caption': `${pushname}`, 'jpegThumbnail': thumb}}}
 		const floc = {key : {participant : '0@s.whatsapp.net', ...(m.chat ? { remoteJid: `status@broadcast` } : {}) },message: {locationMessage: {name: wm,jpegThumbnail: thumb}}}
-		const fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': ownername, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${ownername},;;;\nFN:${ownername}\nitem1.TEL;waid=918416093656:918416093656\nitem1.X-ABLabel:Mobile\nEND:VCARD`, 'jpegThumbnail': thumb, thumbnail: thumb,sendEphemeral: true}}}
+		const fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': ownername, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${OwnerName},;;;\nFN:${OwnerName}\nitem1.TEL;waid=918416093656:918416093656\nitem1.X-ABLabel:Mobile\nEND:VCARD`, 'jpegThumbnail': thumb, thumbnail: thumb,sendEphemeral: true}}}
 	    const fakestatus = {key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {})},message: { "imageMessage": {"url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc","mimetype": "image/jpeg","caption": wm,"fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=","fileLength": "28777","height": 1080,"width": 1079,"mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=","fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=","directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69","mediaKeyTimestamp": "1610993486","jpegThumbnail": fs.readFileSync('./HBMedia/theme/hbwabot.png'),"scansSidecar": "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw=="}}}
 
 if (isCmd && isBanned) {
@@ -632,7 +632,7 @@ const repPy = {
 	key: {
 		remoteJid: '0@s.whatsapp.net',
 		fromMe: false,
-		id: `${ownername}`,
+		id: `${OwnerName}`,
 		participant: '0@s.whatsapp.net'
 	},
 	message: {
@@ -831,7 +831,7 @@ async function obfus(query) {
         )
         const result = {
             status: 200,
-            author: `${ownername}`,
+            author: `${OwnerName}`,
             result: obfuscationResult.getObfuscatedCode()
         }
         resolve(result)
@@ -2146,7 +2146,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
 		            if (!q) return replyherbertstyle(`Word rawn dah rawh!.. `)
 		                            const data = await store.chats.all()
                             for (let i of data) {
-                               HBWABotInc.sendMessage(i.id, {text: `${ownername}'s Broadcast\n\nMessage : ${q}` })
+                               HBWABotInc.sendMessage(i.id, {text: `${OwnerName}'s Broadcast\n\nMessage : ${q}` })
                                await sleep(1000)
                             }
                             }
@@ -2159,7 +2159,7 @@ if(!HerbertTheCreator) return m.reply(mess.owner)
         let herbertcast = groups.map(v => v.id)
         replyherbertstyle(` Broadcasting in ${herbertcast.length} Group Chat, in ${herbertcast.length * 1.5} seconds`)
         for (let i of herbertcast) {
-let txt = `${ownername}'s Broadcast\n\nMessage : ${q}`
+let txt = `${OwnerName}'s Broadcast\n\nMessage : ${q}`
 if(/image/.test(mime)) {
 let media = await quoted.download()
 await HBWABotInc.sendMessage(i, { image:media,  caption: txt,mentions:participants.map(a => a.id) })
@@ -4486,7 +4486,7 @@ isForwarded: false,
 "showAdAttribution": true,
 "containsAutoReply": true,
 "title": ` ${global.botname}`,
-"body": `${ownername}`,
+"body": `${OwnerName}`,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,
 "thumbnail": fs.readFileSync(`./HBWABot.png`),
@@ -4510,7 +4510,7 @@ isForwarded: false,
 "showAdAttribution": true,
 "containsAutoReply": true,
 "title": ` ${global.botname}`,
-"body": `${ownername}`,
+"body": `${OwnerName}`,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,
 "thumbnail": fs.readFileSync(`.HBWABot.png`),
