@@ -628,32 +628,6 @@ list.push({
 	    })
 	}
 
-const repPy = {
-	key: {
-		remoteJid: '0@s.whatsapp.net',
-		fromMe: false,
-		id: `${OwnerName}`,
-		participant: '0@s.whatsapp.net'
-	},
-	message: {
-		requestPaymentMessage: {
-			currencyCodeIso4217: "USD",
-			amount1000: 999999999,
-			requestFrom: '0@s.whatsapp.net',
-			noteMessage: {
-				extendedTextMessage: {
-					text: `${botname}`
-				}
-			},
-			expiryTimestamp: 999999999,
-			amount: {
-				value: 91929291929,
-				offset: 1000,
-				currencyCode: "INR"
-			}
-		}
-	}
-}
 
 //let herbertrecordin = ['recording','composing']
 //let herbertrecordinfinal = herbertrecordin[Math.floor(Math.random() * herbertrecordin.length)]
@@ -4513,7 +4487,7 @@ isForwarded: false,
 "body": `${OwnerName}`,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,
-"thumbnail": fs.readFileSync(`.HBWABot.png`),
+"thumbnail": fs.readFileSync(`./HBWABot.png`),
 "sourceUrl": `${wagc}`}}},
 { quoted: m})        
             }
