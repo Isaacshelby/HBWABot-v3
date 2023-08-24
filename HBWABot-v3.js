@@ -2374,7 +2374,8 @@ case 'yts': case 'ytsearch': {
             }
             break
 case 'play':  case 'song': {
-if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} anime whatsapp status`)
+if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
+m.reply(mess.wait)
 const herbertplaymp3 = require('./lib/ytdl2')
 let yts = require("youtube-yts")
         let search = await yts(text)
@@ -4555,7 +4556,8 @@ const gha1 = await HBWABotInc.sendMessage(m.chat,{video:{url: resherbertyinsta.u
 }
 break
 case 'igstalk': {
-if (!args[0]) return replyherbertstyle(`Instagram Username rawn dah rawh\n\nTiang hian ti rawh : ${prefix + command} herbert_suantak2`)
+if (!args[0]) return replyherbertstyle(`Instagram Username rawn dah rawh\n\nTiang hian: ${prefix + command} herbert_suantak2`)
+m.reply(mess.wait)
 const fg = require('api-dylux')
     try {
     let res = await fg.igStalk(args[0])
@@ -4571,7 +4573,7 @@ const fg = require('api-dylux')
 └────────────`
      await HBWABotInc.sendMessage(m.chat, {image: { url: res.profilePic }, caption: te }, {quoted: m})
       } catch {
-        replyherbertstyle(`Make sure the username comes from *Instagram*`)
+        replyherbertstyle(`A username a dik lo!. a username dik tak rawn dah rawh`)
       }
 }
 break
@@ -4633,7 +4635,7 @@ case 'myip': {
                     'path': '/'
                 }, function(resp) {
                     resp.on('data', function(ip) {
-                        replyherbertstyle("🔎 My public IP address is: " + ip)
+                        replyherbertstyle("🔎 I ip address chu: " + ip)
                     })
                 })
             }
@@ -4651,7 +4653,7 @@ case 'gdrive': {
 ▢ *Type:* ${res.mimetype}`)
 	HBWABotInc.sendMessage(m.chat, { document: { url: res.downloadUrl }, fileName: res.fileName, mimetype: res.mimetype }, { quoted: m })
    } catch {
-	replyherbertstyle('Error: Check link or try another link') 
+	replyherbertstyle('Error: Link dang rawn ti rawh') 
   }
 }
 break
