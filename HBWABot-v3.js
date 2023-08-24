@@ -2398,11 +2398,14 @@ await HBWABotInc.sendMessage(m.chat,{
 await fs.unlinkSync(pl.path)
 }
 break
-case "ytmp3": case "ytaudio": {
+case "ytmp3": case "ytaudio": //credit: Ray Senpai â¤ï¸ https://github.com/EternityBots/Nezuko
 const herbertaudp3 = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return replyherbertstyle(`Youtube link rawn dah la?\nTiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
+m.reply(mess.wait)
 const audio=await herbertaudp3.mp3(text)
-await HBWABotInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `${vid.title}.mp3`,
+await HBWABotInc.sendMessage(m.chat,{
+    audio: fs.readFileSync(audio.path),
+    mimetype: 'audio/mp4', ptt: false,
     contextInfo:{
         externalAdReply:{
             title:audio.meta.title,
@@ -2415,11 +2418,11 @@ await HBWABotInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', f
     },
 },{quoted:m})
 await fs.unlinkSync(audio.path)
-}
 break
 case 'ytmp4': case 'ytvideo': {
 const herbertvidoh = require('./lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !herbertvidoh.isYTUrl(text)) replyherbertstyle(`A link rawn dah la..!?\n\nTiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
+if (args.length < 1 || !isUrl(text) || !herbertvidoh.isYTUrl(text)) replyherbertstyle(`A link rawn dah la..!?\n\nTiang hian ti rawh : ${prefix + command}https://youtube.com/watch?v=DA9gCKwaefgs`)
+m.reply(mess.wait)
 const vid=await herbertvidoh.mp4(text)
 const ytc=`
 *${themeemoji}Tittle:* ${vid.title}
@@ -2428,10 +2431,8 @@ const ytc=`
 *${themeemoji}Quality:* ${vid.quality}`
 await HBWABotInc.sendMessage(m.chat,{
     video: {url:vid.videoUrl},
-    thumbnail: await fetchBuffer(pl.meta.image),
     caption: ytc
-},
-{quoted:m})
+},{quoted:m})
 }
 break
 case 'ytvxxx': case 'ytmp4xxx': case 'mp4xxx':{
