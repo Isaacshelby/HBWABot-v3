@@ -1358,11 +1358,12 @@ break
 case 'nsfw': {
 if (!m.isGroup) return m.reply(mess.group)
 if (!isBotAdmins) return m.reply(mess.botAdmin)
+if (!isAdmins && !HerbertTheCreator) return m.reply(mess.admin)
 if (args[0] === "on") {
-if (AntiNsfw) return dodoi('Activate a ti tawh...')
+if (AntiNsfw) return replyherbertstyle('Activate a ti tawh...')
 ntnsfw.push(from)
 fs.writeFileSync('./database/nsfw.json', JSON.stringify(ntnsfw))
-dodoi('He group-ah hia nsfw chu hman thei a ni tawh e ')
+replyherbertstyle('He group-ah hia nsfw chu hman thei a ni tawh e ')
 var groupe = await HBWABotInc.groupMetadata(from)
 var members = groupe['participants']
 var mems = []
@@ -1371,13 +1372,13 @@ mems.push(adm.id.replace('c.us', 's.whatsapp.net'))
 })
 HBWABotInc.sendMessage(from, {text: `\`\`\`「 ⚠️Warning⚠️ 」\`\`\`\n\nNsfw(not safe for work) feature chu he group-ah hian hman thei a ni ta, chumi awmzia chu bot hian he group-ah hian sexual graphic lam a rawn thawn thei dawn tihna!`, contextInfo: { mentionedJid : mems }}, {quoted:m})
 } else if (args[0] === "off") {
-if (!AntiNsfw) return dodoi('Deactivate a ni tawh')
+if (!AntiNsfw) return replyherbertstyle('Deactivate a ni tawh')
 let off = ntnsfw.indexOf(from)
 ntnsfw.splice(off, 1)
 fs.writeFileSync('./database/nsfw.json', JSON.stringify(ntnsfw))
-dodoi('Nsfw chu he group-ah hian hman thei a ni tawh lo')
+replyherbertstyle('Nsfw chu he group-ah hian hman thei a ni tawh lo')
 } else {
-  await dodoi(`Option ang hian tih tur\n\nEntirnan: ${prefix + command} on\nEntirnan: ${prefix + command} off\n\non chu enable-na\noff chu disable-na`)
+  await replyherbertstyle(`Option ang hian tih tur\n\nEntirnan: ${prefix + command} on\nEntirnan: ${prefix + command} off\n\non chu enable-na\noff chu disable-na`)
   }
   }
   break
