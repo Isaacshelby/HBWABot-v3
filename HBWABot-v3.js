@@ -2402,7 +2402,7 @@ case "ytmp3": case "ytaudio": {
 const herbertaudp3 = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return replyherbertstyle(`Youtube link rawn dah la?\nTiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 const audio=await herbertaudp3.mp3(text)
-await HBWABotInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: anup3k.title + '.mp3',
+await HBWABotInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `${vid.title}.mp3`,
     contextInfo:{
         externalAdReply:{
             title:audio.meta.title,
@@ -2428,8 +2428,10 @@ const ytc=`
 *${themeemoji}Quality:* ${vid.quality}`
 await HBWABotInc.sendMessage(m.chat,{
     video: {url:vid.videoUrl},
+    thumbnail: await fetchBuffer(pl.meta.image),
     caption: ytc
-},{quoted:m})
+},
+{quoted:m})
 }
 break
 case 'ytvxxx': case 'ytmp4xxx': case 'mp4xxx':{
