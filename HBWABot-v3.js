@@ -3589,6 +3589,15 @@ var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/car.json'))
 var hasil = pickRandom(notnot)
 HBWABotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
+
+case 'couplepp': case 'ppcouple': {
+                m.reply(mess.wait)
+                let anucpp = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/couplepp/Inkawp.json')
+                let random = anucpp[Math.floor(Math.random() * anucpp.length)]
+                HBWABotInc.sendMessage(m.chat, { image: { url: random.male }, caption: `Mipa` }, { quoted: m })
+                HBWABotInc.sendMessage(m.chat, { image: { url: random.female }, caption: `Hmeichhia` }, { quoted: m })
+            }
+	    break 
 case 'couplepic':case 'couplepicture':
 m.reply(mess.wait)
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/ppcouple.json'))
