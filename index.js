@@ -312,7 +312,7 @@ HBWABotInc.sendContact = async (jid, kon, quoted = '', opts = {}) => {
 	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await HBWABotInc.getName(
           i + "@s.whatsapp.net"
         )}\nFN:${
-          global.OwnerName
+          global.ownername
         }\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Hmet la be rawh\nitem2.EMAIL;type=INTERNET:
  ${ytname}\nitem2.X-ABLabel:YouTube\nitem3.URL:${socialm}\nitem3.X-ABLabel:IG\nitem4.ADR:;;India;Mizoram Aizawl ;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
 	    })
