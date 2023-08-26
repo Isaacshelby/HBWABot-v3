@@ -2532,6 +2532,21 @@ teks += `│⭔ ${x}\n`
 teks += `│\n└────────────⭓\n\n*A vaiin : ${VoiceNoteHerbert.length}*`
 replyherbertstyle(teks)
 }
+break 
+case '/group': case '.group': {
+if (!m.isGroup) return HBWAStickGroup()
+if (!isAdmins && !HerbertTheCreator) return m.reply(mess.admin)
+if (!isBotAdmins) return m.reply(mess.BotAdmin)
+if (!q) return replyherbertstyle(`Group info i edit duh chuan option ang khuan ti ang che\n\n*Options : close & open*\nclose chu admin te chauh tawng theia dah na\nopen chu partisipants te tawng ve theia dahna \nEntirnan tiang hian i ti ang : ${command} close`)
+if (args[0] == 'close') {
+HBWABotInc.groupSettingUpdate(from, 'announcement')
+replyherbertstyle(`He group hi Admin te chauh message thawn thei tura dah a ni e...✓`)
+} else if (args[0] == 'open') {
+HBWABotInc.groupSettingUpdate(from, 'not_announcement')
+replyherbertstyle(`He group hi participants zawng zawngten message thawn thei tawh tura dah a ni e....✓`)
+} else {
+replyherbertstyle(`Option te khu hmang rawh\nOptions : Close & Open\nTiang hian : ${command} close`)
+}}
 break
 case 'creategc': case 'creategroup': {
 if (!HerbertTheCreator) return m.reply(mess.owner)
