@@ -2424,7 +2424,7 @@ await fs.unlinkSync(audio.path)
 break
 case 'ytmp4': case 'ytvideo': {
 const herbertvidoh = require('./lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !herbertvidoh.isYTUrl(text)) replyherbertstyle(`A link rawn dah la..!?\n\nTiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefgs`)
+if (args.length < 1 || !isUrl(text) || !herbertvidoh.isYTUrl(text)) replyherbertstyle(`Video link rawn dah rawh!!\n\nTiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefgs`)
 m.reply(mess.wait)
 const vid=await herbertvidoh.mp4(text)
 const ytc=`
@@ -2919,8 +2919,7 @@ case 'qc': case'text': {
     }
     break
 case 's': case 'sticker': case 'stiker': { 
-HBWABotInc.sendMessage(from, { react: { text: "🧩" , key: m.key }})
-if (!quoted) return replyherbertstyle(`Send/Reply in Thlalak/Videos/Gifs a caption ah tiang hian rawn dah rawh : ${prefix+command}\nVideo hi second 10 aia tam rawn thawn suh`)
+if (!quoted) return replyherbertstyle(`Send in emaw reply in (pic/vid/gif), a caption-ah *${prefix+command}* tiin rawn dah rawh\nVideo hi second 10 aia tam rawn thawn suh`)
 if (/image/.test(mime)) { 
 let media = await quoted.download()
 let encmedia = await HBWABotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
@@ -2931,7 +2930,7 @@ let media = await quoted.download()
 let encmedia = await HBWABotInc.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
 
 } else {
-replyherbertstyle(`Send/Reply in Thlalak/Videos/Gifs a caption ah tiang hian rawn dah rawh : ${prefix+command}\nVideo hi second 10 aia tam rawn thawn suh`)
+replyherbertstyle(`Send in emaw reply in (pic/vid/gif), a caption-ah *${prefix+command}* tiin rawn dah rawh\nVideo hi second 10 aia tam rawn thawn suh`)
 }
 }
 break
