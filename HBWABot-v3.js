@@ -2404,10 +2404,8 @@ case "ytmp3": case "ytaudio": //credit: Ray Senpai â¤ï¸ https://github.c
 const herbertaudp3 = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return replyherbertstyle(`Youtube link rawn dah la?\nTiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 m.reply(mess.wait)
-const audio=await herbertaudp3.mp3(text)
-await HBWABotInc.sendMessage(m.chat,{
-    audio: fs.readFileSync(audio.path),
-    mimetype: 'audio/mp4', ptt: false,
+const audio = await herbertaudp3.mp3(text)
+await HBWABotInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3`},
     contextInfo:{
         externalAdReply:{
             title:audio.meta.title,
@@ -2423,7 +2421,7 @@ await fs.unlinkSync(audio.path)
 break
 case 'ytmp4': case 'ytvideo': {
 const herbertvidoh = require('./lib/ytdl2')
-if (args.length < 1 || !isUrl(text) || !herbertvidoh.isYTUrl(text)) replyherbertstyle(`A link rawn dah la..!?\n\nTiang hian ti rawh : ${prefix + command}https://youtube.com/watch?v=DA9gCKwaefgs`)
+if (args.length < 1 || !isUrl(text) || !herbertvidoh.isYTUrl(text)) replyherbertstyle(`A link rawn dah la..!?\n\nTiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefgs`)
 m.reply(mess.wait)
 const vid=await herbertvidoh.mp4(text)
 const ytc=`
@@ -4397,7 +4395,7 @@ break
  break
 case 'git': case 'gitclone':
 if (!args[0]) return replyherbertstyle(`A link rawn dah rawh..!\nTiang hian ti rawh :\n${prefix}${command} https://github.com/Hello/HBMedia`)
-if (!isUrl(args[0]) && !args[0].includes('github.com')) return replyherbertstyle(`Link invalid!!`)
+if (!isUrl(args[0]) && !args[0].includes('github.com')) return replyherbertstyle(`link a dik lo!!`)
 let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
     let [, user, repo] = args[0].match(regex1) || []
     repo = repo.replace(/.git$/, '')
