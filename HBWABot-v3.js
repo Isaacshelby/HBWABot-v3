@@ -2405,7 +2405,7 @@ const herbertaudp3 = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return replyherbertstyle(`Youtube link rawn dah la?\nTiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 m.reply(mess.wait)
 const audio = await herbertaudp3.mp3(text)
-await HBWABotInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3`},
+await HBWABotInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: media.title+'mp3',
     contextInfo:{
         externalAdReply:{
             title:audio.meta.title,
