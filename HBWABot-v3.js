@@ -2400,24 +2400,14 @@ await HBWABotInc.sendMessage(m.chat,{
 await fs.unlinkSync(pl.path)
 }
 break
-case "ytmp3": case "ytaudio": //credit: Ray Senpai â¤ï¸ https://github.com/EternityBots/Nezuko
+case "ytmp3": case "ytaudio": {
 const herbertaudp3 = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return replyherbertstyle(`Youtube link rawn dah la?\nTiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 m.reply(mess.wait)
 const audio = await herbertaudp3.mp3(text)
-await HBWABotInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: audio.meta.title+'mp3',
-    contextInfo:{
-        externalAdReply:{
-            title:audio.meta.title,
-            body: botname,
-            thumbnail: await fetchBuffer(audio.meta.image),
-            mediaType:2,
-            mediaUrl:text,
-        }
-
-    },
+await HBWABotInc.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: audio.meta.title+'mp3'
 },{quoted:m})
-await fs.unlinkSync(audio.path)
+}
 break
 case 'ytmp4': case 'ytvideo': {
 const herbertvidoh = require('./lib/ytdl2')
