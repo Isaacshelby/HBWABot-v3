@@ -2949,11 +2949,6 @@ replyherbertstyle(`Send in emaw reply in (pic/vid/gif), a caption-ah *${prefix+c
 }
 }
 break
-case 'quotes':
-const quoteherberty = await axios.get(`https://favqs.com/api/qotd`)
-        const textquotes = `*${themeemoji} Quote:* ${quoteherberty.data.quote.body}\n\n*${themeemoji} Author:* ${quoteherberty.data.quote.author}`
-return replyherbertstyle(textquotes)
-break
 case 'handsomecheck':
 				if (!text) return replyherbertstyle(`Tu emaw tag rawh, Tiang hian ti rawh : ${prefix + command} @Herbert`)
 					const gan = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
@@ -3605,12 +3600,10 @@ var hasil = pickRandom(notnot)
 HBWABotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 
-case 'couplepp': case 'ppcouple': {
-                m.reply(mess.wait)
-                let anucpp = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/couplepp/Inkawp.json')
-                let random = anucpp[Math.floor(Math.random() * anucpp.length)]
-                HBWABotInc.sendMessage(m.chat, { image: { url: random.male }, caption: `Mipa` }, { quoted: m })
-                HBWABotInc.sendMessage(m.chat, { image: { url: random.female }, caption: `Hmeichhia` }, { quoted: m })
+case 'thuril': case 'quotes': {
+                let mizoquotes = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/QuotesMizo/mizoquotes.json')
+                let random = mizoquotes[Math.floor(Math.random() * mizoquotes.length)]
+                HBWABotInc.sendMessage(m.chat, { image: { url: random.quotesmizo }, caption: `Author : ${random.author} \n\n*Instagram* : ${random.instagram}` }, { quoted: m })
             }
 	    break 
 case 'couplepic':case 'couplepicture':
