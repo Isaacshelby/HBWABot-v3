@@ -57,7 +57,7 @@ let ntilinkytch =JSON.parse(fs.readFileSync('./database/antilinkytchannel.json')
 let ntilinkytvid =JSON.parse(fs.readFileSync('./database/antilinkytvideo.json'))
 
 
-
+global.HBMods-OFC = "https://youtube.com/@HBMods_Channel"
 global.db = JSON.parse(fs.readFileSync('./database/database.json'))
 if (global.db) global.db = {
 sticker: {},
@@ -477,7 +477,7 @@ const dodoi = (teks) => {
             HBWABotInc.sendMessage(m.chat, { text: teks}, { quoted: m})
         }
 const replyherbertstyle = (teks) => {
-           HBWABotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": ` ${global.botname}`,"body": `${ownername}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBWABot.png`),"sourceUrl": `${ownerweb}`}}}, { quoted: m})
+           HBWABotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": ` ${global.botname}`,"body": `SUBSCRIBE HBMods OFC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBWABot.png`),"sourceUrl": `${HBMods-OFC}`}}}, { quoted: m})
         }
 const replygcherbe = (teks) => {
 HBWABotInc.sendMessage(m.chat,
@@ -1520,8 +1520,6 @@ break
 		
 		case 'capacity':  case 'bankupgrade': {
 			HBWABotInc.sendMessage(from, { react: { text: "💲" , key: m.key }})
-		
-	//if (!isCreator) return replyherbertstyle(mess.botowner)
 	if (!text) return replyherbertstyle(`💴 Bank-capacity 💳\n\n1 | 1000 sp = ₹100\n\n2 | 10000 sp = ₹1000\n\n3 | 100000 sp = ₹10000\n\nTiang hian ti la ${prefix}capacity 1 In emaw ${prefix}bankupgrade 1000`)	
 	if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender)
         const user = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
@@ -1563,7 +1561,7 @@ const user = m.sender;
 const cara = 'cara'
     const deposit = await eco.deposit(user, cara, texts)
         if(deposit.noten) return replyherbertstyle('Engmah i nei loh avangin i deposit thei lo ang.') //if user states more than whats in his wallet
-         replyherbertstyle(`I bank a ₹${deposit.amount} deposit a ni`)
+         replyherbertstyle(`I bank a ₹ ${deposit.amount} deposit a ni`)
   }
       break
 
@@ -2290,7 +2288,7 @@ replyherbertstyle(db)
 break
 case 'remini': {
 			if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
-			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak a Send/Reply in Photos a caption ah ${prefix + command} tih hi rawn dah rawh`)
+			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
 			m.reply(mess.wait)
 			const { remini } = require('./lib/remini')
 			let media = await quoted.download()
