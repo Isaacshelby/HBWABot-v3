@@ -1416,9 +1416,9 @@ case 'suitpvp':case 'rps': case 'rockpaperscissors': case 'suit': {
       const cara = "cara"
       const daily  = await eco.daily(user, cara, 999); //give 999 for daily, can be changed
       
-              if (daily.cd) return replyherbertstyle(`Vawiin a mi tur i claim tawh, ${daily.cdL} a ral hunah i claim leh thei chauh ang`); //cdL is already formatted cooldown Left
+              if (daily.cd) return replyherbertstyle(`I claim tawh, ${daily.cdL} a ral hunah i claim leh thei chauh ang`); //cdL is already formatted cooldown Left
       
-                replyherbertstyle(`Vawiin a tan ₹${daily.amount} i claim e, ni tin i claim ziah thei ang`);        
+                replyherbertstyle(`Vawiin a tan ₹${daily.amount} i claim e, ${daily.cdL} ral hunah i claim leh thei ang!!!`);        
     }
     break
      
