@@ -475,7 +475,7 @@ const dodoi = (teks) => {
             HBWABotInc.sendMessage(m.chat, { text: teks}, { quoted: m})
         }
 const replyherbertstyle = (teks) => {
-           HBWABotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": ` ${global.botname}`,"body": `SUBSCRIBE HBMods OFC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBWABot.png`),"sourceUrl": `${ownerweb}`}}}, { quoted: m})
+           HBWABotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": `${global.botname}`,"body": `SUB HBMods OFC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBWABot.png`),"sourceUrl": `${ownerweb}`}}}, { quoted: m})
         }
 const replygcherbe = (teks) => {
 HBWABotInc.sendMessage(m.chat,
@@ -1418,7 +1418,7 @@ case 'suitpvp':case 'rps': case 'rockpaperscissors': case 'suit': {
       
               if (daily.cd) return replyherbertstyle(`I claim tawh, ${daily.cdL} a ral hunah i claim leh thei chauh ang`); //cdL is already formatted cooldown Left
       
-                replyherbertstyle(`Vawiin a tan ₹${daily.amount} i claim e, ${daily.cdL} ral hunah i claim leh thei ang!!!`);        
+                replyherbertstyle(`Vawiin a tan ₹${daily.amount} i claim e, darkar 24 ral hunah i claim leh thei ang!!!`);        
     }
     break
      
