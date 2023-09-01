@@ -2287,10 +2287,10 @@ break
 case 'toanime': { 
 			if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
-			m.reply(mess.wait)
-			let media = await quoted.download()
+			m.reply(mess.wait)			
 			let res = await fetchJson('https://api.betabotz.org/api/maker/jadianime?url=https://cdn.btch.bz/file/1076994410f2eaa50bb03.png&apikey=SjWOkprk')
-			let buff = await fetch(result.img_crop_single)
+			let media = await quoted.download()
+			let buff = await fetch(img_crop_single)
            .then(res => res.buffer())
            HBWABotInc.sendMessage(m.chat, { image: buff, caption: mess.success}, { quoted: m})
 			}
