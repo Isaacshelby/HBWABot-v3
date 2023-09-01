@@ -1558,7 +1558,7 @@ const texts = text.trim()
 const user = m.sender;
 const cara = 'cara'
     const deposit = await eco.deposit(user, cara, texts)
-        if(deposit.noten) return replyherbertstyle('Engmah i nei loh avangin i deposit thei lo ang.') //if user states more than whats in his wallet
+        if(deposit.noten) return replyherbertstyle('I wallet ah chu tiang zat a awm loh avangin i deposit thei lo ang.') //if user states more than whats in his wallet
          replyherbertstyle(`I bank a ₹ ${deposit.amount} deposit a ni`)
   }
       break
@@ -2284,6 +2284,18 @@ let db = await dBinary(`${q}`)
 replyherbertstyle(db)
 }
 break
+case 'toanime': { 
+			if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
+			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
+			m.reply(mess.wait)
+			let media = await quoted.download()
+			let res = await fetch(API('lann', '/api/maker/jadianime', { url: `${out}`, apikey: lann }))
+			let old = new Date()
+			let buff = await fetch(convert.result.img_crop_single)
+           .then(res => res.buffer())
+           HBWABotInc.sendMessage(m.chat, { image: buff, caption: mess.success}, { quoted: m})
+			}
+			break
 case 'remini': {
 			if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
@@ -2293,7 +2305,7 @@ case 'remini': {
 			let proses = await remini(media, "enhance")
 			HBWABotInc.sendMessage(m.chat, { image: proses, caption: mess.success}, { quoted: m})
 			}
-			break
+			break 		
 			case 'gimage': {
                 if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} Mizoram`)
                 m.reply(mess.wait)

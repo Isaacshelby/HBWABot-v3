@@ -9,7 +9,21 @@ global.autokickmorroco = false //auto kick 212 (true to on, false to off)
 global.antispam = false //auto kick spammer (true to on, false to off)
 
 
-//if api key expire, u can generate one from here: https://beta.openai.com/account/api-keys
+global.APIs = { // API Prefix
+  // name: 'https://website'
+  xteam: 'https://api.xteam.xyz', 
+  nrtm: 'https://fg-nrtm.ddns.net',
+  bg: 'http://bochil.ddns.net',
+  fgmods: 'https://api-fgmods.ddns.net',
+  lann: 'https://api.betabotz.org'
+}
+global.APIKeys = { // APIKey Here
+  // 'https://website': 'apikey'
+  'https://api.xteam.xyz': 'd90a9e986e18778b',
+  'https://zenzapis.xyz': '675e34de8a', 
+  'https://api-fgmods.ddns.net': 'fg-dylux',
+  'https://api.betabotz.org': 'isi_dulu'
+ }
 global.keyopenai = "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"
 
 //documents variants
@@ -29,6 +43,7 @@ global.socialm = "https://herbert70.blogspot.com" //ur github or insta name
 global.location = "India, Mizoram, Aizawl" //ur location
 
 //new
+global.lann = 'isi_dulu'
 global.botname = "HBWABot Mizo"
 global.ownernumber = '918416093656'
 global.ownername = '꧁Herbert♕꧂'
