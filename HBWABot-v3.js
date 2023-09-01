@@ -2290,7 +2290,7 @@ case 'toanime': {
 			m.reply(mess.wait)
 			let media = await quoted.download()
 			let res = await fetchJson('https://api.betabotz.org/api/maker/jadianime?url=https://cdn.btch.bz/file/1076994410f2eaa50bb03.png&apikey=SjWOkprk')
-			let buff = await fetch(convert.result.img_crop_single)
+			let buff = await fetch(result.img_crop_single)
            .then(res => res.buffer())
            HBWABotInc.sendMessage(m.chat, { image: buff, caption: mess.success}, { quoted: m})
 			}
