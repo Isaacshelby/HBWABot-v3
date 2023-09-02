@@ -2387,8 +2387,6 @@ const herbertplaymp3 = require('./lib/ytdl2')
 let yts = require("youtube-yts")
         let search = await yts(text)
         let anup3k = search.videos[0]
-const baby1 = await herbertplaymp3.mp3(anup3k.url)
-	if (baby1[0].size.split('MB')[0] >= 100) return replyherbertstyle('100MB aia tam download thei a ni lo!!...')
 const pl= await herbertplaymp3.mp3(anup3k.url)
 await HBWABotInc.sendMessage(m.chat,{
     audio: fs.readFileSync(pl.path),
@@ -2415,8 +2413,6 @@ const herbertplaymp3 = require('./lib/ytdl2')
 let yts = require("youtube-yts")
         let search = await yts(text)
         let anup3k = search.videos[0]
-const baby1 = await herbertplaymp3.mp3(anup3k.url)
-	if (baby1[0].size.split('MB')[0] >= 100) return replyherbertstyle('100MB aia tam download thei a ni lo!!...')
 const pl= await herbertplaymp3.mp3(anup3k.url)
 await HBWABotInc.sendMessage(m.chat,{document: fs.readFileSync(pl.path),
     fileName: anup3k.title + '.mp3',
@@ -2435,34 +2431,10 @@ await HBWABotInc.sendMessage(m.chat,{document: fs.readFileSync(pl.path),
 await fs.unlinkSync(pl.path)
 }
 break
-case 'videos':  case 'video': {
-if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
-m.reply(mess.wait)
-const herbertvidoh = require('./lib/ytdl2')
-let yts = require("youtube-yts")
-        let search = await yts(text)
-        let anup3k = search.videos[0]
-const baby1 = herbertvidoh.mp4(anup3k.url)
-	if (baby1[0].size.split('MB')[0] >= 100) return replyherbertstyle('100MB aia tam download thei a ni lo!!...')
-const vid=await herbertvidoh.mp4(anup3k.url)
-const ytc=`
-*${themeemoji}Tittle:* ${vid.title}
-*${themeemoji}Date:* ${vid.date}
-*${themeemoji}Duration:* ${vid.duration}
-*${themeemoji}Quality:* ${vid.quality}`
-await HBWABotInc.sendMessage(m.chat,{
-    video: {url:vid.videoUrl},
-    caption: ytc
-},{quoted:m})
-await fs.unlinkSync(pl.path)
-}
-break
 case "ytmp3": case "ytaudio": //credit: Ray Senpai â¤ï¸ https://github.com/EternityBots/Nezuko
 const herbertaudp3 = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return replyherbertstyle(`Youtube link rawn dah rawh\nTiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 m.reply(mess.wait)
-const baby1 = await herbertaudp3.mp3(text)
-	if (baby1[0].size.split('MB')[0] >= 100) return replyherbertstyle('100MB aia tam download thei a ni lo!!...')
 const audio=await herbertaudp3.mp3(text)
 await HBWABotInc.sendMessage(m.chat,{
     audio: fs.readFileSync(audio.path),
@@ -2485,8 +2457,6 @@ case 'ytmp4': case 'ytvideo': {
 const herbertvidoh = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !herbertvidoh.isYTUrl(text)) replyherbertstyle(`Video link rawn dah rawh!!\n\nTiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefgs`)
 m.reply(mess.wait)
-const baby1 = await herbertvidoh.mp4(text)
-	if (baby1[0].size.split('MB')[0] >= 100) return replyherbertstyle('100MB aia tam download thei a ni lo!!...')
 const vid=await herbertvidoh.mp4(text)
 const ytc=`
 *${themeemoji}Tittle:* ${vid.title}
@@ -2499,18 +2469,26 @@ await HBWABotInc.sendMessage(m.chat,{
 },{quoted:m})
 }
 break
-case 'ytvxxx': case 'ytmp4xxx': case 'mp4xxx':{
-if (!text) return replyherbertstyle('Enter the link!!!')
+case 'videos':  case 'video': {
+if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
 m.reply(mess.wait)
-downloadMp4(text)
+const herbertvidoh = require('./lib/ytdl2')
+let yts = require("youtube-yts")
+        let search = await yts(text)
+        let anup3k = search.videos[0]
+const vid=await herbertvidoh.mp4(anup3k.url)
+const ytc=`
+*${themeemoji}Tittle:* ${vid.title}
+*${themeemoji}Date:* ${vid.date}
+*${themeemoji}Duration:* ${vid.duration}
+*${themeemoji}Quality:* ${vid.quality}`
+await HBWABotInc.sendMessage(m.chat,{
+    video: {url:vid.videoUrl},
+    caption: ytc
+},{quoted:m})
+await fs.unlinkSync(pl.path)
 }
 break
-case 'ytaxxx': case 'ytmp3xxx': case 'mp3xxx':{
-if (!text) return replyherbertstyle('Enter the link!!!')
-m.reply(mess.wait)
-downloadMp3(text)
-}
-break  
 case 'addprem':
 if (!HerbertTheCreator) return m.reply(mess.owner)
 if (!args[0]) return replyherbertstyle(`Use ${prefix+command} number\nTiang hian ti rawh :${prefix+command} 918416093656`)
