@@ -1639,42 +1639,6 @@ await HBWABotInc.groupAcceptInvite(result)
 await replyherbertstyle(`Zove....✓`)
 }
 break
-             case 'ping': case 'botstatus': case 'statusbot': case 'p': {
-                const used = process.memoryUsage()
-                const cpus = os.cpus().map(cpu => {
-                    cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
-			        return cpu
-                })
-                const cpu = cpus.reduce((last, cpu, _, { length }) => {
-                    last.total += cpu.total
-                    last.speed += cpu.speed / length
-                    last.times.user += cpu.times.user
-                    last.times.nice += cpu.times.nice
-                    last.times.sys += cpu.times.sys
-                    last.times.idle += cpu.times.idle
-                    last.times.irq += cpu.times.irq
-                    return last
-                }, {
-                    speed: 0,
-                    total: 0,
-                    times: {
-			            user: 0,
-			            nice: 0,
-			            sys: 0,
-			            idle: 0,
-			            irq: 0
-                }
-                })
-                let timestamp = speed()
-                let latensi = speed() - timestamp
-                neww = performance.now()
-                oldd = performance.now()
-                respon = `
-Bot speed chak zawng: ${latensi.toFixed(4)} _Second_ \n ${oldd - neww} _miliseconds_\n\nOnline chin : ${runtime(process.uptime())} a online tawh a ni` : ''}
-                `.trim()
-                replyherbertstyle(respon)
-            }
-            break
 case 'block': case 'ban': {
 		if (!HerbertTheCreator) return m.reply(mess.owner)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
