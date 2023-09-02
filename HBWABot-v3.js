@@ -2390,7 +2390,7 @@ HBWABotInc.sendMessage(from, { text: `*${command}*\n\nHming : ${q}\nAnswer : *${
 case 'quote': case 'quotes': {
                 let mizoquotes = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/QuotesMizo/mizoquotes2.json')
                 let random = mizoquotes[Math.floor(Math.random() * mizoquotes.length)]
-                HBWABotInc.sendMessage(m.chat, { text: `*Quotes :* ${random.quotes}\n*Author :* _${random.author}_`, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": `Mizo Quotes`,"body": `CLICK HERE`, "previewType": "PHOTO","thumbnailUrl": ``, "thumbnail": { url: random.apicture },"sourceUrl": `${random.instagram}`}}}, { quoted: m})
+                HBWABotInc.sendMessage(m.chat, { text: `*Quotes :* ${random.quotes}\n*Author :* _${random.author}_`, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": `Mizo Quotes`,"body": `CLICK HERE`, "previewType": "PHOTO","thumbnailUrl": ``, thumbnail: await fetchBuffer(random.apicture),,"sourceUrl": `${random.instagram}`}}}, { quoted: m})
 	    break
 case 'beautifulcheck':
 				if (!text) return replyherbertstyle(`Tu emaw tag rawh, Tiang hian ti rawh : ${prefix + command} @Herbert`)
