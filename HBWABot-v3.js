@@ -2357,40 +2357,9 @@ let kat = await scp1.happymod(q)
 replyherbertstyle(util.format(kat))
 }
 break
-case 'search':
-case 'yts': case 'ytsearch': {
-                if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} story wa anime`)
-                let yts = require("yt-search")
-                let search = await yts(text)
-                let teks = 'YouTube Search\n\n Result From '+text+'\n\n'
-                let no = 1
-                for (let i of search.all) {
-                    teks += `${themeemoji} No : ${no++}\n${themeemoji} Type : ${i.type}\n${themeemoji} Video ID : ${i.videoId}\n${themeemoji} Title : ${i.title}\n${themeemoji} Views : ${i.views}\n${themeemoji} Duration : ${i.timestamp}\n${themeemoji} Uploaded : ${i.ago}\n${themeemoji} Url : ${i.url}\n\n─────────────────\n\n`
-                }
-                HBWABotInc.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
-            }
-            break
-case 'dplay': case 'dsong': case 'dmusic': {
-  const YT = require('./lib/ytdl-core')
-  const yts = require('youtube-yts')
-  const ffmpeg = require('fluent-ffmpeg')  
-  let search = await yts(text)
-  let anu = search.videos[0]
-  const ytmp3play = await YT.mp3(anu.url)
-  let thumbnailUrl = anu.thumbnail
-  await HBWABotInc.sendMessage(
-    from,{image: { url: thumbnailUrl },caption: `\n*Downloading:* *${anu.title}*`,},{ quoted: m })
-  await HBWABotInc.sendMessage(from, {document: fs.readFileSync(ytmp3play2.path),
-  filename: anu.title + '.mp3',
-  mimetype: 'audio/mpeg',}, {quoted: m,})
-}
-break
-case 'Dytmp3': {
-  const YT=require('./lib/ytdl-core')
-  const ytmp3play2 = await YT.mp3(text)
-await HBWABotInc.sendMessage(from, {document: fs.readFileSync(ytmp3play2.path), filename: anu.title + '.mp3', mimetype: 'audio/mpeg',}, {quoted:m})
-}
-break;
+case 'yts': case 'ytsearch':
+const _0x244632=_0x2493;(function(_0x42e7e3,_0x26c668){const _0x3abfea=_0x2493,_0x4da3ee=_0x42e7e3();while(!![]){try{const _0xec78a2=-parseInt(_0x3abfea(0x17b))/0x1+-parseInt(_0x3abfea(0x180))/0x2*(-parseInt(_0x3abfea(0x17f))/0x3)+-parseInt(_0x3abfea(0x18b))/0x4*(-parseInt(_0x3abfea(0x165))/0x5)+parseInt(_0x3abfea(0x173))/0x6+-parseInt(_0x3abfea(0x171))/0x7+parseInt(_0x3abfea(0x166))/0x8*(-parseInt(_0x3abfea(0x16f))/0x9)+parseInt(_0x3abfea(0x17d))/0xa*(-parseInt(_0x3abfea(0x178))/0xb);if(_0xec78a2===_0x26c668)break;else _0x4da3ee['push'](_0x4da3ee['shift']());}catch(_0x4ab77b){_0x4da3ee['push'](_0x4da3ee['shift']());}}}(_0x56cc,0x7bb74));function _0x56cc(){const _0x124eb9=['description','36Wlgwfz','122788qdRqlm','\x0a*UPLOAD:*\x20','timestamp','\x20I\x20thil\x20zawn\x20title\x20chhu\x20rawh*','ytmp4\x20','yt-search','*▊▊▊YOUTUBE\x20SEARCH▊▊▊*','result:\x20url\x20','\x0a*LINK:*\x20','\x0a*DURATION*\x20','ban','4436uTnxYb','*Entirnan\x20:\x20','mimetype:\x20video/mp4\x20','title','push','3850jVGKsb','8OlfmOa','linkok\x20','sendMessage','VIDEO\x20MP4⬤:','mimetype:\x20audio/mp3\x20','url','\x0a*CHANNEL:*\x20','ytmp3\x20','ago','3680244YcUhko','author','961709ryZPhz','chat','553926TdzmkP','HLA\x20MP3⬤:','all','*\n\n*A\x20chhunga\x20hla\x20leh\x20video\x20te\x20hi\x20i\x20thlang\x20thei\x20ang*\n▬▭▬▭▬▭▬▭▬▭▬▭▬▭','I\x20DUH\x20THLANG\x20RAWH','5834103hwgrIN','\x0a*VIEWS:*\x20','views','99563UadJLi','name','10LXMluy'];_0x56cc=function(){return _0x124eb9;};return _0x56cc();}function _0x2493(_0x75d29c,_0x82bebc){const _0x56cc0e=_0x56cc();return _0x2493=function(_0x2493d3,_0xf39622){_0x2493d3=_0x2493d3-0x165;let _0x1347bc=_0x56cc0e[_0x2493d3];return _0x1347bc;},_0x2493(_0x75d29c,_0x82bebc);}{if(isBan)throw mess[_0x244632(0x18a)];if(!text)throw _0x244632(0x18c)+(prefix+command)+_0x244632(0x183);let yts=require(_0x244632(0x185)),search=await yts(text),no=0x1,sections=[];for(let i of search[_0x244632(0x175)]){const list={'title':''+i[_0x244632(0x18e)],'rows':[{'title':_0x244632(0x174),'rowId':prefix+_0x244632(0x16d)+i[_0x244632(0x16b)],'description':_0x244632(0x16a)+i[_0x244632(0x17e)]+_0x244632(0x181)+i['ago']+_0x244632(0x16c)+i[_0x244632(0x170)][_0x244632(0x17c)]+_0x244632(0x179)+i[_0x244632(0x17a)]+_0x244632(0x189)+i[_0x244632(0x182)]+_0x244632(0x188)+i['url']},{'title':_0x244632(0x169),'rowId':prefix+_0x244632(0x184)+i[_0x244632(0x16b)],'description':_0x244632(0x18d)+i[_0x244632(0x17e)]+'\x0a*UPLOAD:*\x20'+i[_0x244632(0x16e)]+_0x244632(0x16c)+i[_0x244632(0x170)][_0x244632(0x17c)]+_0x244632(0x179)+i[_0x244632(0x17a)]+_0x244632(0x189)+i[_0x244632(0x182)]+_0x244632(0x188)+i[_0x244632(0x16b)]},{'title':'A\x20LINK','rowId':prefix+_0x244632(0x167)+i[_0x244632(0x16b)],'description':_0x244632(0x187)+i[_0x244632(0x17e)]+_0x244632(0x181)+i[_0x244632(0x16e)]+_0x244632(0x16c)+i[_0x244632(0x170)][_0x244632(0x17c)]+_0x244632(0x179)+i[_0x244632(0x17a)]+_0x244632(0x189)+i[_0x244632(0x182)]+'\x0a*LINK:*\x20'+i[_0x244632(0x16b)]}]};sections[_0x244632(0x18f)](list);}const sendm=HBWABotInc[_0x244632(0x168)](m[_0x244632(0x172)],{'text':'︎*'+text+_0x244632(0x176),'footer':'©\x20HBWABOT\x20INC\x202023','title':_0x244632(0x186),'buttonText':_0x244632(0x177),'sections':sections},{'quoted':m});}
+                  break 
 case '/hla':  case 'song': {
 if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
 m.reply(mess.wait)
@@ -2401,6 +2370,53 @@ let yts = require("youtube-yts")
 const pl= await herbertplaymp3.mp3(anup3k.url)
 await HBWABotInc.sendMessage(m.chat,{
     audio: fs.readFileSync(pl.path),
+    fileName: anup3k.title + '.mp3',
+    mimetype: 'audio/mp4',
+    contextInfo:{
+        externalAdReply:{
+            title:anup3k.title,
+            body: botname,
+            thumbnail: await fetchBuffer(pl.meta.image),
+            mediaType:2,
+            mediaUrl:anup3k.url,
+        }
+
+    },
+},{quoted:m})
+await fs.unlinkSync(pl.path)
+}
+break 
+case "dytmp3": case "dytaudio":
+const herbertaudp3 = require('./lib/ytdl2')
+if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return replyherbertstyle(`Youtube link rawn dah rawh\nTiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
+m.reply(mess.wait)
+const audio=await herbertaudp3.mp3(text)
+await HBWABotInc.sendMessage(m.chat,{
+    document: fs.readFileSync(audio.path),
+    fileName: audio.meta.title + '.mp3',
+    mimetype: 'audio/mp4',
+    contextInfo:{
+        externalAdReply:{
+            title:audio.meta.title,
+            body: botname,
+            thumbnail: await fetchBuffer(audio.meta.image),
+            mediaType:2,
+            mediaUrl:text,
+        }
+
+    },
+},{quoted:m})
+await fs.unlinkSync(audio.path)
+break
+case 'dsong': {
+if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
+m.reply(mess.wait)
+const herbertplaymp3 = require('./lib/ytdl2')
+let yts = require("youtube-yts")
+        let search = await yts(text)
+        let anup3k = search.videos[0]
+const pl= await herbertplaymp3.mp3(anup3k.url)
+await HBWABotInc.sendMessage(m.chat,{document: fs.readFileSync(pl.path),
     fileName: anup3k.title + '.mp3',
     mimetype: 'audio/mp4',
     contextInfo:{
