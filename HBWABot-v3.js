@@ -3028,8 +3028,8 @@ case 'thuril': {
             }
 	    break 
 	    case 'quote': case 'quotes': {
-                let mizoquotes = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/QuotesMizo/mizoquotes2.json')
-                let random = mizoquotes[Math.floor(Math.random() * mizoquotes.length)]
+                let mizoquotes2 = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/QuotesMizo/mizoquotes2.json')
+                let random = mizoquotes2[Math.floor(Math.random() * mizoquotes.length)]
                 HBWABotInc.sendMessage(m.chat, { text: `*Quotes :* ${random.quotes}\n*Author :* _${random.author}_`, contextInfo:{"externalAdReply": {"showAdAttribution" : true, "containsAutoReply": true, "title": `Mizo Quotes`, "body": `CLICK HERE`,"previewType": "PHOTO", "thumbnailUrl": ``, "thumbnai": await getBuffer(random.apicture), "sourceUrl": `${random.instagram}`}}}, { quoted: m})
 	    break
 case 'couplepp': case 'ppcouple': {
