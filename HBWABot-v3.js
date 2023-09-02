@@ -2290,10 +2290,7 @@ case 'toanime': {
 			m.reply(mess.wait)			
 			let res = await fetchJson('https://api.betabotz.org/api/maker/jadianime?url=https://cdn.btch.bz/file/1076994410f2eaa50bb03.png&apikey=SjWOkprk')
 			let media = await quoted.download()
-			let convert = await res.json()
-			let buff = await fetch(convert.result.img_crop_single)
-           .then(res => res.buffer())
-           HBWABotInc.sendMessage(m.chat, { image: buff, caption: mess.success}, { quoted: m})
+	     	.then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, { quoted: m})
 			}
 			break
 case 'remini': {
@@ -2382,7 +2379,28 @@ case 'yts': case 'ytsearch': {
                 HBWABotInc.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
             }
             break
-case 'play':  case 'song': {
+case 'dplay': case 'dsong': case 'dmusic': {
+  const YT = require('./lib/ytdl-core')
+  const yts = require('youtube-yts')
+  const ffmpeg = require('fluent-ffmpeg')  
+  let search = await yts(text)
+  let anu = search.videos[0]
+  const ytmp3play = await YT.mp3(anu.url)
+  let thumbnailUrl = anu.thumbnail
+  await HBWABotInc.sendMessage(
+    from,{image: { url: thumbnailUrl },caption: `\n*Downloading:* *${anu.title}*`,},{ quoted: m })
+  await HBWABotInc.sendMessage(from, {document: fs.readFileSync(ytmp3play2.path),
+  filename: anu.title + '.mp3',
+  mimetype: 'audio/mpeg',}, {quoted: m,})
+}
+break
+case 'Dytmp3': {
+  const YT=require('./lib/ytdl-core')
+  const ytmp3play2 = await YT.mp3(text)
+await HBWABotInc.sendMessage(from, {document: fs.readFileSync(ytmp3play2.path), filename: anu.title + '.mp3', mimetype: 'audio/mpeg',}, {quoted:m})
+}
+break;
+case '/hla':  case 'song': {
 if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
 m.reply(mess.wait)
 const herbertplaymp3 = require('./lib/ytdl2')
@@ -2404,6 +2422,26 @@ await HBWABotInc.sendMessage(m.chat,{
         }
 
     },
+},{quoted:m})
+await fs.unlinkSync(pl.path)
+}
+break
+case 'videos':  case 'video': {
+if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
+m.reply(mess.wait)
+const herbertvidoh = require('./lib/ytdl2')
+let yts = require("youtube-yts")
+        let search = await yts(text)
+        let anup3k = search.videos[0]
+const vid=await herbertvidoh.mp4(anup3k.url)
+const ytc=`
+*${themeemoji}Tittle:* ${vid.title}
+*${themeemoji}Date:* ${vid.date}
+*${themeemoji}Duration:* ${vid.duration}
+*${themeemoji}Quality:* ${vid.quality}`
+await HBWABotInc.sendMessage(m.chat,{
+    video: {url:vid.videoUrl},
+    caption: ytc
 },{quoted:m})
 await fs.unlinkSync(pl.path)
 }
