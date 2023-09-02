@@ -251,104 +251,10 @@ herbertverifieduser.push(sender)
 fs.writeFileSync('./database/user.json', JSON.stringify(herbertverifieduser, null, 2))
 }
 
-HBWABotInc.sendPresenceUpdate('unavailable', from)
-
-for (let jid of mentionUser) {
-let user = global.db.users[jid]
-if (!user) continue
-let afkTime = user.afkTime
-if (!afkTime || afkTime < 0) continue
-let reason = user.afkReason || ''
-m.reply(`Don't Tag Him!
-He's AFK ${reason ? 'With Reason: ' + reason : 'No Reason'}
-During ${clockString(new Date - afkTime)}
-`.trim())
-}
-
-//math
-if (kuismath.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
-
-            kuis = true
-
-            jawaban = kuismath[m.sender.split('@')[0]]
-
-            if (budy.toLowerCase() == jawaban) {
-
-                await m.reply(`🎮 Math Quiz 🎮\n\nCorrect Answer 🎉\n\nWant To Play Again? Send ${prefix}math mode`)
-
-                delete kuismath[m.sender.split('@')[0]]
-
-            } else m.reply('*Wrong Answer!*')
-
-        }
+HBWABotInc.sendPresenceUpdate('available', from)
 
 
-//TicTacToe\\
-	    this.game = this.game ? this.game : {}
-	    let room13 = Object.values(this.game).find(room13 => room13.id && room13.game && room13.state && room13.id.startsWith('tictactoe') && [room13.game.playerX, room13.game.playerO].includes(m.sender) && room13.state == 'PLAYING')
-	    if (room13) {
-	    let ok
-	    let isWin = !1
-	    let isTie = !1
-	    let isSurrender = !1
-	    //reply(`[DEBUG]\n${parseInt(m.text)}`)
-	    if (!/^([1-9]|(me)?give up|surr?ender|off|skip)$/i.test(m.text)) return
-	    isSurrender = !/^[1-9]$/.test(m.text)
-	    if (m.sender !== room13.game.currentTurn) { 
-	    if (!isSurrender) return !0
-	    }
-	    if (!isSurrender && 1 > (ok = room13.game.turn(m.sender === room13.game.playerO, parseInt(m.text) - 1))) {
-	    reply({
-	    '-3': 'Game Has Ended',
-	    '-2': 'Invalid',
-	    '-1': 'Invalid Position',
-	    0: 'Invalid Position',
-	    }[ok])
-	    return !0
-	    }
-	    if (m.sender === room13.game.winner) isWin = true
-	    else if (room13.game.board === 511) isTie = true
-	    let arr = room13.game.render().map(v => {
-	    return {
-	    X: '❌',
-	    O: '⭕',
-	    1: '1️⃣',
-	    2: '2️⃣',
-	    3: '3️⃣',
-	    4: '4️⃣',
-	    5: '5️⃣',
-	    6: '6️⃣',
-	    7: '7️⃣',
-	    8: '8️⃣',
-	    9: '9️⃣',
-	    }[v]
-	    })
-	    if (isSurrender) {
-	    room13.game._currentTurn = m.sender === room13.game.playerX
-	    isWin = true
-	    }
-	    let winner = isSurrender ? room13.game.currentTurn : room13.game.winner
-	    let str = `room13 ID: ${room13.id}
-
-${arr.slice(0, 3).join('')}
-${arr.slice(3, 6).join('')}
-${arr.slice(6).join('')}
-
-${isWin ? `@${winner.split('@')[0]} Won!` : isTie ? `Game Over` : `Turn ${['❌', '⭕'][1 * room13.game._currentTurn]} (@${room13.game.currentTurn.split('@')[0]})`}
-❌: @${room13.game.playerX.split('@')[0]}
-⭕: @${room13.game.playerO.split('@')[0]}
-
-Type *surrender* to surrender and admit defeat`
-	    if ((room13.game._currentTurn ^ isSurrender ? room13.x : room13.o) !== m.chat)
-	    room13[room13.game._currentTurn ^ isSurrender ? 'x' : 'o'] = m.chat
-	    if (room13.x !== room13.o) await HBWABotInc.sendText(room13.x, str, m, { mentions: parseMention(str) } )
-	    await HBWABotInc.sendText(room13.o, str, m, { mentions: parseMention(str) } )
-	    if (isTie || isWin) {
-	    delete this.game[room13.id]
-	    }
-	    }
-
-        //Suit PvP
+ //Suit RPS
 	    this.suit = this.suit ? this.suit : {}
 	    let roof = Object.values(this.suit).find(roof => roof.id && roof.status && [roof.p, roof.p2].includes(m.sender))
 	    if (roof) {
@@ -421,54 +327,15 @@ He mi link hi hmet la RPS a i duh ber kha lo thlang rawh
 	    }
 	    } //end
 
-if (db.users[m.sender].afkTime > -1) {
-let user = global.db.users[m.sender]
-m.reply(`
-You Quit AFK${user.afkReason ? ' After: ' + user.afkReason : ''}
-During ${clockString(new Date - user.afkTime)}
-`.trim())
-user.afkTime = -1
-user.afkReason = ''
-}
-
 		// auto set bio
 	if (db.settings[botNumber].autobio) {
 	    let setting = global.db.settings[botNumber]
 	    if (new Date() * 1 - setting.status > 1000) {
 		let uptime = await runtime(process.uptime())
-		await HBWABotInc.updateProfileStatus(`${HBWABotInc.user.name} | Runtime : ${runtime(uptime)}`)
+		await HBWABotInc.updateProfileStatus(`HBWABot | Runtime : ${runtime(uptime)}`)
 		setting.status = new Date() * 1
 	    }
 	}
-
-//autoblock 212
-if (global.autoblockmorroco) {
-if (m.sender.startsWith('212')) return HBWABotInc.updateBlockStatus(m.sender, 'block')
-}
-
-//autokick 212
-if (global.autokickmorroco) {
-if (m.isGroup && m.sender.startsWith('212')) return HBWABotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-}
-
-//antispam kick
-if (global.antispam) {
-if (m.isGroup && m.message && msgFilter.isFiltered(from)) {
-
-console.log(`${global.themeemoji}[SPAM]`, color(moment(m.messageTimestamp * 1000).format('DD/MM/YYYY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(m.pushName))
-
-return await HBWABotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-}
-
-}
-
-async function sendHBWABotIncMessage(chatId, message, options = {}){
-    let generate = await generateWAMessage(chatId, message, options)
-    let type2 = getContentType(generate.message)
-    if ('contextInfo' in options) generate.message[type2].contextInfo = options?.contextInfo
-    if ('contextInfo' in message) generate.message[type2].contextInfo = message?.contextInfo
-    return await HBWABotInc.relayMessage(chatId, generate.message, { messageId: generate.key.id })
-}
 
 //group chat msg by herbert
 const dodoi = (teks) => {
@@ -477,7 +344,7 @@ const dodoi = (teks) => {
 const replyherbertstyle = (teks) => {
            HBWABotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": `${global.botname}`,"body": `SUB HBMods OFC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBWABot.png`),"sourceUrl": `${ownerweb}`}}}, { quoted: m})
         }
-const replygcherbe = (teks) => {
+const replygcherbert = (teks) => {
 HBWABotInc.sendMessage(m.chat,
 { text: teks,
 contextInfo:{
@@ -559,27 +426,6 @@ HBWABotInc.sendMessage(m.chat, { video: videobuffy }, { quoted: m })
 }
 }
 
-if (m.isGroup && m.mtype == 'viewOnceMessage') {
-let teks = `╭「 *Anti ViewOnce* 」\n├ *Name* : ${pushname}\n├ *User* : @${m.sender.split("@")[0]}\n├ *Clock* : ${time2}\n└ *Message* : ${m.mtype}`
-HBWABotInc.sendMessage(m.chat, { text: teks, mentions: [m.sender] }, { quoted: m })
-await sleep(500)
-m.copyNForward(m.chat, true, {readViewOnce: true}, {quoted: m}).catch(_ => m.reply(`Maybe It's Opened`))
-}
-
-const lep = {
-key: {
-fromMe: false, 
-participant: `0@s.whatsapp.net`, 
-...({ remoteJid: "" }) 
-}, 
-message: { 
-"imageMessage": { 
-"mimetype": "image/jpeg", 
-"caption":  `${ownername}`, 
-"jpegThumbnail": defaultpp
-}
-}
-}
 
 const ftext = { 
 key: { 
@@ -1020,282 +866,7 @@ async function replyprem(teks) {
                 await HBWABotInc.sendVideoAsSticker(from, mediac, m, { packname: global.packname, author: global.author })
             }
         }
-
-// Anti Link
-        if (Antilinkgc) {
-        if (budy.match(`chat.whatsapp.com`)) {
-        if (!isBotAdmins) return HerbertStickBotAdmin()
-        let gclink = (`https://chat.whatsapp.com/`+await HBWABotInc.groupInviteCode(m.chat))
-        let isLinkThisGc = new RegExp(gclink, 'i')
-        let isgclink = isLinkThisGc.test(m.text)
-        if (isgclink) return HBWABotInc.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nYou won't be kicked by a bot because what you send is a link to this group`})
-        if (isAdmins) return HBWABotInc.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nAdmin has sent a link, admin is free to post any link`})
-        if (HerbertTheCreator) return HBWABotInc.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nOwner has sent a link, owner is free to post any link`})
-        kice = m.sender
-        await HBWABotInc.sendMessage(m.chat,
-			    {
-			        delete: {
-			            remoteJid: m.chat,
-			            fromMe: false,
-			            id: m.key.id,
-			            participant: m.key.participant
-			        }
-			    })
-			HBWABotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-			HBWABotInc.sendMessage(from, {text:`\`\`\`「 Group Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending group link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
-            }            
-        }
-
- // Antiwame by Herbert
-  if (antiWame)
-  if (budy.includes(`Wa.me`)) {
-if (!isBotAdmins) return
-bvl = `\`\`\`「 Wa.me Link Detected 」\`\`\`\n\nAdmin has sent a wa.me link, admin is free to send any link😇`
-if (isAdmins) return m.reply(bvl)
-if (m.key.fromMe) return m.reply(bvl)
-if (HerbertTheCreator) return m.reply(bvl)
-kice = m.sender
-        await HBWABotInc.sendMessage(m.chat,
-			    {
-			        delete: {
-			            remoteJid: m.chat,
-			            fromMe: false,
-			            id: m.key.id,
-			            participant: m.key.participant
-			        }
-			    })
-			HBWABotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-HBWABotInc.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending wa.me link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
-} else {
-}
-  if (antiWame)
-  if (budy.includes(`http://wa.me`)) {
-if (!isBotAdmins) return
-bvl = `\`\`\`「 Wa.me Link Detected 」\`\`\`\n\nAdmin has sent a wa.me link, admin is free to send any link😇`
-if (isAdmins) return m.reply(bvl)
-if (m.key.fromMe) return m.reply(bvl)
-if (HerbertTheCreator) return m.reply(bvl)
-kice = m.sender
-        await HBWABotInc.sendMessage(m.chat,
-			    {
-			        delete: {
-			            remoteJid: m.chat,
-			            fromMe: false,
-			            id: m.key.id,
-			            participant: m.key.participant
-			        }
-			    })
-			HBWABotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-HBWABotInc.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending wa.me link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
-} else {
-}
-//antivirtex by Herbert
-  if (antiVirtex) {
-  if (budy.length > 3500) {
-  if (!isBotAdmins) return HerbertStickBotAdmin()
-          await HBWABotInc.sendMessage(m.chat,
-			    {
-			        delete: {
-			            remoteJid: m.chat,
-			            fromMe: false,
-			            id: m.key.id,
-			            participant: m.key.participant
-			        }
-			    })
-			HBWABotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-			HBWABotInc.sendMessage(from, {text:`\`\`\`「 Virus Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending virus in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
-  }
-  }
-//anti bad words by Herbert
-if (antiToxic)
-if (BadHerbert.includes(messagesD)) {
-if (m.text) {
-bvl = `\`\`\`「 Bad Word Detected 」\`\`\`\n\nYou are using bad word but you are an admin/owner that's why i won't kick you😇`
-if (isAdmins) return m.reply(bvl)
-if (m.key.fromMe) return m.reply(bvl)
-if (HerbertTheCreator) return m.reply(bvl)
-        await HBWABotInc.sendMessage(m.chat,
-			    {
-			        delete: {
-			            remoteJid: m.chat,
-			            fromMe: false,
-			            id: m.key.id,
-			            participant: m.key.participant
-			        }
-			    })
-			await HBWABotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-HBWABotInc.sendMessage(from, {text:`\`\`\`「 Bad Word Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} was kicked because of using bad words in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})}
-}
-//antilink youtube video by Herbert
-if (AntiLinkYoutubeVid)
-if (budy.includes("https://youtu.be/")){
-if (!isBotAdmins) return
-bvl = `\`\`\`「 YoutTube Video Link Detected 」\`\`\`\n\nAdmin has sent a youtube video link, admin is free to send any link😇`
-if (isAdmins) return m.reply(bvl)
-if (m.key.fromMe) return m.reply(bvl)
-if (HerbertTheCreator) return m.reply(bvl)
-        await HBWABotInc.sendMessage(m.chat,
-			    {
-			        delete: {
-			            remoteJid: m.chat,
-			            fromMe: false,
-			            id: m.key.id,
-			            participant: m.key.participant
-			        }
-			    })
-			HBWABotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-HBWABotInc.sendMessage(from, {text:`\`\`\`「 YouTube Video Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending youtube video link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
-} else {
-}
-//antilink youtube channel by Herbert
-if (AntiLinkYoutubeChannel)
-   if (budy.includes("https://youtube.com/")){
-if (!isBotAdmins) return
-bvl = `\`\`\`「 YoutTube Channel Link Detected 」\`\`\`\n\nAdmin has sent a youtube channel link, admin is free to send any link😇`
-if (isAdmins) return m.reply(bvl)
-if (m.key.fromMe) return m.reply(bvl)
-if (HerbertTheCreator) return m.reply(bvl)
-        await HBWABotInc.sendMessage(m.chat,
-			    {
-			        delete: {
-			            remoteJid: m.chat,
-			            fromMe: false,
-			            id: m.key.id,
-			            participant: m.key.participant
-			        }
-			    })
-			HBWABotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-HBWABotInc.sendMessage(from, {text:`\`\`\`「 YouTube Channel Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending youtube channel link in this group`, contextInfo:{mentionedJid:[m.sendet]}}, {quoted:m})
-} else {
-}
-//antilink instagram by Herbert
-if (AntiLinkInstagram)
-   if (budy.includes("https://www.instagram.com/")){
-if (!isBotAdmins) return
-bvl = `\`\`\`「 Instagram Link Detected 」\`\`\`\n\nAdmin has sent a instagram link, admin is free to send any link😇`
-if (isAdmins) return m.reply(bvl)
-if (m.key.fromMe) return m.reply(bvl)
-if (HerbertTheCreator) return m.reply(bvl)
-        await HBWABotInc.sendMessage(m.chat,
-			    {
-			        delete: {
-			            remoteJid: m.chat,
-			            fromMe: false,
-			            id: m.key.id,
-			            participant: m.key.participant
-			        }
-			    })
-			HBWABotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-HBWABotInc.sendMessage(from, {text:`\`\`\`「 Instagram Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending instagram link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
-} else {
-}
-//antilink facebook by Herbert
-if (AntiLinkFacebook)
-   if (budy.includes("https://facebook.com/")){
-if (!isBotAdmins) return
-bvl = `\`\`\`「 Facebook Link Detected 」\`\`\`\n\nAdmin has sent a facebook link, admin is free to send any link😇`
-if (isAdmins) return m.reply(bvl)
-if (m.key.fromMe) return m.reply(bvl)
-if (HerbertTheCreator) return m.reply(bvl)
-        await HBWABotInc.sendMessage(m.chat,
-			    {
-			        delete: {
-			            remoteJid: m.chat,
-			            fromMe: false,
-			            id: m.key.id,
-			            participant: m.key.participant
-			        }
-			    })
-			HBWABotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-HBWABotInc.sendMessage(from, {text:`\`\`\`「 Facebook Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending facebook link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
-} else {
-}
-//antilink telegram by Herbert
-if (AntiLinkTelegram)
-   if (budy.includes("https://t.me/")){
-if (AntiLinkTelegram)
-if (!isBotAdmins) return
-bvl = `\`\`\`「 Telegram Link Detected 」\`\`\`\n\nAdmin has sent a telegram link, admin is free to send any link😇`
-if (isAdmins) return m.reply(bvl)
-if (m.key.fromMe) return m.reply(bvl)
-if (HerbertTheCreator) return m.reply(bvl)
-        await HBWABotInc.sendMessage(m.chat,
-			    {
-			        delete: {
-			            remoteJid: m.chat,
-			            fromMe: false,
-			            id: m.key.id,
-			            participant: m.key.participant
-			        }
-			    })
-			HBWABotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-HBWABotInc.sendMessage(from, {text:`\`\`\`「 Telegram Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending telegram link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
-} else {
-}
-//antilink tiktok by Herbert
-if (AntiLinkTiktok)
-   if (budy.includes("https://www.tiktok.com/")){
-if (!isBotAdmins) return
-bvl = `\`\`\`「 Tiktok Link Detected 」\`\`\`\n\nAdmin has sent a tiktok link, admin is free to send any link😇`
-if (isAdmins) return m.reply(bvl)
-if (m.key.fromMe) return m.reply(bvl)
-if (HerbertTheCreator) return m.reply(bvl)
-        await HBWABotInc.sendMessage(m.chat,
-			    {
-			        delete: {
-			            remoteJid: m.chat,
-			            fromMe: false,
-			            id: m.key.id,
-			            participant: m.key.participant
-			        }
-			    })
-			HBWABotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-HBWABotInc.sendMessage(from, {text:`\`\`\`「 Tiktok Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending tiktok link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
-} else {
-}
-//antilink twitter by Herbert
-if (AntiLinkTwitter)
-   if (budy.includes("https://twitter.com/")){
-if (!isBotAdmins) return
-bvl = `\`\`\`「 Twitter Link Detected 」\`\`\`\n\nAdmin has sent a twitter link, admin is free to send any link😇`
-if (isAdmins) return m.reply(bvl)
-if (m.key.fromMe) return m.reply(bvl)
-if (HerbertTheCreator) return m.reply(bvl)
-        await HBWABotInc.sendMessage(m.chat,
-			    {
-			        delete: {
-			            remoteJid: m.chat,
-			            fromMe: false,
-			            id: m.key.id,
-			            participant: m.key.participant
-			        }
-			    })
-			HBWABotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-HBWABotInc.sendMessage(from, {text:`\`\`\`「 Tiktok Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending twitter link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
-} else {
-}
-//antilink all by Herbert
-if (AntiLinkAll)
-   if (budy.includes("https://")){
-if (!isBotAdmins) return
-bvl = `\`\`\`「 Link Detected 」\`\`\`\n\nAdmin has sent a link, admin is free to send any link😇`
-if (isAdmins) return m.reply(bvl)
-if (m.key.fromMe) return m.reply(bvl)
-if (HerbertTheCreator) return m.reply(bvl)
-        await HBWABotInc.sendMessage(m.chat,
-			    {
-			        delete: {
-			            remoteJid: m.chat,
-			            fromMe: false,
-			            id: m.key.id,
-			            participant: m.key.participant
-			        }
-			    })
-			HBWABotInc.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-HBWABotInc.sendMessage(from, {text:`\`\`\`「 Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
-} else {
-}
-
+        
 //menu thingy
 const timestamp = speed()
 const latensi = speed() - timestamp
@@ -1894,7 +1465,7 @@ break
 case 'gb': case 'gbwhatsapp': {
 	var unicorn = await getBuffer(picak+'GBWhatsApp')
 sendHBWABotIncMessage(from, { 
-text: `​​​*GBWhatsApp Latest Version:*\n\nhttps://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html`,
+text: ` ​​​*GBWhatsApp Latest Version:*\n\nhttps://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1915,7 +1486,7 @@ break
 case 'yo': case 'yowhatsapp': {
 	var unicorn = await getBuffer(picak+'YOWhatsApp')
 sendHBWABotIncMessage(from, { 
-text: `​​​*YOWhatsApp Latest Version:*\n\nhttps://herbert70.blogspot.com/2022/10/yowhatsapp.html`,
+text: `​​​ *YOWhatsApp Latest Version:*\n\nhttps://herbert70.blogspot.com/2022/10/yowhatsapp.html`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1936,7 +1507,7 @@ break
 case 'fm': case 'fmwhatsapp': {
 	var unicorn = await getBuffer(picak+'FMWhatsApp')
 sendHBWABotIncMessage(from, { 
-text: `​​​*FMWhatsApp Latest Version:*\n\n[com.fm] https://herbert70.blogspot.com/2022/10/fmwhatsapp.html\n\n[com.wa] https://herbert70.blogspot.com/2022/10/whatsapp.html`,
+text: ` ​​​*FMWhatsApp Latest Version:*\n\n[com.fm] https://herbert70.blogspot.com/2022/10/fmwhatsapp.html\n\n[com.wa] https://herbert70.blogspot.com/2022/10/whatsapp.html`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1957,7 +1528,7 @@ break
 case 'mb': case 'mbwhatsapp': {
 	var unicorn = await getBuffer(picak+'MBWhatsApp')
 sendHBWABotIncMessage(from, { 
-text: `​​​*MBWhatsApp Ios Latest Version:*\n\n[com.mb] https://herbert70.blogspot.com/2023/06/mbwhatsapp-ios.html\n\n[com.wa] https://herbert70.blogspot.com/2023/06/whatsapp-ios_30.html`,
+text: `​​​ *MBWhatsApp Ios Latest Version:*\n\n[com.mb] https://herbert70.blogspot.com/2023/06/mbwhatsapp-ios.html\n\n[com.wa] https://herbert70.blogspot.com/2023/06/whatsapp-ios_30.html`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -1978,7 +1549,7 @@ break
 case 'update': case 'whatsapp': case 'mod': case 'mods': case 'hbmods': {
 	var unicorn = await getBuffer(picak+'MBWhatsApp')
 sendHBWABotIncMessage(from, { 
-text: `​​​ *WhatsApp Mod update thar ber ber te*\n\nWhatsApp*\nhttps://herbert70.blogspot.com/2022/10/whatsapp.html\n\n*FMWhatsApp*\nhttps://herbert70.blogspot.com/2022/10/fmwhatsapp.html\n\n*GBWhatsApp*\nhttps://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html\n\n*YoWhatsApp*\nhttps://herbert70.blogspot.com/2022/10/yowhatsapp.html\n\n*WhatsApp ios*\nhttps://herbert70.blogspot.com/2023/06/whatsapp-ios_30.html\n\n*MBWhatsApp ios*\nhttps://herbert70.blogspot.com/2023/06/mbwhatsapp-ios.html`,
+text: `​​​ *WhatsApp Mod update thar ber ber te*\n\n*WhatsApp*\nhttps://herbert70.blogspot.com/2022/10/whatsapp.html\n\n*FMWhatsApp*\nhttps://herbert70.blogspot.com/2022/10/fmwhatsapp.html\n\n*GBWhatsApp*\nhttps://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html\n\n*YoWhatsApp*\nhttps://herbert70.blogspot.com/2022/10/yowhatsapp.html\n\n*WhatsApp ios*\nhttps://herbert70.blogspot.com/2023/06/whatsapp-ios_30.html\n\n*MBWhatsApp ios*\nhttps://herbert70.blogspot.com/2023/06/mbwhatsapp-ios.html`,
 mentions:[sender],
 contextInfo:{
 mentionedJid:[sender],
@@ -2012,17 +1583,6 @@ Following : ${aj.following}
 Bio : ${aj.bio}` }, { quoted: m } )
 }
 break
-case 'ffstalk':{
-
-if (!q) return replyherbertstyle(`Tiang hian ti rawh :${prefix+command} 946716486`)
-m.reply(mess.wait)
-eeh = await ffstalk.ffstalk(`${q}`)
-replyherbertstyle(`*/ Free Fire Stalker \\*
-
-Id : ${eeh.id}
-Nickname : ${eeh.nickname}`)
-}
-break
 case 'mlstalk': {
 
 if (!q) return replyherbertstyle(`Tiang hian ti rawh :${prefix+command} 530793138|8129`)
@@ -2033,22 +1593,6 @@ replyherbertstyle(`*/ Mobile Legend Stalker \\*
 Username : ${dat.userName}
 Id : ${q.split("|")[0]}
 ID Zone: ${q.split("|")[1]}`)
-}
-break
-case 'npmstalk':{
-if (!q) return replyherbertstyle(`Tiang hian ti rawh :${prefix+command} herbertapi`)
-m.reply(mess.wait)
-eha = await npmstalk.npmstalk(q)
-replyherbertstyle(`*/ Npm Stalker \\*
-
-Name : ${eha.name}
-Version Latest : ${eha.versionLatest}
-Version Publish : ${eha.versionPublish}
-Version Update : ${eha.versionUpdate}
-Latest Dependencies : ${eha.latestDependencies}
-Publish Dependencies : ${eha.publishDependencies}
-Publish Time : ${eha.publishTime}
-Latest Publish Time : ${eha.latestPublishTime}`)
 }
 break
 case 'ghstalk': case 'githubstalk':{
@@ -2126,52 +1670,11 @@ break
                 neww = performance.now()
                 oldd = performance.now()
                 respon = `
-Response Speed ${latensi.toFixed(4)} _Second_ \n ${oldd - neww} _miliseconds_\n\nRuntime : ${runtime(process.uptime())}
-
-💻 Info Server
-RAM: ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}
-
-_NodeJS Memory Usaage_
-${Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v=>v.length)),' ')}: ${formatp(used[key])}`).join('\n')}
-
-${cpus[0] ? `_Total CPU Usage_
-${cpus[0].model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}
-_CPU Core(s) Usage (${cpus.length} Core CPU)_
-${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}`).join('\n\n')}` : ''}
+Bot speed chak zawng: ${latensi.toFixed(4)} _Second_ \n ${oldd - neww} _miliseconds_\n\nOnline chin : ${runtime(process.uptime())} a online tawh a ni` : ''}
                 `.trim()
                 replyherbertstyle(respon)
             }
             break
-            case 'bctext': case 'broadcasttext': case 'broadcast': {
-			    if (!HerbertTheCreator) return m.reply(mess.owner)
-		            if (!q) return replyherbertstyle(`Word rawn dah rawh!.. `)
-		                            const data = await store.chats.all()
-                            for (let i of data) {
-                               HBWABotInc.sendMessage(i.id, {text: `${ownername}'s Broadcast\n\nMessage : ${q}` })
-                               await sleep(1000)
-                            }
-                            }
-                            break
-                            case 'broadcastimage': case 'bcimage': case 'broadcastvideo': case 'broadcastvid':
-if(!HerbertTheCreator) return m.reply(mess.owner)
-        if (!q) return replyherbertstyle(`Word rawn dah rawh!.. `)
-        let getGroups = await HBWABotInc.groupFetchAllParticipating()
-        let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
-        let herbertcast = groups.map(v => v.id)
-        replyherbertstyle(` Broadcasting in ${herbertcast.length} Group Chat, in ${herbertcast.length * 1.5} seconds`)
-        for (let i of herbertcast) {
-let txt = `${ownername}'s Broadcast\n\nMessage : ${q}`
-if(/image/.test(mime)) {
-let media = await quoted.download()
-await HBWABotInc.sendMessage(i, { image:media,  caption: txt,mentions:participants.map(a => a.id) })
-}
-if(/video/.test(mime)){
-let media = await quoted.download()
-await HBWABotInc.sendMessage(i, { video:media,  caption: txt, mentions:participants.map(a => a.id) })
-}
-            }
-        replyherbertstyle(`Group ah : ${herbertcast.length} thawn a ni tawh`)      
-        break
 case 'block': case 'ban': {
 		if (!HerbertTheCreator) return m.reply(mess.owner)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
@@ -2204,30 +1707,6 @@ case 'listblock': case 'listban': case 'blocklist': case 'banlist': {
                 HBWABotInc.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\nGroup Link : ${groupMetadata.subject}`, m, { detectLink: true })
             }
             break
-case 'opentime': {
-if (!m.isGroup) return m.reply(mess.group)
-if (!isAdmins && !HerbertTheCreator) return m.reply(mess.admin)
-if (!isBotAdmins) return m.reply(mess.botAdmin)
-if (args[1] == 'second') {
-var timer = args[0] * `1000`
-} else if (args[1] == 'minute') {
-var timer = args[0] * `60000`
-} else if (args[1] == 'hour') {
-var timer = args[0] * `3600000`
-} else if (args[1] == 'day') {
-var timer = args[0] * `86400000`
-} else {
-return replyherbertstyle('*Choose:*\nsecond\nminute\nhour\n\n*Example*\n10 second')
-}
-replyherbertstyle(`Open Time ${q} Starting from now`)
-setTimeout(() => {
-var nomor = m.participant
-const open = `*On time* Group Opened By Admin\n Now Members Can Send Messages`
-HBWABotInc.groupSettingUpdate(from, 'not_announcement')
-replyherbertstyle(open)
-}, timer)
-}
-break 
 case 'add': {
 if (!m.isGroup) return m.reply(mess.group)
 if (!isBotAdmins) return m.reply(mess.botAdmin)
@@ -2587,56 +2066,6 @@ replyherbertstyle(`He group hi participants zawng zawngten message thawn thei ta
 replyherbertstyle(`Option te khu hmang rawh\nOptions : Close & Open\nTiang hian : ${command} close`)
 }}
 break
-case 'creategc': case 'creategroup': {
-if (!HerbertTheCreator) return m.reply(mess.owner)
-if (!args.join(" ")) return replyherbertstyle(`hmang rawh tang hian : ${prefix+command} group hming`)
-try {
-let cret = await HBWABotInc.groupCreate(args.join(" "), [])
-let response = await HBWABotInc.groupInviteCode(cret.id)
-teks = `     「 Create Group 」
-
-▸ Name : ${cret.subject}
-▸ Owner : @${cret.owner.split("@")[0]}
-▸ Creation : ${moment(cret.creation * 1000).tz("Asia/Kolkata").format("DD/MM/YYYY HH:mm:ss")}
-
-https://chat.whatsapp.com/${response}
-       `
-HBWABotInc.sendMessage(m.chat, { text:teks, mentions: await HBWABotInc.parseMention(teks)}, {quoted:m})
-} catch {
-replyherbertstyle("Error!")
-}
-}
-break
-case 'cry': case 'kill': case 'hug': case 'pat': case 'lick': 
-case 'kiss': case 'bite': case 'yeet': case 'bully': case 'bonk':
-case 'wink': case 'poke': case 'nom': case 'slap': case 'smile': 
-case 'wave': case 'awoo': case 'blush': case 'smug': case 'glomp': 
-case 'happy': case 'dance': case 'cringe': case 'cuddle': case 'highfive': 
-case 'shinobu': case 'handhold': {
-
-axios.get(`https://api.waifu.pics/sfw/${command}`)
-.then(({data}) => {
-HBWABotInc.sendImageAsSticker(from, data.url, m, { packname: global.packname, author: global.author })
-})
-}
-break
-case 'woof':
-case '8ball':
-case 'goose':
-case 'gecg':
-case 'feed':
-case 'avatar':
-case 'fox_girl':
-case 'lizard':
-case 'spank':
-case 'meow':
-case 'tickle':{
-                axios.get(`https://nekos.life/api/v2/img/${command}`)
-.then(({data}) => {
-HBWABotInc.sendImageAsSticker(from, data.url, m, { packname: global.packname, author: global.author })
-})
-}
-break
 case 'tomp4': case 'tovideo': {
                 if (!quoted) return replyherbertstyle('Reply to Sticker')
                 if (!/webp/.test(mime)) return replyherbertstyle(`Sticker reply rawh tiang hian:  *${prefix + command}*`)
@@ -2872,7 +2301,7 @@ case 'tomp4': case 'tovideo': {
               buffertruth = await getBuffer(`https://i.imgur.com/hnH7qf0.jpeg`)
               HBWABotInc.sendMessage(from, { image: buffertruth, caption: '*TRUTH I THLANGA*\n'+ herberttruth }, {quoted:m})
               break
-case 'toimg': case 'thlalak': {
+case 'toimg': case 'thlalakk': {
 	m.reply(mess.wait)
 	const getRandom = (ext) => {
             return `${Math.floor(Math.random() * 10000)}${ext}`
@@ -2994,6 +2423,11 @@ case 'handsomecheck':
 					const teng = gan[Math.floor(Math.random() * gan.length)]
 HBWABotInc.sendMessage(from, { text: `*${command}*\n\nHming : ${q}\nAnswer : *${teng}%*` }, { quoted: m })
 					break
+case 'quote': case 'quotes': {
+                let mizoquotes = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/QuotesMizo/mizoquotes2.json')
+                let random = mizoquotes[Math.floor(Math.random() * mizoquotes.length)]
+                HBWABotInc.sendMessage(m.chat, { text: `*Quotes :* ${random.quotes}\n*Author :* _${random.author}_`, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": `Mizo Quotes`,"body": `CLICK HERE`, "previewType": "PHOTO","thumbnailUrl": ``, "thumbnail": { url: random.apicture },"sourceUrl": `${random.instagram}`}}}, { quoted: m})
+	    break
 case 'beautifulcheck':
 				if (!text) return replyherbertstyle(`Tu emaw tag rawh, Tiang hian ti rawh : ${prefix + command} @Herbert`)
 					const can = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
@@ -3023,17 +2457,6 @@ HBWABotInc.sendMessage(from, { text: 'Question : *' + cex + '*\nChecker : ' + `@
 HBWABotInc.sendMessage(from, { text: 'Question : *' + cex + '*\nChecker : ' + `@${sender.split('@')[0]}` + '\nAnswer : ' + cek2 + '%', mentions: [sender] }, { quoted: m })
 }
 break
-case 'style': case 'styletext': {
-		let { styletext } = require('./lib/scraper')
-		if (!text) return replyherbertstyle('A title rawn dah rawh!..')
-                let anu = await styletext(text)
-                let teks = `Style Text a tang ${text}\n\n`
-                for (let i of anu) {
-                    teks += `${themeemoji} *${i.name}* : ${i.result}\n\n`
-                }
-                replyherbertstyle(teks)
-	    }
-	    break
 case 'candy': 
 case 'christmas': 
 case '3dchristmas': 
@@ -3639,51 +3062,23 @@ var hasil = pickRandom(notnot)
 HBWABotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 
-case 'thuril': case 'quotes': {
+case 'thuril': {
                 let mizoquotes = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/QuotesMizo/mizoquotes.json')
                 let random = mizoquotes[Math.floor(Math.random() * mizoquotes.length)]
                 HBWABotInc.sendMessage(m.chat, { image: { url: random.quotesmizo }, caption: `*Author* : ${random.author}\n\n*Instagram* : ${random.instagram}\n\n*Generated by:©${random.hbwabot}*` }, { quoted: m })
             }
 	    break 
-case 'couplepic':case 'couplepicture':
-m.reply(mess.wait)
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/ppcouple.json'))
-var hasil = pickRandom(notnot)
-HBWABotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
-break
+case 'couplepp': case 'ppcouple': {
+                m.reply(mess.wait)
+                let anucpp = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/couplepp/Inkawp.json')
+                let random = anucpp[Math.floor(Math.random() * anucpp.length)]
+                HBWABotInc.sendMessage(m.chat, { image: { url: random.male }, caption: `Mipa` }, { quoted: m })
+                HBWABotInc.sendMessage(m.chat, { image: { url: random.female }, caption: `Hmeichhia` }, { quoted: m })
+            }
+	    break
 case 'profilepic':  case 'profilepicture':
 m.reply(mess.wait)
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/profile.json'))
-var hasil = pickRandom(notnot)
-HBWABotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
-break
-case 'pubg':
-m.reply(mess.wait)
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/pubg.json'))
-var hasil = pickRandom(notnot)
-HBWABotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
-break
-case 'rose':
-m.reply(mess.wait)
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/rose.json'))
-var hasil = pickRandom(notnot)
-HBWABotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
-break
-case 'ryujin':
-m.reply(mess.wait)
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/ryujin.json'))
-var hasil = pickRandom(notnot)
-HBWABotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
-break
-case 'ulzzangboy':
-m.reply(mess.wait)
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/ulzzangboy.json'))
-var hasil = pickRandom(notnot)
-HBWABotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
-break
-case 'ulzzanggirl':
-m.reply(mess.wait)
-var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/ulzzanggirl.json'))
 var hasil = pickRandom(notnot)
 HBWABotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
@@ -4450,7 +3845,7 @@ let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
     repo = repo.replace(/.git$/, '')
     let url = `https://api.github.com/repos/${user}/${repo}/zipball`
     let filename = (await fetch(url, {method: 'HEAD'})).headers.get('content-disposition').match(/attachment; filename=(.*)/)[1]
-    HBWABotInc.sendMessage(m.chat, { document: { url: url }, fileName: filename+'.zip', mimetype: 'application/zip' }, { quoted: m }).catch((err) => replyherbertstyle(mess.error))
+    HBWABotInc.sendMessage(m.chat, { document: { url: url }, fileName: filename, mimetype: 'application/zip' }, { quoted: m }).catch((err) => replyherbertstyle(mess.error))
 break
 case "spotify":{
 if (!isPrem) return replyprem(mess.premium)
@@ -4499,25 +3894,6 @@ case 'bass': case 'blown': case 'deep': case 'earrape': case 'fast': case 'fat':
                 replyherbertstyle(e)
                 }
                 break
-                case 'define': 
-if (!q) return replyherbertstyle(`What do you want to define?`)
-try {
-targetfine = await axios.get(`http://api.urbandictionary.com/v0/define?term=${q}`)
-if (!targetfine) return replyherbertstyle(mess.error)
-const reply = `
-*${themeemoji} Word:* ${q}
-*${themeemoji} Definition:* ${targetfine.data.list[0].definition
-    .replace(/\[/g, "")
-    .replace(/\]/g, "")}
-*${themeemoji} Tiang hian ti rawh :* ${targetfine.data.list[0].example
-    .replace(/\[/g, "")
-    .replace(/\]/g, "")}`
-   HBWABotInc.sendMessage(m.chat,{text:reply},{quoted:m})
-} catch (err) {
-    console.log(err)
-    return replyherbertstyle(`*${q}* isn't a valid text`)
-    }
-    break
             case 'runtime': {
             	let lowq = `*Bot hi:*\n*${runtime(process.uptime())} chhung a online tawh a ni..*`
                 replyherbertstyle(lowq)
@@ -4583,10 +3959,6 @@ isForwarded: false,
 { quoted: m})        
             }
             break
-                        case 'coffee': case 'kopi': {
-                HBWABotInc.sendMessage(m.chat, {caption: mess.success, image: { url: 'https://coffee.alexflipnote.dev/random' }}, { quoted: m })
-            }
-            break
             case 'wallpaper': {
                 if (!text) return replyherbertstyle('A title rawn dah rawh!..')
                 m.reply(mess.wait)
@@ -4594,15 +3966,6 @@ isForwarded: false,
                 anuwallpep = await wallpaper(text)
                 result = anuwallpep[Math.floor(Math.random() * anuwallpep.length)]                
                 HBWABotInc.sendMessage(m.chat, {caption: `${themeemoji} Title : ${result.title}\n${themeemoji} Category : ${result.type}\n${themeemoji} Detail : ${result.source}\n${themeemoji} Media Url : ${result.image[2] || result.image[1] || result.image[0]}`, image: { url: result.image[0] }} , { quoted: m })
-            }
-            break
-            case 'wikimedia': {
-                if (!text) return replyherbertstyle('A title rawn dah rawh!..')
-                m.reply(mess.wait)
-		let { wikimedia } = require('./lib/scraper')
-                let anumedia = await wikimedia(text)
-                result = anumedia[Math.floor(Math.random() * anumedia.length)]
-                HBWABotInc.sendMessage(m.chat, {caption: `${themeemoji} Title : ${result.title}\n${themeemoji} Source : ${result.source}\n${themeemoji} Media Url : ${result.image}`, image: { url: result.image }} , { quoted: m })
             }
             break
      case "igvid": case "instavid": {
