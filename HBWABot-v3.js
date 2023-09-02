@@ -2284,15 +2284,6 @@ let db = await dBinary(`${q}`)
 replyherbertstyle(db)
 }
 break
-case 'toanime': { 
-			if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
-			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
-			m.reply(mess.wait)			
-			let res = await fetchJson('https://api.betabotz.org/api/maker/jadianime?url=https://cdn.btch.bz/file/1076994410f2eaa50bb03.png&apikey=SjWOkprk')
-			let media = await quoted.download()
-	     	.then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, { quoted: m})
-			}
-			break
 case 'remini': {
 			if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
