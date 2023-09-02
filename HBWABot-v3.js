@@ -2387,6 +2387,8 @@ const herbertplaymp3 = require('./lib/ytdl2')
 let yts = require("youtube-yts")
         let search = await yts(text)
         let anup3k = search.videos[0]
+const baby1 = await herbertplaymp3.mp3(anup3k.url)
+	if (baby1[0].size.split('MB')[0] >= 100) return replyherbertstyle('100MB aia tam download thei a ni lo!!...')
 const pl= await herbertplaymp3.mp3(anup3k.url)
 await HBWABotInc.sendMessage(m.chat,{
     audio: fs.readFileSync(pl.path),
@@ -2413,6 +2415,8 @@ const herbertplaymp3 = require('./lib/ytdl2')
 let yts = require("youtube-yts")
         let search = await yts(text)
         let anup3k = search.videos[0]
+const baby1 = await herbertplaymp3.mp3(anup3k.url)
+	if (baby1[0].size.split('MB')[0] >= 100) return replyherbertstyle('100MB aia tam download thei a ni lo!!...')
 const pl= await herbertplaymp3.mp3(anup3k.url)
 await HBWABotInc.sendMessage(m.chat,{document: fs.readFileSync(pl.path),
     fileName: anup3k.title + '.mp3',
@@ -2438,6 +2442,8 @@ const herbertvidoh = require('./lib/ytdl2')
 let yts = require("youtube-yts")
         let search = await yts(text)
         let anup3k = search.videos[0]
+const baby1 = herbertvidoh.mp4(anup3k.url)
+	if (baby1[0].size.split('MB')[0] >= 100) return replyherbertstyle('100MB aia tam download thei a ni lo!!...')
 const vid=await herbertvidoh.mp4(anup3k.url)
 const ytc=`
 *${themeemoji}Tittle:* ${vid.title}
@@ -2455,6 +2461,8 @@ case "ytmp3": case "ytaudio": //credit: Ray Senpai â¤ï¸ https://github.c
 const herbertaudp3 = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !herbertaudp3.isYTUrl(text)) return replyherbertstyle(`Youtube link rawn dah rawh\nTiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 m.reply(mess.wait)
+const baby1 = await herbertaudp3.mp3(text)
+	if (baby1[0].size.split('MB')[0] >= 100) return replyherbertstyle('100MB aia tam download thei a ni lo!!...')
 const audio=await herbertaudp3.mp3(text)
 await HBWABotInc.sendMessage(m.chat,{
     audio: fs.readFileSync(audio.path),
@@ -2477,6 +2485,8 @@ case 'ytmp4': case 'ytvideo': {
 const herbertvidoh = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !herbertvidoh.isYTUrl(text)) replyherbertstyle(`Video link rawn dah rawh!!\n\nTiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefgs`)
 m.reply(mess.wait)
+const baby1 = await herbertvidoh.mp4(text)
+	if (baby1[0].size.split('MB')[0] >= 100) return replyherbertstyle('100MB aia tam download thei a ni lo!!...')
 const vid=await herbertvidoh.mp4(text)
 const ytc=`
 *${themeemoji}Tittle:* ${vid.title}
