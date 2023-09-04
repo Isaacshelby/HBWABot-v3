@@ -262,7 +262,7 @@ HBWABotInc.sendPresenceUpdate('available', from)
 	    let tie = false
 	    if (m.sender == roof.p2 && /^(acc(ept)?|accept|yes|okay?|reject|no|later|nop(e.)?yes|y)/i.test(m.text) && m.isGroup && roof.status == 'wait') {
 	    if (/^(reject|no|later|n|nop(e.)?yes)/i.test(m.text)) {
-	    HBWABotInc.sendTextWithMentions(m.chat, `@${roof.p2.split`@`[0]}, @${roof.p.split`@`[0]}'n a cho lo che a, chu vangin cancel a ni`, m)
+	    HBWABotInc.sendTextWithMentions(m.chat, `@${roof.p..split`@`[0]}, @${roof.p2.split`@`[0]}'n a cho lo che a, chu vangin cancel a ni`, m)
 	    delete this.suit[roof.id]
 	    return !0
 	    }
@@ -974,7 +974,7 @@ case 'suitpvp':case 'rps': case 'rockpaperscissors': case 'suit': {
             p2: m.mentionedJid[0],
             status: 'wait',
             waktu: setTimeout(() => {
-            if (this.suit[id]) HBWABotInc.sendText(m.chat, `_Hun a tawp_`, m)
+            if (this.suit[id]) HBWABotInc.sendText(m.chat, `_70 seconds a zo, hun a tawp_`, m)
             delete this.suit[id]
             }, 60000), poin, poin_lose, timeout
             }
@@ -3848,7 +3848,7 @@ case 'bass': case 'blown': case 'deep': case 'earrape': case 'fast': case 'fat':
                 HBWABotInc.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg' }, { quoted : m })
                 fs.unlinkSync(ran)
                 })
-                } else replyherbertstyle(`Audio change duh chu reply rawh tiang hian *${prefix + command}*`)
+                } else replyherbertstyle(`Audio i change duh chu *${prefix + command}* tiin reply rawh`)
                 } catch (e) {
                 replyherbertstyle(e)
                 }
