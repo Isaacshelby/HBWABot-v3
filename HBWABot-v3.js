@@ -3114,8 +3114,8 @@ HBWABotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url 
 break
 case 'bible': case 'bq': case 'bible-quotes': 
 const mizoquotes = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/QuotesMizo/BibleQuote.json')
-let random = mizoquotes[Math.floor(Math.random() * mizoquotes.length)]
-const textquotes = `*Quote:* ${random.mizobible}\n\n*${random.bunglehchang}*`
+let bible2 = mizoquotes[Math.floor(Math.random() * mizoquotes.length)]
+const textquotes = `*Quote:* ${bible2.mizobible}\n\n*${bible2.bunglehchang}*`
 return replymizobiblequotes(textquotes)
 break
 case 'thuril': {
