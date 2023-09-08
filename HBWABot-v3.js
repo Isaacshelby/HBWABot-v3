@@ -1827,7 +1827,6 @@ case 'yts': case 'hla':{
             }
             break 
             case 'ytmp4': case 'ytvideo': case 'video': {
-const yts from 'yt-search'
 const fg from 'api-dylux'
 const { youtubedl, youtubedlv2 } from '@bochilteam/scraper-sosmed'
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
@@ -1852,7 +1851,6 @@ catch { replyherbertstyle(`✳️ Error: video download thei a ni lo`)}, {quoted
 }
             break
 case 'ytmp3': case 'ytaudio': case 'dsong': case 'song':{
-const yts from 'yt-search'
 const fg from 'api-dylux'
 const { youtubedl, youtubedlv2 } from '@bochilteam/scraper-sosmed'
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
