@@ -5,6 +5,9 @@ const { os, axios, baileys, chalk, cheerio, child_process, crypto, cookie, FormD
 const { exec, spawn, execSync } = child_process
 const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType } = baileys
 const { clockString, parseMention, formatp, tanggal, getTime, isUrl, sleep, runtime, fetchJson, getBuffer, jsonformat, format, reSize, generateProfilePicture, getRandom } = require('./lib/myfunc')
+const yts = require('yt-search')
+const fg = require('api-dylux')
+const { youtubedl, youtubedlv2 } = require('@bochilteam/scraper-sosmed')
 const { color, bgcolor } = require('./lib/color')
 const { fetchBuffer, buffergif } = require("./lib/myfunc2")
 const { rentfromherbert, conns } = require('./RentBot')
@@ -28,7 +31,7 @@ const mlstalk = require('./scrape/mlstalk')
 const textpro = require('./scrape/textpro')
 const textpro2 = require('./scrape/textpro2')
 const photooxy = require('./scrape/photooxy')
-const yts = require('./scrape/yt-search')
+const yts2 = require('./scrape/yt-search')
 const vm = require('node:vm')
 const { EmojiAPI } = require("emoji-api")
 const emoji = new EmojiAPI()
@@ -1827,8 +1830,6 @@ case 'yts': case 'hla':{
             }
             break 
             case 'ytmp4': case 'ytvideo': case 'video': {
-const fg from 'api-dylux'
-const { youtubedl, youtubedlv2 } from '@bochilteam/scraper-sosmed'
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
 m.reply(mess.wait)
 let q = args[1] || '360p'
