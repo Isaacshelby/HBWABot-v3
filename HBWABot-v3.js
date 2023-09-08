@@ -1838,7 +1838,6 @@ let q = args[1] || '360p'
 		const dl_url = await yt.video[q].download()
 		const title = await yt.title
 		const size = await yt.video[q].fileSizeH 		
-        if (size.split('MB')[0] >= limit) return m.reply(` ≡  *PLAY YTDL*\n\n▢ *⚖️Size* : ${size}\n▢ *🎞️Quality* : ${q}\n\n▢ *${limit}MB aia sang download thei a ni lo*`) 
         const ytc=`
 *${themeemoji}Tittle:* ${title}
 *${themeemoji}Siize:* ${size}
@@ -1862,10 +1861,7 @@ let q = '128kbps'
 		const size = await yt.audio[q].fileSizeH
 HBWABotInc.sendFileUrl(m.chat, dl_url, title + '.mp3', `
  ≡  *DL YTMP3*
-▢ *⏱️Duration* : ${timestamp}
-▢ *📌Title* : ${title}
-▢ *⚖️Size* : ${size}
-`{ mimetype: 'audio/mpeg', document: fs.readFileSync(audio.path) }),{quoted:m}
+▢ *⏱️Duration* : ${timestamp}`,{ mimetype: 'audio/mpeg', document: fs.readFileSync(audio.path) }),{quoted:m}
 }
 break
 case '/hla':  case 'songxx': {
