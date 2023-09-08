@@ -23,11 +23,11 @@
   "dependencies": {
     "@whiskeysockets/baileys": "^6.4.0",
     "@adiwajshing/keyed-db": "^0.2.4",
-    "@bochilteam/scraper": "4.0.22-alpha.0",
+    "@bochilteam/scraper": "^4.2.4",
+    "@bochilteam/scraper-sosmed": "^1.0.5",
     "@saipulanuar/jadianime-ts": "^2.0.0",
     "awesome-phonenumber": "^2.64.0",
     "anime-wallpaper": "^1.0.2",
-    "api-dylux": "^1.4.4",
     "axios": "^0.24.0",
     "chalk": "^4.1.2",
     "cheerio": "^1.0.0-rc.10",
@@ -66,7 +66,7 @@
     "mongoose": "^6.2.1",
     "ms": "^2.1.3",
     "multistream": "^2.1.0",
-    "mumaker": "npm:nima_maker@0.0.1",
+    "mumaker": "^1.0.0",
     "node-cron": "^3.0.0",
     "node-fetch": "^2.6.1",
     "node-id3": "^0.2.3",
@@ -93,10 +93,12 @@
     "spotifydl-x": "^0.3.0",
     "syntax-error": "*",
     "util": "^0.12.4",
+    "api-dylux": "^1.6.0",
+    "yt-search": "^2.10.3", 
     "yargs": "^17.2.1",
     "youtube-yts": "^2.0.0",
-    "ytdl-core": "^4.12.1",
-    "youtubedl-core": "^4.12.1"
+    "ytdl-core": "^4.11.4",
+    "youtubedl-core": "^4.11.4"
   },
   "repository": {
     "type": "git",
