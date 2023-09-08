@@ -1851,8 +1851,6 @@ await HBWABotInc.sendMessage(m.chat,{
 }
             break
 case 'ytmp3': case 'ytaudio': case 'dsong': case 'song':{
-const fg from 'api-dylux'
-const { youtubedl, youtubedlv2 } from '@bochilteam/scraper-sosmed'
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
 m.reply(mess.wait)
 if (!args[0].match(/youtu/gi)) replyherbertstyle ('Youtube link dik tak chauh rawn dah rawh')
