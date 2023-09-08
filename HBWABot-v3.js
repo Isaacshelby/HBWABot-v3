@@ -5,7 +5,7 @@ const { os, axios, baileys, chalk, cheerio, child_process, crypto, cookie, FormD
 const { exec, spawn, execSync } = child_process
 const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType } = baileys
 const { clockString, parseMention, formatp, tanggal, getTime, isUrl, sleep, runtime, fetchJson, getBuffer, jsonformat, format, reSize, generateProfilePicture, getRandom } = require('./lib/myfunc')
-const yts = require('yt-search')
+const yts2 = require('yt-search')
 const fg = require('api-dylux')
 const { youtubedl, youtubedlv2 } = require('@bochilteam/scraper-sosmed')
 const { color, bgcolor } = require('./lib/color')
@@ -31,7 +31,7 @@ const mlstalk = require('./scrape/mlstalk')
 const textpro = require('./scrape/textpro')
 const textpro2 = require('./scrape/textpro2')
 const photooxy = require('./scrape/photooxy')
-const yts2 = require('./scrape/yt-search')
+const yts = require('./scrape/yt-search')
 const vm = require('node:vm')
 const { EmojiAPI } = require("emoji-api")
 const emoji = new EmojiAPI()
@@ -1829,19 +1829,43 @@ case 'yts': case 'hla':{
             })
             }
             break 
-            case 'ytmp4': case 'ytvideo': case 'video': {
-if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
-m.reply(mess.wait)
-let q = args[1] || '360p'
+            case 'dsong': case 'song':{
+            if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
+            m.reply(mess.wait)
+            let res = await yts2(text)
+            let q = '128kbps'
 		let v = args[0]
-		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v)).catch(async () => await youtubedlv3(v))
-		const dl_url = await yt.video[q].download()
+		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
+		const dl_url = await yt.audio[q].download()
 		const title = await yt.title
-		const size = await yt.video[q].fileSizeH 		
-        const ytc=`
+		const size = await yt.audio[q].fileSizeH
+HBWABotInc.sendMessage(m.chat, {document: dl_url,mimetype: 'audio/mpeg', fileName: title+`.mp3`,
+contextInfo: {
+externalAdReply: {
+title: yt.title,
+body: 'HBWABot Mizo',
+thumbnailUrl: vid.thumbnail,
+sourceUrl: '',
+mediaType: 1,
+renderLargerThumbnail: true
+}}}),{quoted:m}
+}
+break
+            case 'video': case 'videos':{
+            if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
+            m.reply(mess.wait)
+            let res = await yts2(text)
+  let vid = res.videos[0]
+  let q = isVideo ? '360p' : '128kbps' 
+  let v = vid.url
+  let yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
+  let dl_url = await (isVideo ? yt.video[q].download() : yt.audio[q].download())
+  let title = await yt.title
+  let size = await (isVideo ? yt.video[q].fileSizeH : yt.audio[q].fileSizeH)
+  const ytc=`
 *${themeemoji}Tittle:* ${title}
 *${themeemoji}Siize:* ${size}
-*${themeemoji}Duration:* ${timestamp}
+*${themeemoji}Duration:* ${duration}
 *${themeemoji}Quality:* ${q}`
 await HBWABotInc.sendMessage(m.chat,{
     video: {url: dl_url},
@@ -1849,7 +1873,27 @@ await HBWABotInc.sendMessage(m.chat,{
 }, {quoted:m})
 }
             break
-case 'ytmp3': case 'ytaudio': case 'dsong': case 'song':{
+            case 'ytmp4': case 'ytvideo':{
+if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
+m.reply(mess.wait)
+let q = args[1] || '360p'
+		let v = args[0]
+		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
+		const dl_url = await yt.video[q].download()
+		const title = await yt.title
+		const size = await yt.video[q].fileSizeH 		
+        const ytc=`
+*${themeemoji}Tittle:* ${title}
+*${themeemoji}Siize:* ${size}
+*${themeemoji}Duration:* ${duration}
+*${themeemoji}Quality:* ${q}`
+await HBWABotInc.sendMessage(m.chat,{
+    video: {url: dl_url},
+    caption: ytc
+}, {quoted:m})
+}
+            break
+case 'ytmp3': case 'ytaudio':{
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 m.reply(mess.wait)
 if (!args[0].match(/youtu/gi)) replyherbertstyle ('Youtube link dik tak chauh rawn dah rawh')
@@ -1859,9 +1903,16 @@ let q = '128kbps'
 		const dl_url = await yt.audio[q].download()
 		const title = await yt.title
 		const size = await yt.audio[q].fileSizeH
-HBWABotInc.sendFileUrl(m.chat, dl_url, title + '.mp3', `
- ≡  *DL YTMP3*
-▢ *⏱️Duration* : ${timestamp}`,{ mimetype: 'audio/mpeg', document: fs.readFileSync(audio.path) }),{quoted:m}
+HBWABotInc.sendMessage(m.chat, {document: dl_url,mimetype: 'audio/mpeg', fileName: title+`.mp3`,
+contextInfo: {
+externalAdReply: {
+title: yt.title,
+body: 'HBWABot Mizo',
+thumbnailUrl: vid.thumbnail,
+sourceUrl: '',
+mediaType: 1,
+renderLargerThumbnail: true
+}}}),{quoted:m}
 }
 break
 case '/hla':  case 'songxx': {
@@ -3063,7 +3114,8 @@ HBWABotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url 
 break
 case 'bible': case 'bq': case 'bible-quotes': 
 const mizoquotes = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/QuotesMizo/BibleQuote.json')
-const textquotes = `*Quote:* ${mizoquotes.mizobible}\n\n*${mizoquotes.bunglehchang}`
+let random = mizoquotes[Math.floor(Math.random() * mizoquotes.length)]
+const textquotes = `*Quote:* ${random.mizobible}\n\n*${random.bunglehchang}*`
 return replymizobiblequotes(textquotes)
 break
 case 'thuril': {
