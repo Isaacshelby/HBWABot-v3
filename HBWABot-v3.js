@@ -1834,7 +1834,7 @@ case 'yts': case 'hla':{
             m.reply(mess.wait)
             let res = await yts2(text)
   let vid = res.videos[0]
-  let q = isVideo ? '360p' : '128kbps' 
+  let q = isVideo ? '360p'
   let v = vid.url
   let yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
   let dl_url = await (isVideo ? yt.video[q].download() : yt.audio[q].download())
@@ -1873,7 +1873,7 @@ case 'ytmp3': case 'ytaudio':{
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 m.reply(mess.wait)
 if (!args[0].match(/youtu/gi)) replyherbertstyle ('Youtube link dik tak chauh rawn dah rawh')
-let results = await yts2(text)
+let res = await yts2(text)
 let vid = res.videos[0]
 let q = '128kbps'
 let v = args[0]
@@ -1896,10 +1896,10 @@ break
 case 'dsong': case 'song':{
             if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
             m.reply(mess.wait)
-            let results = await yts2(text)
-            let vid = results.videos[0]
+            let res = await yts2(text)
+            let vid = res.videos[0]
             let q = '128kbps'
-            let v = args[0]
+            let v = vid.url
 		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
 		const dl_url = await yt.audio[q].download()
 		const title = await yt.title
