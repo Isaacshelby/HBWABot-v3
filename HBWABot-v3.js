@@ -1847,8 +1847,7 @@ let q = args[1] || '360p'
 await HBWABotInc.sendMessage(m.chat,{
     video: {url: dl_url},
     caption: ytc
-},
-catch { replyherbertstyle(`✳️ Error: video download thei a ni lo`)}, {quoted:m})
+}, {quoted:m})
 }
             break
 case 'ytmp3': case 'ytaudio': case 'dsong': case 'song':{
