@@ -1830,7 +1830,7 @@ case 'yts': case 'hla':{
             }
             break 
             case 'ytmp4': case 'ytvideo': case 'video': {
-if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
+if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 m.reply(mess.wait)
 let q = args[1] || '360p'
 		let v = args[0]
@@ -1851,7 +1851,7 @@ await HBWABotInc.sendMessage(m.chat,{
 }
             break
 case 'ytmp3': case 'ytaudio': case 'dsong': case 'song':{
-if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
+if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 m.reply(mess.wait)
 if (!args[0].match(/youtu/gi)) replyherbertstyle ('Youtube link dik tak chauh rawn dah rawh')
 let q = '128kbps'
@@ -1865,7 +1865,7 @@ HBWABotInc.sendFileUrl(m.chat, dl_url, title + '.mp3', `
 ▢ *⏱️Duration* : ${timestamp}
 ▢ *📌Title* : ${title}
 ▢ *⚖️Size* : ${size}
-`.trim(), m, false, { mimetype: 'audio/mpeg', asDocument: chat.useDocument }),{quoted:m}
+`{ mimetype: 'audio/mpeg', document: fs.readFileSync(audio.path) }),{quoted:m}
 }
 break
 case '/hla':  case 'songxx': {
@@ -3065,7 +3065,11 @@ var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/car.json'))
 var hasil = pickRandom(notnot)
 HBWABotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
-
+case 'bible': case 'bq': case 'bible-quotes': 
+const mizoquotes = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/QuotesMizo/BibleQuote.json')
+const textquotes = `*Quote:* ${mizoquotes.mizobible}\n\n*${mizoquotes.bunglehchang}`
+return replymizobiblequotes(textquotes)
+break
 case 'thuril': {
                 let mizoquotes = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/QuotesMizo/mizoquotes.json')
                 let random = mizoquotes[Math.floor(Math.random() * mizoquotes.length)]
