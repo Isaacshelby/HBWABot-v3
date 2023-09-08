@@ -1844,7 +1844,7 @@ contextInfo: {
 externalAdReply: {
 title: yt.title,
 body: 'HBWABot Mizo',
-thumbnailUrl: vid.thumbnail,
+thumbnailUrl: thumbnail,
 sourceUrl: '',
 mediaType: 1,
 renderLargerThumbnail: true
@@ -1865,7 +1865,6 @@ break
   const ytc=`
 *${themeemoji}Tittle:* ${title}
 *${themeemoji}Siize:* ${size}
-*${themeemoji}Duration:* ${duration}
 *${themeemoji}Quality:* ${q}`
 await HBWABotInc.sendMessage(m.chat,{
     video: {url: dl_url},
@@ -1885,7 +1884,6 @@ let q = args[1] || '360p'
         const ytc=`
 *${themeemoji}Tittle:* ${title}
 *${themeemoji}Siize:* ${size}
-*${themeemoji}Duration:* ${duration}
 *${themeemoji}Quality:* ${q}`
 await HBWABotInc.sendMessage(m.chat,{
     video: {url: dl_url},
@@ -1908,7 +1906,7 @@ contextInfo: {
 externalAdReply: {
 title: yt.title,
 body: 'HBWABot Mizo',
-thumbnailUrl: vid.thumbnail,
+thumbnailUrl: thumbnail,
 sourceUrl: '',
 mediaType: 1,
 renderLargerThumbnail: true
