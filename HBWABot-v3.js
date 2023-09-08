@@ -1834,7 +1834,8 @@ case 'yts': case 'hla':{
             m.reply(mess.wait)
             let res = await yts2(text)
             let q = '128kbps'
-		let v = args[0]
+		let v = vid.url
+		let vid = res.videos[0]
 		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
 		const dl_url = await yt.audio[q].download()
 		const title = await yt.title
@@ -1844,7 +1845,7 @@ contextInfo: {
 externalAdReply: {
 title: yt.title,
 body: 'HBWABot Mizo',
-thumbnailUrl: thumbnail,
+thumbnailUrl: yt.thumbnail,
 sourceUrl: '',
 mediaType: 1,
 renderLargerThumbnail: true
@@ -1896,7 +1897,8 @@ if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix +
 m.reply(mess.wait)
 if (!args[0].match(/youtu/gi)) replyherbertstyle ('Youtube link dik tak chauh rawn dah rawh')
 let q = '128kbps'
-		let v = args[0]
+let res = await yts2(text)
+		let vid = res.videos[0]
 		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
 		const dl_url = await yt.audio[q].download()
 		const title = await yt.title
@@ -1906,7 +1908,7 @@ contextInfo: {
 externalAdReply: {
 title: yt.title,
 body: 'HBWABot Mizo',
-thumbnailUrl: thumbnail,
+thumbnailUrl: yt.thumbnail,
 sourceUrl: '',
 mediaType: 1,
 renderLargerThumbnail: true
