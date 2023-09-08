@@ -1828,30 +1828,7 @@ case 'yts': case 'hla':{
                 quoted: m
             })
             }
-            break 
-            case 'dsong': case 'song':{
-            if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
-            m.reply(mess.wait)
-            let res = await yts2(text)
-            let q = '128kbps'
-		let v = vid.url
-		let vid = res.videos[0]
-		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
-		const dl_url = await yt.audio[q].download()
-		const title = await yt.title
-		const size = await yt.audio[q].fileSizeH
-HBWABotInc.sendMessage(m.chat, {document: dl_url,mimetype: 'audio/mpeg', fileName: title+`.mp3`,
-contextInfo: {
-externalAdReply: {
-title: yt.title,
-body: 'HBWABot Mizo',
-thumbnailUrl: yt.thumbnail,
-sourceUrl: '',
-mediaType: 1,
-renderLargerThumbnail: true
-}}}),{quoted:m}
-}
-break
+            break            
             case 'video': case 'videos':{
             if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
             m.reply(mess.wait)
@@ -1897,8 +1874,6 @@ if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix +
 m.reply(mess.wait)
 if (!args[0].match(/youtu/gi)) replyherbertstyle ('Youtube link dik tak chauh rawn dah rawh')
 let q = '128kbps'
-let res = await yts2(text)
-		let vid = res.videos[0]
 		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
 		const dl_url = await yt.audio[q].download()
 		const title = await yt.title
@@ -1907,6 +1882,28 @@ HBWABotInc.sendMessage(m.chat, {document: dl_url,mimetype: 'audio/mpeg', fileNam
 contextInfo: {
 externalAdReply: {
 title: yt.title,
+body: 'HBWABot Mizo',
+thumbnailUrl: yt.thumbnail,
+sourceUrl: '',
+mediaType: 1,
+renderLargerThumbnail: true
+}}}),{quoted:m}
+}
+break
+case 'dsong': case 'song':{
+            if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
+            m.reply(mess.wait)
+            let results = await yts2(text)
+            let HerbertSk = results.args[0]
+            let q = '128kbps'
+		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
+		const dl_url = await yt.audio[q].download()
+		const title = await yt.title
+		const size = await yt.audio[q].fileSizeH
+HBWABotInc.sendMessage(m.chat, {document: dl_url,mimetype: 'audio/mpeg', fileName: HerbertSk+`.mp3`,
+contextInfo: {
+externalAdReply: {
+title: HerbertSk,
 body: 'HBWABot Mizo',
 thumbnailUrl: yt.thumbnail,
 sourceUrl: '',
