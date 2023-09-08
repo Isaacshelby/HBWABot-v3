@@ -1834,7 +1834,7 @@ case 'yts': case 'hla':{
             m.reply(mess.wait)
             let res = await yts2(text)
   let vid = res.videos[0]
-  let q = isVideo ? '360p' : '480p'
+  let q = isVideo ? '360p' : '360p'
   let v = vid.url
   let yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
   let dl_url = await (isVideo ? yt.video[q].download() : yt.audio[q].download())
