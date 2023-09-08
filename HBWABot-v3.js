@@ -1860,21 +1860,12 @@ let q = '128kbps'
 		const dl_url = await yt.audio[q].download()
 		const title = await yt.title
 		const size = await yt.audio[q].fileSizeH
-HBWABotInc.sendMessage(m.chat,{document: fs.readFileSync(pl.path),
-    fileName: yt.title + '.mp3',
-    mimetype: 'audio/mpeg',
-    contextInfo:{
-        externalAdReply:{
-            title: yt.title,
-            body: botname,
-            thumbnail: await fetchBuffer(thumbnail),
-            mediaType:2,
-            mediaUrl: yt.url,
-        }
-
-    },
-},{quoted:m})
-await fs.unlinkSync(pl.path)
+HBWABotInc.sendFileUrl(m.chat, dl_url, title + '.mp3', `
+ ≡  *DL YTMP3*
+▢ *⏱️Duration* : ${timestamp}
+▢ *📌Title* : ${title}
+▢ *⚖️Size* : ${size}
+`.trim(), m, false, { mimetype: 'audio/mpeg', asDocument: chat.useDocument }),{quoted:m}
 }
 break
 case '/hla':  case 'songxx': {
