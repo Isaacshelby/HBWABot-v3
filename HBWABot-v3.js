@@ -1873,17 +1873,20 @@ case 'ytmp3': case 'ytaudio':{
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 m.reply(mess.wait)
 if (!args[0].match(/youtu/gi)) replyherbertstyle ('Youtube link dik tak chauh rawn dah rawh')
+let results = await yts2(text)
+let vid = res.videos[0]
 let q = '128kbps'
+let v = args[0]
 		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
 		const dl_url = await yt.audio[q].download()
 		const title = await yt.title
 		const size = await yt.audio[q].fileSizeH
-HBWABotInc.sendMessage(m.chat, {document: dl_url,mimetype: 'audio/mpeg', fileName: title+`.mp3`,
+HBWABotInc.sendMessage(m.chat, {document: dl_url,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`,
 contextInfo: {
 externalAdReply: {
-title: yt.title,
+title: vid.title,
 body: 'HBWABot Mizo',
-thumbnailUrl: yt.thumbnail,
+thumbnailUrl: vid.thumbnail,
 sourceUrl: '',
 mediaType: 1,
 renderLargerThumbnail: true
@@ -1894,18 +1897,19 @@ case 'dsong': case 'song':{
             if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
             m.reply(mess.wait)
             let results = await yts2(text)
-            let HerbertSk = results.args[0]
+            let vid = results.videos[0]
             let q = '128kbps'
+            let v = args[0]
 		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
 		const dl_url = await yt.audio[q].download()
 		const title = await yt.title
 		const size = await yt.audio[q].fileSizeH
-HBWABotInc.sendMessage(m.chat, {document: dl_url,mimetype: 'audio/mpeg', fileName: HerbertSk+`.mp3`,
+HBWABotInc.sendMessage(m.chat, {document: dl_url,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`,
 contextInfo: {
 externalAdReply: {
-title: HerbertSk,
+title: vid.title,
 body: 'HBWABot Mizo',
-thumbnailUrl: yt.thumbnail,
+thumbnailUrl: vid.thumbnail,
 sourceUrl: '',
 mediaType: 1,
 renderLargerThumbnail: true
