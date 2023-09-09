@@ -1841,10 +1841,12 @@ let q = args[1] || '360p'
 		const title = await yt.title
 		const size = await yt.video[q].fileSizeH 		
         const ytc=`*${title}*
-
-*♕Duration :* ${timestamp}
-*♕Quality :* ${q}
-*♕Size :* ${size}`
+┌──────────────
+*⚙️File type :* mp4
+*⚙️Quality :* ${q}
+*⚙️Size :* ${size}
+*⚙️By HBWABot Mizo*
+└──────────────`
 await HBWABotInc.sendMessage(m.chat,{
     video: {url: dl_url},
     caption: ytc
