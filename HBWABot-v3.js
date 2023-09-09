@@ -1893,18 +1893,18 @@ renderLargerThumbnail: true
 }}}),{quoted:m}
 }
 break
-case 'dsong': case 'song':{
-            if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
+    case 'dsong': case 'song':{
+if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
             m.reply(mess.wait)
             let res = await yts2(text)
-            let vid = res.videos[0]
-            let q = '128kbps'
-            let v = vid.url
-		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
-		const dl_url = await yt.audio[q].download()
-		const title = await yt.title
-		const size = await yt.audio[q].fileSizeH
-HBWABotInc.sendMessage(m.chat, {document: dl_url,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`,
+  let vid = res.videos[0]
+  let q = isVideo ? '360p' : '128kbps'
+  let v = vid.url
+  let yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
+  let dl_url = await (isVideo ? yt.video[q].download() : yt.audio[q].download())
+  let title = await yt.title
+  let size = await (isVideo ? yt.video[q].fileSizeH : yt.audio[q].fileSizeH)
+  HBWABotInc.sendMessage(m.chat, {document: dl_url,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`,
 contextInfo: {
 externalAdReply: {
 title: vid.title,
