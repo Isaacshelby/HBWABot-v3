@@ -1829,34 +1829,11 @@ case 'yts': case 'hla':{
             })
             }
             break            
-            case 'video': case 'videos':{
-//Credit by HBMods-OFC
-if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
-            m.reply(mess.wait)
-let res = await yts2(text)
-let vid = res.videos[0]
-let q = args[1] || '360p'
-let v = vid.url
-		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
-		const dl_url = await yt.video[q].download()
-		const title = await yt.title
-		const size = await yt.video[q].fileSizeH
-  const ytc=`*${vid.title}\n┌──────────────
-▢ 📌 *Quality:* ${vid.q}
-▢ 📆 *Published:* ${vid.ago}
-▢ ⌚ *Duration:* ${vid.timestamp}
-▢ 👀 *Viewers:* ${vid.views}
-└──────────────`
-await HBWABotInc.sendMessage(m.chat,{
-    video: {url: dl_url},
-    caption: ytc
-}, {quoted:m})
-}
-            break
             case 'ytmp4': case 'ytvideo':{
 //Credit by HBMods-OFC
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 m.reply(mess.wait)
+if (!args[0].match(/youtu/gi)) replyherbertstyle ('Youtube link dik tak chauh rawn dah rawh')
 let res = await yts2(text)
 let vid = res.videos[0]
 let q = args[1] || '360p'
@@ -1865,8 +1842,8 @@ let q = args[1] || '360p'
 		const dl_url = await yt.video[q].download()
 		const title = await yt.title
 		const size = await yt.video[q].fileSizeH 		
-        const ytc=`*${vid.title}\n┌──────────────
-▢ 📌 *Quality:* ${vid.q}
+        const ytc=`*${vid.title}*\n┌──────────────
+▢ 📌 *Quality:* ${q}
 ▢ 📆 *Published:* ${vid.ago}
 ▢ ⌚ *Duration:* ${vid.timestamp}
 ▢ 👀 *Viewers:* ${vid.views}
@@ -1892,7 +1869,7 @@ let v = args[0]
 		const size = await yt.audio[q].fileSizeH
 let thumbnailUrl = vid.thumbnail
 await HBWABotInc.sendMessage(m.chat, {image: {url: thumbnailUrl},caption: `*${vid.title}*\n┌──────────────
-▢ 📌 *Quality* : ${vid.q}
+▢ 📌 *Quality* : ${q}
 ▢ 📆 *Published:* ${vid.ago}
 ▢ ⌚ *Duration:* ${vid.timestamp}
 ▢ 👀 *Viewers:* ${vid.views}
@@ -1914,7 +1891,7 @@ let title = await yt.title
 let size = await (isVideo ? yt.video[q].fileSizeH : yt.audio[q].fileSizeH)
 let thumbnailUrl = vid.thumbnail
 await HBWABotInc.sendMessage(m.chat, {image: { url: thumbnailUrl },caption: `*${vid.title}*\n┌──────────────
-▢ 📌 *Quality* : ${vid.q}
+▢ 📌 *Quality* : ${q}
 ▢ 📆 *Published:* ${vid.ago}
 ▢ ⌚ *Duration:* ${vid.timestamp}
 ▢ 👀 *Viewers:* ${vid.views}
