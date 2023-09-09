@@ -5,6 +5,7 @@ const { os, axios, baileys, chalk, cheerio, child_process, crypto, cookie, FormD
 const { exec, spawn, execSync } = child_process
 const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType } = baileys
 const { clockString, parseMention, formatp, tanggal, getTime, isUrl, sleep, runtime, fetchJson, getBuffer, jsonformat, format, reSize, generateProfilePicture, getRandom } = require('./lib/myfunc')
+const uploadImage = require('./lib/uploadImage.js')
 const yts2 = require('yt-search')
 const fg = require('api-dylux')
 const { youtubedl, youtubedlv2 } = require('@bochilteam/scraper-sosmed')
@@ -1834,19 +1835,17 @@ case 'yts': case 'hla':{
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 m.reply(mess.wait)
 if (!args[0].match(/youtu/gi)) replyherbertstyle ('Youtube link dik tak chauh rawn dah rawh')
-let res = await yts2(text)
-let vid = res.videos[0]
 let q = args[1] || '360p'
 		let v = args[0]
 		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
 		const dl_url = await yt.video[q].download()
 		const title = await yt.title
 		const size = await yt.video[q].fileSizeH 		
-        const ytc=`*${vid.title}*\n┌──────────────
+        const ytc=`*${title}*\n┌──────────────
 ▢ 📌 *Quality:* ${q}
-▢ 📆 *Published:* ${vid.ago}
-▢ ⌚ *Duration:* ${vid.timestamp}
-▢ 👀 *Viewers:* ${vid.views}
+▢ 📆 *Published:* ${ago}
+▢ ⌚ *Duration:* ${timestamp}
+▢ 👀 *Viewers:* ${views}
 └──────────────`
 await HBWABotInc.sendMessage(m.chat,{
     video: {url: dl_url},
@@ -1859,20 +1858,18 @@ case 'ytmp3': case 'ytaudio':{
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 m.reply(mess.wait)
 if (!args[0].match(/youtu/gi)) replyherbertstyle ('Youtube link dik tak chauh rawn dah rawh')
-let res = await yts2(text)
-let vid = res.videos[0]
 let q = '128kbps'
 let v = args[0]
 		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
 		const dl_url = await yt.audio[q].download()
 		const title = await yt.title
 		const size = await yt.audio[q].fileSizeH
-let thumbnailUrl = vid.thumbnail
-await HBWABotInc.sendMessage(m.chat, {image: {url: thumbnailUrl},caption: `*${vid.title}*\n┌──────────────
+let thumbnailUrl = thumbnail
+await HBWABotInc.sendMessage(m.chat, {image: {url: thumbnailUrl},caption: `*${title}*\n┌──────────────
 ▢ 📌 *Quality* : ${q}
-▢ 📆 *Published:* ${vid.ago}
-▢ ⌚ *Duration:* ${vid.timestamp}
-▢ 👀 *Viewers:* ${vid.views}
+▢ 📆 *Published:* ${ago}
+▢ ⌚ *Duration:* ${timestamp}
+▢ 👀 *Viewers:* ${views}
 └──────────────`,},{quoted:m})
   HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`}),{quoted:m}
 }
