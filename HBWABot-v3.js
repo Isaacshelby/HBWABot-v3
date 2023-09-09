@@ -1834,7 +1834,7 @@ case 'yts': case 'hla':{
             m.reply(mess.wait)
             let res = await yts2(text)
   let vid = res.videos[0]
-  let q = isVideo ? '360p' : '128kbps'
+  let q = isVideo ? '128kbps' : '360p'
   let v = vid.url
   let yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
   let dl_url = await (isVideo ? yt.video[q].download() : yt.audio[q].download())
@@ -1881,16 +1881,14 @@ let v = args[0]
 		const dl_url = await yt.audio[q].download()
 		const title = await yt.title
 		const size = await yt.audio[q].fileSizeH
-HBWABotInc.sendMessage(m.chat, {document: dl_url,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`,
-contextInfo: {
-externalAdReply: {
-title: vid.title,
-body: 'HBWABot Mizo',
-thumbnailUrl: vid.thumbnail,
-sourceUrl: '',
-mediaType: 1,
-renderLargerThumbnail: true
-}}}),{quoted:m}
+let thumbnailUrl = vid.thumbnail
+await HBWABotInc.sendMessage(m.chat, {image: {url: thumbnailUrl},caption: `\n*Downloading:* ┌──────────────
+▢ 📌 *Title* : ${vid.title}
+▢ 📆 *Published:* ${vid.ago}
+▢ ⌚ *Duration:* ${vid.timestamp}
+▢ 👀 *Viewers:* ${vid.views}
+└──────────────`,},{quoted:m})
+  HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`}),{quoted:m}
 }
 break
     case 'dsong': case 'song':{
@@ -1904,16 +1902,14 @@ if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K 
   let dl_url = await (isVideo ? yt.video[q].download() : yt.audio[q].download())
   let title = await yt.title
   let size = await (isVideo ? yt.video[q].fileSizeH : yt.audio[q].fileSizeH)
-  HBWABotInc.sendMessage(m.chat, {document: dl_url,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`,
-contextInfo: {
-externalAdReply: {
-title: vid.title,
-body: 'HBWABot Mizo',
-thumbnailUrl: vid.thumbnail,
-sourceUrl: '',
-mediaType: 1,
-renderLargerThumbnail: true
-}}}),{quoted:m}
+  let thumbnailUrl = vid.thumbnail
+await HBWABotInc.sendMessage(m.chat, {image: { url: thumbnailUrl },caption: `\n*Downloading:* ┌──────────────
+▢ 📌 *Title* : ${vid.title}
+▢ 📆 *Published:* ${vid.ago}
+▢ ⌚ *Duration:* ${vid.timestamp}
+▢ 👀 *Viewers:* ${vid.views}
+└──────────────`,},{quoted:m})
+  HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`}),{quoted:m}
 }
 break
 case '/hla':  case 'songxx': {
