@@ -1830,20 +1830,23 @@ case 'yts': case 'hla':{
             }
             break            
             case 'video': case 'videos':{
-            if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
+//Credit by HBMods-OFC
+if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
             m.reply(mess.wait)
-            let res = await yts2(text)
-  let vid = res.videos[0]
-  let q = isVideo ? '128kbps' : '360p'
-  let v = vid.url
-  let yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
-  let dl_url = await (isVideo ? yt.video[q].download() : yt.audio[q].download())
-  let title = await yt.title
-  let size = await (isVideo ? yt.video[q].fileSizeH : yt.audio[q].fileSizeH)
-  const ytc=`
-*${themeemoji}Tittle:* ${title}
-*${themeemoji}Siize:* ${size}
-*${themeemoji}Quality:* ${q}`
+let res = await yts2(text)
+let vid = res.videos[0]
+let q = args[1] || '360p'
+let v = vid.url
+		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
+		const dl_url = await yt.video[q].download()
+		const title = await yt.title
+		const size = await yt.video[q].fileSizeH
+  const ytc=`*${vid.title}\n┌──────────────
+▢ 📌 *Quality:* ${vid.q}
+▢ 📆 *Published:* ${vid.ago}
+▢ ⌚ *Duration:* ${vid.timestamp}
+▢ 👀 *Viewers:* ${vid.views}
+└──────────────`
 await HBWABotInc.sendMessage(m.chat,{
     video: {url: dl_url},
     caption: ytc
@@ -1851,18 +1854,23 @@ await HBWABotInc.sendMessage(m.chat,{
 }
             break
             case 'ytmp4': case 'ytvideo':{
+//Credit by HBMods-OFC
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 m.reply(mess.wait)
+let res = await yts2(text)
+let vid = res.videos[0]
 let q = args[1] || '360p'
 		let v = args[0]
 		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
 		const dl_url = await yt.video[q].download()
 		const title = await yt.title
 		const size = await yt.video[q].fileSizeH 		
-        const ytc=`
-*${themeemoji}Tittle:* ${title}
-*${themeemoji}Siize:* ${size}
-*${themeemoji}Quality:* ${q}`
+        const ytc=`*${vid.title}\n┌──────────────
+▢ 📌 *Quality:* ${vid.q}
+▢ 📆 *Published:* ${vid.ago}
+▢ ⌚ *Duration:* ${vid.timestamp}
+▢ 👀 *Viewers:* ${vid.views}
+└──────────────`
 await HBWABotInc.sendMessage(m.chat,{
     video: {url: dl_url},
     caption: ytc
@@ -1870,6 +1878,7 @@ await HBWABotInc.sendMessage(m.chat,{
 }
             break
 case 'ytmp3': case 'ytaudio':{
+//Credit by HBMods-OFC
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 m.reply(mess.wait)
 if (!args[0].match(/youtu/gi)) replyherbertstyle ('Youtube link dik tak chauh rawn dah rawh')
@@ -1882,8 +1891,8 @@ let v = args[0]
 		const title = await yt.title
 		const size = await yt.audio[q].fileSizeH
 let thumbnailUrl = vid.thumbnail
-await HBWABotInc.sendMessage(m.chat, {image: {url: thumbnailUrl},caption: `\n*Downloading:* ┌──────────────
-▢ 📌 *Title* : ${vid.title}
+await HBWABotInc.sendMessage(m.chat, {image: {url: thumbnailUrl},caption: `*${vid.title}*\n┌──────────────
+▢ 📌 *Quality* : ${vid.q}
 ▢ 📆 *Published:* ${vid.ago}
 ▢ ⌚ *Duration:* ${vid.timestamp}
 ▢ 👀 *Viewers:* ${vid.views}
@@ -1891,20 +1900,21 @@ await HBWABotInc.sendMessage(m.chat, {image: {url: thumbnailUrl},caption: `\n*Do
   HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`}),{quoted:m}
 }
 break
-    case 'dsong': case 'song':{
+    case 'dsong': case 'song': case 'play': {
+//Credit by HBMods-OFC
 if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
             m.reply(mess.wait)
             let res = await yts2(text)
-  let vid = res.videos[0]
-  let q = isVideo ? '360p' : '128kbps'
-  let v = vid.url
-  let yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
-  let dl_url = await (isVideo ? yt.video[q].download() : yt.audio[q].download())
-  let title = await yt.title
-  let size = await (isVideo ? yt.video[q].fileSizeH : yt.audio[q].fileSizeH)
-  let thumbnailUrl = vid.thumbnail
-await HBWABotInc.sendMessage(m.chat, {image: { url: thumbnailUrl },caption: `\n*Downloading:* ┌──────────────
-▢ 📌 *Title* : ${vid.title}
+let vid = res.videos[0]
+let q = isVideo ? '360p' : '128kbps'
+let v = vid.url
+let yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
+let dl_url = await (isVideo ? yt.video[q].download() : yt.audio[q].download())
+let title = await yt.title
+let size = await (isVideo ? yt.video[q].fileSizeH : yt.audio[q].fileSizeH)
+let thumbnailUrl = vid.thumbnail
+await HBWABotInc.sendMessage(m.chat, {image: { url: thumbnailUrl },caption: `*${vid.title}*\n┌──────────────
+▢ 📌 *Quality* : ${vid.q}
 ▢ 📆 *Published:* ${vid.ago}
 ▢ ⌚ *Duration:* ${vid.timestamp}
 ▢ 👀 *Viewers:* ${vid.views}
@@ -2104,7 +2114,7 @@ teks += `│\n└────────────⭓\n\n*A vaiin : ${VoiceNo
 replyherbertstyle(teks)
 }
 break 
-case '/group': case '.group': {
+case '/group': case '#group': {
 if (!m.isGroup) return HBWAStickGroup()
 if (!isAdmins && !HerbertTheCreator) return m.reply(mess.admin)
 if (!isBotAdmins) return m.reply(mess.BotAdmin)
