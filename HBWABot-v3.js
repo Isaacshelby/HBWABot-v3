@@ -1841,9 +1841,12 @@ let q = args[1] || '360p'
 		const title = await yt.title
 		const size = await yt.video[q].fileSizeH 		
         const ytc=`*${title}*\n┌──────────────
-▢ 📌 *Quality:* ${q}
-▢ ⌚ *Duration:* ${timestamp}
-▢ 👀 *Viewers:* ${views}
+≡  *YouTube Download*
+  
+▢ *📌Titel* : ${title}
+▢ *📟Ext* : mp4
+▢ *🎞️Quality* : ${q}
+▢ *⚖️Size* : ${size}
 └──────────────`
 await HBWABotInc.sendMessage(m.chat,{
     video: {url: dl_url},
@@ -1862,7 +1865,7 @@ let v = args[0]
 		const dl_url = await yt.audio[q].download()
 		const title = await yt.title
 		const size = await yt.audio[q].fileSizeH
-await HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: title+`.mp3`,}),{quoted:m}
+        HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: title+`.mp3`},{quoted:m})
 }
 break
     case 'dsong': case 'song': case 'play': {
@@ -1884,7 +1887,7 @@ await HBWABotInc.sendMessage(m.chat, {image: { url: thumbnailUrl },caption: `*${
 ▢ ⌚ *Duration:* ${vid.timestamp}
 ▢ 👀 *Viewers:* ${vid.views}
 └──────────────`,},{quoted:m})
-  HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`}),{quoted:m}
+  HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`},{quoted:m})
 }
 break
 case '/hla':  case 'songxx': {
