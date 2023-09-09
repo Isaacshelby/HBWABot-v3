@@ -1840,58 +1840,17 @@ let q = args[1] || '360p'
 		const dl_url = await yt.video[q].download()
 		const title = await yt.title
 		const size = await yt.video[q].fileSizeH 		
-        const ytc=`*♕Title :* ${v.title}
-*♕Duration :*${v.timestamp}
-*♕Quality :* ${v.q}
-*♕Size :* ${v.size}`
+        const ytc=`*${title}*
+
+*♕Duration :* ${timestamp}
+*♕Quality :* ${q}
+*♕Size :* ${size}`
 await HBWABotInc.sendMessage(m.chat,{
     video: {url: dl_url},
     caption: ytc
 }, {quoted:m})
 }
             break 
-            case 'hqytmp4': case 'hqytvideo':{
-//Credit by HBMods-OFC
-if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
-m.reply(mess.wait)
-if (!args[0].match(/youtu/gi)) replyherbertstyle ('Youtube link dik tak chauh rawn dah rawh')
-let q = args[1] || '720p'
-		let v = args[0]
-		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
-		const dl_url = await yt.video[q].download()
-		const title = await yt.title
-		const size = await yt.video[q].fileSizeH 		
-        const ytc=`*♕Title :* ${v.title}
-*♕Duration :*${v.timestamp}
-*♕Quality :* ${v.q}
-*♕Size :* ${v.size}`
-await HBWABotInc.sendMessage(m.chat,{
-    video: {url: dl_url},
-    caption: ytc
-}, {quoted:m})
-}
-            break
-case 'hq2ytmp4': case 'hq2ytvideo':{
-//Credit by HBMods-OFC
-if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
-m.reply(mess.wait)
-if (!args[0].match(/youtu/gi)) replyherbertstyle ('Youtube link dik tak chauh rawn dah rawh')
-let q = args[1] || '1080p'
-		let v = args[0]
-		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
-		const dl_url = await yt.video[q].download()
-		const title = await yt.title
-		const size = await yt.video[q].fileSizeH 		
-        const ytc=`*♕Title :* ${v.title}
-*♕Duration :*${v.timestamp}
-*♕Quality :* ${v.q}
-*♕Size :* ${v.size}`
-await HBWABotInc.sendMessage(m.chat,{
-    video: {url: dl_url},
-    caption: ytc
-}, {quoted:m})
-}
-            break
 case 'ytmp3': case 'ytaudio':{
 //Credit by HBMods-OFC
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
