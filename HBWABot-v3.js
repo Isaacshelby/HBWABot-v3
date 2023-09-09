@@ -5,7 +5,6 @@ const { os, axios, baileys, chalk, cheerio, child_process, crypto, cookie, FormD
 const { exec, spawn, execSync } = child_process
 const { BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, proto, generateWAMessageContent, generateWAMessage, prepareWAMessageMedia, areJidsSameUser, getContentType } = baileys
 const { clockString, parseMention, formatp, tanggal, getTime, isUrl, sleep, runtime, fetchJson, getBuffer, jsonformat, format, reSize, generateProfilePicture, getRandom } = require('./lib/myfunc')
-const uploadImage = require('./lib/uploadImage.js')
 const yts2 = require('yt-search')
 const fg = require('api-dylux')
 const { youtubedl, youtubedlv2 } = require('@bochilteam/scraper-sosmed')
@@ -2359,35 +2358,6 @@ fs.unlinkSync(name)
 } else return replyherbertstyle(`Sticker che thei lo ang chi rawn reply rawh`)
     }
     break 
-    case 'toanime': {
-if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
-			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
-			m.reply(mess.wait) 
-			const img = await q.download?.()
-			let out = await uploadImage(img)
-			let old = new Date()
-			let res = await fetch(API('lann', '/api/maker/jadianime', { url: `${out}`, apikey: lann }))
-			let convert = await res.json()
-			let buff = await fetch(convert.result.img_crop_single)
-           .then(res => res.buffer())
-           await HBWABotInc.sendMessage(m.chat, { image: buff, caption: mess.success}, { quoted: m })
-}
-break
-
-case 'tozombie': {
-if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
-			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
-			m.reply(mess.wait) 
-			const img = await q.download?.()
-			let out = await uploadImage(img)
-			let old = new Date()
-			let res = await fetch(API('lann', '/api/maker/jadizombie', { url: `${out}`, apikey: lann }))
-			let convert = await res.json()
-			let buff = await fetch(convert.result)
-           .then(res => res.buffer()) 
-           await HBWABotInc.sendMessage(m.chat, { image: buff, caption: mess.success}, { quoted: m })
-}
-break
 case 'swm': case 'steal': case 'stickerwm': case 'take':{
 if (!isPrem) return replyprem(mess.premium)
 if (!args.join(" ")) return replyherbertstyle(`word rawn dah rawh`)
