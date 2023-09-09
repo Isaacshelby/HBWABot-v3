@@ -1862,7 +1862,7 @@ let v = args[0]
 		const dl_url = await yt.audio[q].download()
 		const title = await yt.title
 		const size = await yt.audio[q].fileSizeH
-await HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: title+'.mp3',`
+await HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: title+`.mp3`,`
  ≡  *DL YTMP3*
   
 ▢ *📌Title* : ${title}
