@@ -1470,13 +1470,12 @@ mentionedJid:[sender],
 break
 case 'gb': case 'gbwhatsapp': {
 var hbmodspng = await getBuffer(`https://i.imgur.com/i5s0rnL.png`)
-HBWABotInc.sendMessage(from, {text: `*GBWhatsApp Latest Version* \n\nhttps://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html`, audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
-    mimetype: 'audio/mp4', ptt: true, 
+HBWABotInc.sendMessage(from, {text: `*GBWhatsApp Latest Version* \n\nhttps://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html`, 
 contextInfo:{
         externalAdReply:{
             showAdAttribution: true,
             containsAutoReply: true, 
-            renderLargerThumbnail: true,
+            renderLargerThumbnail: false,
             title: 'GBWhatsApp',
             body: 'Latest Version',
             thumbnail: fs.readFileSync("./HBMedia/HBMods/Gb.png"),
@@ -1490,13 +1489,12 @@ contextInfo:{
 break 
 case 'fm': case 'fmwhatsapp': { 
 var hbmodspng = await getBuffer(`https://i.imgur.com/3RAYRjk.png `)
-HBWABotInc.sendMessage(from, {text: ` *FMWhatsApp Latest Version*\n\nhttps://herbert70.blogspot.com/search/label/FMWhatsApp`, audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
-    mimetype: 'audio/mp4', ptt: true,
+HBWABotInc.sendMessage(from, {text: ` *FMWhatsApp Latest Version*\n\nhttps://herbert70.blogspot.com/search/label/FMWhatsApp`,
 contextInfo:{
         externalAdReply:{ 
             showAdAttribution: true,
             containsAutoReply: true,
-            renderLargerThumbnail: true,
+            renderLargerThumbnail: false,
             title: 'FMWhatsApp',
             body: 'Latest Version',
             thumbnail: fs.readFileSync("./HBMedia/HBMods/Fm.png"),
@@ -1510,13 +1508,12 @@ contextInfo:{
 break
 case 'yo': case 'yowhatsapp': {
 var hbmodspng = await getBuffer(`https://i.imgur.com/Y21MLL1.png `)
-HBWABotInc.sendMessage(from, {text: ` *YOWhatsApp Latest Version*\n\nhttps://herbert70.blogspot.com/2022/10/yowhatsapp.html`, audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
-    mimetype: 'audio/mp4', ptt: true,
+HBWABotInc.sendMessage(from, {text: `*YOWhatsApp Latest Version*\n\nhttps://herbert70.blogspot.com/2022/10/yowhatsapp.html`,
 contextInfo:{
         externalAdReply:{ 
             showAdAttribution: true,
             containsAutoReply: true,
-            renderLargerThumbnail: true,            
+            renderLargerThumbnail: false,           
             title: 'YOWhatsApp',
             body: 'Latest Version',
             thumbnail: fs.readFileSync("./HBMedia/HBMods/Yo.png"), 
@@ -1530,13 +1527,12 @@ contextInfo:{
 break
 case 'mb': case 'mbwhatsapp': { 
 var hbmodspng = await getBuffer(`https://i.imgur.com/Uz0c4Dd.png `)
-HBWABotInc.sendMessage(from, {text: ` *MBWhatsApp Ios Latest Version:*\n\nhttps://herbert70.blogspot.com/search/label/MBWhatsApp?m=1`, audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
-    mimetype: 'audio/mp4', ptt: true,
+HBWABotInc.sendMessage(from, {text: `*MBWhatsApp Ios Latest Version:*\n\nhttps://herbert70.blogspot.com/search/label/MBWhatsApp?m=1`,
 contextInfo:{
         externalAdReply:{
             showAdAttribution: true,
             containsAutoReply: true,
-            renderLargerThumbnail: true,        
+            renderLargerThumbnail: false,       
             title: 'MBWhatsApp',
             body: 'Latest Version',
             thumbnail: fs.readFileSync("./HBMedia/HBMods/Mb.png"),
@@ -1550,13 +1546,12 @@ contextInfo:{
 break
 case 'whatsapp': case 'hbmods': case 'update': { 
 var hbmodspng = await getBuffer(`https://i.imgur.com/SfP3f4M.png `)
-HBWABotInc.sendMessage(from, {text: `  *WhatsApp Mod update thar ber ber te*\n\n*WhatsApp*\nhttps://herbert70.blogspot.com/2022/10/whatsapp.html\n\n*FMWhatsApp*\nhttps://herbert70.blogspot.com/2022/10/fmwhatsapp.html\n\n*GBWhatsApp*\nhttps://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html\n\n*YoWhatsApp*\nhttps://herbert70.blogspot.com/2022/10/yowhatsapp.html\n\n*WhatsApp ios*\nhttps://herbert70.blogspot.com/2023/06/whatsapp-ios_30.html\n\n*MBWhatsApp ios*\nhttps://herbert70.blogspot.com/2023/06/mbwhatsapp-ios.html`, audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
-    mimetype: 'audio/mp4', ptt: true,
+HBWABotInc.sendMessage(from, {text: `*WhatsApp Mod update thar ber ber te*\n\n*WhatsApp*\nhttps://herbert70.blogspot.com/2022/10/whatsapp.html\n\n*FMWhatsApp*\nhttps://herbert70.blogspot.com/2022/10/fmwhatsapp.html\n\n*GBWhatsApp*\nhttps://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html\n\n*YoWhatsApp*\nhttps://herbert70.blogspot.com/2022/10/yowhatsapp.html\n\n*WhatsApp ios*\nhttps://herbert70.blogspot.com/2023/06/whatsapp-ios_30.html\n\n*MBWhatsApp ios*\nhttps://herbert70.blogspot.com/2023/06/mbwhatsapp-ios.html`,
 contextInfo:{
         externalAdReply:{ 
             showAdAttribution: true,
             containsAutoReply: true,
-            renderLargerThumbnail: true,       
+            renderLargerThumbnail: false,      
             title: 'WhatsApp Mod',
             body: 'Latest Version',
             thumbnail: fs.readFileSync("./HBMedia/HBMods/Fouad.png"),
