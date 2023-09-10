@@ -83,10 +83,7 @@ global.flasmurf = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutp
 //messages
 global.mess = {
     success: 'Hei le!', 
-    wait: '♲ Nghak lawk rawh..', 
-    wait2: '《█▒▒▒▒▒▒▒▒▒▒▒》10%'
-    wait3: '《████▒▒▒▒▒▒▒▒》30%'
-    wait4: '
+    wait: '♲ Nghak lawk rawh..',
     admin: 'He features hi chu admin te chauh hman thei tur a siam a ni!',
     botAdmin: 'Admin min nih tir phawt la, chuan ka ti thei ang!',
     premime: 'Hemi features, premium-ah ka dah bik hi i hman duh chuan owner rawn be rawh',
