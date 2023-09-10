@@ -2,12 +2,9 @@ const chalk = require("chalk")
 const fs = require("fs")
 
 //aumto presence update
-global.autoTyping = false //auto tying in gc (true to on, false to off)
-global.autoRecord = false //auto recording (true to on, false to off)
-global.autoblockmorroco = false //auto block 212 (true to on, false to off)
-global.autokickmorroco = false //auto kick 212 (true to on, false to off) 
-global.antispam = false //auto kick spammer (true to on, false to off)
-
+global.autoTyping = false
+global.autoRecord = false
+global.available = true
 
 global.APIs = { // API Prefix
   // name: 'https://website'
@@ -61,6 +58,15 @@ global.prefa = ['','!','.','#','&']
 global.sessionName = 'session'
 global.hituet = 0
 
+
+//Hei hi i thlak chuan bot hian hna a thawk dawn lo
+//_______________________________________________
+global.hbmods = "https://herbert70.blogspot.com/" //
+//_______________________________________________
+
+
+
+
 //media target
 global.thum = fs.readFileSync("./HBMedia/theme/hbwabot.png") //ur thumb pic
 global.log0 = fs.readFileSync("./HBMedia/theme/hbwabot.png") //ur logo pic
@@ -78,6 +84,9 @@ global.flasmurf = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutp
 global.mess = {
     success: 'Hei le!', 
     wait: '♲ Nghak lawk rawh..', 
+    wait2: '《█▒▒▒▒▒▒▒▒▒▒▒》10%'
+    wait3: '《████▒▒▒▒▒▒▒▒》30%'
+    wait4: '
     admin: 'He features hi chu admin te chauh hman thei tur a siam a ni!',
     botAdmin: 'Admin min nih tir phawt la, chuan ka ti thei ang!',
     premime: 'Hemi features, premium-ah ka dah bik hi i hman duh chuan owner rawn be rawh',
