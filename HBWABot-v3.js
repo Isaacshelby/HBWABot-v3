@@ -1475,7 +1475,8 @@ HBWABotInc.sendMessage(m.chat, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3
 contextInfo:{
         externalAdReply:{
             showAdAttribution: true,
-            containsAutoReply: true,
+            containsAutoReply: true, 
+            renderLargerThumbnail: true,
             title: 'GBWhatsApp',
             body: 'Thlalak hi hmet rawh',
             thumbnail: hbmodspng,
@@ -1495,6 +1496,7 @@ contextInfo:{
         externalAdReply:{ 
             showAdAttribution: true,
             containsAutoReply: true,
+            renderLargerThumbnail: true,
             title: 'FMWhatsApp',
             body: 'Thlalak hi hmet rawh',
             thumbnail: hbmodspng,
@@ -1513,7 +1515,8 @@ HBWABotInc.sendMessage(m.chat, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3
 contextInfo:{
         externalAdReply:{ 
             showAdAttribution: true,
-            containsAutoReply: true,            
+            containsAutoReply: true,
+            renderLargerThumbnail: true,            
             title: 'YOWhatsApp',
             body: 'Thlalak hi hmet rawh',
             thumbnail: hbmodspng, 
@@ -1532,7 +1535,8 @@ HBWABotInc.sendMessage(m.chat, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3
 contextInfo:{
         externalAdReply:{
             showAdAttribution: true,
-            containsAutoReply: true,        
+            containsAutoReply: true,
+            renderLargerThumbnail: true,        
             title: 'MBWhatsApp',
             body: 'Thlalak hi hmet rawh',
             thumbnail: hbmodspng,
@@ -1551,7 +1555,8 @@ HBWABotInc.sendMessage(m.chat, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3
 contextInfo:{
         externalAdReply:{ 
             showAdAttribution: true,
-            containsAutoReply: true,        
+            containsAutoReply: true,
+            renderLargerThumbnail: true,       
             title: 'WhatsApp Mod',
             body: 'Thlalak hi hmet rawh',
             thumbnail: hbmodspng,
