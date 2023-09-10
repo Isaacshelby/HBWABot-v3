@@ -1470,7 +1470,7 @@ mentionedJid:[sender],
 break
 case 'gb': case 'gbwhatsapp': {
 var hbmodspng = await getBuffer(`https://i.imgur.com/i5s0rnL.png`)
-HBWABotInc.sendMessage(m.chat, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
+HBWABotInc.sendMessage(from, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
     mimetype: 'audio/mp4', ptt: true,
 contextInfo:{
         externalAdReply:{
@@ -1478,8 +1478,8 @@ contextInfo:{
             containsAutoReply: true, 
             renderLargerThumbnail: true,
             title: 'GBWhatsApp',
-            body: 'Thlalak hi hmet rawh',
-            thumbnail: hbmodspng,
+            body: 'Latest Version',
+            thumbnail: fs.readFileSync("./HBMedia/HBMods/Gb.png"),
             mediaType: 2, 
             mediaUrl: `https://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html`,
             sourceUrl: `https://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html`
@@ -1490,7 +1490,7 @@ contextInfo:{
 break 
 case 'fm': case 'fmwhatsapp': { 
 var hbmodspng = await getBuffer(`https://i.imgur.com/3RAYRjk.png `)
-HBWABotInc.sendMessage(m.chat, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
+HBWABotInc.sendMessage(from, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
     mimetype: 'audio/mp4', ptt: true,
 contextInfo:{
         externalAdReply:{ 
@@ -1498,8 +1498,8 @@ contextInfo:{
             containsAutoReply: true,
             renderLargerThumbnail: true,
             title: 'FMWhatsApp',
-            body: 'Thlalak hi hmet rawh',
-            thumbnail: hbmodspng,
+            body: 'Latest Version',
+            thumbnail: fs.readFileSync("./HBMedia/HBMods/Fm.png"),
             mediaType: 2,
             mediaUrl: `https://herbert70.blogspot.com/search/label/FMWhatsApp`,
             sourceUrl: `https://herbert70.blogspot.com/search/label/FMWhatsApp`
@@ -1510,7 +1510,7 @@ contextInfo:{
 break
 case 'yo': case 'yowhatsapp': {
 var hbmodspng = await getBuffer(`https://i.imgur.com/Y21MLL1.png `)
-HBWABotInc.sendMessage(m.chat, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
+HBWABotInc.sendMessage(from, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
     mimetype: 'audio/mp4', ptt: true,
 contextInfo:{
         externalAdReply:{ 
@@ -1518,8 +1518,8 @@ contextInfo:{
             containsAutoReply: true,
             renderLargerThumbnail: true,            
             title: 'YOWhatsApp',
-            body: 'Thlalak hi hmet rawh',
-            thumbnail: hbmodspng, 
+            body: 'Latest Version',
+            thumbnail: fs.readFileSync("./HBMedia/HBMods/Yo.png"), 
             mediaType: 2,
             mediaUrl: `https://herbert70.blogspot.com/2022/10/yowhatsapp.html`,
             sourceUrl: `https://herbert70.blogspot.com/2022/10/yowhatsapp.html`
@@ -1530,7 +1530,7 @@ contextInfo:{
 break
 case 'mb': case 'mbwhatsapp': { 
 var hbmodspng = await getBuffer(`https://i.imgur.com/Uz0c4Dd.png `)
-HBWABotInc.sendMessage(m.chat, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
+HBWABotInc.sendMessage(from, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
     mimetype: 'audio/mp4', ptt: true,
 contextInfo:{
         externalAdReply:{
@@ -1538,8 +1538,8 @@ contextInfo:{
             containsAutoReply: true,
             renderLargerThumbnail: true,        
             title: 'MBWhatsApp',
-            body: 'Thlalak hi hmet rawh',
-            thumbnail: hbmodspng,
+            body: 'Latest Version',
+            thumbnail: fs.readFileSync("./HBMedia/HBMods/Mb.png"),
             mediaType: 2,
             mediaUrl: `https://herbert70.blogspot.com/search/label/MBWhatsApp?m=1`,
             sourceUrl: `https://herbert70.blogspot.com/search/label/MBWhatsApp?m=1`
@@ -1550,7 +1550,7 @@ contextInfo:{
 break
 case 'whatsapp': case 'hbmods': case 'update': { 
 var hbmodspng = await getBuffer(`https://i.imgur.com/SfP3f4M.png `)
-HBWABotInc.sendMessage(m.chat, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
+HBWABotInc.sendMessage(from, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
     mimetype: 'audio/mp4', ptt: true,
 contextInfo:{
         externalAdReply:{ 
@@ -1558,8 +1558,8 @@ contextInfo:{
             containsAutoReply: true,
             renderLargerThumbnail: true,       
             title: 'WhatsApp Mod',
-            body: 'Thlalak hi hmet rawh',
-            thumbnail: hbmodspng,
+            body: 'Latest Version',
+            thumbnail: fs.readFileSync("./HBMedia/HBMods/Fouad.png"),
             mediaType: 2,
             mediaUrl: `https://herbert70.blogspot.com/search/label/FouadMods?m=1`,
             sourceUrl: `https://herbert70.blogspot.com/search/label/FouadMods?m=1`
