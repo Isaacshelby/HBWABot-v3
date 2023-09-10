@@ -1469,90 +1469,95 @@ mentionedJid:[sender],
 }
 break
 case 'gb': case 'gbwhatsapp': {
-HBWABotInc.sendMessage(from, { 
-text: `​​​*GBWhatsApp Latest Version :* \n\nhttps://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html`,
+var hbmodspng = await getBuffer(`https://i.imgur.com/i5s0rnL.png`)
+HBWABotInc.sendMessage(m.chat, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
+    mimetype: 'audio/mp4', ptt: true,
 contextInfo:{
         externalAdReply:{
             showAdAttribution: true,
             containsAutoReply: true,
-            title: 'HBMods Apk Store',
-            body: 'FouadMods',
-            thumbnail: fs.readFileSync("./HBMedia/HBMods/Gb.png"),
+            title: 'GBWhatsApp',
+            body: 'Thlalak hi hmet rawh',
+            thumbnail: hbmodspng,
             mediaType: 2, 
-            mediaUrl: `${hbmods}`,
-            sourceUrl: `${hbmods}`
+            mediaUrl: `https://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html`,
+            sourceUrl: `https://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html`
 }
 }
 },{quoted:m})
 }
 break 
-case 'fm': case 'fmwhatsapp': {
-HBWABotInc.sendMessage(from, { 
-text: `​​​​​*FMWhatsApp Latest Version :*\n\n[com.fm] https://herbert70.blogspot.com/2022/10/fmwhatsapp.html\n\n[com.wa] https://herbert70.blogspot.com/2022/10/whatsapp.html`,
+case 'fm': case 'fmwhatsapp': { 
+var hbmodspng = await getBuffer(`https://i.imgur.com/3RAYRjk.png `)
+HBWABotInc.sendMessage(m.chat, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
+    mimetype: 'audio/mp4', ptt: true,
 contextInfo:{
         externalAdReply:{ 
             showAdAttribution: true,
             containsAutoReply: true,
-            title: 'HBMods Apk Store',
-            body: 'FouadMods',
-            thumbnail: fs.readFileSync("./HBMedia/HBMods/Fm.png"),
+            title: 'FMWhatsApp',
+            body: 'Thlalak hi hmet rawh',
+            thumbnail: hbmodspng,
             mediaType: 2,
-            mediaUrl: `${hbmods}`,
-            sourceUrl: `${hbmods}`
+            mediaUrl: `https://herbert70.blogspot.com/search/label/FMWhatsApp`,
+            sourceUrl: `https://herbert70.blogspot.com/search/label/FMWhatsApp`
 }
 }
 },{quoted:m})
 }
 break
 case 'yo': case 'yowhatsapp': {
-HBWABotInc.sendMessage(from, { 
-text: `*YOWhatsApp Latest Version :*\n\nhttps://herbert70.blogspot.com/2022/10/yowhatsapp.html`,
+var hbmodspng = await getBuffer(`https://i.imgur.com/Y21MLL1.png `)
+HBWABotInc.sendMessage(m.chat, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
+    mimetype: 'audio/mp4', ptt: true,
 contextInfo:{
         externalAdReply:{ 
             showAdAttribution: true,
             containsAutoReply: true,            
-            title: 'HBMods Apk Store',
-            body: 'FouadMods',
-            thumbnail: fs.readFileSync("./HBMedia/HBMods/Yo.png"), 
+            title: 'YOWhatsApp',
+            body: 'Thlalak hi hmet rawh',
+            thumbnail: hbmodspng, 
             mediaType: 2,
-            mediaUrl: `${hbmods}`,
-            sourceUrl: `${hbmods}`
+            mediaUrl: `https://herbert70.blogspot.com/2022/10/yowhatsapp.html`,
+            sourceUrl: `https://herbert70.blogspot.com/2022/10/yowhatsapp.html`
 }
 }
 },{quoted:m})
 }
 break
-case 'mb': case 'mbwhatsapp': {
-HBWABotInc.sendMessage(from, { 
-text: `*MBWhatsApp Ios Latest Version :*\n\n*[com.mb]* https://herbert70.blogspot.com/2023/06/mbwhatsapp-ios.html\n\n*[com.wa]* https://herbert70.blogspot.com/2023/06/whatsapp-ios_30.html`,
+case 'mb': case 'mbwhatsapp': { 
+var hbmodspng = await getBuffer(`https://i.imgur.com/Uz0c4Dd.png `)
+HBWABotInc.sendMessage(m.chat, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
+    mimetype: 'audio/mp4', ptt: true,
 contextInfo:{
         externalAdReply:{
             showAdAttribution: true,
             containsAutoReply: true,        
-            title: 'HBMods Apk Store',
-            body: 'FouadMods',
-            thumbnail: fs.readFileSync("./HBMedia/HBMods/Mb.png"),
+            title: 'MBWhatsApp',
+            body: 'Thlalak hi hmet rawh',
+            thumbnail: hbmodspng,
             mediaType: 2,
-            mediaUrl: `${hbmods}`,
-            sourceUrl: `${hbmods}`
+            mediaUrl: `https://herbert70.blogspot.com/search/label/MBWhatsApp?m=1`,
+            sourceUrl: `https://herbert70.blogspot.com/search/label/MBWhatsApp?m=1`
 }
 }
 },{quoted:m})
 }
 break
-case 'whatsapp': case 'hbmods': case 'update': {
-HBWABotInc.sendMessage(from, { 
-text: `*WhatsApp Mod update thar ber ber te*\n\n*WhatsApp*\nhttps://herbert70.blogspot.com/2022/10/whatsapp.html\n\n*FMWhatsApp*\nhttps://herbert70.blogspot.com/2022/10/fmwhatsapp.html\n\n*GBWhatsApp*\nhttps://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html\n\n*YoWhatsApp*\nhttps://herbert70.blogspot.com/2022/10/yowhatsapp.html\n\n*WhatsApp ios*\nhttps://herbert70.blogspot.com/2023/06/whatsapp-ios_30.html\n\n*MBWhatsApp ios*\nhttps://herbert70.blogspot.com/2023/06/mbwhatsapp-ios.html`,
+case 'whatsapp': case 'hbmods': case 'update': { 
+var hbmodspng = await getBuffer(`https://i.imgur.com/SfP3f4M.png `)
+HBWABotInc.sendMessage(m.chat, {audio: fs.readFileSync('./HBMedia/HBMods/Aud.mp3'),
+    mimetype: 'audio/mp4', ptt: true,
 contextInfo:{
         externalAdReply:{ 
             showAdAttribution: true,
             containsAutoReply: true,        
-            title: 'HBMods Apk Store',
-            body: 'FouadMods',
-            thumbnail: fs.readFileSync("./HBMedia/HBMods/Fouad.png"),
+            title: 'WhatsApp Mod',
+            body: 'Thlalak hi hmet rawh',
+            thumbnail: hbmodspng,
             mediaType: 2,
-            mediaUrl: `${hbmods}`,
-            sourceUrl: `${hbmods}`
+            mediaUrl: `https://herbert70.blogspot.com/search/label/FouadMods?m=1`,
+            sourceUrl: `https://herbert70.blogspot.com/search/label/FouadMods?m=1`
 }
 }
 },{quoted:m})
