@@ -1475,7 +1475,7 @@ contextInfo:{
         externalAdReply:{
             title: 'HBMods Apk Store',
             body: 'FouadMods',
-            thumbnail: fs.readFileSync("./HBMedia/HBMods/Gb.png") 
+            thumbnail: fs.readFileSync("./HBMedia/HBMods/Gb.png"),
             mediaType: 1, 
             mediaUrl: `${hbmods}`,
             sourceUrl: `${hbmods}`
@@ -1491,7 +1491,7 @@ contextInfo:{
         externalAdReply:{
             title: 'HBMods Apk Store',
             body: 'FouadMods',
-            thumbnail: fs.readFileSync("./HBMedia/HBMods/Fm.png") 
+            thumbnail: fs.readFileSync("./HBMedia/HBMods/Fm.png"),
             mediaType: 1,
             mediaUrl: `${hbmods}`,
             sourceUrl: `${hbmods}`
@@ -1507,7 +1507,7 @@ contextInfo:{
         externalAdReply:{
             title: 'HBMods Apk Store',
             body: 'FouadMods',
-            thumbnail: fs.readFileSync("./HBMedia/HBMods/Yo.png") 
+            thumbnail: fs.readFileSync("./HBMedia/HBMods/Yo.png"), 
             mediaType: 1,
             mediaUrl: `${hbmods}`,
             sourceUrl: `${hbmods}`
@@ -1523,7 +1523,7 @@ contextInfo:{
         externalAdReply:{
             title: 'HBMods Apk Store',
             body: 'FouadMods',
-            thumbnail: fs.readFileSync("./HBMedia/HBMods/Mb.png") 
+            thumbnail: fs.readFileSync("./HBMedia/HBMods/Mb.png"),
             mediaType: 1,
             mediaUrl: `${hbmods}`,
             sourceUrl: `${hbmods}`
@@ -1539,7 +1539,7 @@ contextInfo:{
         externalAdReply:{
             title: 'HBMods Apk Store',
             body: 'FouadMods',
-            thumbnail: fs.readFileSync("./HBMedia/HBMods/Fouad.png") 
+            thumbnail: fs.readFileSync("./HBMedia/HBMods/Fouad.png"),
             mediaType: 1,
             mediaUrl: `${hbmods}`,
             sourceUrl: `${hbmods}`
