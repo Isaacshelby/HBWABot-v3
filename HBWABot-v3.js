@@ -1470,13 +1470,15 @@ mentionedJid:[sender],
 break
 case 'gb': case 'gbwhatsapp': {
 HBWABotInc.sendMessage(from, { 
-text: ` ​​​*GBWhatsApp Latest Version:* \n\nhttps://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html`,
+text: `​​​*GBWhatsApp Latest Version :* \n\nhttps://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html`,
 contextInfo:{
         externalAdReply:{
+            showAdAttribution: true,
+            containsAutoReply: true,
             title: 'HBMods Apk Store',
             body: 'FouadMods',
             thumbnail: fs.readFileSync("./HBMedia/HBMods/Gb.png"),
-            mediaType: 1, 
+            mediaType: 2, 
             mediaUrl: `${hbmods}`,
             sourceUrl: `${hbmods}`
 }
@@ -1486,13 +1488,15 @@ contextInfo:{
 break 
 case 'fm': case 'fmwhatsapp': {
 HBWABotInc.sendMessage(from, { 
-text: ` ​​​​​*FMWhatsApp Latest Version:*\n\n[com.fm] https://herbert70.blogspot.com/2022/10/fmwhatsapp.html\n\n[com.wa] https://herbert70.blogspot.com/2022/10/whatsapp.html`,
+text: `​​​​​*FMWhatsApp Latest Version :*\n\n[com.fm] https://herbert70.blogspot.com/2022/10/fmwhatsapp.html\n\n[com.wa] https://herbert70.blogspot.com/2022/10/whatsapp.html`,
 contextInfo:{
-        externalAdReply:{
+        externalAdReply:{ 
+            showAdAttribution: true,
+            containsAutoReply: true,
             title: 'HBMods Apk Store',
             body: 'FouadMods',
             thumbnail: fs.readFileSync("./HBMedia/HBMods/Fm.png"),
-            mediaType: 1,
+            mediaType: 2,
             mediaUrl: `${hbmods}`,
             sourceUrl: `${hbmods}`
 }
@@ -1502,13 +1506,15 @@ contextInfo:{
 break
 case 'yo': case 'yowhatsapp': {
 HBWABotInc.sendMessage(from, { 
-text: ` *YOWhatsApp Latest Version:*\n\nhttps://herbert70.blogspot.com/2022/10/yowhatsapp.html`,
+text: `*YOWhatsApp Latest Version :*\n\nhttps://herbert70.blogspot.com/2022/10/yowhatsapp.html`,
 contextInfo:{
-        externalAdReply:{
+        externalAdReply:{ 
+            showAdAttribution: true,
+            containsAutoReply: true,            
             title: 'HBMods Apk Store',
             body: 'FouadMods',
             thumbnail: fs.readFileSync("./HBMedia/HBMods/Yo.png"), 
-            mediaType: 1,
+            mediaType: 2,
             mediaUrl: `${hbmods}`,
             sourceUrl: `${hbmods}`
 }
@@ -1518,13 +1524,15 @@ contextInfo:{
 break
 case 'mb': case 'mbwhatsapp': {
 HBWABotInc.sendMessage(from, { 
-text: ` ​​​*MBWhatsApp Ios Latest Version:*\n\n*[com.mb]* https://herbert70.blogspot.com/2023/06/mbwhatsapp-ios.html\n\n*[com.wa]* https://herbert70.blogspot.com/2023/06/whatsapp-ios_30.html`,
+text: `*MBWhatsApp Ios Latest Version :*\n\n*[com.mb]* https://herbert70.blogspot.com/2023/06/mbwhatsapp-ios.html\n\n*[com.wa]* https://herbert70.blogspot.com/2023/06/whatsapp-ios_30.html`,
 contextInfo:{
         externalAdReply:{
+            showAdAttribution: true,
+            containsAutoReply: true,        
             title: 'HBMods Apk Store',
             body: 'FouadMods',
             thumbnail: fs.readFileSync("./HBMedia/HBMods/Mb.png"),
-            mediaType: 1,
+            mediaType: 2,
             mediaUrl: `${hbmods}`,
             sourceUrl: `${hbmods}`
 }
@@ -1534,13 +1542,15 @@ contextInfo:{
 break
 case 'whatsapp': case 'hbmods': case 'update': {
 HBWABotInc.sendMessage(from, { 
-text: ` ​​​ *WhatsApp Mod update thar ber ber te*\n\n*WhatsApp*\nhttps://herbert70.blogspot.com/2022/10/whatsapp.html\n\n*FMWhatsApp*\nhttps://herbert70.blogspot.com/2022/10/fmwhatsapp.html\n\n*GBWhatsApp*\nhttps://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html\n\n*YoWhatsApp*\nhttps://herbert70.blogspot.com/2022/10/yowhatsapp.html\n\n*WhatsApp ios*\nhttps://herbert70.blogspot.com/2023/06/whatsapp-ios_30.html\n\n*MBWhatsApp ios*\nhttps://herbert70.blogspot.com/2023/06/mbwhatsapp-ios.html`,
+text: `*WhatsApp Mod update thar ber ber te*\n\n*WhatsApp*\nhttps://herbert70.blogspot.com/2022/10/whatsapp.html\n\n*FMWhatsApp*\nhttps://herbert70.blogspot.com/2022/10/fmwhatsapp.html\n\n*GBWhatsApp*\nhttps://herbert70.blogspot.com/2022/04/download-gbwhatsapp-last-version-update.html\n\n*YoWhatsApp*\nhttps://herbert70.blogspot.com/2022/10/yowhatsapp.html\n\n*WhatsApp ios*\nhttps://herbert70.blogspot.com/2023/06/whatsapp-ios_30.html\n\n*MBWhatsApp ios*\nhttps://herbert70.blogspot.com/2023/06/mbwhatsapp-ios.html`,
 contextInfo:{
-        externalAdReply:{
+        externalAdReply:{ 
+            showAdAttribution: true,
+            containsAutoReply: true,        
             title: 'HBMods Apk Store',
             body: 'FouadMods',
             thumbnail: fs.readFileSync("./HBMedia/HBMods/Fouad.png"),
-            mediaType: 1,
+            mediaType: 2,
             mediaUrl: `${hbmods}`,
             sourceUrl: `${hbmods}`
 }
