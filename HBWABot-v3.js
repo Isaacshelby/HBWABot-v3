@@ -1884,15 +1884,17 @@ let size = await (isVideo ? yt.video[q].fileSizeH : yt.audio[q].fileSizeH)
 let thumbnailUrl = vid.thumbnail
 await HBWABotInc.sendMessage(from,{image:{url: thumbnailUrl},
     caption: `*${vid.title}*
+
+1:35 ───ㅇ───── 3:47
 ┌──────────────
-*⎙ Quality :* ${q}
-*⎙ Duration :* ${vid.timestamp}
-*⎙ Viewers :* ${vid.views}
-*⎙ Published :* ${vid.ago}
-*⎙ Url :* ${vid.url}
+*⚙️ Quality :* ${q}
+*🕛 Duration :* ${vid.timestamp}
+*👀 Viewers :* ${vid.views}
+*♻️ Published :* ${vid.ago}
+*💬 Url :* ${vid.url}
 └──────────────`,
 },{quoted:m})
-HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`, caption: ytcp2,},{quoted:m})
+HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`,},{quoted:m})
 }
 break
 case '/hla':  case 'songxx': {
