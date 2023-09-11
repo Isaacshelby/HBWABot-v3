@@ -1882,27 +1882,17 @@ let dl_url = await (isVideo ? yt.video[q].download() : yt.audio[q].download())
 let title = await yt.title
 let size = await (isVideo ? yt.video[q].fileSizeH : yt.audio[q].fileSizeH)
 let thumbnailUrl = vid.thumbnail
-const ytcp2=`*${title}*
+await HBWABotInc.sendMessage(from,{image:{url: thumbnailUrl},
+    caption: `*${vid.title}*
 ┌──────────────
-*⚙️Duration:* ${vid.timestamp}
-*⚙️Quality :* ${q}
-*⚙️Size :* ${vid.size}
-*⚙️By HBWABot Mizo*
-└──────────────`
-HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`, caption: ytcp2,
-  contextInfo:{
-        externalAdReply:{
-            showAdAttribution: true,
-            containsAutoReply: true, 
-            title: vid.title,
-            body: 'HBWABot Mizo',
-            thumbnail: thumbnailUrl,
-            mediaType: 2, 
-            mediaUrl: vid.url,
-            sourceUrl: vid.url, 
-            }
-        },
-  },{quoted:m})
+*⎙ Quality :* ${q}
+*⎙ Duration :* ${vid.timestamp}
+*⎙ Viewers :* ${vid.views}
+*⎙ Published :* ${vid.ago}
+*⎙ Url :* ${vid.url}
+└──────────────`,
+},{quoted:m})
+HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`, caption: ytcp2,},{quoted:m})
 }
 break
 case '/hla':  case 'songxx': {
