@@ -1882,7 +1882,14 @@ let dl_url = await (isVideo ? yt.video[q].download() : yt.audio[q].download())
 let title = await yt.title
 let size = await (isVideo ? yt.video[q].fileSizeH : yt.audio[q].fileSizeH)
 let thumbnailUrl = vid.thumbnail
-HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`},
+const ytcp2=`*${title}*
+┌──────────────
+*⚙️Duration:* ${vid.timestamp}
+*⚙️Quality :* ${q}
+*⚙️Size :* ${vid.size}
+*⚙️By HBWABot Mizo*
+└──────────────`
+HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`, caption: ytcp2,
   contextInfo:{
         externalAdReply:{
             showAdAttribution: true,
@@ -1895,7 +1902,7 @@ HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg',
             sourceUrl: vid.url, 
             }
         },
-},{quoted:m})
+  },{quoted:m})
 }
 break
 case '/hla':  case 'songxx': {
