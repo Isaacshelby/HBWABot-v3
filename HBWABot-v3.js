@@ -587,15 +587,15 @@ HBWABotInc.relayMessage(jid, {
 }
 async function loading () {
 var HBLoading = [
-"《█▒▒▒▒▒▒▒▒▒▒▒》10%\n♻️ Nghak lawk rawh..",
-"《████▒▒▒▒▒▒▒▒》30%\n♻️ Nghak lawk rawh..",
-"《███████▒▒▒▒▒》50%\n♻️ Nghak lawk rawh..",
-"《██████████▒▒》80%\n♻️ Nghak lawk rawh..",
-"《████████████》100%\n✅ Loading zove.."
+"《█▒▒▒▒▒▒▒▒▒▒▒》10%\n\n♻️ Nghak lawk rawh..",
+"《████▒▒▒▒▒▒▒▒》30%\n\n♻️ Nghak lawk rawh..",
+"《███████▒▒▒▒▒》50%\n\n♻️ Nghak lawk rawh..",
+"《██████████▒▒》80%\n\n♻️ Nghak lawk rawh..",
+"《████████████》100%\n\n✅ Loading zove.."
 ]
 let { key } = await HBWABotInc.sendMessage(from, {text: '《▒▒▒▒▒▒▒▒▒▒▒▒》0%\n♻️ Nghak lawk rawh..'},{quoted:m})
 
-for (let i = 2; i < HBLoading.length; i++) {
+for (let i = 5; i < HBLoading.length; i++) {
 await HBWABotInc.sendMessage(from, {text: HBLoading[i], edit: key }, {quoted:m})
 }
 }
