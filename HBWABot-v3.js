@@ -595,7 +595,7 @@ var HBLoading = [
 ]
 let { key } = await HBWABotInc.sendMessage(from, {text: '《▒▒▒▒▒▒▒▒▒▒▒▒》0%\n♻️ Nghak lawk rawh..'},{quoted:m})
 
-for (let i = 0; i < HBLoading.length; i++) {
+for (let i = 2; i < HBLoading.length; i++) {
 await HBWABotInc.sendMessage(from, {text: HBLoading[i], edit: key }, {quoted:m})
 }
 }
