@@ -587,13 +587,13 @@ HBWABotInc.relayMessage(jid, {
 }
 async function loading () {
 var HBLoading = [
-"《█▒▒▒▒▒▒▒▒▒▒▒》10%\n♲ Nghak lawk rawh..",
-"《████▒▒▒▒▒▒▒▒》30%\n♲ Nghak lawk rawh..",
-"《███████▒▒▒▒▒》50%\n♲ Nghak lawk rawh..",
-"《██████████▒▒》80%\n♲ Nghak lawk rawh..",
+"《█▒▒▒▒▒▒▒▒▒▒▒》10%\n♻️ Nghak lawk rawh..",
+"《████▒▒▒▒▒▒▒▒》30%\n♻️ Nghak lawk rawh..",
+"《███████▒▒▒▒▒》50%\n♻️ Nghak lawk rawh..",
+"《██████████▒▒》80%\n♻️ Nghak lawk rawh..",
 "《████████████》100%\n✅ Loading zove.."
 ]
-let { key } = await HBWABotInc.sendMessage(from, {text: '《▒▒▒▒▒▒▒▒▒▒▒▒》0%\n♲ Nghak lawk rawh..'},{quoted:m})
+let { key } = await HBWABotInc.sendMessage(from, {text: '《▒▒▒▒▒▒▒▒▒▒▒▒》0%\n♻️ Nghak lawk rawh..'},{quoted:m})
 
 for (let i = 0; i < HBLoading.length; i++) {
 await HBWABotInc.sendMessage(from, {text: HBLoading[i], edit: key }, {quoted:m})
@@ -1898,7 +1898,7 @@ let thumbnailUrl = vid.thumbnail
 await HBWABotInc.sendMessage(from,{image:{url: thumbnailUrl},
     caption: `*${vid.title}*
 
-1:35 ───ㅇ───── 3:47
+00:00 ───ㅇ───── ${vid.timestamp}
 ┌──────────────
 *⚙️ Quality :* ${q}
 *🕛 Duration :* ${vid.timestamp}
