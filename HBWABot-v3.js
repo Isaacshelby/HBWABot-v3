@@ -595,7 +595,7 @@ var HBLoading = [
 ]
 let { key } = await HBWABotInc.sendMessage(from, {text: '《▒▒▒▒▒▒▒▒▒▒▒▒》0%\n♻️ Nghak lawk rawh..'},{quoted:m})
 
-for (let i = 5; i < HBLoading.length; i++) {
+for (let i = 3; i < HBLoading.length; i++) {
 await HBWABotInc.sendMessage(from, {text: HBLoading[i], edit: key }, {quoted:m})
 }
 }
@@ -1874,7 +1874,6 @@ let v = args[0]
 		const size = await yt.audio[q].fileSizeH 
 		const ytcp=`*${title}*
 ┌──────────────
-*⚙️File type :* mp4
 *⚙️Quality :* ${q}
 *⚙️Size :* ${size}
 *⚙️By HBWABot Mizo*
