@@ -4136,7 +4136,7 @@ case 'attp':
 if (args.length == 0) return replyherbertstyle(`Tiang hian tu rawh: ${prefix + command} Hello World`)
 ini_txt = args.join(" ")
 ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/${command}?apikey=haikalgans&text=${ini_txt}`)
-HBWABotInc.sendImageAsSticker(m.chat, ini_buffer, m,{ packname: 'Siamted by' , author: global.author },{quoted:m})
+HBWABotInc.sendMessage(from, { sticker : ini_buffer }, { quoted:m })
 break
 case "xnxxdl": {
 	if (!isPrem) return replyprem(mess.premium)
