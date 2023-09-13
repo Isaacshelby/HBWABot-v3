@@ -587,15 +587,15 @@ HBWABotInc.relayMessage(jid, {
 }
 async function loading () {
 var HBLoading = [
-"《█▒▒▒▒▒▒▒▒▒▒▒》10%\n\n♻️ Nghak lawk rawh..",
-"《████▒▒▒▒▒▒▒▒》30%\n\n♻️ Nghak lawk rawh..",
-"《███████▒▒▒▒▒》50%\n\n♻️ Nghak lawk rawh..",
-"《██████████▒▒》80%\n\n♻️ Nghak lawk rawh..",
-"《████████████》100%\n\n✅ Loading zove.."
+"《█▒▒▒▒▒▒▒▒▒▒▒》10%\n\n_♻️ Nghak lawk rawh.._",
+"《████▒▒▒▒▒▒▒▒》30%\n\n_♻️ Nghak lawk rawh..",
+"《███████▒▒▒▒▒》50%\n\n_♻️ Nghak lawk rawh.._",
+"《██████████▒▒》80%\n\n_♻️ Nghak lawk rawh.._",
+"《████████████》100%\n\n_✅ Loading zove.._"
 ]
-let { key } = await HBWABotInc.sendMessage(from, {text: '《▒▒▒▒▒▒▒▒▒▒▒▒》0%\n♻️ Nghak lawk rawh..'},{quoted:m})
+let { key } = await HBWABotInc.sendMessage(from, {text: '《▒▒▒▒▒▒▒▒▒▒▒▒》0%\n♻️ _Nghak lawk rawh.._'},{quoted:m})
 
-for (let i = 2; i < HBLoading.length; i++) {
+for (let i = 0; i < HBLoading.length; i+++) {
 await HBWABotInc.sendMessage(from, {text: HBLoading[i], edit: key }, {quoted:m})
 }
 }
@@ -4018,13 +4018,28 @@ isForwarded: false,
                 HBWABotInc.sendMessage(m.chat, {caption: `${themeemoji} Title : ${result.title}\n${themeemoji} Category : ${result.type}\n${themeemoji} Detail : ${result.source}\n${themeemoji} Media Url : ${result.image[2] || result.image[1] || result.image[0]}`, image: { url: result.image[0] }} , { quoted: m })
             }
             break
-     case "igvid": case "instavid": {
-if (!text) return replyherbertstyle(`A link rawn dah rawh..!\n\nTiang hian ti rawh : ${prefix + command} https://www.instagram.com/reel/Ctjt0srIQFg/?igshid=MzRlODBiNWFlZA==`)
-await loading()
-let resherbertyinsta = await HerbertInstaMp4(text)
-const gha1 = await HBWABotInc.sendMessage(m.chat,{video:{url: resherbertyinsta.url[0].url},caption: mess.success},{quoted:m})
-}
-break
+     case 'igvideo': case 'igreels':
+			if (args.length == 0) return replyherbertstyle(`Tiang hian ti rawh: ${prefix + command} https://www.instagram.com/tv/CXwPLSIFDW0/?igshid=NTc4MTIwNjQ2YQ==`)
+			await loading()
+			axios.get(`https://api.lolhuman.xyz/api/instagram?apikey=${apikey}&url=${args[0]}`).then(({ data }) => {
+				haikal.sendMessage(from, { video: { url: data.result }, mimetype: 'video/mp4', caption : mess.success})
+			})
+			break
+		
+		case 'fbvideo':
+			if (args.length == 0) return replyherbertstyle(`Tiang hian ti rawh: ${prefix + command} https://id-id.facebook.com/SamsungGulf/videos/video-bokeh/561108457758458/`)
+			await loading()
+			axios.get(`https://api.lolhuman.xyz/api/facebook?apikey=${apikey}&url=${args[0]}`).then(({ data }) => {
+				HBWABotInc.sendMessage(from, { video: { url: data.result }, mimetype: 'video/mp4', caption : mess.success })
+			})
+			break
+			
+			case 'twitvideo':
+			if (args.length == 0) return replyherbertstyle(`Tiang hian ti rawh: ${prefix + command} https://twitter.com/gofoodindonesia/status/1229369819511709697`)
+			axios.get(`https://api.lolhuman.xyz/api/twitter?apikey=${apikey}&url=${args[0]}`).then(({ data }) => {
+				HBWABotInc.sendMessage(from, { video: { url: data.result.link[data.result.link.length - 1].link }, mimetype: 'video/mp4' })
+			})
+			break
 case 'igstalk': {
 if (!args[0]) return replyherbertstyle(`Instagram Username rawn dah rawh\n\nTiang hian: ${prefix + command} herbert_suantak2`)
 await loading()
@@ -4056,20 +4071,6 @@ let ghd = await HBWABotInc.sendFileUrl(m.chat, risponsherbert[i], `Kha hei aw ek
 }
 }
 break 
-case "fbvid": case "facebookvid":{
-if (!text) return replyherbertstyle(`A link rawn dah rawh..!\n\nTiang hian ti rawh : ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
-await loading()
-let res = await HerbertFb(q)
-let ghdp = await HBWABotInc.sendMessage(from,{video:{url: res.url[0].url},caption: mess.success},{quoted:m})
-}
-break
-case "twittervid":case "twitvid":{
-if (!text) return replyherbertstyle(`A link rawn dah rawh..!\n\nTiang hian ti rawh : ${prefix + command} https://twitter.com/WarnerBrosIndia/status/1668933430795485184?s=19`)
-await loading()
-let res = await HerbertTwitter(q)
-let ghdx = await HBWABotInc.sendMessage(from,{video:{url: res.url[0].url},caption: mess.success},{quoted:m})
-}
-break
     case 'say': case 'tts': case 'gtts':{
 if (!text) return replyherbertstyle('word rawn dah rawh')
             let texttts = text
@@ -4126,6 +4127,16 @@ case 'gdrive': {
 	replyherbertstyle('Error: Link dang rawn ti rawh') 
   }
 }
+break
+case 'ttp':
+case 'ttp2':
+case 'ttp3':
+case 'ttp4':
+case 'attp':
+if (args.length == 0) return replyherbertstyle(`Tiang hian tu rawh: ${prefix + command} Hello World`)
+ini_txt = args.join(" ")
+ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/${command}?apikey=haikalgans&text=${ini_txt}`)
+HBWABotInc.sendMessage(from, { sticker : ini_buffer }, { quoted:m })
 break
 case "xnxxdl": {
 	if (!isPrem) return replyprem(mess.premium)
