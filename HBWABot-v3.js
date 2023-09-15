@@ -1861,7 +1861,7 @@ await HBWABotInc.sendMessage(m.chat,{
 }, {quoted:m})
 }
             break 
-case 'ytmp3': case 'ytaudio':{
+case 'ytmp3':{
 //Credit by HBMods-OFC
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 await loading()
@@ -1879,6 +1879,56 @@ let v = args[0]
 *⚙️By HBWABot Mizo*
 └──────────────`
         HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: title+`.mp3`, caption: ytcp},{quoted:m})
+}
+break
+case 'ytaudio':{
+//Credit by HBMods-OFC
+if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
+await loading()
+var hbdownload = await getBuffer(`https://i.imgur.com/aTv1RF8.png`)
+if (!args[0].match(/youtu/gi)) replyherbertstyle ('Youtube link dik tak chauh rawn dah rawh')
+let q = '128kbps'
+let v = args[0]
+		const yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
+		const dl_url = await yt.audio[q].download()
+		const title = await yt.title
+		const size = await yt.audio[q].fileSizeH 
+		let thumbnailUrl = hbdownload
+        await HBWABotInc.sendMessage(from,{image:{url: thumbnailUrl}, caption: `*${title}*
+┌──────────────
+*⚙️Quality :* ${q}
+*⚙️Size :* ${size}
+*⚙️By HBWABot Mizo*
+└──────────────`},{quoted:m})
+        HBWABotInc.sendMessage(m.chat, {audio: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: title+`.mp3`},{quoted:m})
+}
+break 
+case 'song2': case 'Asong': case 'play2': {
+//Credit by HBMods-OFC
+if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
+            await loading()
+            let res = await yts2(text)
+let vid = res.videos[0]
+let q = isVideo ? '360p' : '128kbps'
+let v = vid.url
+let yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
+let dl_url = await (isVideo ? yt.video[q].download() : yt.audio[q].download())
+let title = await yt.title
+let size = await (isVideo ? yt.video[q].fileSizeH : yt.audio[q].fileSizeH)
+let thumbnailUrl = vid.thumbnail
+await HBWABotInc.sendMessage(from,{image:{url: thumbnailUrl},
+    caption: `*${vid.title}*
+
+00:00 ───ㅇ───── ${vid.timestamp}
+┌──────────────
+*⚙️ Quality :* ${q}
+*🕛 Duration :* ${vid.timestamp}
+*👀 Viewers :* ${vid.views}
+*♻️ Published :* ${vid.ago}
+*💬 Url :* ${vid.url}
+└──────────────`,
+},{quoted:m})
+HBWABotInc.sendMessage(m.chat, {audio: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`,},{quoted:m})
 }
 break
     case 'dsong': case 'song': case 'play': {
@@ -3900,6 +3950,7 @@ break
 case "spotify":{
 if (!isPrem) return replyprem(mess.premium)
 if (!text) return replyherbertstyle(`A link rawn dah rawh..!`)
+await loading()
         const Spotify = require('./lib/spotify')
         const spotify = new Spotify(text)
         const info = await spotify.getInfo()
@@ -3910,7 +3961,7 @@ if (!text) return replyherbertstyle(`A link rawn dah rawh..!`)
         )}\n${themeemoji} *Album:* ${album_name}\n${themeemoji} *Release Date:* ${release_date || ''}`
        const response = await HBWABotInc.sendMessage(m.chat, { image: { url: cover_url }, caption: details }, { quoted: m })
         const bufferpotify = await spotify.download()
-        await HBWABotInc.sendMessage(m.chat, { audio: bufferpotify }, { quoted: response })
+        await HBWABotInc.sendMessage(m.chat,{document: bufferpotify , mimetype: 'audio/mpeg', fileName: `${name || ''}`, caption : details}, {quoted: m})
         }
 break
 case 'bass': case 'blown': case 'deep': case 'earrape': case 'fast': case 'fat': case 'nightcore': case 'reverse': case 'robot': case 'slow': case 'smooth': case 'squirrel':
@@ -4133,7 +4184,7 @@ case 'ttp2':
 case 'ttp3':
 case 'ttp4':
 case 'attp':
-if (args.length == 0) return replyherbertstyle(`Tiang hian tu rawh: ${prefix + command} Hello World`)
+if (args.length == 0) return replyherbertstyle(`Tiang hian ti rawh: ${prefix + command} Hello World`)
 ini_txt = args.join(" ")
 ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/${command}?apikey=haikalgans&text=${ini_txt}`)
 HBWABotInc.sendMessage(from, { sticker : ini_buffer }, { quoted:m })
