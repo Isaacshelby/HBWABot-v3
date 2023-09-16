@@ -1888,37 +1888,7 @@ await finishreact()
 }
 
 
-            break 
-            case 'dvideo': case 'ytvideo': {
-//Credit by HBMods-OFC
-if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
-            await loadingreact()
-            let res = await yts2(text)
-let vid = res.videos[0]
-let q = isVideo ? '128kbps' : '360p'
-let v = vid.url
-        let yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
-        const dl_url = await (isVideo ? yt.audio[q].download() : yt.video[q].download())
-		const title = await yt.title
-		const size = await (isVideo ? yt.audio[q].fileSizeH : yt.video[q].fileSizeH)
-        const ytcp: `*${vid.title}*
-
-00:00 ───ㅇ───── ${vid.timestamp}
-┌──────────────
-*⚙️ Quality :* ${q}
-*🕛 Duration :* ${vid.timestamp}
-*👀 Viewers :* ${vid.views}
-*♻️ Published :* ${vid.ago}
-*💬 Url :* ${vid.url}
-└──────────────`
-await uploadreact()
-await HBWABotInc.sendMessage(m.chat,{
-    video: {url: dl_url},
-    caption: ytcp
-},{quoted:m})
-await finishreact
-}
-break
+            break           
 case 'ytmp3':{
 //Credit by HBMods-OFC
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian tih tur : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
