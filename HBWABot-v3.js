@@ -613,17 +613,6 @@ let { key2 } = await HBWABotInc.sendMessage(from, {text: HBLoading[i], edit: key
  await HBWABotInc.sendMessage(from, {delete : key2 })
 }
 
-if (autodelete) {
-HBWABotInc.sendMessage(m.chat,
-{
-delete: {
-remoteJid: m.chat,
-fromMe: true,
-id: m.key.id,
-participant: m.key.participant
-}
-})
-}
 async function rmbg(buffer) {
 let form = new FormData
 form.append("size", "auto")
