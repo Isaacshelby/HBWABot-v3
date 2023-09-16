@@ -1956,7 +1956,8 @@ let yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
 let dl_url = await (isVideo ? yt.video[q].download() : yt.audio[q].download())
 let title = await yt.title
 let size = await (isVideo ? yt.video[q].fileSizeH : yt.audio[q].fileSizeH)
-const ytcp2: `*${vid.title}*
+await uploadreact()
+HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`, caption: `*${title}*
 
 00:00 ───ㅇ───── ${vid.timestamp}
 ┌──────────────
@@ -1965,9 +1966,7 @@ const ytcp2: `*${vid.title}*
 *👀 Viewers :* ${vid.views}
 *♻️ Published :* ${vid.ago}
 *💬 Url :* ${vid.url}
-└──────────────`
-await uploadreact()
-HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg', fileName: vid.title+`.mp3`, caption: ytcp2},{quoted:m})
+└──────────────`},{quoted:m})
 await finishreact()
 }
 break
