@@ -612,7 +612,7 @@ let { key2 } = await HBWABotInc.sendMessage(from, {text: HBLoading[i], edit: key
 
  await HBWABotInc.sendMessage(from, {delete : key2 })
 }
-}
+
 if (autodelete) {
 HBWABotInc.sendMessage(m.chat,
 {
@@ -1864,7 +1864,7 @@ case 'yts': case 'hla':{
             case 'ytmp4': case 'ytvideo':{
 //Credit by HBMods-OFC
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian tih tur : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
-await uploadreact()
+await loadingreact()
 if (!args[0].match(/youtu/gi)) replyherbertstyle ('Youtube link dik tak chauh rawn dah rawh')
 let q = args[1] || '360p'
 		let v = args[0]
@@ -1889,10 +1889,40 @@ await finishreact()
 
 
             break 
+            case 'dvideo': case 'ytvideo': {
+//Credit by HBMods-OFC
+if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K hminga siar lalnu`)
+            await loadingreact()
+            let res = await yts2(text)
+let vid = res.videos[0]
+let q = isVideo ? '360p'
+let v = vid.url
+        let yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
+        const dl_url = await (isVideo ? yt.video[q].download())
+		const title = await yt.title
+		const size = await (isVideo ? yt.video[q].fileSizeH)
+        const ytcp: `*${vid.title}*
+
+00:00 ───ㅇ───── ${vid.timestamp}
+┌──────────────
+*⚙️ Quality :* ${q}
+*🕛 Duration :* ${vid.timestamp}
+*👀 Viewers :* ${vid.views}
+*♻️ Published :* ${vid.ago}
+*💬 Url :* ${vid.url}
+└──────────────`
+await uploadreact()
+await HBWABotInc.sendMessage(m.chat,{
+    video: {url: dl_url},
+    caption: ytcp
+},{quoted:m})
+await finishreact
+}
+break
 case 'ytmp3':{
 //Credit by HBMods-OFC
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian tih tur : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
-await uploadreact()
+await loadingreact()
 if (!args[0].match(/youtu/gi)) replyherbertstyle ('Youtube link dik tak chauh rawn dah rawh')
 let q = '128kbps'
 let v = args[0]
@@ -1914,7 +1944,7 @@ break
 case 'ytaudio':{
 //Credit by HBMods-OFC
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian tih tur : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
-await uploadreact()
+await loadingreact()
 if (!args[0].match(/youtu/gi)) replyherbertstyle ('Youtube link dik tak chauh rawn dah rawh')
 let q = '128kbps'
 let v = args[0]
@@ -1930,7 +1960,7 @@ break
 case 'song2': case 'Asong': case 'play2': {
 //Credit by HBMods-OFC
 if (!text) return replyherbertstyle(`Tiang hian tih tur : ${prefix + command} K hminga siar lalnu`)
-            await uploadreact()
+            await loadingreact()
             let res = await yts2(text)
 let vid = res.videos[0]
 let q = isVideo ? '360p' : '128kbps'
@@ -1947,7 +1977,7 @@ break
     case 'dsong': case 'song': case 'play': {
 //Credit by HBMods-OFC
 if (!text) return replyherbertstyle(`Tiang hian tih tur : ${prefix + command} K hminga siar lalnu`)
-            await uploadreact()
+            await loadingreact()
             let res = await yts2(text)
 let vid = res.videos[0]
 let q = isVideo ? '360p' : '128kbps'
