@@ -1885,7 +1885,6 @@ case 'ytaudio':{
 //Credit by HBMods-OFC
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 await loading()
-var hbdownload = await getBuffer(`https://i.imgur.com/aTv1RF8.png`)
 if (!args[0].match(/youtu/gi)) replyherbertstyle ('Youtube link dik tak chauh rawn dah rawh')
 let q = '128kbps'
 let v = args[0]
@@ -1893,8 +1892,8 @@ let v = args[0]
 		const dl_url = await yt.audio[q].download()
 		const title = await yt.title
 		const size = await yt.audio[q].fileSizeH 
-		let thumbnailUrl = hbdownload
-        await HBWABotInc.sendMessage(from,{image:{url: thumbnailUrl}, caption: `*${title}*
+		const hbdownload = await getBuffer(`https://i.imgur.com/aTv1RF8.png`)
+        HBWABotInc.sendMessage(from, { image: hbdownload, caption: `*${title}*
 ┌──────────────
 *⚙️Quality :* ${q}
 *⚙️Size :* ${size}
