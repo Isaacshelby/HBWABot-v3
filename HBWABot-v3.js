@@ -1895,12 +1895,12 @@ if (!text) return replyherbertstyle(`Tiang hian ti rawh : ${prefix + command} K 
             await loadingreact()
             let res = await yts2(text)
 let vid = res.videos[0]
-let q = isVideo ? '360p'
+let q = isVideo ? '128kbps' : '360p'
 let v = vid.url
         let yt = await youtubedl(v).catch(async () => await youtubedlv2(v))
-        const dl_url = await (isVideo ? yt.video[q].download())
+        const dl_url = await (isVideo ? yt.audio[q].download() : yt.video[q].download())
 		const title = await yt.title
-		const size = await (isVideo ? yt.video[q].fileSizeH)
+		const size = await (isVideo ? yt.audio[q].fileSizeH : yt.video[q].fileSizeH)
         const ytcp: `*${vid.title}*
 
 00:00 ───ㅇ───── ${vid.timestamp}
