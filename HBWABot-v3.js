@@ -608,9 +608,6 @@ let { key } = await HBWABotInc.sendMessage(from, {text: '《▒▒▒▒▒▒�
 
 for (let i = 0; i < HBLoading.length; i++) {
  await HBWABotInc.sendMessage(from, {text: HBLoading[i], edit: key },{quoted:m})}
-
-
- await HBWABotInc.sendMessage(from, {delete : key })
 }
 
 async function rmbg(buffer) {
@@ -1608,53 +1605,7 @@ Post : ${aj.post}
 Followers : ${aj.followers}
 Following : ${aj.following}
 Bio : ${aj.bio}` }, { quoted: m } )
-}
-break
-case 'mlstalk': {
-
-if (!q) return replyherbertstyle(`Tiang hian tih tur :${prefix+command} 530793138|8129`)
-await loading()
-let dat = await mlstalk.mlstalk(q.split("|")[0], q.split("|")[1])
-replyherbertstyle(`*/ Mobile Legend Stalker \\*
-
-Username : ${dat.userName}
-Id : ${q.split("|")[0]}
-ID Zone: ${q.split("|")[1]}`)
-}
-break
-case 'ghstalk': case 'githubstalk':{
-if (!q) return replyherbertstyle(`Tiang hian tih tur :${prefix+command} HBMods-OFC`)
-await loading()
-aj = await githubstalk.githubstalk(`${q}`)
-HBWABotInc.sendMessage(m.chat, { image: { url : aj.profile_pic }, caption: 
-`*/ Github Stalker \\*
-
-Username : ${aj.username}
-Nickname : ${aj.nickname}
-Bio : ${aj.bio}
-Id : ${aj.id}
-Nodeid : ${aj.nodeId}
-Url Profile : ${aj.profile_pic}
-Url Github : ${aj.url}
-Type : ${aj.type}
-Admin : ${aj.admin}
-Company : ${aj.company}
-Blog : ${aj.blog}
-Location : ${aj.location}
-Email : ${aj.email}
-Public Repo : ${aj.public_repo}
-Public Gists : ${aj.public_gists}
-Followers : ${aj.followers}
-Following : ${aj.following}
-Created At : ${aj.ceated_at}
-Updated At : ${aj.updated_at}` }, { quoted: m } )
-}
-break
-case 'ss': case 'ssweb': {
-if (!q) return replyherbertstyle(`Tiang hian tih tur :${prefix+command} link`)
-await loading()
-let krt = await scp1.ssweb(q)
-HBWABotInc.sendMessage(from,{image:krt.result,caption:mess.succes}, {quoted:m})
+await HBWABotInc.sendMessage(from, {delete : loading() })
 }
 break
 case 'join': {
@@ -1744,6 +1695,7 @@ await loading()
 let { eBinary } = require('./scrape/binary')
 let eb = await eBinary(`${q}`)
 replyherbertstyle(eb)
+await HBWABotInc.sendMessage(from, {delete : loading() })
 }
 break
 case 'dbinary': {
@@ -1752,6 +1704,7 @@ await loading()
 let { dBinary } = require('./scrape/binary')
 let db = await dBinary(`${q}`)
 replyherbertstyle(db)
+await HBWABotInc.sendMessage(from, {delete : loading() })
 }
 break
 case 'remini': {
@@ -1762,6 +1715,7 @@ case 'remini': {
 			let media = await quoted.download()
 			let proses = await remini(media, "enhance")
 			HBWABotInc.sendMessage(m.chat, { image: proses, caption: mess.success}, { quoted: m})
+			await HBWABotInc.sendMessage(from, {delete : loading() })
 			}
 			break 		
 			case 'gimage': {
