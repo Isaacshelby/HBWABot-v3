@@ -607,10 +607,10 @@ var HBLoading = [
 let { key } = await HBWABotInc.sendMessage(from, {text: '《▒▒▒▒▒▒▒▒▒▒▒▒》0%\n♻️ _Nghak lawk rawh.._'},{quoted:m})
 
 for (let i = 0; i < HBLoading.length; i++) {
-let { key2 } = await HBWABotInc.sendMessage(from, {text: HBLoading[i], edit: key },{quoted:m})}
+ await HBWABotInc.sendMessage(from, {text: HBLoading[i], edit: key },{quoted:m})}
 
 
- await HBWABotInc.sendMessage(from, {delete : key2 })
+ await HBWABotInc.sendMessage(from, {delete : key })
 }
 
 async function rmbg(buffer) {
