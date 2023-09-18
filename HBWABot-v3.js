@@ -2456,7 +2456,7 @@ case 'qc': case'text': {
     }
     break
 case 's': case 'sticker': case 'stiker': { 
-if (!quoted) return replyherbertstyle(``(picture emaw video emaw gif) te hi thawn in emaw reply la, a caption-ah *${prefix+command}* tih hi rawn dah rawh`)
+if (!quoted) return replyherbertstyle(`(picture emaw video emaw gif) te hi thawn in emaw reply la, a caption-ah *${prefix+command}* tih hi rawn dah rawh`)
 if (/image/.test(mime)) { 
 let media = await quoted.download()
 let encmedia = await HBWABotInc.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
