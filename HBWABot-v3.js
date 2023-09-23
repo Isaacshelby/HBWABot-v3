@@ -1245,7 +1245,7 @@ HBWABotInc.sendMessage(from, { react: { text: "🗿" , key: m.key }})
 }
 break
 
-case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': { 
+case 'alive1':{ 
 HBWABotInc.sendMessage(from, { react: { text: "❤️" , key: m.key }})
 Menu()
 	        let ownernya = ownernomer + '@s.whatsapp.net'
@@ -1302,7 +1302,7 @@ mentionedJid:[sender],
 }, { quoted: m })
            }
            break
-case 'alive1': { 
+case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': { 
 	        let ownernya = ownernomer + '@s.whatsapp.net'
             let me = m.sender
             let timestampe = speed()
@@ -1346,7 +1346,21 @@ case 'alive1': {
             let ments = [ownernya, me, mark]       
             let { key } = await HBWABotInc.sendMessage(from, {text: '《▒▒▒▒▒▒▒▒▒▒▒▒》0%\n♻️ _Nghak lawk rawh.._'},{quoted:m})
 
-            for (let i = 0; i < HBLoadingmenu.length; i++) {await HBWABotInc.sendMessage(from, {text: HBLoadingmenu[i], edit: key },{quoted:m})}}
+            for (let i = 0; i < HBLoadingmenu.length; i++) {await HBWABotInc.sendMessage(from, {text: HBLoadingmenu[i], edit: key },
+contextInfo:{
+"externalAdReply": {
+"showAdAttribution": true,
+"renderLargerThumbnail": true,
+"title": botname, 
+"containsAutoReply": true,
+"mediaType": 1, 
+"thumbnail": fs.readFileSync("./HBMedia/theme/hbwabot.png"),
+"mediaUrl": `${wagc}`,
+"sourceUrl": `${wagc}`
+}
+},{quoted:m})}
+await menu()
+}
            break
 case 'allmenu': {
 var unicorn = await getBuffer(picak+'All menu')
