@@ -1347,22 +1347,7 @@ case 'alive1': {
             let { key } = await HBWABotInc.sendMessage(from, {text: '《▒▒▒▒▒▒▒▒▒▒▒▒》0%\n♻️ _Nghak lawk rawh.._'},{quoted:m})
 
             for (let i = 0; i < HBLoadingmenu.length; i++) {
- await HBWABotInc.sendMessage(from, {text: HBLoadingmenu[i], edit: key },
-contextInfo:{
-mentionedJid:[sender],
-"externalAdReply": {
-"showAdAttribution": true,
-"renderLargerThumbnail": true,
-"title": botname, 
-"containsAutoReply": true,
-"mediaType": 1, 
-"thumbnail": fs.readFileSync("./HBMedia/theme/hbwabot.png"),
-"mediaUrl": `${wagc}`,
-"sourceUrl": `${wagc}`
-}
-}
-}
-,{quoted:m})
+ await HBWABotInc.sendMessage(from, {text: HBLoadingmenu[i], edit: key },,{quoted:m})
            }
            break
 case 'allmenu': {
