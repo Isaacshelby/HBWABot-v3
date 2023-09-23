@@ -1346,9 +1346,7 @@ case 'alive1': {
             let ments = [ownernya, me, mark]       
             let { key } = await HBWABotInc.sendMessage(from, {text: '《▒▒▒▒▒▒▒▒▒▒▒▒》0%\n♻️ _Nghak lawk rawh.._'},{quoted:m})
 
-            for (let i = 0; i < HBLoadingmenu.length; i++) {
- await HBWABotInc.sendMessage(from, {text: HBLoadingmenu[i], edit: key },{quoted:m})
-           }
+            for (let i = 0; i < HBLoadingmenu.length; i++) {await HBWABotInc.sendMessage(from, {text: HBLoadingmenu[i], edit: key },},{quoted:m}) }
            break
 case 'allmenu': {
 var unicorn = await getBuffer(picak+'All menu')
