@@ -1343,7 +1343,6 @@ case 'alive1': {
 │ 🖤stalkermenu
 │ 🖤othermenu
 └─────────────────┈ ⳹`
-            let ments = [ownernya, me, mark]        
             let { key } = await HBWABotInc.sendMessage(from, {text: '《▒▒▒▒▒▒▒▒▒▒▒▒》0%\n♻️ _Nghak lawk rawh.._'},{quoted:m})
 
             for (let i = 0; i < HBLoadingmenu.length; i++) {
