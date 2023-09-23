@@ -1347,7 +1347,7 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
             let { key } = await HBWABotInc.sendMessage(from, {text: '《▒▒▒▒▒▒▒▒▒▒▒▒》0%\n♻️ _Nghak lawk rawh.._'},{quoted:m})
 
             for (let i = 0; i < HBLoadingmenu.length; i++) {await HBWABotInc.sendMessage(from, {text: HBLoadingmenu[i], edit: key },{quoted:m})}
-await menu()
+await Menu()
 }
            break
 case 'allmenu': {
