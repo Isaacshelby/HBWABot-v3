@@ -2964,7 +2964,7 @@ HBWABotInc.sendMessage(from, { text : `*${metadata.subject}\n\n*Group Descriptio
 }
 break
 
-case 'hi': case 'hii': case 'hiii': case 'helo': case 'hello': case 'hi,': case 'hello,': case 'sir,' case 'sir': case 'kapu': {
+case 'hi': case 'hii': case 'hiii': case 'helo': case 'hello': case 'sir': case 'kapu': {
 if (m.isGroup) return m.reply(mess.Hello-Herbert)
 const repf = await HBWABotInc.sendMessage(from, { 
 contacts: { 
