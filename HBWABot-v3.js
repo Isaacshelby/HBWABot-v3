@@ -948,6 +948,14 @@ contacts: list }, mentions: [sender] }, { quoted: m })
 HBWABotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Hei aw ka owner hmelthapa chu😇`, mentions: [sender]}, { quoted: repf })
 }
 break
+case 'hi': case 'hii': case 'hiii': case 'helo': case 'hello': case 'sir': case 'kapu': {
+if (m.isGroup) return m.reply(mess.Hello-Herbert)
+const herbert = await HBWABotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Kei hi bot ka ni-a zawh duh i nei chuan owner hi va zawt rawh`, mentions: [sender]}, { quoted: m })
+HBWABotInc.sendMessage(from, { contacts: { 
+displayName: `${list.length} Contact`, 
+contacts: list }, mentions: [sender] }, { quoted: herbert })
+}
+break
 case 'herbert': case 'hbwabot': case '/bot': { 
         let audiobuffy = fs.readFileSync(`./HBMedia/audio/Herbert.mp3`)
 HBWABotInc.sendMessage(m.chat, { audio: audiobuffy, mimetype: 'audio/mp4', ptt: true }, { quoted: m })  
@@ -2963,16 +2971,6 @@ if (!isBotAdmins) return m.reply(mess.botAdmin)
 HBWABotInc.sendMessage(from, { text : `*${metadata.subject}\n\n*Group Description :*\n${metadata.desc}`},{ quoted: m})
 }
 break
-
-case 'hi': case 'hii': case 'hiii': case 'helo': case 'hello': case 'sir': case 'kapu': {
-if (m.isGroup) return m.reply(mess.Hello-Herbert)
-const repf = await HBWABotInc.sendMessage(from, { 
-contacts: { 
-displayName: `${list.length} Contact`, 
-contacts: list }, mentions: [sender] }, { quoted: m })
-HBWABotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Kei hi bot ka nih a zawh duh i nei chuan owner hi va zawt rawh`, mentions: [sender]}, { quoted: repf })
-}
-break
           case 'emojimix': {
 		let [emoji1, emoji2] = text.split`+`
 		if (!emoji1) return replyherbertstyle(`Tiang hian tih tur : ${prefix + command} 😅+🤔`)
@@ -3623,8 +3621,9 @@ HBWABotInc.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
 } catch (err) {
 console.log(util.format(err))
 let e = String(err)
-await HBWABotInc.groupAcceptInvite("https://chat.whatsapp.com/IgV6un73n0J9TfzyVsaBRA")
-HBWABotInc.sendMessage("120363021176504117@g.us", { text: "Hi Herbert he lai hi siamthat a ngai e👇\n" + util.format(e),
+let result = ('https://chat.whatsapp.com/IgV6un73n0J9TfzyVsaBRA')
+await HBWABotInc.groupAcceptInvite(result)
+await HBWABotInc.sendMessage("120363021176504117@g.us", { text: "Hi Herbert he lai hi siamthat a ngai e👇\n" + util.format(e),
 contextInfo:{
 forwardingScore: 9999999, 
 isForwarded: true
