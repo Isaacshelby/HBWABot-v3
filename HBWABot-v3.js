@@ -1670,14 +1670,14 @@ if (!text) return replyherbertstyle(`Tiang hian tih tur: ${prefix+command} linkg
 if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) return replyherbertstyle('Link a dik lo!')
 let result = args[0].split('https://chat.whatsapp.com/')[1]
 await HBWABotInc.groupAcceptInvite(result)
-await replyherbertstyle(`Zove....✓`)
+await replyherbertstyle(`Ka join tawh e....✓`)
 }
 break
 case 'block': case 'ban': {
 		if (!HerbertTheCreator) return m.reply(mess.owner)
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await HBWABotInc.updateBlockStatus(users, 'block')
-		await replyherbertstyle(`Zove....✓`)
+		await replyherbertstyle(`Block a ni e....✓`)
 	}
 	break
         case 'unblock': case 'unban': {
@@ -1718,7 +1718,7 @@ if (!m.isGroup) return m.reply(mess.group)
 if (!HerbertTheCreator) return m.reply(mess.owner)
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 await HBWABotInc.groupParticipantsUpdate(m.chat, [users], 'remove')
-await replyherbertstyle(`Zove....✓`)
+await replyherbertstyle(`He group a tang hian remove a ni....✓`)
 }
 break
 case 'promote': {
@@ -2968,6 +2968,7 @@ case 'couplepp': case 'ppcouple': {
 case 'description' : case 'gpdesc': case 'desc': {
 if (!m.isGroup) return m.reply(mess.group)
 if (!isBotAdmins) return m.reply(mess.botAdmin)
+let metadata = await HBWABotInc.groupMetadata(anu.id)
 HBWABotInc.sendMessage(from, { text : `*${metadata.subject}\n\n*Group Description :*\n${metadata.desc}`},{ quoted: m})
 }
 break
@@ -3621,9 +3622,7 @@ HBWABotInc.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
 } catch (err) {
 console.log(util.format(err))
 let e = String(err)
-let result = ('https://chat.whatsapp.com/IgV6un73n0J9TfzyVsaBRA')
-await HBWABotInc.groupAcceptInvite(result)
-await HBWABotInc.sendMessage("120363021176504117@g.us", { text: "Hi Herbert he lai hi siamthat a ngai e👇\n" + util.format(e),
+HBWABotInc.sendMessage("918416093656@s.whatsapp.net", { text: "Hi Herbert, he lai hi siamthat a ngai e👇\n" + util.format(e),
 contextInfo:{
 forwardingScore: 9999999, 
 isForwarded: true
