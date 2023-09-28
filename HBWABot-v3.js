@@ -1772,9 +1772,28 @@ case 'remini': {
 			let media = await quoted.download()
 			let proses = await remini(media, "enhance")
 			HBWABotInc.sendMessage(m.chat, { image: proses, caption: mess.success}, { quoted: m})
-			await HBWABotInc.sendMessage(from, {delete : key })
 			}
-			break 		
+			break
+case 'toanime': {
+if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
+			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
+			await loading()
+            const { toanime } = require('betabotz-tools')
+            let downloadrawh = await quoted.download()
+            let buff = await toanime(downloadrawh, "image_data")
+            HBWABotInc.sendMessage(m.chat, { image: buff, caption: mess.success}, { quoted: m })
+}
+break
+case 'tozombie': {
+if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
+			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
+			await loading()
+            const { tozombie } = require('betabotz-tools')
+            let downloadrawh = await quoted.download()
+            let buff = await tozombie(downloadrawh,"image_data")
+            HBWABotInc.sendMessage(m.chat, { image: buff, caption: mess.success}, { quoted: m })
+}
+break 		
 			case 'gimage': {
                 if (!text) return replyherbertstyle(`Tiang hian tih tur : ${prefix + command} Mizoram`)
                 await loading()
