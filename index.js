@@ -225,9 +225,9 @@ ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
               let nama = await HBWABotInc.getName(num)
 memb = metadata.participants.length
 
-Kon = await getBuffer(`https://i.imgur.com/GBRIWii.mp4`)
+Kon = await getBuffer(`https://i.imgur.com/27d2RH6.mp4`)
 
-Tol = await getBuffer(`https://i.imgur.com/GBRIWii.mp4`)
+Tol = await getBuffer(`https://i.imgur.com/27d2RH6.mp4`)
                 if (anu.action == 'add') {
                     HBWABotInc.sendMessage(anu.id, { video : Kon, contextInfo: { mentionedJid: [num] }, caption: `Hi @${num.split("@")[0]},\nKei hi HBWABot ka ni a,\n*${metadata.subject} Group-ah hian kan lo lawm a che*\n\n*Group Description :*\n ${metadata.desc}\n\n\n*©HBWABot*`, gifPlayback: true })
                 }
