@@ -2231,41 +2231,7 @@ case 'tomp4': case 'tovideo': {
                 await fs.unlinkSync(media)
             }
             break
-case 'toanime': {
-const getRandom = (ext) => {
-            return `${Math.floor(Math.random() * 10000)}${ext}`
-if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
-			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
-			const media = await HBWABotInc.downloadAndSaveMediaMessage(quoted)
-			let name = await getRandom('.png')
-        exec(`ffmpeg -i ${media} ${name}`, (err) => {
-        	fs.unlinkSync(media)
-			let old = new Date()
-			let res = await fetch(API('lann', '/api/maker/jadianime', { url: `${name}`, apikey: "SjWOkprk" }))
-			let convert = await res.json()
-			let buff = await fetch(convert.result.img_crop_single)
-           .then(res => res.buffer())
-           await HBWABotInc.sendMessage(m.chat, { image: buff, caption: mess.success}, { quoted: m })
-}
-break
 
-case 'tozombie': {
-const getRandom = (ext) => {
-            return `${Math.floor(Math.random() * 10000)}${ext}`
-if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
-			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
-			const media = await HBWABotInc.downloadAndSaveMediaMessage(quoted)
-			let name = await getRandom('.png')
-        exec(`ffmpeg -i ${media} ${name}`, (err) => {
-        	fs.unlinkSync(media)
-			let old = new Date()
-			let res = await fetch(API('lann', '/api/maker/jadianime', { url: `${name}`, apikey: "SjWOkprk" }))
-			let convert = await res.json()
-			let buff = await fetch(convert.result)
-           .then(res => res.buffer()) 
-           await HBWABotInc.sendMessage(m.chat, { image: buff, caption: mess.success}, { quoted: m })
-}
-break
 case 'tourl': {
 await loading()
 let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
