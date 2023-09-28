@@ -2236,11 +2236,10 @@ const getRandom = (ext) => {
             return `${Math.floor(Math.random() * 10000)}${ext}`
 if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
-			await loading()
-			const img = await HBWABotInc.downloadAndSaveMediaMessage(quoted)
+			const media = await HBWABotInc.downloadAndSaveMediaMessage(quoted)
 			let name = await getRandom('.png')
-        exec(`ffmpeg -i ${img} ${name}`, (err) => {
-        	fs.unlinkSync(img)
+        exec(`ffmpeg -i ${media} ${name}`, (err) => {
+        	fs.unlinkSync(media)
 			let old = new Date()
 			let res = await fetch(API('lann', '/api/maker/jadianime', { url: `${name}`, apikey: "SjWOkprk" }))
 			let convert = await res.json()
@@ -2255,11 +2254,10 @@ const getRandom = (ext) => {
             return `${Math.floor(Math.random() * 10000)}${ext}`
 if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
-			await loading()
-			const img = await HBWABotInc.downloadAndSaveMediaMessage(quoted)
+			const media = await HBWABotInc.downloadAndSaveMediaMessage(quoted)
 			let name = await getRandom('.png')
-        exec(`ffmpeg -i ${img} ${name}`, (err) => {
-        	fs.unlinkSync(img)
+        exec(`ffmpeg -i ${media} ${name}`, (err) => {
+        	fs.unlinkSync(media)
 			let old = new Date()
 			let res = await fetch(API('lann', '/api/maker/jadianime', { url: `${name}`, apikey: "SjWOkprk" }))
 			let convert = await res.json()
