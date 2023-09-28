@@ -949,7 +949,7 @@ contacts: list }, mentions: [sender] }, { quoted: m })
 HBWABotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Hei aw ka owner hmelthapa chu😇`, mentions: [sender]}, { quoted: repf })
 }
 break
-case 'hi': case 'hii': case 'hiii': case 'helo': case 'hello': case 'sir': case 'kapu': {
+case 'hi': case 'hii': case 'hiii': case 'helo': case 'hello': case 'hlo': case 'sir': case 'kapu': {
 if (m.isGroup) return m.reply(mess.Hello-Herbert)
 const herbert = await HBWABotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Kei hi bot ka ni-a zawh duh i nei chuan owner hi va zawt rawh`, mentions: [sender]}, { quoted: m })
 HBWABotInc.sendMessage(from, { contacts: { 
@@ -1800,37 +1800,7 @@ case 'remini': {
         }
 
         break
-case 'toanime': {
-if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
-			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
-			await loading()
-			let { uploadrawh } = require('./lib/uploader')
-			const img = await quoted.download()
-			let out = await uploadrawh (img)
-			let old = new Date()
-			let res = await fetch(API('lann', '/api/maker/jadianime', { url: `${out}`, apikey: "SjWOkprk" }))
-			let convert = await res.json()
-			let buff = await fetch(convert.result.img_crop_single)
-           .then(res => res.buffer())
-           await HBWABotInc.sendMessage(m.chat, { image: buff, caption: mess.success}, { quoted: m })
-}
-break
 
-case 'tozombie': {
-if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
-			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
-			await loading()
-			let { uploadrawh } = require('./lib/uploader')
-			const img = await quoted.download()
-			let out = await uploadrawh (img)
-			let old = new Date()
-			let res = await fetch(API('lann', '/api/maker/jadianime', { url: `${out}`, apikey: "SjWOkprk" }))
-			let convert = await res.json()
-			let buff = await fetch(convert.result)
-           .then(res => res.buffer()) 
-           await HBWABotInc.sendMessage(m.chat, { image: buff, caption: mess.success}, { quoted: m })
-}
-break
 			case 'mediafire': {
 	if (args.length == 0) return replyherbertstyle(`A link rawn dah rawh..!`)
 	if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return replyherbertstyle(`I link rawn dah hi a dik lo!..`)
@@ -2261,6 +2231,37 @@ case 'tomp4': case 'tovideo': {
                 await fs.unlinkSync(media)
             }
             break
+case 'toanime': {
+if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
+			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
+			await loading()
+			let { uploadrawh } = require('./lib/TelegraPH')
+			const img = await quoted.download()
+			let out = await uploadrawh (img)
+			let old = new Date()
+			let res = await fetch(API('lann', '/api/maker/jadianime', { url: `${out}`, apikey: "SjWOkprk" }))
+			let convert = await res.json()
+			let buff = await fetch(convert.result.img_crop_single)
+           .then(res => res.buffer())
+           await HBWABotInc.sendMessage(m.chat, { image: buff, caption: mess.success}, { quoted: m })
+}
+break
+
+case 'tozombie': {
+if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
+			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
+			await loading()
+			let { uploadrawh } = require ('./lib/TelegraPH')
+			const img = await quoted.download()
+			let out = await uploadrawh (img)
+			let old = new Date()
+			let res = await fetch(API('lann', '/api/maker/jadianime', { url: `${out}`, apikey: "SjWOkprk" }))
+			let convert = await res.json()
+			let buff = await fetch(convert.result)
+           .then(res => res.buffer()) 
+           await HBWABotInc.sendMessage(m.chat, { image: buff, caption: mess.success}, { quoted: m })
+}
+break
             case 'toqr':{
   if (!q) return replyherbertstyle(' Link emaw text rawn dah rawh')
    const QrCode = require('qrcode-reader')
