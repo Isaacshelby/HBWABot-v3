@@ -35,6 +35,7 @@ const yts = require('./scrape/yt-search')
 const vm = require('node:vm')
 const { EmojiAPI } = require("emoji-api")
 const emoji = new EmojiAPI()
+const uploadImage = requair ('./lib/uploadImage.js')
 const owner = JSON.parse(fs.readFileSync('./database/owner.json'))
 const prem = JSON.parse(fs.readFileSync('./database/premium.json'))
 const herbertverifieduser = JSON.parse(fs.readFileSync('./database/user.json'))
@@ -1799,6 +1800,35 @@ case 'remini': {
         }
 
         break
+case 'toanime': {
+if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
+			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
+			m.reply(mess.wait) 
+			const img = await q.download?.()
+			let out = await uploadImage(img)
+			let old = new Date()
+			let res = await fetch(API('lann', '/api/maker/jadianime', { url: `${out}`, apikey: lann }))
+			let convert = await res.json()
+			let buff = await fetch(convert.result.img_crop_single)
+           .then(res => res.buffer())
+           await HBWABotInc.sendMessage(m.chat, { image: buff, caption: mess.success}, { quoted: m })
+}
+break
+
+case 'tozombie': {
+if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
+			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
+			m.reply(mess.wait) 
+			const img = await q.download?.()
+			let out = await uploadImage(img)
+			let old = new Date()
+			let res = await fetch(API('lann', '/api/maker/jadizombie', { url: `${out}`, apikey: lann }))
+			let convert = await res.json()
+			let buff = await fetch(convert.result)
+           .then(res => res.buffer()) 
+           await HBWABotInc.sendMessage(m.chat, { image: buff, caption: mess.success}, { quoted: m })
+}
+break
 			case 'mediafire': {
 	if (args.length == 0) return replyherbertstyle(`A link rawn dah rawh..!`)
 	if (!isUrl(args[0]) && !args[0].includes('mediafire.com')) return replyherbertstyle(`I link rawn dah hi a dik lo!..`)
@@ -2968,7 +2998,7 @@ case 'couplepp': case 'ppcouple': {
 case 'description' : case 'gpdesc': case 'desc': {
 if (!m.isGroup) return m.reply(mess.group)
 if (!isBotAdmins) return m.reply(mess.botAdmin)
-let metadata = await HBWABotInc.groupMetadata(anu.id)
+let metadata = await HBWABotInc.groupMetadata(m.chat)
 HBWABotInc.sendMessage(from, { text : `*${metadata.subject}\n\n*Group Description :*\n${metadata.desc}`},{ quoted: m})
 }
 break
