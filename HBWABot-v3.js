@@ -1782,7 +1782,7 @@ if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
             let downloadrawh = await quoted.download()
             let results = await toanime(downloadrawh)
             console.log(results) //json
-            HBWABotInc.sendMessage(m.chat, { image: {url: results}, caption: mess.success}, { quoted: m})
+            HBWABotInc.sendMessage(m.chat, { image: {url: results.image_data}, caption: mess.success}, { quoted: m})
 }
 break
 case 'tozombie': {
@@ -1793,7 +1793,7 @@ if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
             let downloadrawh = await quoted.download()
             let results = await tozombie(downloadrawh)
             console.log(results) //json
-            HBWABotInc.sendMessage(m.chat, { image: {url: results}, caption: mess.success}, { quoted: m})
+            HBWABotInc.sendMessage(m.chat, { image: {url: results.image_data}, caption: mess.success}, { quoted: m})
 }
 break 		
 			case 'gimage': {
