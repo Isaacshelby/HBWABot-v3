@@ -139,7 +139,7 @@ HBWABotInc.ev.on('creds.update', await saveCreds)
     for (let HerbertFucks of HerbertPapa) {
     if (HerbertFucks.isGroup == false) {
     if (HerbertFucks.status == "offer") {
-    let HerbertBlokMsg = await HBWABotInc.sendTextWithMentions(HerbertFucks.from, `*${HBWABotInc.user.name}* hian ${HerbertFucks.isVideo ? `video` : `voice` } call ka dawng thei lo , chu vangin @${HerbertFucks.from.split('@')[0]} block i ni. Unblock i duh chuan a rang lamin owner hi va bia ang che`)
+    let HerbertBlokMsg = await HBWABotInc.sendTextWithMentions(HerbertFucks.from, `*HBWABot* hian ${HerbertFucks.isVideo ? `video` : `voice` } call ka dawng thei lo , chu vangin @${HerbertFucks.from.split('@')[0]} block i ni. Unblock i duh chuan a rang lamin owner hi va bia ang che`)
     HBWABotInc.sendContact(HerbertFucks.from, global.owner, HerbertBlokMsg)
     await sleep(8000)
     await HBWABotInc.updateBlockStatus(HerbertFucks.from, "block")
@@ -179,7 +179,7 @@ ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 			} else if (res.announce == false) {
 				await sleep(2000)
 				HBWABotInc.sendMessage(res.id, {
-					text: `「 Group Settings Change 」\n\nAdmin in group a open leh tawha, Tun a tangin participate zawng zawng message an send leh thei tawh ang!`,
+					text: `「 Group Settings Change 」\n\nAdmin in group a open leh tawha, Tun a tangin participate zawng zawng ten message an send leh thei tawh ang!`,
 				});
 			} else if (res.restrict == true) {
 				await sleep(2000)
@@ -199,7 +199,7 @@ ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
       } else {
 				await sleep(2000)
 				HBWABotInc.sendMessage(res.id, {
-					text: `「 Group Settings Change 」\n\n*Group hming thlak a ni*\n\n*${res.subject}*`,
+					text: `「 Group Settings Change 」\n\n*Group hming thlak a ni* he tiang hian👇\n\n*${res.subject}*`,
 				});
 			} 
 			
@@ -225,11 +225,11 @@ ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
               let nama = await HBWABotInc.getName(num)
 memb = metadata.participants.length
 
-Kon = await getBuffer(`https://i.imgur.com/EcslN7G.jpeg`)
+Kon = await getBuffer(`https://i.imgur.com/GBRIWii.mp4`)
 
-Tol = await getBuffer(`https://i.imgur.com/EcslN7G.jpeg`)
+Tol = await getBuffer(`https://i.imgur.com/GBRIWii.mp4`)
                 if (anu.action == 'add') {
-                    HBWABotInc.sendMessage(anu.id, { image: Kon, contextInfo: { mentionedJid: [num] }, caption: `Hi @${num.split("@")[0]},\nKei hi HBWABot ka ni a,\n*${metadata.subject} Group-ah hian kan lo lawm a che*\n\n*Group Description :*\n ${metadata.desc}\n\n\n*©HBWABot*` })
+                    HBWABotInc.sendMessage(anu.id, { video : Kon, contextInfo: { mentionedJid: [num] }, caption: `Hi @${num.split("@")[0]},\nKei hi HBWABot ka ni a,\n*${metadata.subject} Group-ah hian kan lo lawm a che*\n\n*Group Description :*\n ${metadata.desc}\n\n\n*©HBWABot*`, gifPlayback: true })
                 }
             }
         } catch (err) {
