@@ -1771,7 +1771,7 @@ case 'remini': {
 			const { remini } = require('./lib/remini')
 			let media = await quoted.download()
 			let proses = await remini(media, "enhance")
-			HBWABotInc.sendMessage(m.chat, { image: proses, caption: mess.success}, { quoted: m})
+			HBWABotInc.sendMessage(m.chat, { image: {url: image_data}, caption: mess.success}, { quoted: m})
 			}
 			break
 case 'toanime': {
@@ -1780,9 +1780,9 @@ if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 			await loading()
             const { toanime } = require('betabotz-tools')
             let downloadrawh = await quoted.download()
-            let results = await toanime(downloadrawh, "image_data")
+            let results = await toanime(downloadrawh)
             console.log(results) //json
-await HBWABotInc.sendMessage(m.chat, { image: results, caption: mess.success}, { quoted: m})
+            HBWABotInc.sendMessage(m.chat, { image: {url: image_data}, caption: mess.success}, { quoted: m})
 }
 break
 case 'tozombie': {
