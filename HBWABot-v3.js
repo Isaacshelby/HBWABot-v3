@@ -1782,7 +1782,7 @@ if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
             let downloadrawh = await quoted.download()
             let results = await toanime(downloadrawh)
             console.log(results) //json
-            HBWABotInc.sendMessage(m.chat, { image: {url: image_data}, caption: mess.success}, { quoted: m})
+            HBWABotInc.sendMessage(m.chat, { image: {url: data.result}, caption: mess.success}, { quoted: m})
 }
 break
 case 'tozombie': {
@@ -1791,9 +1791,9 @@ if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 			await loading()
             const { tozombie } = require('betabotz-tools')
             let downloadrawh = await quoted.download()
-            let results = await tozombie(downloadrawh, "image_data")
+            let results = await tozombie(downloadrawh)
             console.log(results) //json
-            HBWABotInc.sendMessage(m.chat, { image: {url: image_data}, caption: mess.success}, { quoted: m})
+            HBWABotInc.sendMessage(m.chat, { image: {url: data.result}, caption: mess.success}, { quoted: m})
 }
 break 		
 			case 'gimage': {
