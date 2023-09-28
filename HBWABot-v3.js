@@ -2232,14 +2232,17 @@ case 'tomp4': case 'tovideo': {
             }
             break
 case 'toanime': {
+const getRandom = (ext) => {
+            return `${Math.floor(Math.random() * 10000)}${ext}`
 if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
 			await loading()
-			let { uploadrawh } = require('./lib/TelegraPH')
-			const img = await quoted.download()
-			let out = await uploadrawh (img)
+			const img = await HBWABotInc.downloadAndSaveMediaMessage(quoted)
+			let name = await getRandom('.png')
+        exec(`ffmpeg -i ${img} ${name}`, (err) => {
+        	fs.unlinkSync(img)
 			let old = new Date()
-			let res = await fetch(API('lann', '/api/maker/jadianime', { url: `${out}`, apikey: "SjWOkprk" }))
+			let res = await fetch(API('lann', '/api/maker/jadianime', { url: `${name}`, apikey: "SjWOkprk" }))
 			let convert = await res.json()
 			let buff = await fetch(convert.result.img_crop_single)
            .then(res => res.buffer())
@@ -2248,18 +2251,35 @@ if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 break
 
 case 'tozombie': {
+const getRandom = (ext) => {
+            return `${Math.floor(Math.random() * 10000)}${ext}`
 if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
 			await loading()
-			let { uploadrawh } = require ('./lib/TelegraPH')
-			const img = await quoted.download()
-			let out = await uploadrawh (img)
+			const img = await HBWABotInc.downloadAndSaveMediaMessage(quoted)
+			let name = await getRandom('.png')
+        exec(`ffmpeg -i ${img} ${name}`, (err) => {
+        	fs.unlinkSync(img)
 			let old = new Date()
-			let res = await fetch(API('lann', '/api/maker/jadianime', { url: `${out}`, apikey: "SjWOkprk" }))
+			let res = await fetch(API('lann', '/api/maker/jadianime', { url: `${name}`, apikey: "SjWOkprk" }))
 			let convert = await res.json()
 			let buff = await fetch(convert.result)
            .then(res => res.buffer()) 
            await HBWABotInc.sendMessage(m.chat, { image: buff, caption: mess.success}, { quoted: m })
+}
+break
+case 'tourl': {
+await loading()
+let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
+let media = await HBWABotInc.downloadAndSaveMediaMessage(quoted)
+if (/image/.test(mime)) {
+let anu = await TelegraPh(media)
+reply(util.format(anu))
+} else if (!/image/.test(mime)) {
+let anu = await UploadFileUgu(media)
+reply(util.format(anu))
+}
+await fs.unlinkSync(media)
 }
 break
             case 'toqr':{
