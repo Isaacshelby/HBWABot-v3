@@ -1774,7 +1774,7 @@ case 'remini': {
 			HBWABotInc.sendMessage(m.chat, { image: proses, caption: mess.success}, { quoted: m})
 			}
 			break
-case 'toanime': {
+case 'toanime2': {
 if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
 			await loading()
@@ -1796,6 +1796,17 @@ if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
             HBWABotInc.sendMessage(m.chat, { image: {url: results.image_data}, caption: mess.success}, { quoted: m})
 }
 break 		
+case 'toanime':{
+if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
+			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
+			await loading()
+            const { anime } = require('@kazesolo/toanime')            
+            let downloadrawh = await quoted.download()
+            let results = await anime(downloadrawh)
+            console.log(results) //json 
+            HBWABotInc.sendMessage(m.chat, { image: {url: results.url}, caption: mess.success}, { quoted: m})
+}
+
 			case 'gimage': {
                 if (!text) return replyherbertstyle(`Tiang hian tih tur : ${prefix + command} Mizoram`)
                 await loading()
