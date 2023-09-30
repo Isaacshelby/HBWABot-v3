@@ -1793,7 +1793,7 @@ let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
 let media = await HBWABotInc.downloadAndSaveMediaMessage(quoted)
 let anu = await TelegraPh(media)
 let link = util.format(anu)
-let result = await axios.get(`https://api.lolhuman.xyz/api/imagetoanime?apikey=haikalgans&img=${link}`)
+let result = await getBuffer(`https://api.lolhuman.xyz/api/imagetoanime?apikey=haikalgans&img=${link}`)
 HBWABotInc.sendMessage(m.chat, { image: {url: result }, caption: mess.success}, { quoted: m})
 }
 break
