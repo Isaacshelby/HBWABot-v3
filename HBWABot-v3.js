@@ -1794,7 +1794,7 @@ let media = await HBWABotInc.downloadAndSaveMediaMessage(quoted)
 let anu = await TelegraPh(media)
 let link = util.format(anu)
 let result = await getBuffer(`https://api.lolhuman.xyz/api/imagetoanime?apikey=haikalgans&img=${link}`)
-HBWABotInc.sendMessage(m.chat, { image: {url: result }, caption: mess.success}, { quoted: m})
+HBWABotInc.sendMessage(m.chat, { image: {url: data.result }, caption: mess.success}, { quoted: m})
 }
 break
 
@@ -3582,6 +3582,13 @@ if (args.length == 0) return replyherbertstyle(`Tiang hian tih tur: ${prefix + c
 ini_txt = args.join(" ")
 ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/${command}?apikey=haikalgans&text=${ini_txt}`)
 HBWABotInc.sendMessage(from, { sticker : ini_buffer }, { quoted:m })
+break
+case 'toanime3': case 'tocartoon3': {
+if (args.length == 0) return replyherbertstyle(`tiang hian hman tur toanime https://telegra.ph/file/d99a37f523f127a73065f.jpg`)
+await loading()
+let result = await getBuffer(`https://api.lolhuman.xyz/api/imagetoanime?apikey=haikalgans&img=${args[0]}`)
+HBWABotInc.sendMessage(m.chat, { image: {url: result }, caption: mess.success}, { quoted: m})
+}
 break
 case "xnxxdl": {
 	if (!isPrem) return replyprem(mess.premium)
