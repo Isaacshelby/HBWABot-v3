@@ -3448,7 +3448,7 @@ HBWABotInc.sendMessage(m.chat, { video: { url: videoUrl }, caption: caption, mim
 			})
 			break
 			
-case 'fbvideo': 'fbvid':
+case 'fbvideo': case 'fbvid':
 if (args.length == 0) return replyherbertstyle (`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
 			axios.get(`https://api.lolhuman.xyz/api/facebook?apikey=haikalgans&url=${args[0]}`).then(({ data }) => {
 				HBWABotInc.sendMessage(from, { video: { url: data.result }, mimetype: 'video/mp4', caption : `✅`})
