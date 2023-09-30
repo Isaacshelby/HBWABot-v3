@@ -3427,7 +3427,7 @@ HBWABotInc.sendMessage(m.chat, { video: { url: videoUrl }, caption: caption, mim
         }
     } catch (e) {
       HBWABotInc.sendMessage(from, { react: { text: "📛" , key: m.key }})
-    },
+    }
 }
   break         
   case 'fbvid' : case 'facebookvid':  {
