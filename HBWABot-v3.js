@@ -3452,15 +3452,15 @@ HBWABotInc.sendMessage(from, { video: { url: downloadrawh.data.result }, mimetyp
 case 'fbvideo': case 'fbvid':{
 if (args.length == 0) return replyherbertstyle (`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
 			let downloadrawh2 = axios.get(`https://api.lolhuman.xyz/api/facebook?apikey=haikalgans&url=${args[0]}`) 
-			let engmah = downloadrawh2[data.result(data.result.link.length)]
-HBWABotInc.sendMessage(from, { video: { url: engmah.result }, mimetype: 'video/mp4', caption : `*F A C E   B O O OK*`}, { quoted: m })
+			let engmah = downloadrawh2(data.result.link.length)
+HBWABotInc.sendMessage(from, { video: { url: engmah.result }, mimetype: 'video/mp4', caption : `*F A C E   B O O O K*`}, { quoted: m })
 }
 break
 			
 			case 'twitvideo': case 'twitvid': {
 			if (args.length == 0) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://twitter.com/gofoodindonesia/status/1229369819511709697`)
 			let downloadrawh3 = axios.get(`https://api.lolhuman.xyz/api/twitter?apikey=haikalgans&url=${args[0]}`) 
-			let engmah = downloadrawh3[data.result(data.result.link.length)]
+			let engmah = downloadrawh3(data.result.link.length)
 HBWABotInc.sendMessage(from, { video: { url: engmah.result }, mimetype: 'video/mp4', caption : `*T W I T T E R*`}, { quoted: m })
 }
 			break
