@@ -1796,19 +1796,6 @@ if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
             HBWABotInc.sendMessage(m.chat, { image: {url: results.image_data}, caption: mess.success}, { quoted: m})
 }
 break 		
-case 'toanime2':{
-if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
-			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
-			await loading()
-            const { toanime } = require('@kazesolo/toanime') 
-            const path = require ('path')     
-            let photo = './images'
-            let downloadrawh = path.join(__dirname, './image.jpg')
-            let results = await toanime(photo.downloadrawh)
-            console.log(results) //json 
-            HBWABotInc.sendMessage(m.chat, { image: {url: results.url}, caption: mess.success}, { quoted: m})
-}
-break
 
 			case 'gimage': {
                 if (!text) return replyherbertstyle(`Tiang hian tih tur : ${prefix + command} Mizoram`)
@@ -3419,13 +3406,84 @@ case 'bass': case 'blown': case 'deep': case 'earrape': case 'fast': case 'fat':
                 HBWABotInc.sendMessage(m.chat, {caption: `${themeemoji} Title : ${result.title}\n${themeemoji} Category : ${result.type}\n${themeemoji} Detail : ${result.source}\n${themeemoji} Media Url : ${result.image[2] || result.image[1] || result.image[0]}`, image: { url: result.image[0] }} , { quoted: m })
             }
             break
-     case 'igvideo': case 'igreels':
-			if (args.length == 0) return replyherbertstyle(`Tiang hian tih tur: ${prefix + command} https://www.instagram.com/tv/CXwPLSIFDW0/?igshid=NTc4MTIwNjQ2YQ==`)
-			await loading()
-			axios.get(`https://api.lolhuman.xyz/api/instagram?apikey=${apikey}&url=${args[0]}`).then(({ data }) => {
-				haikal.sendMessage(from, { video: { url: data.result }, mimetype: 'video/mp4', caption : mess.success})
-			})
-			break
+case 'yt2mp4': case 'yt2video':{
+if (!args || !args[0]) return replyherbertstyle(`Tiang hian tih tur : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
+await loadingreact()
+        const { youtube } = require('btch-downloader') 
+        const url = args[0] 
+        const data = await youtube(url)
+        await uploadreact()
+        console.log(data)
+await HBWABotInc.sendMessage(m.chat,{ video: {url: data },
+}, {quoted:m})
+await finishreact()
+}
+  break         
+  case 'fbvid' : case 'facebookvid':  {
+  if (!text) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
+  await loadingreact()
+  const { facebook } = require('btch-downloader') 
+        const url = args[0] 
+        const data = await facebook(url) 
+        console.log(data)
+        await uploadreact()
+await HBWABotInc.sendMessage(m.chat,{
+    video: {url: data },
+    caption: "Facebook Videos download by HBWABot"
+}, {quoted:m})
+await finishreact()
+  
+  }
+  break
+  case 'igvid' : case 'instavid':  {
+  if (!text) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.instagram.com/reel/CjqMfjlJ9UU/?igshid=MzRlODBiNWFlZA==`)
+  await loadingreact()
+  const { igdl } = require('btch-downloader') 
+        const url = args[0] 
+        const data = await igdl(url) 
+        console.log(data)
+        await uploadreact()
+await HBWABotInc.sendMessage(m.chat,{
+    video: {url: data },
+    caption: "Instagram Videos download by HBWABot"
+}, {quoted:m})
+await finishreact()
+  
+  }
+  break 
+  case 'twittervid' : case 'twitvid':  {
+  if (!text) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://twitter.com/gofoodindonesia/status/1229369819511709697`)
+  await loadingreact()
+  const { fbdown } = require('btch-downloader') 
+        const url = args[0] 
+        const data = await fbdown(url) 
+        console.log(data)
+        await uploadreact()
+await HBWABotInc.sendMessage(m.chat,{
+    video: {url: data },
+    caption: "Twitter Videos download by HBWABot"
+}, {quoted:m})
+await finishreact()
+  
+  }
+  break
+  case 'tiktokvid' : case 'ttvid':  {
+  if (!text) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.tiktok.com/@omagadsus/video/7025456384175017243?is_from_webapp=1&sender_device=pc&web_id6982004129280116226`)
+  await loadingreact()
+  const { ttdl } = require('btch-downloader') 
+        const url = args[0] 
+        const data = await ttdl(url) 
+        console.log(data)
+        await uploadreact()
+await HBWABotInc.sendMessage(m.chat,{
+    video: {url: data },
+    caption: "Tiktok Videos download by HBWABot"
+}, {quoted:m})
+await finishreact()
+  
+  }
+  break
+  
 case 'igstalk': {
 if (!args[0]) return replyherbertstyle(`Instagram Username rawn dah rawh\n\nTiang hian: ${prefix + command} herbert_suantak2`)
 await loading()

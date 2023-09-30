@@ -15,7 +15,7 @@
     "base",
     "baileys-md",
     "bot", 
-    "kazesolo",
+    "twitter",
     "betabotz",
     "bot-md",
     "multi-device"
@@ -28,7 +28,7 @@
     "@bochilteam/scraper": "^4.2.4",
     "@bochilteam/scraper-sosmed": "^1.0.5",
     "@saipulanuar/jadianime-ts": "^2.0.0", 
-    "@kazesolo/toanime": "^1.0.0",
+    "btch-downloader": "^2.2.8",
     "awesome-phonenumber": "^2.64.0",
     "anime-wallpaper": "^1.0.2",
     "axios": "^0.24.0",
