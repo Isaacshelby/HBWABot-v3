@@ -3406,17 +3406,28 @@ case 'bass': case 'blown': case 'deep': case 'earrape': case 'fast': case 'fat':
                 HBWABotInc.sendMessage(m.chat, {caption: `${themeemoji} Title : ${result.title}\n${themeemoji} Category : ${result.type}\n${themeemoji} Detail : ${result.source}\n${themeemoji} Media Url : ${result.image[2] || result.image[1] || result.image[0]}`, image: { url: result.image[0] }} , { quoted: m })
             }
             break
-case 'yt2mp4': case 'yt2video':{
+case 'dvideo': case 'dytvideo':{
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian tih tur : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
-await loadingreact()
-        const { youtube } = require('btch-downloader') 
-        const url = args[0] 
-        const data = await youtube(url)
-        await uploadreact()
-        console.log(data)
-await HBWABotInc.sendMessage(m.chat,{ video: {url: data },
-}, {quoted:m})
-await finishreact()
+await loadingreact() 
+const youtube = require("yt-search")
+    try {
+    var search = await youtube(text)
+    var convert = search.videos[0]
+    if (convert.seconds >= 3600) {
+    return replyherbertstyle(m.chat, 'Darkar 1 aia tam video hi rawn dah thei a ni lo!', m)} 
+    else {
+    var videoUrl
+    try {
+    videoUrl = `https://yt.tioo.eu.org/youtube?url=${convert.url}&filter=audioandvideo&quality=highestvideo&contenttype=video/mp4`} 
+catch (e) {
+await uploadreact()
+videoUrl = `https://yt.tioo.eu.org/youtube?url=${convert.url}&filter=audioandvideo&quality=highestvideo&contenttype=video/mp4` }             
+var caption = `∘ Title : ${convert.title}\n∘ Duration : ${convert.timestamp}\n∘ Viewers : ${convert.views}\n∘ Upload At : ${convert.ago}\n∘ Author : ${convert.author.name}\n∘ Channel : ${convert.author.url}`
+HBWABotInc.sendMessage(m.chat, { video: { url: videoUrl }, caption: caption, mimetype: 'video/mp4' }, { quoted: m })
+        }
+    } catch (e) {
+      HBWABotInc.sendMessage(from, { react: { text: "📛" , key: m.key }})
+    },
 }
   break         
   case 'fbvid' : case 'facebookvid':  {
@@ -3426,7 +3437,7 @@ await finishreact()
   await uploadreact()
   await HBWABotInc.sendMessage(m.chat,{
     video: {url: fbdown.args[0] },
-    caption: "Instagram Videos download by HBWABot"
+    caption: "Facebook Videos download by HBWABot"
 }, {quoted:m})
 await finishreact()
   
@@ -3437,7 +3448,7 @@ await finishreact()
   await loadingreact()
   const { igdl } = require('btch-downloader') 
         const url = args[0] 
-        const data = await igdl(url) 
+        const data = await igdl{url}
         console.log(data)
         await uploadreact()
 await HBWABotInc.sendMessage(m.chat,{
