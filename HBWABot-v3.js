@@ -1801,7 +1801,7 @@ if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
 			await loading()
             const { toanime } = require('@kazesolo/toanime')   
-            const path = require ('parh')      
+            const path = require ('path')      
             let downloadrawh = path.join(__dirname, './image.jpg')
             let results = await toanime(downloadrawh)
             console.log(results) //json 
