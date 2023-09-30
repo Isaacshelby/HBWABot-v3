@@ -1884,7 +1884,7 @@ case 'yts': case 'hla':{
             })
             }
             break            
-            case 'ytmp4': case 'ytvideo':{
+            case 'ytmp4': {
 //Credit by HBMods-OFC
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian tih tur : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 await loadingreact()
@@ -1909,8 +1909,6 @@ await HBWABotInc.sendMessage(m.chat,{
 }, {quoted:m})
 await finishreact()
 }
-
-
             break           
 case 'ytmp3':{
 //Credit by HBMods-OFC
@@ -1950,7 +1948,7 @@ let v = args[0]
 await finishreact()
 }
 break 
-case 'song2': case 'Asong': case 'play2': {
+case 'dsong2': case 'song2': case 'play2': {
 //Credit by HBMods-OFC
 if (!text) return replyherbertstyle(`Tiang hian tih tur : ${prefix + command} K hminga siar lalnu`)
             await loadingreact()
@@ -1993,6 +1991,19 @@ HBWABotInc.sendMessage(m.chat, {document: {url: dl_url} ,mimetype: 'audio/mpeg',
 await finishreact()
 }
 break
+case 'dvid': case 'dvideo': case 'ytvideo': {
+if (!text) return replyherbertstyle(`Command zoah hian Youtube link emaw a title rawn dah tel rawh`)
+await loadingreact()
+        const YT = require('./lib/ytdl-core')
+        let yts = require("youtube-yts")
+        let search = await yts(text)
+        let anu = search.videos[0]
+        const downloadrawh = await YT.mp4(anu.url)
+        await uploadreact()
+        HBWABotInc.sendMessage(from, { video: { url: downloadrawh.videoUrl }, mimetype: "video/mp4", caption: `*${anu.title}*` }, { quoted: m })
+        await finishreact()
+      }
+break;
 case '/hla':  case 'songxx': {
 if (!text) return replyherbertstyle(`Tiang hian tih tur : ${prefix + command} K hminga siar lalnu`)
 await loading()
@@ -3406,7 +3417,7 @@ case 'bass': case 'blown': case 'deep': case 'earrape': case 'fast': case 'fat':
                 HBWABotInc.sendMessage(m.chat, {caption: `${themeemoji} Title : ${result.title}\n${themeemoji} Category : ${result.type}\n${themeemoji} Detail : ${result.source}\n${themeemoji} Media Url : ${result.image[2] || result.image[1] || result.image[0]}`, image: { url: result.image[0] }} , { quoted: m })
             }
             break
-case 'dvideo': case 'dytvideo':{
+case 'dvideo2': case 'dytvideo2':{
 if (!args || !args[0]) return replyherbertstyle(`Tiang hian tih tur : ${prefix + command} https://youtube.com/watch?v=DA9gCKwaefg`)
 await loadingreact() 
 const youtube = require("yt-search")
@@ -3422,7 +3433,7 @@ const youtube = require("yt-search")
 catch (e) {
 await uploadreact()
 videoUrl = `https://yt.tioo.eu.org/youtube?url=${convert.url}&filter=audioandvideo&quality=highestvideo&contenttype=video/mp4` }             
-var caption = `∘ Title : ${convert.title}\n∘ Duration : ${convert.timestamp}\n∘ Viewers : ${convert.views}\n∘ Upload At : ${convert.ago}\n∘ Author : ${convert.author.name}\n∘ Channel : ${convert.author.url}`
+var caption = `*Title : ${convert.title}*\n*Duration :* ${convert.timestamp}\n*Viewers :* ${convert.views}\n*Uploaded on:* ${convert.ago}\n*Author :* ${convert.author.name}\n*Channel :* ${convert.author.url}`
 HBWABotInc.sendMessage(m.chat, { video: { url: videoUrl }, caption: caption, mimetype: 'video/mp4' }, { quoted: m })
         }
     } catch (e) {
