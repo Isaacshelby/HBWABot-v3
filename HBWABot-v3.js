@@ -1800,9 +1800,10 @@ case 'toanime':{
 if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
 			await loading()
-            const { anime } = require('@kazesolo/toanime')            
-            let downloadrawh = await quoted.download()
-            let results = await anime(downloadrawh)
+            const { toanime } = require('@kazesolo/toanime')   
+            const path = require ('parh')      
+            let downloadrawh = path.join(__dirname, './image.jpg')
+            let results = await toanime(downloadrawh)
             console.log(results) //json 
             HBWABotInc.sendMessage(m.chat, { image: {url: results.url}, caption: mess.success}, { quoted: m})
 }
