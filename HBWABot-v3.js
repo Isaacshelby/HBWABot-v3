@@ -3431,9 +3431,6 @@ await finishreact()
 await finishreact()
   
   }
-  break 
-await finishreact()
-}
   break
   case 'igvid' : case 'instavid':  {
   if (!text) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.instagram.com/reel/CjqMfjlJ9UU/?igshid=MzRlODBiNWFlZA==`)
