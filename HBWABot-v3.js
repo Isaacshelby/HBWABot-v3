@@ -1802,7 +1802,7 @@ if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 			await loading()
             const { toanime } = require('@kazesolo/toanime') 
             const path = require ('path')     
-            let photo = await quoted.download() : destinyFolder: './images'
+            let photo = destinyFolder: './images'
             let downloadrawh = path.join(__dirname, './image.jpg')
             let results = await toanime(photo.downloadrawh)
             console.log(results) //json 
