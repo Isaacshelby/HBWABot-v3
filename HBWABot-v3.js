@@ -3448,7 +3448,7 @@ await finishreact()
   await loadingreact()
   const { igdl } = require('btch-downloader') 
         const url = args[0] 
-        const data = await igdl{url}
+        const data = await igdl(url)
         console.log(data)
         await uploadreact()
 await HBWABotInc.sendMessage(m.chat,{
