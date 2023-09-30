@@ -3425,10 +3425,8 @@ await finishreact()
   const { fbdown } = require('btch-downloader') 
   await uploadreact()
 let ghdp = await HBWABotInc.sendMessage(from,{video:{url: fbdown.url[0].url},caption: mess.success},{quoted:m})
-}
 await finishreact()
-  
-  }
+}
   break
   case 'igvid' : case 'instavid':  {
   if (!text) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.instagram.com/reel/CjqMfjlJ9UU/?igshid=MzRlODBiNWFlZA==`)
