@@ -3424,7 +3424,14 @@ await finishreact()
   await loadingreact()
   const { fbdown } = require('btch-downloader') 
   await uploadreact()
-let ghdp = await HBWABotInc.sendMessage(from,{video:{url: fbdown.url[0].url},caption: mess.success},{quoted:m})
+  await HBWABotInc.sendMessage(m.chat,{
+    video: {url: fbdown.args[0] },
+    caption: "Instagram Videos download by HBWABot"
+}, {quoted:m})
+await finishreact()
+  
+  }
+  break 
 await finishreact()
 }
   break
