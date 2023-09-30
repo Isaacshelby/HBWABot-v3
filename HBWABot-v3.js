@@ -1794,7 +1794,7 @@ let media = await HBWABotInc.downloadAndSaveMediaMessage(quoted)
 let anu = await TelegraPh(media)
 let link = util.format(anu)
 let englo = await getBuffer(`https://api.lolhuman.xyz/api/imagetoanime?apikey=haikalgans&img=${link}`)
-HBWABotInc.sendMessage(from, { sticker : englo }, { quoted:m })
+HBWABotInc.sendMessage(from, { image : englo }, { quoted:m })
 }
 break
 
