@@ -1774,7 +1774,7 @@ case 'remini': {
 			HBWABotInc.sendMessage(m.chat, { image: proses, caption: mess.success}, { quoted: m})
 			}
 			break
-case 'toanime': {
+case 'toanime2': {
 if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
 			await loading()
@@ -1785,6 +1785,18 @@ if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
             HBWABotInc.sendMessage(m.chat, { image: {url: results.image_data}, caption: mess.success}, { quoted: m})
 }
 break
+case 'toanime': case 'tocartoon': {
+if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
+			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
+await loading()
+let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
+let downloadrawh = await quoted.download()
+let link = await TelegraPh(downloadrawh)
+let result = await axios.get(`https://api.lolhuman.xyz/api/imagetoanime?apikey=haikalgans&img=${link}`)
+HBWABotInc.sendMessage(m.chat, { image: {url: result }, caption: mess.success}, { quoted: m})
+}
+break
+
 case 'tozombie': {
 if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
@@ -2279,6 +2291,7 @@ reply(util.format(anu))
 await fs.unlinkSync(media)
 }
 break
+
             case 'toqr':{
   if (!q) return replyherbertstyle(' Link emaw text rawn dah rawh')
    const QrCode = require('qrcode-reader')
@@ -3452,7 +3465,7 @@ HBWABotInc.sendMessage(from, { video: { url: downloadrawh.data.result }, mimetyp
 case 'fbvideo': case 'fbvid':{
 if (args.length == 0) return replyherbertstyle (`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
 			let downloadrawh2 = axios.get(`https://api.lolhuman.xyz/api/facebook?apikey=haikalgans&url=${args[0]}`) 
-			let engmah = downloadrawh2(data.result.link.length)
+			let engmah = downloadrawh2(result.link.length)
 HBWABotInc.sendMessage(from, { video: { url: engmah.result }, mimetype: 'video/mp4', caption : `*F A C E   B O O O K*`}, { quoted: m })
 }
 break
@@ -3460,7 +3473,7 @@ break
 			case 'twitvideo': case 'twitvid': {
 			if (args.length == 0) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://twitter.com/gofoodindonesia/status/1229369819511709697`)
 			let downloadrawh3 = axios.get(`https://api.lolhuman.xyz/api/twitter?apikey=haikalgans&url=${args[0]}`) 
-			let engmah = downloadrawh3(data.result.link.length)
+			let engmah = downloadrawh3(result.link.length)
 HBWABotInc.sendMessage(from, { video: { url: engmah.result }, mimetype: 'video/mp4', caption : `*T W I T T E R*`}, { quoted: m })
 }
 			break
@@ -3560,7 +3573,10 @@ case 'ttp':
 case 'ttp2':
 case 'ttp3':
 case 'ttp4':
+case 'ttp5':
+case 'ttp6':
 case 'attp':
+case 'attp2': 
 if (args.length == 0) return replyherbertstyle(`Tiang hian tih tur: ${prefix + command} Hello World`)
 ini_txt = args.join(" ")
 ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/${command}?apikey=haikalgans&text=${ini_txt}`)
