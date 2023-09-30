@@ -3422,15 +3422,10 @@ await finishreact()
   case 'fbvid' : case 'facebookvid':  {
   if (!text) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
   await loadingreact()
-  const { facebook } = require('btch-downloader') 
-        const url = args[0] 
-        const data = await facebook(url) 
-        console.log(data)
-        await uploadreact()
-await HBWABotInc.sendMessage(m.chat,{
-    video: {url: data },
-    caption: "Facebook Videos download by HBWABot"
-}, {quoted:m})
+  const { fbdown } = require('btch-downloader') 
+  await uploadreact()
+let ghdp = await HBWABotInc.sendMessage(from,{video:{url: fbdown.url[0].url},caption: mess.success},{quoted:m})
+}
 await finishreact()
   
   }
@@ -3454,9 +3449,9 @@ await finishreact()
   case 'twittervid' : case 'twitvid':  {
   if (!text) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://twitter.com/gofoodindonesia/status/1229369819511709697`)
   await loadingreact()
-  const { fbdown } = require('btch-downloader') 
+  const { twitter } = require('btch-downloader') 
         const url = args[0] 
-        const data = await fbdown(url) 
+        const data = await twitter(url) 
         console.log(data)
         await uploadreact()
 await HBWABotInc.sendMessage(m.chat,{
