@@ -1774,7 +1774,7 @@ case 'remini': {
 			HBWABotInc.sendMessage(m.chat, { image: proses, caption: mess.success}, { quoted: m})
 			}
 			break
-case 'toanime2': {
+case 'toanime': {
 if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
 			await loading()
@@ -1796,17 +1796,19 @@ if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
             HBWABotInc.sendMessage(m.chat, { image: {url: results.image_data}, caption: mess.success}, { quoted: m})
 }
 break 		
-case 'toanime':{
+case 'toanime2':{
 if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
 			await loading()
-            const { toanime } = require('@kazesolo/toanime')   
-            const path = require ('path')      
+            const { toanime } = require('@kazesolo/toanime') 
+            const path = require ('path')     
+            let photo = await quoted.download() : destinyFolder: './images'
             let downloadrawh = path.join(__dirname, './image.jpg')
-            let results = await toanime(downloadrawh)
+            let results = await toanime(photo.downloadrawh)
             console.log(results) //json 
             HBWABotInc.sendMessage(m.chat, { image: {url: results.url}, caption: mess.success}, { quoted: m})
 }
+break
 
 			case 'gimage': {
                 if (!text) return replyherbertstyle(`Tiang hian tih tur : ${prefix + command} Mizoram`)
