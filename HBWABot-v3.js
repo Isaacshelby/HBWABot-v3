@@ -3441,6 +3441,27 @@ HBWABotInc.sendMessage(m.chat, { video: { url: videoUrl }, caption: caption, mim
     }
 }
   break         
+  case 'igvideo': case 'instavid': case 'igvid': {
+			if (args.length == 0) return reply(`Example: ${prefix + command} https://www.instagram.com/tv/CXwPLSIFDW0/?igshid=NTc4MTIwNjQ2YQ==`)
+			data = await axios.get(`https://api.lolhuman.xyz/api/instagram?apikey=haikalgans&url=${args[0]}`)
+HBWABotInc.sendMessage(from, { video: { url: data.result }, mimetype: 'video/mp4', caption : `*I N S T A G R A M*`}, { quoted: m })
+}
+			break
+			
+case 'fbvideo': case 'fbvid':{
+if (args.length == 0) return replyherbertstyle (`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
+			data = axios.get(`https://api.lolhuman.xyz/api/facebook?apikey=haikalgans&url=${args[0]}`)
+HBWABotInc.sendMessage(from, { video: { url: data.result }, mimetype: 'video/mp4', caption : `*F A C E   B O O OK*`}, { quoted: m })
+}
+break
+			
+			case 'twitvideo': case 'twitvid': {
+			if (args.length == 0) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
+			data = axios.get(`https://api.lolhuman.xyz/api/twitter?apikey=haikalgans&url=${args[0]}`)
+HBWABotInc.sendMessage(from, { video: { url: data.result }, mimetype: 'video/mp4', caption : `*T W I T T E R*`}, { quoted: m })
+}
+			break
+  
   case 'tiktokvid' : case 'ttvid':  {
   if (!text) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.tiktok.com/@omagadsus/video/7025456384175017243?is_from_webapp=1&sender_device=pc&web_id6982004129280116226`)
   await loadingreact()
