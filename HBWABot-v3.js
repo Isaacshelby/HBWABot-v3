@@ -2278,17 +2278,25 @@ case 'tomp4': case 'tovideo': {
             }
             break
 
-case 'tourl': {
-await loading()
+case 'tourl': case 'tolink': {
+if (!quoted) return replyherbertstyle(`Thlalak a caption-ah *${prefix + command}* tih rawn dah rawh`)
+if (!/image/.test(mime)) return replyherbertstyle(`Thlalak rawn thawn la emaw reply la, a caption-ah ${prefix + command} tih hi rawn dah rawh`)
 let { UploadFileUgu, webp2mp4File, TelegraPh } = require('./lib/uploader')
 let media = await HBWABotInc.downloadAndSaveMediaMessage(quoted)
-if (/image/.test(mime)) {
 let anu = await TelegraPh(media)
-reply(util.format(anu))
-} else if (!/image/.test(mime)) {
-let anu = await UploadFileUgu(media)
-reply(util.format(anu))
-}
+let hmantur = util.format(anu)
+var HBLoadingmenu = [
+`《▒▒▒▒▒▒▒▒▒▒▒▒》0%`,
+`《█▒▒▒▒▒▒▒▒▒▒▒》10%`,
+`《████▒▒▒▒▒▒▒▒》30%`,
+`《███████▒▒▒▒▒》50%`,
+`《██████████▒▒》80%`,
+`《████████████》100%`,
+`Hei le\n${hmantur}`]
+
+let { key } = await HBWABotInc.sendMessage(from, {text: '《▒▒▒▒▒▒▒▒▒▒▒▒》0%\n♻️ _Nghak lawk rawh.._'},{quoted:m})
+
+for (let i = 0; i < HBLoadingmenu.length; i++) {await HBWABotInc.sendMessage(from, {text: HBLoadingmenu[i], edit: key },{quoted:m})}
 await fs.unlinkSync(media)
 }
 break
@@ -3584,10 +3592,10 @@ ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/${command}?apikey=hai
 HBWABotInc.sendMessage(from, { sticker : ini_buffer }, { quoted:m })
 break
 case 'toanime3': case 'tocartoon3': {
-if (args.length == 0) return replyherbertstyle(`tiang hian hman tur toanime https://telegra.ph/file/d99a37f523f127a73065f.jpg`)
+if (args.length == 0) return replyherbertstyle(`Tiang hian hman tur toanime https://telegra.ph/file/d99a37f523f127a73065f.jpg`)
 await loading()
 let result = await getBuffer(`https://api.lolhuman.xyz/api/imagetoanime?apikey=haikalgans&img=${args[0]}`)
-HBWABotInc.sendMessage(m.chat, { image: {url: result }, caption: mess.success}, { quoted: m})
+HBWABotInc.sendMessage(m.chat, { image: result, caption: mess.success}, { quoted: m})
 }
 break
 case "xnxxdl": {
