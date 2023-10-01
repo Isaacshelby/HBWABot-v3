@@ -32,10 +32,10 @@ global.doc5 = 'application/pdf'
 global.doc6 = 'application/vnd.android.package-archive'
 
 //owmner v card
-global.owner = ['918416093656'] //ur owner number
-global.ownernomer = "919378043489" //ur owner number2
-global.ownername = "꧁Herbert♕꧂" //ur owner name
-global.ytname = "YT: HBMods OFC" //ur yt chanel name
+global.owner = ['916909258087'] //ur owner number
+global.ownernomer = "916909258087" //ur owner number2
+global.ownername = "꧁Isaac♕꧂" //ur owner name
+global.ytname = "YT: HBWABOT OFC" //ur yt chanel name
 global.socialm = "https://herbert70.blogspot.com" //ur github or insta name
 global.location = "India, Mizoram, Aizawl" //ur location
 
@@ -43,7 +43,7 @@ global.location = "India, Mizoram, Aizawl" //ur location
 global.lann = 'isi_dulu'
 global.botname = "HBWABot Mizo"
 global.ownernumber = '918416093656'
-global.ownername = '꧁Herbert♕꧂'
+global.ownername = '꧁Isaac♕꧂'
 global.ownerNumber = ["918416093656@s.whatsapp.net"]
 global.ownerweb = "https://youtube.com/@HBMods_Channel"
 global.websitex = "https://herbert70.blogspot.com"
