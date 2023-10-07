@@ -152,12 +152,12 @@ try {
         
         //theme sticker reply
         const Menu = () => {
-        let Menu = fs.readFileSync('./HBMedia/audio/Menu.mp3')
+        let Menu = fs.readFileSync
         HBWABotInc.sendMessage(from, { audio: Menu, mimetype: 'audio/mp4', ptt: true }, { quoted: m })
 }
         const Owner = () => {
-        let Owner = fs.readFileSync('./HBMedia/audio/owner.mp3')
-        HBWABotInc.sendMessage(from, { audio: Owner, mimetype: 'audio/mp4', ptt: true }, { quoted: m })
+        let Owner = fs.readFileSync
+        HBWABotInc.sendMessage(from, { audio: Owner, mimetype: 'au', ptt: true }, { quoted: m })
 }
           // react message
  const uploadreact = () => {
@@ -419,7 +419,7 @@ HBWABotInc.sendMessage(from, { audio: teks, mimetype: 'audio/mp4', ptt: true }, 
 for (let BhosdikaHerbert of VoiceNoteHerbert) {
 if (budy === BhosdikaHerbert) {
 let audiobuffy = fs.readFileSync(`./HBMedia/audio/${BhosdikaHerbert}.mp3`)
-HBWABotInc.sendMessage(m.chat, { audio: audiobuffy, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
+HBWABotInc.sendMessage(m.chat, { a: audiobuffy, mimetype: 'au4', ptt: true }, { quoted: m })     
 }
 }
 for (let BhosdikaHerbert of StickerHerbert){
