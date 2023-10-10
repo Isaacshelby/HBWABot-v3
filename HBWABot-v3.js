@@ -3702,6 +3702,14 @@ var inputnumber = text.split(" ")[0]
         }
 break
 
+const {
+	Function,
+	isPublic,
+	instagram,
+	getJson,
+	postJson,
+	getUrl
+} = require('../lib/')
 Function({
 	pattern: 'fb ?(.*)',
 	fromMe: isPublic,
