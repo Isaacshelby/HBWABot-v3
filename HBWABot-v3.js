@@ -3702,6 +3702,18 @@ var inputnumber = text.split(" ")[0]
         }
 break
 
+Function({
+	pattern: 'fb ?(.*)',
+	fromMe: isPublic,
+	desc: 'download Facebook videos',
+	type: 'download'
+}, async (message, match) => {
+	match = getUrl(match || message.reply_message.text)
+	if (!match) return await message.reply('_*Need link!*_')
+	const response = await getJson(apiUrl + 'api/convert?url=' + match)
+	if (!response.status) return await message.reply("*No media found!*")
+	await message.send(response.hd.url || response.sd.url, 'video', { captain: response.meta.title || '' })
+})
 default:
 
 if (budy.startsWith('<')) {
